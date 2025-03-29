@@ -1,0 +1,64 @@
+{
+    "Page": [
+        {
+            "page_name": "DETModPage",
+            "page_title": "det",
+            "component": [
+                {
+                    "name": "FW_Path",
+                    "label": "fw path",
+                    "component_type": "LineEdit",
+                    "default_value": "/config/dla/ipu_lfw.bin",
+                    "output_key": "FW_PATH"
+                },
+                {
+                    "name": "MODEL_Path",
+                    "label": "model path",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "MODEL_PATH"
+                },
+              {
+                  "name": "DETModeModelType",
+                    "label": "model type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "fd"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "pd"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "pfd"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "tsd"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "pcd"
+                        }
+                    ],
+                    "default_value": "fd",
+                    "output_type": "string",
+                    "output_key": "MODEL_TYPE"
+              },
+                {
+                    "name": "DETModeThreshold",
+                    "label": "threshold",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "1000",
+                    "value_step": "1",
+                    "default_value": "500",
+                    "output_key": "THRESHOLD"
+                }
+            ]
+        }
+    ]
+}

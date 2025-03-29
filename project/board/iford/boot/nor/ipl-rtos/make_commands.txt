@@ -1,0 +1,6 @@
+IPL.iford_nor_pure_rtos.QFN128=y.RTOS_MAIN_CORE_ID=0.LOGGING_LEVEL=0.SIMPLE_AUTOK=y.bin          ./build.py -c ./configs/iford.json -t rtos -g nor -b 0
+IPL_CUST.iford_nor_pure_rtos.QFN128=y.RTOS_MAIN_CORE_ID=0.LOGGING_LEVEL=0.SIMPLE_AUTOK=y.bin     ./build.py -c ./configs/iford.json -t rtos -g nor -b 0
+ipl_cust_elf_header.iford_nor_pure_rtos.QFN128=y.RTOS_MAIN_CORE_ID=0.LOGGING_LEVEL=0.SIMPLE_AUTOK=y.txt ./build.py -c ./configs/iford.json -t rtos -g nor -b 0
+IPL.iford_nor_pure_rtos.QFN128=y.RTOS_MAIN_CORE_ID=0.LOGGING_LEVEL=0.REGION_WW=y.SIMPLE_AUTOK=y.bin ./build.py -c ./configs/iford.json -t rtos -g nor -b 1
+IPL_CUST.iford_nor_pure_rtos.QFN128=y.RTOS_MAIN_CORE_ID=0.LOGGING_LEVEL=0.REGION_WW=y.SIMPLE_AUTOK=y.bin ./build.py -c ./configs/iford.json -t rtos -g nor -b 1
+ipl_cust_elf_header.iford_nor_pure_rtos.QFN128=y.RTOS_MAIN_CORE_ID=0.LOGGING_LEVEL=0.REGION_WW=y.SIMPLE_AUTOK=y.txt ./build.py -c ./configs/iford.json -t rtos -g nor -b 1

@@ -1,0 +1,23 @@
+config SSTAR_FLASH
+        tristate 'SigmaStar FLASH'
+        default y
+
+config SSTAR_NAND
+        tristate "SPINAND"
+        depends on SSTAR_FLASH
+        default n
+
+config SSTAR_NOR
+        tristate "SPINOR"
+        depends on SSTAR_FLASH
+        default n
+
+config SSTAR_SOC_ECC
+        bool "SOC ECC"
+        depends on SSTAR_FLASH && SSTAR_NAND
+
+config SSTAR_FLASH_WRITE_BACK
+        bool "FLASH WRITE BCAK"
+        depends on SSTAR_FLASH
+        default n
+

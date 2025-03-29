@@ -1,0 +1,11 @@
+menuconfig INTERFACE_DSP
+    depends on SUPPORT_DSP
+    bool "dsp"
+    default y
+    help
+        whether to compile or not
+
+config interface_dsp
+    string
+    default enable if INTERFACE_DSP
+    default disable if !INTERFACE_DSP

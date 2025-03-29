@@ -1,0 +1,194 @@
+/*
+* souffle-ssm000a-s01a.dts- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+/dts-v1/;
+#include "souffle.dtsi"
+#include "souffle-camdriver.dtsi"
+#include "souffle-ssm000a-s01a-padmux.dtsi"
+
+/ {
+    #address-cells = <2>;
+    #size-cells = <1>;
+    model = "SOUFFLE";
+    compatible = "sstar,souffle";
+
+    chosen {
+        bootargs = "console=ttyS0,115200n8r androidboot.console=ttyS0 user_debug=31 root=/dev/mtdblock0 rootfstype=squashfs ro init=/linuxrc LX_MEM=0x40000000 mma_heap=mma_heap_name0,miu=0,sz=0x20000000 mma_memblock_remove=1 cma=2M nohz=off earlyprintk";
+    };
+
+    cpus {
+        #address-cells = <1>;
+        #size-cells = <0>;
+
+        cpu@0 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a53";
+            clocks = <&CLK_cpu_pll>;
+            reg = <0x0>;
+            operating-points-v2 = <&cpu0_opp_table>;
+        };
+
+#ifdef CONFIG_SMP
+        cpu@1 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a53";
+            clock-frequency = <1000000000>;
+            clocks = <&CLK_cpu_pll>;
+            reg = <0x1>;
+#if CONFIG_ENABLE_METHOD_PSCI
+            enable-method = "psci";
+#endif
+        };
+
+        cpu@2 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a53";
+            clock-frequency = <1000000000>;
+            clocks = <&CLK_cpu_pll>;
+            reg = <0x2>;
+#if CONFIG_ENABLE_METHOD_PSCI
+            enable-method = "psci";
+#endif
+        };
+
+        cpu@3 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a53";
+            clock-frequency = <1000000000>;
+            clocks = <&CLK_cpu_pll>;
+            reg = <0x3>;
+#if CONFIG_ENABLE_METHOD_PSCI
+            enable-method = "psci";
+#endif
+        };
+#endif
+    };
+
+    cpu0_opp_table: opp_table0 {
+        compatible = "operating-points-v2";
+        opp-shared;
+        opp00 {
+            opp-hz = /bits/ 64 <600000000>;
+            opp-microvolt = <820000 800000 820000>; /* <normal min max> */
+            status = "ok";
+        };
+
+        opp01 {
+            opp-hz = /bits/ 64 <700000000>;
+            opp-microvolt = <840000 820000 840000>;
+            status = "ok";
+        };
+
+        opp02 {
+            opp-hz = /bits/ 64 <800000000>;
+            opp-microvolt = <860000 840000 860000>;
+            status = "ok";
+        };
+
+        opp03 {
+            opp-hz = /bits/ 64 <900000000>;
+            opp-microvolt = <890000 860000 890000>;
+            status = "ok";
+        };
+
+        opp04 {
+            opp-hz = /bits/ 64 <1000000000>;
+            opp-microvolt = <910000 890000 910000>;
+            status = "ok";
+        };
+
+        opp05 {
+            opp-hz = /bits/ 64 <1100000000>;
+            opp-microvolt = <940000 910000 940000>;
+            status = "ok";
+        };
+
+        opp06 {
+            opp-hz = /bits/ 64 <1200000000>;
+            opp-microvolt = <980000 940000 980000>;
+            status = "ok";
+        };
+    };
+
+    soc {
+#ifdef CONFIG_SSTAR_VOLTAGE_CTRL
+        cpu_power {
+            compatible = "sstar,voltage-ctrl";
+            vid_width = <2>;
+            vid_gpios = <PAD_PM_GPIO2 PAD_PM_GPIO5>;
+            vid_voltages = <850 900 950 1000>;  //2b'00 2b'01 2b'10 2b'11
+            init_voltage = <1000>;
+            status = "ok";                      //ref to 1V0_STD_2 on sch
+        };
+
+        core_power {
+            compatible = "sstar,voltage-ctrl";
+            vid_width = <2>;
+            vid_gpios = <PAD_PM_GPIO1 PAD_PM_GPIO4>;
+            vid_voltages = <850 900 950 1000>;  //2b'00 2b'01 2b'10 2b'11
+            init_voltage = <1000>;
+            status = "ok";                      //ref to 1V0_STD on sch
+        };
+
+        ipu_power {
+            compatible = "sstar,voltage-ctrl";
+            vid_width = <2>;
+            vid_gpios = <PAD_PM_GPIO0 PAD_PM_GPIO3>;
+            vid_voltages = <850 900 950 1000>;  //2b'00 2b'01 2b'10 2b'11
+            init_voltage = <1000>;
+            status = "ok";                      //ref to 1V0_STD_3 on sch
+        };
+#endif
+
+#ifdef CONFIG_SSTAR_VOLTAGE_IDAC_CTRL
+        cpu_power {
+            compatible = "sstar,voltage-idac-ctrl";
+            vid_gpio = <PAD_PM_GPIO5>;
+            base_voltage = <1000>;
+            init_voltage = <1000>;
+            status = "ok";
+        };
+
+        core_power {
+            compatible = "sstar,voltage-idac-ctrl";
+            vid_gpio = <PAD_PM_GPIO4>;
+            base_voltage = <1000>;
+            init_voltage = <1000>;
+            status = "ok";
+        };
+
+        ipu_power {
+            compatible = "sstar,voltage-idac-ctrl";
+            vid_gpio = <PAD_PM_GPIO3>;
+            base_voltage = <1000>;
+            init_voltage = <1000>;
+            status = "ok";
+        };
+#endif
+
+        i2c5@5{
+            tusb320: tusb320@0 {
+                compatible = "ti,tusb320la";
+                reg = <0x47>;
+                tusb320,gpio_usb3_cc_int = <&gpio PAD_PM_USB3_INT 0>;
+                tusb320,gpio_usb3_cc_enb = <&gpio PAD_PWM_OUT6 0>;
+                vbus_switch_ctrl = <&usb_power_ctrl_p1>;
+                status = "ok";
+            };
+        };
+    };
+};

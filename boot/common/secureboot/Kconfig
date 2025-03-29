@@ -1,0 +1,49 @@
+menuconfig SSTAR_SIGN_IMAGES
+	bool "SigmaStar sign images"
+	default n
+	help
+	  enable this to sign bootloader.img
+
+if SSTAR_SIGN_IMAGES
+config SECURE_BOOT_DEBUG_MODE
+	bool "secure boot debug mode"
+	default n
+	help
+	  enable this to set debug flag to IPL for debug, it means that
+	  Whether or not e-fuse is executed, the secure boot flow will
+	  be performed.
+
+config IPL_PRIVKEY_FILE
+	string "sign IPL key"
+	default "common/secureboot/default/private_otp_rsa2048.pem"
+	help
+	  specify the rsa private key path for signing IPL.bin
+
+config IPLCUST_PUBKEY_FILE
+	string "verify IPL_CUST key"
+	default "common/secureboot/default/public_rsa2048.pem"
+	help
+	  specify the rsa public key path for verifing IPL_CUST.bin,
+	  this public key will insert into IPL.bin
+
+config IPLCUST_PRIVKEY_FILE
+	string "sign IPL_CUST key"
+	default "common/secureboot/default/private_rsa2048.pem"
+	help
+	  specify the rsa private key path for signing IPL_CUST.bin
+
+config UBOOT_PUBKEY_FILE
+	string "verify UBOOT key"
+	default "common/secureboot/default/public_rsa2048.pem"
+	help
+	  specify the rsa public key path for verifing u-boot.*.img.bin,
+	  this public key will insert into IPL_CUST.bin
+
+config UBOOT_PRIVKEY_FILE
+	string "sign U-boot key"
+	default "common/secureboot/default/private_rsa2048.pem"
+	help
+	  specify the rsa private key path for signing u-boot.*.img.bin
+
+endif
+#endmenu SSTAR_SIGN_IMAGES

@@ -1,0 +1,21 @@
+{
+    "Page": [
+        {
+            "page_name": "SWITCHInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "DstPort",
+                    "label": "Destination Port Id",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DST_PORT"
+                }
+            ]
+        }
+    ]
+}

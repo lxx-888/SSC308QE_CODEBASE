@@ -1,0 +1,11 @@
+menuconfig INTERFACE_VDISP
+    depends on SUPPORT_VDISP
+    bool "vdisp"
+    default y
+    help
+        whether to compile or not
+
+config interface_vdisp
+    string
+    default enable if INTERFACE_VDISP
+    default disable if !INTERFACE_VDISP

@@ -1,0 +1,36 @@
+config SSTAR_RTC
+    select RTC_CLASS
+    tristate "Sstar RTC Driver"
+    default n
+
+config SSTAR_RTC_WITH_PWC
+    bool "Sstar RTC With PWC"
+    depends on SSTAR_RTC
+    default y
+
+choice
+    prompt "Sstar PWC IO Mode"
+    depends on SSTAR_RTC_WITH_PWC && INPUT
+    default SSTAR_PWC_IO_INTERRUPT
+
+config SSTAR_PWC_IO_POLLING
+    bool "Polling Mode"
+
+config SSTAR_PWC_IO_INTERRUPT
+    bool "Interrupt Mode"
+
+endchoice
+
+config SSTAR_RTC_WITH_ALARM
+    bool "Sstar RTC With Alarm"
+    depends on SSTAR_RTC
+    default y
+
+config SSTAR_RTC_WITH_OFFSET
+    bool "Sstar RTC With Offset"
+    depends on SSTAR_RTC
+    default y
+
+config PM_CLK_SRC_24M
+    bool "Supports the removal of the RTC 32K crystal oscillator"
+    default n

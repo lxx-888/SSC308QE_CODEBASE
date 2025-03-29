@@ -1,0 +1,73 @@
+{
+    "Page":[
+        {
+            "page_name": "BaseBlockPage",
+            "page_title": "Base Block",
+            "component": [
+                {
+                    "name": "BaseBlockRoot",
+                    "label": "Root Block",
+                    "component_type": "CheckBox",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BaseBlockDelay",
+                    "label": "Delay",
+                    "component_type": "CheckBox",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BaseBlockPreload",
+                    "label": "Preload",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "2",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BaseBlockDev",
+                    "label": "Dev",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BaseBlockChn",
+                    "label": "Chn",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BaseBlockInputPortNumber",
+                    "label": "Input Port Number",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BaseBlockOutputPortNumber",
+                    "label": "Output Port Number",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BaseBlockModName",
+                    "component_type": "LineEdit",
+                    "label": "Block Name",
+                    "default_value": ""
+                }
+            ]
+        }
+    ]
+}

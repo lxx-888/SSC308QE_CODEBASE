@@ -1,0 +1,7 @@
+config SSTAR_UPDATE_DQ
+    tristate "MIU Update DQ"
+    help
+       Adjust update dq setting dynamically
+
+    default y
+    

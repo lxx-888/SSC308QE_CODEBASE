@@ -1,0 +1,11 @@
+menuconfig INTERFACE_CUS3A
+    depends on SUPPORT_CUS3A
+    bool "cus3a"
+    default y
+    help
+        whether to compile or not
+
+config interface_cus3a
+    string
+    default enable if INTERFACE_CUS3A
+    default disable if !INTERFACE_CUS3A

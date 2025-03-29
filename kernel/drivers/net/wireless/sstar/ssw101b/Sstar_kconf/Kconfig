@@ -1,0 +1,10 @@
+menuconfig SSTAR_MENUCONFIG
+	tristate "sstar Wireless Lan"
+	default m
+
+if SSTAR_MENUCONFIG
+config DRIVER_PATH
+	string
+	option env="DRIVER_PATH"
+source "$DRIVER_PATH/Kconfig"
+endif

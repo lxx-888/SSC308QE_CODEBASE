@@ -1,0 +1,30 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+menu "NAND"
+
+config MTD_NAND_CORE
+	tristate
+
+source "drivers/mtd/nand/onenand/Kconfig"
+source "drivers/mtd/nand/raw/Kconfig"
+source "drivers/mtd/nand/spi/Kconfig"
+
+config MTD_NAND_FASTBOOT
+    bool "MTD NAND flash driver fastboot support"
+    default n
+    depends on MTD_NAND_CORE
+    help
+       In order to support fastboot, we skip some procedures in the process
+       of nand flash driver initialization. The skipped procudeures would
+       not affect the function of nand flash, however, they may cause some
+       statistical information loss.
+
+menu "ECC engine support"
+
+config MTD_NAND_ECC
+       bool
+       depends on MTD_NAND_CORE
+
+endmenu
+
+endmenu

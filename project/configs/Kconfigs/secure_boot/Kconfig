@@ -1,0 +1,183 @@
+menu "SECURE_BOOT"
+
+choice
+    prompt "SECURE_BOOT"
+        default normal_boot
+
+    config NORMAL_BOOT
+        bool "normal_boot"
+
+    config SIG
+        bool "sig"
+
+    config SIG_AES
+        bool "sig_aes"
+
+    config SIG4096
+        bool "sig4096"
+
+    config SIG4096_AES
+        bool "sig4096_aes"
+endchoice
+
+config SECURE_BOOT
+    string
+    default normal_boot if NORMAL_BOOT
+    default sig if SIG
+    default sig4096 if SIG4096
+    default sig_aes if SIG_AES
+    default sig4096_aes if SIG4096_AES
+
+choice
+    depends on (SECURE_BOOT = sig_aes || SECURE_BOOT = sig4096_aes)
+    prompt "IMAGE_AES_DETAILS"
+        default IMAGE_AESKEY128_1
+
+    config IMAGE_AESKEY128_1
+        bool "aeskey128_1"
+
+    config IMAGE_AESKEY128_2
+        bool "aeskey128_2"
+
+    config IMAGE_AESKEY128_3
+        bool "aeskey128_3"
+
+    config IMAGE_AESKEY128_4
+        bool "aeskey128_4"
+
+    config IMAGE_AESKEY128_5
+        bool "aeskey128_5"
+
+    config IMAGE_AESKEY128_6
+        bool "aeskey128_6"
+
+    config IMAGE_AESKEY128_7
+        bool "aeskey128_7"
+
+    config IMAGE_AESKEY128_8
+        bool "aeskey128_8"
+
+    config IMAGE_AESKEY256_1
+        bool "aeskey256_1"
+
+    config IMAGE_AESKEY256_2
+        bool "aeskey256_2"
+
+    config IMAGE_AESKEY256_3
+        bool "aeskey256_3"
+
+    config IMAGE_AESKEY256_4
+        bool "aeskey256_4"
+endchoice
+
+config IMAGE_AES_DETAILS
+    string
+    default 128_1 if IMAGE_AESKEY128_1
+    default 128_2 if IMAGE_AESKEY128_2
+    default 128_3 if IMAGE_AESKEY128_3
+    default 128_4 if IMAGE_AESKEY128_4
+    default 128_5 if IMAGE_AESKEY128_5
+    default 128_6 if IMAGE_AESKEY128_6
+    default 128_7 if IMAGE_AESKEY128_7
+    default 128_8 if IMAGE_AESKEY128_8
+    default 256_1 if IMAGE_AESKEY256_1
+    default 256_2 if IMAGE_AESKEY256_2
+    default 256_3 if IMAGE_AESKEY256_3
+    default 256_4 if IMAGE_AESKEY256_4
+
+
+choice
+    depends on (SECURE_BOOT != normal_boot)
+    prompt "Secureboot_debugmode"
+        default Debug_mode_disable
+
+    config Debug_mode_disable
+        bool "NO"
+    config Debug_mode_enable
+        bool "YES"
+
+endchoice
+
+config Secureboot_debugmode
+    string
+    default ENABLE if Debug_mode_enable
+    default DISABLE if Debug_mode_disable
+
+menu "IPL_With_AES"
+choice
+    depends on (SECURE_BOOT != normal_boot)
+    prompt "IPL_ENCRYPT"
+        default IPL_NO_ENCRYPT
+
+    config IPL_NO_ENCRYPT
+        bool "NO"
+
+    config IPL_ENCRYPT_ENABLE
+        bool "YES"
+endchoice
+
+config IPL_ENCRYPT
+    string
+    default NO if IPL_NO_ENCRYPT
+    default YES if IPL_ENCRYPT_ENABLE
+
+
+choice
+    depends on (IPL_ENCRYPT = YES)
+    prompt "IPL_AES_DETAILS"
+        default IPL_AESKEY128_1
+
+    config IPL_AESKEY128_1
+        bool "aeskey128_1"
+
+    config IPL_AESKEY128_2
+        bool "aeskey128_2"
+
+    config IPL_AESKEY128_3
+        bool "aeskey128_3"
+
+    config IPL_AESKEY128_4
+        bool "aeskey128_4"
+
+    config IPL_AESKEY128_5
+        bool "aeskey128_5"
+
+    config IPL_AESKEY128_6
+        bool "aeskey128_6"
+
+    config IPL_AESKEY128_7
+        bool "aeskey128_7"
+
+    config IPL_AESKEY128_8
+        bool "aeskey128_8"
+
+    config IPL_AESKEY256_1
+        bool "aeskey256_1"
+
+    config IPL_AESKEY256_2
+        bool "aeskey256_2"
+
+    config IPL_AESKEY256_3
+        bool "aeskey256_3"
+
+    config IPL_AESKEY256_4
+        bool "aeskey256_4"
+endchoice
+
+config IPL_AES_DETAILS
+    string
+    default 128_1 if IPL_AESKEY128_1
+    default 128_2 if IPL_AESKEY128_2
+    default 128_3 if IPL_AESKEY128_3
+    default 128_4 if IPL_AESKEY128_4
+    default 128_5 if IPL_AESKEY128_5
+    default 128_6 if IPL_AESKEY128_6
+    default 128_7 if IPL_AESKEY128_7
+    default 128_8 if IPL_AESKEY128_8
+    default 256_1 if IPL_AESKEY256_1
+    default 256_2 if IPL_AESKEY256_2
+    default 256_3 if IPL_AESKEY256_3
+    default 256_4 if IPL_AESKEY256_4
+
+endmenu
+endmenu

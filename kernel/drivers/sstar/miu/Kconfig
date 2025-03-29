@@ -1,0 +1,28 @@
+menuconfig SSTAR_MIU
+
+tristate "SSTAR MIU"
+
+help
+    SStar miu driver
+
+default y
+
+if SSTAR_MIU
+
+config MIU_HW_MMU
+	bool "Support HW MMU"
+	default y if CONFIG_CHIP!="ifado"
+
+config MIU_BWLA
+	bool "Support BWLA"
+	default y if CONFIG_CHIP!="ifado"
+
+config MIU_SW_QOS
+	bool "Support SW QOS"
+	default y if CONFIG_CHIP!="ifado"
+
+config MIU_UT
+    bool "sysfs:MIU ut"
+    default n
+
+endif #SSTAR_MIU

@@ -1,0 +1,133 @@
+menu "USB gadget options"
+config CONFIG_USB_COMPOSITE_DEV_HAS_UVC_FUNC
+    bool "Composite device supports UVC function"
+    default y
+    select USB_GADGET_UVC_SUPPORT
+    help
+      USB composite device supports UVC functions
+
+config CONFIG_USB_COMPOSITE_DEV_HAS_UAC_FUNC
+    bool "Composite device supports UAC function"
+    default n
+    select USB_GADGET_UAC_SUPPORT
+    help
+      USB composite device supports UAC functions
+
+config CONFIG_USB_COMPOSITE_DEV_HAS_HID_FUNC
+    bool "Composite device supports HID function"
+    default n
+    select USB_GADGET_HID_SUPPORT
+    help
+      USB composite device supports HID functions
+
+config CONFIG_USB_COMPOSITE_DEV_HAS_MSC_FUNC
+    bool "Composite device supports Mass Storage function"
+    default n
+    select USB_GADGET_MSDC_SUPPORT
+    help
+      USB composite device supports Mass Storage functions
+
+config CONFIG_USB_COMPOSITE_DEV_HAS_CDC_FUNC
+    bool "Composite device supports Cummunication Device function"
+    default n
+    select USB_GADGET_CDC_SUPPORT
+    help
+      USB composite device supports Communication Device functions
+
+config CONFIG_USB_GADGET_STR_SUPPORT
+    bool "Support USB Suspend To RAM feature"
+    default n
+
+config CONFIG_USB_GADGET_VBUS_DETECT
+    bool "Enable Vbus detection by GPIO"
+    default n
+
+menu "USB classes to support"
+
+config CONFIG_USB_GADGET_CDC_SUPPORT
+    bool "Support CDC class"
+    default n
+
+config CONFIG_USB_GADGET_HID_SUPPORT
+    bool "Support HID class"
+    default n
+
+choice
+    prompt "Select HID usage"
+    default CONFIG_USB_GADGET_HID_KEYBOARD
+    depends on USB_GADGET_HID_SUPPORT
+
+    config CONFIG_USB_GADGET_HID_KEYBOARD
+        bool "as a keyboard"
+
+    config CONFIG_USB_GADGET_HID_MOUSE
+        bool "as a mouse"
+
+    config CONFIG_USB_GADGET_HID_MEDIA
+        bool "as a media control"
+endchoice
+
+config CONFIG_USB_GADGET_MSDC_SUPPORT
+    bool "Support MSC class"
+    default n
+
+config CONFIG_USB_GADGET_UAC_SUPPORT
+    bool "Support UAC class"
+    default n
+
+if CONFIG_USB_GADGET_UAC_SUPPORT
+menu "UAC gadget options"
+
+config CONFIG_USB_GADGET_UAC_MIC_SUPPORT
+    bool "Support UAC MIC"
+    default n
+
+config CONFIG_USB_GADGET_UAC_SPK_SUPPORT
+    bool "Support UAC speaker"
+    default n
+
+config CONFIG_USB_GADGET_UAC_LATENCY_FINE_TUNE
+    bool "Supports UAC latency fine tune (TEAMS.SPEC.105ms)"
+    default n
+
+config CONFIG_USB_GADGET_UAC_VERSION
+    int "Supports UAC vesion"
+    default 1
+
+endmenu
+endif
+
+config CONFIG_USB_GADGET_UVC_SUPPORT
+    bool "Support UVC class"
+    default y
+
+if CONFIG_USB_GADGET_UVC_SUPPORT
+menu "UVC gadget options"
+config CONFIG_USB_GADGET_UVC_STREAM_NUM
+    int "Number of UVC video streams"
+    depends on CONFIG_USB_GADGET_UVC_SUPPORT
+    default 1
+
+choice
+    prompt "Multiple UVC video streams"
+    default CONFIG_UVC_MULTI_STREAM_BY_MULTI_INTERFACE
+
+    config CONFIG_UVC_MULTI_STREAM_BY_MULTI_FUNCTION
+        bool "by multiple UVC function"
+
+    config CONFIG_UVC_MULTI_STREAM_BY_MULTI_INTERFACE
+        bool "by multiple Video Stream interfaces"
+endchoice
+
+config CONFIG_USB_GADGET_UVC_INTERRUPT_EP_SUPPORT
+    bool "Support UVC status interrupt"
+    default n
+
+config CONFIG_UVC_HEADER_METADATA
+    bool "Support window hello matadata header"
+    default n
+
+endmenu
+endif
+endmenu
+endmenu

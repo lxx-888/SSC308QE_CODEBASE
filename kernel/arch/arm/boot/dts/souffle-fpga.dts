@@ -1,0 +1,87 @@
+/*
+* mercury6p-fpga.dts- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+/dts-v1/;
+#include "souffle-fpga.dtsi"
+
+/ {
+    #address-cells = <2>;
+    #size-cells = <1>;
+    model = "SOUFFLE FPGA";
+    compatible = "sstar,souffle";
+
+    chosen {
+        bootargs = "console=ttyS0,115200n8r androidboot.console=ttyS0 user_debug=31 root=/dev/mtdblock0 rootfstype=squashfs ro init=/linuxrc LX_MEM=0x40000000 mma_heap=mma_heap_name0,miu=0,sz=0x20000000 mma_memblock_remove=1 cma=2M nohz=off earlyprintk";
+    };
+
+    rootfsp:rammtd@0 {
+        compatible = "mtd-ram";
+        reg= <0x10 0x07000000 0x00400000>;
+        bank-width = <1>;
+        linux,mtd-name = "ROOTFS";
+        erase-size = <0x10000>;
+    };
+    /* Size of this partition must be identical to the size of data.jffs2 due to JFFS2 limitation */
+    datap:rammtd@1 {
+        compatible = "mtd-ram";
+        reg= <0x10 0x07400000 0x00400000>;
+        bank-width = <1>;
+        linux,mtd-name = "DATA";
+        erase-size = <0x10000>;
+    };
+
+    extp:rammtd@2 {
+        compatible = "mtd-ram";
+        reg= <0x10 0x07800000 0x02000000>;
+        bank-width = <1>;
+        linux,mtd-name = "EXT";
+        erase-size = <0x10000>;
+    };
+
+
+/*!!IMPORTANT!! The reserved memory must be 1MB aligned*/
+    reserved-memory {
+        #address-cells = <2>;
+        #size-cells = <1>;
+        ranges;
+
+        tf-a {
+            reg = <0x10 0x00FC0000 0x00040000>;
+            no-map;
+        };
+
+        rootfsp {
+            reg = <0x10 0x07000000 0x00400000>;
+            no-map;
+        };
+        datap {
+            reg = <0x10 0x07400000 0x00400000>;
+            no-map;
+        };
+        extp {
+            reg = <0x10 0x07800000 0x02000000>;
+            no-map;
+        };
+        cma0 {
+            compatible = "shared-dma-pool";
+            reusable;
+            size = <0x01000000>;
+            alignment = <0x1000>;
+            linux,cma-default;
+        };
+    };
+};

@@ -1,0 +1,7 @@
+IPL.iford_usb.LPDDR4X_3200_NTC2G_BGA1=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.bin                     ./build.py -c ./configs/iford.json -t linux -g usb -b 0
+IPL.iford_usb.BGA1_DDR3=y.SIMPLE_AUTOK=y.bin                                                     ./build.py -c ./configs/iford.json -t linux -g usb -b 1
+IPL.iford_usb.DDR4_3200_NTC4G_BGA2=y.bin                                                         ./build.py -c ./configs/iford.json -t linux -g usb -b 2
+IPL.iford_usb.QFN128=y.SIMPLE_AUTOK=y.bin                                                        ./build.py -c ./configs/iford.json -t linux -g usb -b 3
+IPL.iford_usb.QFN128_1333=y.SIMPLE_AUTOK=y.bin                                                   ./build.py -c ./configs/iford.json -t linux -g usb -b 4
+IPL.iford_usb.QFN128=y.REGION_WW=y.SIMPLE_AUTOK=y.bin                                            ./build.py -c ./configs/iford.json -t linux -g usb -b 5
+IPL.iford_usb.LPDDR4X_3200_NTC2G_BGA8=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.bin                     ./build.py -c ./configs/iford.json -t linux -g usb -b 6

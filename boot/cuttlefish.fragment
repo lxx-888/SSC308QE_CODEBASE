@@ -1,0 +1,49 @@
+# crosvm's virtio-net implementation gets "stuck" when initialization is
+# attempted by u-boot -- probably a combination of bugs in crosvm and u-boot.
+# CONFIG_VIRTIO_NET is not set
+
+# Disable the NET core so we can simplify CONFIG_DISTRO_DEFAULTS
+# CONFIG_NET is not set
+
+# Cuttlefish defines the maximum size of the environment partition
+CONFIG_ENV_SIZE=0x1000
+
+# Enable Android-specific features and commands needed to boot
+CONFIG_ANDROID_AB=y
+CONFIG_ANDROID_BOOT_IMAGE=y
+CONFIG_ANDROID_BOOTLOADER=y
+CONFIG_ANDROID_USES_RECOVERY_AS_BOOT=y
+CONFIG_ANDROID_PERSISTENT_RAW_DISK=y
+CONFIG_ANDROID_PERSISTENT_RAW_DISK_DEVICE=1
+CONFIG_CMD_AB_SELECT=y
+CONFIG_CMD_BOOT_ANDROID=y
+CONFIG_CMD_GPT=y
+CONFIG_CMD_READ=y
+CONFIG_CMD_SETEXPR=y
+CONFIG_ENV_IS_IN_RAW_DISK=y
+CONFIG_ENV_RAW_DISK_DEVICE_AND_PART="1:1"
+CONFIG_ENV_RAW_DISK_INTERFACE="virtio"
+CONFIG_LIBAVB=y
+CONFIG_AVB_VERIFY=y
+CONFIG_CMD_AVB=y
+CONFIG_AVB_BUF_SIZE=0x100000
+CONFIG_AVB_PUBKEY_FILE="testkey_rsa4096.avbpubkey"
+CONFIG_PARTITION_TYPE_GUID=y
+
+# x86 specific option to enable support for bzImages
+CONFIG_CMD_BOOTZ=y
+
+# arm64 specific options to enable support for compressed Images
+# CONFIG_LZMA is not set
+CONFIG_GZIP=y
+CONFIG_LZ4=y
+
+# Other OS support (EFI system partition)
+CONFIG_CMD_BOOTEFI=y
+# CONFIG_CMD_BOOTEFI_HELLO_COMPILE is not set
+
+# Support bootconfig with libxbc
+CONFIG_XBC=y
+
+# Support examining device model state
+CONFIG_CMD_DM=y

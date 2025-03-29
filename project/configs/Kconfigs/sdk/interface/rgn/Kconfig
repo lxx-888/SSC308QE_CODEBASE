@@ -1,0 +1,108 @@
+menuconfig INTERFACE_RGN
+    depends on SUPPORT_RGN
+    bool "rgn"
+    default y
+    select MHAL_RGN
+    help
+        whether to compile or not
+
+if INTERFACE_RGN
+
+config config_mi_rgn
+    bool "mi_rgn"
+    depends on MHAL_RGN
+    default y
+    help
+        whether to compile or not
+
+if config_mi_rgn
+
+config MI_RGN_SUPPORT_OSD
+    bool "mi_rgn_osd"
+    default y
+    help
+        whether to compile or not
+
+if MI_RGN_SUPPORT_OSD
+
+config MI_RGN_SUPPORT_SW_OSD
+    bool "sw_osd"
+    default y
+    help
+        whether to compile or not
+
+if MI_RGN_SUPPORT_SW_OSD
+config MI_RGN_SUPPORT_OVERLAY_BLENDING
+    bool "overlay_blending"
+    default n
+    help
+        whether to compile or not
+endif
+
+endif
+
+config MI_RGN_SUPPORT_MFF
+    bool "mi_rgn_mff"
+    default y
+    help
+        whether to compile or not
+
+if MI_RGN_SUPPORT_MFF
+
+config MI_RGN_SUPPORT_COVER
+    bool "support_cover"
+    default y
+    help
+        whether to compile or not
+
+if MI_RGN_SUPPORT_COVER
+
+config MI_RGN_SUPPORT_MOSAIC
+    bool "mosaic"
+    default y
+    help
+        whether to compile or not
+
+config MI_RGN_SUPPORT_COVER_MAP
+    bool "cover_map"
+    default y
+    help
+        whether to compile or not
+endif
+config MI_RGN_SUPPORT_FRAME
+    bool "support_frame"
+    default y
+    help
+        whether to compile or not
+endif
+
+config MI_RGN_SUPPORT_COLOR_INVERT
+    bool "mi_rgn_ci"
+    default y
+    help
+        whether to compile or not
+
+config MI_RGN_SUPPORT_BUF_CNT
+    bool "buffer cnt"
+    default y
+    help
+        whether to compile or not
+endif
+
+config MHAL_RGN
+    bool "mhal_rgn"
+    depends on INTERFACE_RGN
+    default y
+    help
+        whether to compile or not
+
+config mhal_rgn
+    string
+    default enable if MHAL_RGN
+    default disable if !MHAL_RGN
+
+endif
+config interface_rgn
+    string
+    default enable if INTERFACE_RGN
+    default disable if !INTERFACE_RGN

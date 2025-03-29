@@ -1,0 +1,115 @@
+menuconfig INTERFACE_LDC
+    depends on SUPPORT_LDC
+    bool "ldc"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_LDC
+
+config config_mi_ldc
+    bool "mi_ldc"
+    default y
+    help
+        whether to compile or not
+
+config MI_LDC_LDC
+    bool "LDC"
+    depends on ( Souffle || iford )
+    default y
+    help
+        LDC;CustomerMap;RegionBorder
+
+config mi_ldc_ldc
+    string
+    default enable if MI_LDC_LDC
+    default disable if !MI_LDC_LDC
+
+config MI_LDC_PMF
+    bool "PMF"
+    depends on ( Souffle || iford )
+    default y
+    help
+        PMF(3x3 matrix)
+config mi_ldc_pmf
+    string
+    default enable if MI_LDC_PMF
+    default disable if !MI_LDC_PMF
+
+config MI_LDC_LUT
+    bool "LUT"
+    depends on ( Souffle )
+    default y
+    help
+        LUT
+config mi_ldc_lut
+    string
+    default enable if MI_LDC_LUT
+    default disable if !MI_LDC_LUT
+
+menuconfig MI_LDC_DIS
+    bool "DIS"
+    depends on ( ( Souffle || iford ) && (!BOOL_RTOS_ENABLE || CONFIG_ENABLE_POWER_SAVE_AOV))
+    default y
+    help
+        dis_gme & dis_gyro(eis)
+
+if MI_LDC_DIS
+    config MI_LDC_DISGME
+    bool "dis_gme"
+    depends on (Souffle && (!BOOL_RTOS_ENABLE || CONFIG_ENABLE_POWER_SAVE_AOV))
+    default y
+    help
+        support the dis gme logic
+
+    config MI_LDC_DISGYRO
+    bool "dis_gyro(eis)"
+    depends on ( ( Souffle || iford ) && (!BOOL_RTOS_ENABLE || CONFIG_ENABLE_POWER_SAVE_AOV))
+    default y
+    help
+        support the dis gyro logic
+endif # end of MI_LDC_DIS
+config mi_ldc_dis
+    string
+    default enable if MI_LDC_DIS
+    default disable if !MI_LDC_DIS
+
+config MI_LDC_STITCH
+    bool "STITCH"
+    depends on (Souffle && (!BOOL_RTOS_ENABLE || CONFIG_ENABLE_POWER_SAVE_AOV))
+    default y
+    help
+        STITCH;DpuStitch;SeamStitch;DisplacementMapQueryPoint)
+config mi_ldc_stitch
+    string
+    default enable if MI_LDC_STITCH
+    default disable if !MI_LDC_STITCH
+
+config MI_LDC_NIR
+    bool "NIR"
+    depends on (Souffle && (!BOOL_RTOS_ENABLE || CONFIG_ENABLE_POWER_SAVE_AOV))
+    default y
+    help
+        NIR
+config mi_ldc_nir
+    string
+    default enable if MI_LDC_NIR
+    default disable if !MI_LDC_NIR
+
+config MI_LDC_DPU
+    bool "DPU"
+    depends on (Souffle && (!BOOL_RTOS_ENABLE || CONFIG_ENABLE_POWER_SAVE_AOV))
+    default y
+    help
+        DPU(DpuStitch;SeamStitch;)
+config mi_ldc_dpu
+    string
+    default enable if MI_LDC_DPU
+    default disable if !MI_LDC_DPU
+
+endif ## end of INTERFACE_LDC
+
+config interface_ldc
+    string
+    default enable if INTERFACE_LDC
+    default disable if !INTERFACE_LDC

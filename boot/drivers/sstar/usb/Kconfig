@@ -1,0 +1,52 @@
+config SSTAR_USB_DWC3
+	bool "DesignWare USB3 Host/Gadget Support on SigmaStar Platforms"
+	depends on ARCH_SSTAR
+	select USB
+	select USB_DWC3
+	select DM_USB
+	select DM_DMA
+	select REGMAP
+	select SYSCON
+	help
+	  Support of USB3 Host/Gadget functionality in SigmaStar Platforms.
+
+if SSTAR_USB_DWC3
+choice
+	bool "DWC3 Mode Selection"
+
+config SSTAR_USB_DWC3_HOST
+	bool "Host only mode"
+	select USB_DWC3_HOST
+	help
+	  Select this when you want to use DWC3 in host mode only,
+	  thereby the gadget feature will be regressed.
+
+config SSTAR_USB_DWC3_GADGET
+	bool "Gadget only mode"
+	select MISC
+	select USB_GADGET
+	select DM_USB_GADGET
+	select USB_DWC3_GADGET
+	select USB_DWC3_GENERIC
+	help
+	  Select this when you want to use DWC3 in gadget mode only,
+	  thereby the host feature will be regressed.
+endchoice
+
+config SSTAR_USB_PHY
+	bool "Infinity/Mercury SoC series USB PHY driver"
+	help
+	  Enable USB PHY support for Infinity/Mercury SoC series.
+	  This driver provides PHY interface for USB 3.0 DRD controller
+	  present on Infinity/Mercury SoC series.
+endif
+
+config SSTAR_USB_EHCI
+	bool "SigmaStar USB2.0 Host Controller"
+	depends on USB_EHCI_HCD
+	select CMD_USB
+
+config SSTAR_USB_RESET
+	bool "SigmaStar USB Reset Control"
+	select DM_RESET
+	default y if USB

@@ -1,0 +1,73 @@
+{
+    "Page":[
+        {
+            "page_name": "CommonInputPortPage",
+            "page_title": "InputPort",
+            "component": [
+                {
+                    "name": "InputPortFps",
+                    "label": "Fps",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "30",
+                    "output_key": "FPS"
+                },
+                {
+                    "name": "InputPort",
+                    "label": "Port Index",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PORT"
+                },
+                {
+                    "name": "OutputPortBindType",
+                    "label": "Bind Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "FRAME_BASE",
+                            "option_value": "0x1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "SW LOW LATENCY",
+                            "option_value": "0x2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "REALTIME",
+                            "option_value": "0x4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "HW AUTOSYNC",
+                            "option_value": "0x8"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "HW_RING",
+                            "option_value": "0x10"
+                        }
+                    ],
+                    "default_value": "0x1",
+                    "output_type": "int",
+                    "output_key": "BIND_TYPE"
+                },
+                {
+                    "name": "OutputPortBindPara",
+                    "label": "Bind Param",
+                    "component_type": "LineEdit",
+                    "default_value": "0",
+                    "output_key": "BIND_PARAM"
+                }
+            ]
+        }
+    ]
+
+}

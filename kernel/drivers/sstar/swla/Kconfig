@@ -1,0 +1,14 @@
+config SSTAR_SWLA
+    bool "Support SStar SWLA"
+    default n
+
+config SSTAR_SWLA_SYS_LOG_ENABLE
+    bool "Enable SWLA system log"
+    depends on SSTAR_SWLA
+    default y
+
+config SSTAR_SWLA_USR_LOG_ENABLE
+    bool "Enable SWLA user log"
+    depends on SSTAR_SWLA
+    default y
+

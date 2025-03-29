@@ -1,0 +1,67 @@
+{
+    "Page": [
+        {
+            "page_name": "SNRModPage",
+            "page_title": "SNR",
+            "component": [
+                {
+                    "name": "SnrId",
+                    "label": "Snr Id",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SNR_ID"
+                },
+                {
+                    "name": "SnrRes",
+                    "label": "Snr Res",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SNR_RES"
+                },
+                {
+                    "name": "SnrFps",
+                    "label": "Snr Fps",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "30",
+                    "output_type": "int",
+                    "output_key": "SNR_FPS"
+                },
+                {
+                    "name": "SnrHdrType",
+                    "label": "Snr Hdr Type",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "HDR_TYPE"
+                },
+                {
+                    "name": "SnrMirror",
+                    "label": "Snr Mirror",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SNR_MIRROR"
+                },
+                {
+                    "name": "SnrFlip",
+                    "label": "Snr Flip",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SNR_FLIP"
+                }
+            ]
+        }
+    ]
+}

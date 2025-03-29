@@ -1,0 +1,80 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "sstar_dtbo,bridge-LT9611";
+};
+
+&bridges {
+    bridge_lt9611: LT9611 {
+        name = "LT9611";
+        interface = "MIPI"; /* TTL/MIPI/LVDS/BT1120/BT656 */
+        width-mm = <0>;
+        height-mm = <0>;
+        misc = <&bridge_lt9611_misc>;
+
+        panel-timing {
+            clock-frequency = <148500000>;
+            hactive = <1920>;
+            hfront-porch = <88>;
+            hback-porch = <148>;
+            hsync-len = <44>;
+            hsync-active = <0>;
+            vactive = <1080>;
+            vfront-porch = <4>;
+            vback-porch = <36>;
+            vsync-len = <5>;
+            vsync-active = <0>;
+            de-active = <0>;
+            pixelclk-active = <0>;
+        };
+
+        mipi-params {
+            u8HsTrail = <5>; /* HsTrail */
+            u8HsPrpr = <3>; /* HsPrpr */
+            u8HsZero = <5>; /* HsZero */
+            u8ClkHsPrpr = <10>; /* ClkHsPrpr */
+            u8ClkHsExit = <14>; /* ClkHsexit */
+            u8ClkTrail = <3>; /* ClkTrail */
+            u8ClkZero = <12>; /* ClkZero */
+            u8ClkHsPost = <10>; /* ClkHsPost */
+            u8DaHsExit = <5>; /* DaHsexit */
+            u8ContDet = <0>; /* ConDet */
+            u8Lpx = <16>; /* Lpx */
+            u8TaGet = <26>; /* TaGet */
+            u8TaSure = <24>; /* TaSure */
+            u8TaGo = <50>; /* TaGo */
+
+            u16Bllp = <0>; /* Bllp */
+            u16Fps = <60>; /* Frame Rate */
+
+            enFormat = <3>; /* Output color format, 0:rgb565, 1:rgb666, 2:loosely rgb666, 3:rgb888 */
+            enCtrl = <1>; /* cotnrol mode, 0:cmd mode, 1:sync pluse, 2:sync event, 3:burst mode */
+
+            u8SyncCalibrate = <0>;
+            u16VirHsyncSt = <0>;
+            u16VirHsyncEnd = <0>;
+            u16VsyncRef = <0>;
+            u16DataClkSkew = <7>;
+
+            enPacketType = <0>; /* Mipidsi command type, 0:DCS mode, 1:generic mode */
+            mipi-init-cmds = /bits/ 8 <
+                0xFF 0xFF
+            >;
+        };
+    };
+};
+
+&lontium_lt9611 {
+    sstar-parameter = <&bridge_lt9611>;
+
+    port {
+        LT9611_in_mipi: endpoint {
+            remote-endpoint = <&mipi_1_out_panel>;
+        };
+    };
+};
+
+&mipi_1_out_panel {
+    remote-endpoint = <&LT9611_in_mipi>;
+};

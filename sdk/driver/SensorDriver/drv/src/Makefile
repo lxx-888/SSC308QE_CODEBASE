@@ -1,0 +1,1 @@
+/home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/driver/SensorDriver/sensor.mk

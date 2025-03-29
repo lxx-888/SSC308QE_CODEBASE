@@ -1,0 +1,6 @@
+menu "Android"
+    depends on (PRODUCT = android)
+
+source configs/Kconfigs/android/ndk/Kconfig
+
+endmenu

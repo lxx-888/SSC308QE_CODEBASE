@@ -1,0 +1,76 @@
+{
+    "Page": [
+        {
+            "page_name": "TICKModPage",
+            "page_title": "TICK",
+            "component": [
+                {
+                    "name": "Mode",
+                    "label": "Linker Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "push"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "fifo"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "pull"
+                        }
+                    ],
+                    "default_value": "push",
+                    "output_type": "string",
+                    "output_key": "MODE"
+                },
+                {
+                    "name": "FrcType",
+                    "label": "FRC Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "block"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "dest"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rate"
+                        }
+                    ],
+                    "default_value": "block",
+                    "output_type": "string",
+                    "output_key": "FRC_TYPE"
+                },
+                {
+                    "name": "Sec",
+                    "label": "Timer Second",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SEC"
+                },
+                {
+                    "name": "NanoSec",
+                    "label": "Timer Nano Second",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "999999999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "NSEC"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+menuconfig INTERFACE_NIR
+    depends on SUPPORT_NIR
+    bool "nir"
+    default y
+    help
+        whether to compile or not
+
+config interface_nir
+    string
+    default enable if INTERFACE_NIR
+    default disable if !INTERFACE_NIR

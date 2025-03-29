@@ -1,0 +1,171 @@
+{
+    "Page": [
+        {
+            "page_name": "IQModPage",
+            "page_title": "IQ",
+            "component": [
+                {
+                    "name": "IqServer",
+                    "label": "Iq Server",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "DO_OPEN_IQ_SRV"
+                },
+                {
+                    "name": "IqUserKey",
+                    "label": "User Key",
+                    "component_type": "LineEdit",
+                    "default_value": "1234",
+                    "output_key": "IQ_USR_KEY"
+                },
+                {
+                    "name": "IqCus3a",
+                    "label": "Cus3a",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CUS3A"
+                },
+                {
+                    "name": "IqCus3aAe",
+                    "label": "Cus3a Ae",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CUS3A_AE"
+                },
+                {
+                    "name": "IqCus3aAwb",
+                    "label": "Cus3a Awb",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CUS3A_AWB"
+                },
+                {
+                    "name": "IqCus3aAf",
+                    "label": "Cus3a Af",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CUS3A_AF"
+                },
+                {
+                    "name": "IqCus3aType",
+                    "label": "Cus3a Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "cus"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "sigma"
+                        }
+                    ],
+                    "output_type": "string",
+                    "output_key": "CUS3A_TYPE",
+                    "default_value": "cus"
+                },
+                {
+                    "name": "IqCus3aBlock",
+                    "label": "Cus3a Block",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "200",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "CUS3A_BLOCK"
+                },
+                {
+                    "name": "iqModCaliCfgCount",
+                    "label": "Cali config count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "20",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "CALI_CFG_CNT",
+                    "sub_section": "CALI_CFG",
+                    "attach_name": "iqCaliItemComboBox"
+                },
+                {
+                    "name": "iqCaliItemComboBox",
+                    "label": "Cali config id",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page": "IQModCaliCfgPage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "IQModCaliCfgPage",
+            "page_title": "cali item config",
+            "page_belong": "iqModCaliCfgCount",
+            "component": [
+                {
+                    "name": "IqCaliItem",
+                    "label": "Cali Item",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "obc"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "awb"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "sdc"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "alsc"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "lsc"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "awb_ex"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "fpn"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "ne"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "aibnr"
+                        }
+                    ],
+                    "output_type": "string",
+                    "output_key": "IQ_CALI_ITEM",
+                    "default_value": "obc"
+                },
+                {
+                    "name": "IqCaliFile",
+                    "label": "Cali File",
+                    "component_type": "LineEdit",
+                    "default_value": "./isp_imx415_4k60fps.bin",
+                    "output_key": "IQ_CALI_FILE"
+                }
+            ]
+        }
+    ]
+}

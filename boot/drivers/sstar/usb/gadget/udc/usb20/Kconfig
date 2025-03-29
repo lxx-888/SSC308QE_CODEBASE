@@ -1,0 +1,16 @@
+config SSTAR_USB_GADGET_MSB250X
+	bool "SigmaStar USB 2.0 Device Controller"
+	select USB_GADGET
+	select DM_USB_GADGET
+	help
+	  SigmaStar USB device
+
+config USB_FPGA_VERIFICATION
+	bool "FPGA verification only"
+	depends on SSTAR_USB_GADGET_MSB250X
+	default n
+
+config SSTAR_UTMI_POWERON
+	bool "Power on UTMI first"
+	depends on SSTAR_USB_GADGET_MSB250X
+	default y

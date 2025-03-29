@@ -1,0 +1,66 @@
+{
+    "ROOT": [
+        {
+            "NAME": "RTSP_CHIP_0",
+            "CHIP": "0"
+        }
+    ],
+    "GROUP": {
+        "COUNT": "0"
+    },
+    "FILE_CH0_DEV0_CHIP_0": {
+        "MOD": "FILE",
+        "CHN": "0",
+        "DEV": "0",
+        "CHIP_ID": "0",
+        "PRELOAD": "0",
+        "OUT_0": {
+            "PORT": "0",
+            "FPS": "30",
+            "VID_W": "1920",
+            "VID_H": "1080",
+            "FILE_READ_PATH": "TOKYO_3840x2160.h265",
+            "DATA_FMT": "1",
+            "DATA_TYPE": "1"
+        },
+        "IN_CNT": "0",
+        "OUT_CNT": "1",
+        "POS_X": "276",
+        "POS_Y": "122",
+        "GROUP_ID": "0"
+    },
+    "RTSP_CHIP_0": {
+        "MOD": "RTSP",
+        "CHN": "0",
+        "DEV": "0",
+        "CHIP_ID": "0",
+        "PRELOAD": "0",
+        "IN_0": {
+            "PREV": "FILE_CH0_DEV0_CHIP_0:OUT_0",
+            "PORT": "0",
+            "FPS": "30",
+            "DEPTH_IN": "15",
+            "STREAM_NAME": "file0"
+        },
+        "IN_1": {
+            "PREV": "FILE_CH0_DEV0_CHIP_0:OUT_0",
+            "PORT": "1",
+            "FPS": "30",
+            "DEPTH_IN": "15",
+            "STREAM_NAME": "stream1"
+        },
+        "IN_2": {
+            "PREV": "FILE_CH0_DEV0_CHIP_0:OUT_0",
+            "PORT": "2",
+            "FPS": "30",
+            "DEPTH_IN": "15",
+            "STREAM_NAME": "stream2"
+        },
+        "IN_CNT": "3",
+        "OUT_CNT": "0",
+        "POS_X": "515",
+        "POS_Y": "125",
+        "GROUP_ID": "0",
+        "ONVIF": "0"
+    }
+}

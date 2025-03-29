@@ -1,0 +1,2067 @@
+/* SigmaStar trade secret */
+/* Copyright (c) [2019~2020] SigmaStar Technology.
+All rights reserved.
+
+Unless otherwise stipulated in writing, any and all information contained
+herein regardless in any format shall remain the sole proprietary of
+SigmaStar and be kept in strict confidence
+(SigmaStar Confidential Information) by the recipient.
+Any unauthorized act including without limitation unauthorized disclosure,
+copying, use, reproduction, sale, distribution, modification, disassembling,
+reverse engineering and compiling of the contents of SigmaStar Confidential
+Information is unlawful and strictly prohibited. SigmaStar hereby reserves the
+rights to any and all damages, losses, costs and expenses resulting therefrom.
+*/
+
+#ifndef __ARRAY_INIT__
+#define __ARRAY_INIT__
+
+#define __ARRAY_INIT_1_M_ONE__(__init_element, ...) __init_element(0, ##__VA_ARGS__)
+#define __ARRAY_INIT_2_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1, ##__VA_ARGS__)
+#define __ARRAY_INIT_3_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_2_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(2, ##__VA_ARGS__)
+#define __ARRAY_INIT_4_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_3_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(3, ##__VA_ARGS__)
+#define __ARRAY_INIT_5_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_4_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(4, ##__VA_ARGS__)
+#define __ARRAY_INIT_6_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_5_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(5, ##__VA_ARGS__)
+#define __ARRAY_INIT_7_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_6_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(6, ##__VA_ARGS__)
+#define __ARRAY_INIT_8_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_7_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(7, ##__VA_ARGS__)
+#define __ARRAY_INIT_9_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_8_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(8, ##__VA_ARGS__)
+#define __ARRAY_INIT_10_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_9_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(9, ##__VA_ARGS__)
+#define __ARRAY_INIT_11_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_10_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(10, ##__VA_ARGS__)
+#define __ARRAY_INIT_12_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_11_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(11, ##__VA_ARGS__)
+#define __ARRAY_INIT_13_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_12_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(12, ##__VA_ARGS__)
+#define __ARRAY_INIT_14_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_13_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(13, ##__VA_ARGS__)
+#define __ARRAY_INIT_15_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_14_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(14, ##__VA_ARGS__)
+#define __ARRAY_INIT_16_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_15_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(15, ##__VA_ARGS__)
+#define __ARRAY_INIT_17_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_16_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(16, ##__VA_ARGS__)
+#define __ARRAY_INIT_18_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_17_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(17, ##__VA_ARGS__)
+#define __ARRAY_INIT_19_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_18_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(18, ##__VA_ARGS__)
+#define __ARRAY_INIT_20_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_19_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(19, ##__VA_ARGS__)
+#define __ARRAY_INIT_21_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_20_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(20, ##__VA_ARGS__)
+#define __ARRAY_INIT_22_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_21_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(21, ##__VA_ARGS__)
+#define __ARRAY_INIT_23_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_22_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(22, ##__VA_ARGS__)
+#define __ARRAY_INIT_24_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_23_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(23, ##__VA_ARGS__)
+#define __ARRAY_INIT_25_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_24_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(24, ##__VA_ARGS__)
+#define __ARRAY_INIT_26_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_25_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(25, ##__VA_ARGS__)
+#define __ARRAY_INIT_27_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_26_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(26, ##__VA_ARGS__)
+#define __ARRAY_INIT_28_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_27_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(27, ##__VA_ARGS__)
+#define __ARRAY_INIT_29_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_28_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(28, ##__VA_ARGS__)
+#define __ARRAY_INIT_30_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_29_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(29, ##__VA_ARGS__)
+#define __ARRAY_INIT_31_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_30_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(30, ##__VA_ARGS__)
+#define __ARRAY_INIT_32_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_31_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(31, ##__VA_ARGS__)
+#define __ARRAY_INIT_33_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_32_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(32, ##__VA_ARGS__)
+#define __ARRAY_INIT_34_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_33_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(33, ##__VA_ARGS__)
+#define __ARRAY_INIT_35_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_34_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(34, ##__VA_ARGS__)
+#define __ARRAY_INIT_36_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_35_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(35, ##__VA_ARGS__)
+#define __ARRAY_INIT_37_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_36_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(36, ##__VA_ARGS__)
+#define __ARRAY_INIT_38_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_37_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(37, ##__VA_ARGS__)
+#define __ARRAY_INIT_39_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_38_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(38, ##__VA_ARGS__)
+#define __ARRAY_INIT_40_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_39_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(39, ##__VA_ARGS__)
+#define __ARRAY_INIT_41_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_40_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(40, ##__VA_ARGS__)
+#define __ARRAY_INIT_42_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_41_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(41, ##__VA_ARGS__)
+#define __ARRAY_INIT_43_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_42_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(42, ##__VA_ARGS__)
+#define __ARRAY_INIT_44_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_43_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(43, ##__VA_ARGS__)
+#define __ARRAY_INIT_45_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_44_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(44, ##__VA_ARGS__)
+#define __ARRAY_INIT_46_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_45_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(45, ##__VA_ARGS__)
+#define __ARRAY_INIT_47_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_46_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(46, ##__VA_ARGS__)
+#define __ARRAY_INIT_48_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_47_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(47, ##__VA_ARGS__)
+#define __ARRAY_INIT_49_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_48_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(48, ##__VA_ARGS__)
+#define __ARRAY_INIT_50_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_49_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(49, ##__VA_ARGS__)
+#define __ARRAY_INIT_51_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_50_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(50, ##__VA_ARGS__)
+#define __ARRAY_INIT_52_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_51_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(51, ##__VA_ARGS__)
+#define __ARRAY_INIT_53_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_52_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(52, ##__VA_ARGS__)
+#define __ARRAY_INIT_54_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_53_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(53, ##__VA_ARGS__)
+#define __ARRAY_INIT_55_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_54_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(54, ##__VA_ARGS__)
+#define __ARRAY_INIT_56_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_55_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(55, ##__VA_ARGS__)
+#define __ARRAY_INIT_57_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_56_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(56, ##__VA_ARGS__)
+#define __ARRAY_INIT_58_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_57_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(57, ##__VA_ARGS__)
+#define __ARRAY_INIT_59_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_58_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(58, ##__VA_ARGS__)
+#define __ARRAY_INIT_60_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_59_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(59, ##__VA_ARGS__)
+#define __ARRAY_INIT_61_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_60_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(60, ##__VA_ARGS__)
+#define __ARRAY_INIT_62_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_61_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(61, ##__VA_ARGS__)
+#define __ARRAY_INIT_63_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_62_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(62, ##__VA_ARGS__)
+#define __ARRAY_INIT_64_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_63_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(63, ##__VA_ARGS__)
+#define __ARRAY_INIT_65_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_64_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(64, ##__VA_ARGS__)
+#define __ARRAY_INIT_66_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_65_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(65, ##__VA_ARGS__)
+#define __ARRAY_INIT_67_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_66_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(66, ##__VA_ARGS__)
+#define __ARRAY_INIT_68_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_67_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(67, ##__VA_ARGS__)
+#define __ARRAY_INIT_69_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_68_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(68, ##__VA_ARGS__)
+#define __ARRAY_INIT_70_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_69_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(69, ##__VA_ARGS__)
+#define __ARRAY_INIT_71_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_70_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(70, ##__VA_ARGS__)
+#define __ARRAY_INIT_72_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_71_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(71, ##__VA_ARGS__)
+#define __ARRAY_INIT_73_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_72_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(72, ##__VA_ARGS__)
+#define __ARRAY_INIT_74_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_73_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(73, ##__VA_ARGS__)
+#define __ARRAY_INIT_75_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_74_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(74, ##__VA_ARGS__)
+#define __ARRAY_INIT_76_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_75_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(75, ##__VA_ARGS__)
+#define __ARRAY_INIT_77_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_76_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(76, ##__VA_ARGS__)
+#define __ARRAY_INIT_78_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_77_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(77, ##__VA_ARGS__)
+#define __ARRAY_INIT_79_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_78_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(78, ##__VA_ARGS__)
+#define __ARRAY_INIT_80_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_79_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(79, ##__VA_ARGS__)
+#define __ARRAY_INIT_81_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_80_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(80, ##__VA_ARGS__)
+#define __ARRAY_INIT_82_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_81_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(81, ##__VA_ARGS__)
+#define __ARRAY_INIT_83_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_82_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(82, ##__VA_ARGS__)
+#define __ARRAY_INIT_84_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_83_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(83, ##__VA_ARGS__)
+#define __ARRAY_INIT_85_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_84_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(84, ##__VA_ARGS__)
+#define __ARRAY_INIT_86_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_85_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(85, ##__VA_ARGS__)
+#define __ARRAY_INIT_87_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_86_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(86, ##__VA_ARGS__)
+#define __ARRAY_INIT_88_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_87_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(87, ##__VA_ARGS__)
+#define __ARRAY_INIT_89_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_88_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(88, ##__VA_ARGS__)
+#define __ARRAY_INIT_90_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_89_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(89, ##__VA_ARGS__)
+#define __ARRAY_INIT_91_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_90_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(90, ##__VA_ARGS__)
+#define __ARRAY_INIT_92_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_91_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(91, ##__VA_ARGS__)
+#define __ARRAY_INIT_93_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_92_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(92, ##__VA_ARGS__)
+#define __ARRAY_INIT_94_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_93_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(93, ##__VA_ARGS__)
+#define __ARRAY_INIT_95_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_94_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(94, ##__VA_ARGS__)
+#define __ARRAY_INIT_96_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_95_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(95, ##__VA_ARGS__)
+#define __ARRAY_INIT_97_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_96_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(96, ##__VA_ARGS__)
+#define __ARRAY_INIT_98_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_97_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(97, ##__VA_ARGS__)
+#define __ARRAY_INIT_99_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_98_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(98, ##__VA_ARGS__)
+#define __ARRAY_INIT_100_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_99_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(99, ##__VA_ARGS__)
+#define __ARRAY_INIT_101_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_100_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(100, ##__VA_ARGS__)
+#define __ARRAY_INIT_102_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_101_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(101, ##__VA_ARGS__)
+#define __ARRAY_INIT_103_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_102_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(102, ##__VA_ARGS__)
+#define __ARRAY_INIT_104_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_103_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(103, ##__VA_ARGS__)
+#define __ARRAY_INIT_105_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_104_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(104, ##__VA_ARGS__)
+#define __ARRAY_INIT_106_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_105_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(105, ##__VA_ARGS__)
+#define __ARRAY_INIT_107_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_106_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(106, ##__VA_ARGS__)
+#define __ARRAY_INIT_108_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_107_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(107, ##__VA_ARGS__)
+#define __ARRAY_INIT_109_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_108_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(108, ##__VA_ARGS__)
+#define __ARRAY_INIT_110_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_109_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(109, ##__VA_ARGS__)
+#define __ARRAY_INIT_111_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_110_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(110, ##__VA_ARGS__)
+#define __ARRAY_INIT_112_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_111_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(111, ##__VA_ARGS__)
+#define __ARRAY_INIT_113_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_112_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(112, ##__VA_ARGS__)
+#define __ARRAY_INIT_114_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_113_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(113, ##__VA_ARGS__)
+#define __ARRAY_INIT_115_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_114_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(114, ##__VA_ARGS__)
+#define __ARRAY_INIT_116_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_115_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(115, ##__VA_ARGS__)
+#define __ARRAY_INIT_117_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_116_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(116, ##__VA_ARGS__)
+#define __ARRAY_INIT_118_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_117_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(117, ##__VA_ARGS__)
+#define __ARRAY_INIT_119_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_118_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(118, ##__VA_ARGS__)
+#define __ARRAY_INIT_120_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_119_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(119, ##__VA_ARGS__)
+#define __ARRAY_INIT_121_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_120_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(120, ##__VA_ARGS__)
+#define __ARRAY_INIT_122_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_121_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(121, ##__VA_ARGS__)
+#define __ARRAY_INIT_123_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_122_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(122, ##__VA_ARGS__)
+#define __ARRAY_INIT_124_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_123_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(123, ##__VA_ARGS__)
+#define __ARRAY_INIT_125_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_124_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(124, ##__VA_ARGS__)
+#define __ARRAY_INIT_126_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_125_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(125, ##__VA_ARGS__)
+#define __ARRAY_INIT_127_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_126_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(126, ##__VA_ARGS__)
+#define __ARRAY_INIT_128_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_127_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(127, ##__VA_ARGS__)
+#define __ARRAY_INIT_129_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_128_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(128, ##__VA_ARGS__)
+#define __ARRAY_INIT_130_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_129_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(129, ##__VA_ARGS__)
+#define __ARRAY_INIT_131_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_130_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(130, ##__VA_ARGS__)
+#define __ARRAY_INIT_132_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_131_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(131, ##__VA_ARGS__)
+#define __ARRAY_INIT_133_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_132_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(132, ##__VA_ARGS__)
+#define __ARRAY_INIT_134_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_133_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(133, ##__VA_ARGS__)
+#define __ARRAY_INIT_135_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_134_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(134, ##__VA_ARGS__)
+#define __ARRAY_INIT_136_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_135_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(135, ##__VA_ARGS__)
+#define __ARRAY_INIT_137_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_136_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(136, ##__VA_ARGS__)
+#define __ARRAY_INIT_138_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_137_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(137, ##__VA_ARGS__)
+#define __ARRAY_INIT_139_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_138_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(138, ##__VA_ARGS__)
+#define __ARRAY_INIT_140_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_139_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(139, ##__VA_ARGS__)
+#define __ARRAY_INIT_141_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_140_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(140, ##__VA_ARGS__)
+#define __ARRAY_INIT_142_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_141_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(141, ##__VA_ARGS__)
+#define __ARRAY_INIT_143_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_142_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(142, ##__VA_ARGS__)
+#define __ARRAY_INIT_144_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_143_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(143, ##__VA_ARGS__)
+#define __ARRAY_INIT_145_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_144_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(144, ##__VA_ARGS__)
+#define __ARRAY_INIT_146_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_145_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(145, ##__VA_ARGS__)
+#define __ARRAY_INIT_147_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_146_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(146, ##__VA_ARGS__)
+#define __ARRAY_INIT_148_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_147_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(147, ##__VA_ARGS__)
+#define __ARRAY_INIT_149_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_148_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(148, ##__VA_ARGS__)
+#define __ARRAY_INIT_150_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_149_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(149, ##__VA_ARGS__)
+#define __ARRAY_INIT_151_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_150_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(150, ##__VA_ARGS__)
+#define __ARRAY_INIT_152_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_151_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(151, ##__VA_ARGS__)
+#define __ARRAY_INIT_153_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_152_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(152, ##__VA_ARGS__)
+#define __ARRAY_INIT_154_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_153_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(153, ##__VA_ARGS__)
+#define __ARRAY_INIT_155_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_154_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(154, ##__VA_ARGS__)
+#define __ARRAY_INIT_156_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_155_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(155, ##__VA_ARGS__)
+#define __ARRAY_INIT_157_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_156_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(156, ##__VA_ARGS__)
+#define __ARRAY_INIT_158_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_157_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(157, ##__VA_ARGS__)
+#define __ARRAY_INIT_159_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_158_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(158, ##__VA_ARGS__)
+#define __ARRAY_INIT_160_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_159_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(159, ##__VA_ARGS__)
+#define __ARRAY_INIT_161_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_160_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(160, ##__VA_ARGS__)
+#define __ARRAY_INIT_162_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_161_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(161, ##__VA_ARGS__)
+#define __ARRAY_INIT_163_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_162_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(162, ##__VA_ARGS__)
+#define __ARRAY_INIT_164_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_163_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(163, ##__VA_ARGS__)
+#define __ARRAY_INIT_165_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_164_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(164, ##__VA_ARGS__)
+#define __ARRAY_INIT_166_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_165_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(165, ##__VA_ARGS__)
+#define __ARRAY_INIT_167_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_166_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(166, ##__VA_ARGS__)
+#define __ARRAY_INIT_168_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_167_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(167, ##__VA_ARGS__)
+#define __ARRAY_INIT_169_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_168_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(168, ##__VA_ARGS__)
+#define __ARRAY_INIT_170_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_169_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(169, ##__VA_ARGS__)
+#define __ARRAY_INIT_171_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_170_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(170, ##__VA_ARGS__)
+#define __ARRAY_INIT_172_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_171_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(171, ##__VA_ARGS__)
+#define __ARRAY_INIT_173_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_172_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(172, ##__VA_ARGS__)
+#define __ARRAY_INIT_174_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_173_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(173, ##__VA_ARGS__)
+#define __ARRAY_INIT_175_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_174_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(174, ##__VA_ARGS__)
+#define __ARRAY_INIT_176_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_175_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(175, ##__VA_ARGS__)
+#define __ARRAY_INIT_177_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_176_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(176, ##__VA_ARGS__)
+#define __ARRAY_INIT_178_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_177_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(177, ##__VA_ARGS__)
+#define __ARRAY_INIT_179_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_178_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(178, ##__VA_ARGS__)
+#define __ARRAY_INIT_180_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_179_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(179, ##__VA_ARGS__)
+#define __ARRAY_INIT_181_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_180_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(180, ##__VA_ARGS__)
+#define __ARRAY_INIT_182_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_181_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(181, ##__VA_ARGS__)
+#define __ARRAY_INIT_183_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_182_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(182, ##__VA_ARGS__)
+#define __ARRAY_INIT_184_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_183_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(183, ##__VA_ARGS__)
+#define __ARRAY_INIT_185_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_184_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(184, ##__VA_ARGS__)
+#define __ARRAY_INIT_186_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_185_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(185, ##__VA_ARGS__)
+#define __ARRAY_INIT_187_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_186_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(186, ##__VA_ARGS__)
+#define __ARRAY_INIT_188_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_187_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(187, ##__VA_ARGS__)
+#define __ARRAY_INIT_189_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_188_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(188, ##__VA_ARGS__)
+#define __ARRAY_INIT_190_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_189_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(189, ##__VA_ARGS__)
+#define __ARRAY_INIT_191_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_190_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(190, ##__VA_ARGS__)
+#define __ARRAY_INIT_192_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_191_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(191, ##__VA_ARGS__)
+#define __ARRAY_INIT_193_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_192_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(192, ##__VA_ARGS__)
+#define __ARRAY_INIT_194_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_193_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(193, ##__VA_ARGS__)
+#define __ARRAY_INIT_195_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_194_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(194, ##__VA_ARGS__)
+#define __ARRAY_INIT_196_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_195_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(195, ##__VA_ARGS__)
+#define __ARRAY_INIT_197_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_196_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(196, ##__VA_ARGS__)
+#define __ARRAY_INIT_198_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_197_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(197, ##__VA_ARGS__)
+#define __ARRAY_INIT_199_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_198_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(198, ##__VA_ARGS__)
+#define __ARRAY_INIT_200_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_199_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(199, ##__VA_ARGS__)
+#define __ARRAY_INIT_201_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_200_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(200, ##__VA_ARGS__)
+#define __ARRAY_INIT_202_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_201_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(201, ##__VA_ARGS__)
+#define __ARRAY_INIT_203_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_202_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(202, ##__VA_ARGS__)
+#define __ARRAY_INIT_204_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_203_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(203, ##__VA_ARGS__)
+#define __ARRAY_INIT_205_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_204_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(204, ##__VA_ARGS__)
+#define __ARRAY_INIT_206_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_205_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(205, ##__VA_ARGS__)
+#define __ARRAY_INIT_207_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_206_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(206, ##__VA_ARGS__)
+#define __ARRAY_INIT_208_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_207_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(207, ##__VA_ARGS__)
+#define __ARRAY_INIT_209_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_208_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(208, ##__VA_ARGS__)
+#define __ARRAY_INIT_210_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_209_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(209, ##__VA_ARGS__)
+#define __ARRAY_INIT_211_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_210_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(210, ##__VA_ARGS__)
+#define __ARRAY_INIT_212_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_211_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(211, ##__VA_ARGS__)
+#define __ARRAY_INIT_213_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_212_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(212, ##__VA_ARGS__)
+#define __ARRAY_INIT_214_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_213_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(213, ##__VA_ARGS__)
+#define __ARRAY_INIT_215_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_214_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(214, ##__VA_ARGS__)
+#define __ARRAY_INIT_216_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_215_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(215, ##__VA_ARGS__)
+#define __ARRAY_INIT_217_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_216_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(216, ##__VA_ARGS__)
+#define __ARRAY_INIT_218_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_217_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(217, ##__VA_ARGS__)
+#define __ARRAY_INIT_219_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_218_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(218, ##__VA_ARGS__)
+#define __ARRAY_INIT_220_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_219_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(219, ##__VA_ARGS__)
+#define __ARRAY_INIT_221_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_220_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(220, ##__VA_ARGS__)
+#define __ARRAY_INIT_222_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_221_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(221, ##__VA_ARGS__)
+#define __ARRAY_INIT_223_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_222_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(222, ##__VA_ARGS__)
+#define __ARRAY_INIT_224_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_223_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(223, ##__VA_ARGS__)
+#define __ARRAY_INIT_225_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_224_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(224, ##__VA_ARGS__)
+#define __ARRAY_INIT_226_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_225_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(225, ##__VA_ARGS__)
+#define __ARRAY_INIT_227_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_226_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(226, ##__VA_ARGS__)
+#define __ARRAY_INIT_228_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_227_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(227, ##__VA_ARGS__)
+#define __ARRAY_INIT_229_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_228_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(228, ##__VA_ARGS__)
+#define __ARRAY_INIT_230_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_229_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(229, ##__VA_ARGS__)
+#define __ARRAY_INIT_231_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_230_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(230, ##__VA_ARGS__)
+#define __ARRAY_INIT_232_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_231_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(231, ##__VA_ARGS__)
+#define __ARRAY_INIT_233_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_232_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(232, ##__VA_ARGS__)
+#define __ARRAY_INIT_234_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_233_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(233, ##__VA_ARGS__)
+#define __ARRAY_INIT_235_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_234_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(234, ##__VA_ARGS__)
+#define __ARRAY_INIT_236_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_235_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(235, ##__VA_ARGS__)
+#define __ARRAY_INIT_237_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_236_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(236, ##__VA_ARGS__)
+#define __ARRAY_INIT_238_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_237_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(237, ##__VA_ARGS__)
+#define __ARRAY_INIT_239_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_238_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(238, ##__VA_ARGS__)
+#define __ARRAY_INIT_240_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_239_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(239, ##__VA_ARGS__)
+#define __ARRAY_INIT_241_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_240_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(240, ##__VA_ARGS__)
+#define __ARRAY_INIT_242_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_241_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(241, ##__VA_ARGS__)
+#define __ARRAY_INIT_243_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_242_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(242, ##__VA_ARGS__)
+#define __ARRAY_INIT_244_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_243_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(243, ##__VA_ARGS__)
+#define __ARRAY_INIT_245_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_244_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(244, ##__VA_ARGS__)
+#define __ARRAY_INIT_246_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_245_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(245, ##__VA_ARGS__)
+#define __ARRAY_INIT_247_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_246_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(246, ##__VA_ARGS__)
+#define __ARRAY_INIT_248_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_247_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(247, ##__VA_ARGS__)
+#define __ARRAY_INIT_249_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_248_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(248, ##__VA_ARGS__)
+#define __ARRAY_INIT_250_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_249_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(249, ##__VA_ARGS__)
+#define __ARRAY_INIT_251_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_250_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(250, ##__VA_ARGS__)
+#define __ARRAY_INIT_252_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_251_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(251, ##__VA_ARGS__)
+#define __ARRAY_INIT_253_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_252_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(252, ##__VA_ARGS__)
+#define __ARRAY_INIT_254_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_253_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(253, ##__VA_ARGS__)
+#define __ARRAY_INIT_255_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_254_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(254, ##__VA_ARGS__)
+#define __ARRAY_INIT_256_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_255_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(255, ##__VA_ARGS__)
+#define __ARRAY_INIT_257_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_256_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(256, ##__VA_ARGS__)
+#define __ARRAY_INIT_258_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_257_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(257, ##__VA_ARGS__)
+#define __ARRAY_INIT_259_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_258_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(258, ##__VA_ARGS__)
+#define __ARRAY_INIT_260_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_259_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(259, ##__VA_ARGS__)
+#define __ARRAY_INIT_261_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_260_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(260, ##__VA_ARGS__)
+#define __ARRAY_INIT_262_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_261_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(261, ##__VA_ARGS__)
+#define __ARRAY_INIT_263_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_262_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(262, ##__VA_ARGS__)
+#define __ARRAY_INIT_264_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_263_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(263, ##__VA_ARGS__)
+#define __ARRAY_INIT_265_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_264_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(264, ##__VA_ARGS__)
+#define __ARRAY_INIT_266_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_265_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(265, ##__VA_ARGS__)
+#define __ARRAY_INIT_267_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_266_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(266, ##__VA_ARGS__)
+#define __ARRAY_INIT_268_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_267_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(267, ##__VA_ARGS__)
+#define __ARRAY_INIT_269_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_268_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(268, ##__VA_ARGS__)
+#define __ARRAY_INIT_270_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_269_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(269, ##__VA_ARGS__)
+#define __ARRAY_INIT_271_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_270_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(270, ##__VA_ARGS__)
+#define __ARRAY_INIT_272_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_271_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(271, ##__VA_ARGS__)
+#define __ARRAY_INIT_273_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_272_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(272, ##__VA_ARGS__)
+#define __ARRAY_INIT_274_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_273_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(273, ##__VA_ARGS__)
+#define __ARRAY_INIT_275_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_274_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(274, ##__VA_ARGS__)
+#define __ARRAY_INIT_276_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_275_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(275, ##__VA_ARGS__)
+#define __ARRAY_INIT_277_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_276_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(276, ##__VA_ARGS__)
+#define __ARRAY_INIT_278_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_277_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(277, ##__VA_ARGS__)
+#define __ARRAY_INIT_279_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_278_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(278, ##__VA_ARGS__)
+#define __ARRAY_INIT_280_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_279_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(279, ##__VA_ARGS__)
+#define __ARRAY_INIT_281_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_280_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(280, ##__VA_ARGS__)
+#define __ARRAY_INIT_282_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_281_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(281, ##__VA_ARGS__)
+#define __ARRAY_INIT_283_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_282_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(282, ##__VA_ARGS__)
+#define __ARRAY_INIT_284_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_283_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(283, ##__VA_ARGS__)
+#define __ARRAY_INIT_285_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_284_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(284, ##__VA_ARGS__)
+#define __ARRAY_INIT_286_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_285_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(285, ##__VA_ARGS__)
+#define __ARRAY_INIT_287_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_286_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(286, ##__VA_ARGS__)
+#define __ARRAY_INIT_288_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_287_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(287, ##__VA_ARGS__)
+#define __ARRAY_INIT_289_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_288_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(288, ##__VA_ARGS__)
+#define __ARRAY_INIT_290_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_289_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(289, ##__VA_ARGS__)
+#define __ARRAY_INIT_291_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_290_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(290, ##__VA_ARGS__)
+#define __ARRAY_INIT_292_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_291_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(291, ##__VA_ARGS__)
+#define __ARRAY_INIT_293_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_292_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(292, ##__VA_ARGS__)
+#define __ARRAY_INIT_294_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_293_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(293, ##__VA_ARGS__)
+#define __ARRAY_INIT_295_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_294_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(294, ##__VA_ARGS__)
+#define __ARRAY_INIT_296_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_295_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(295, ##__VA_ARGS__)
+#define __ARRAY_INIT_297_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_296_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(296, ##__VA_ARGS__)
+#define __ARRAY_INIT_298_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_297_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(297, ##__VA_ARGS__)
+#define __ARRAY_INIT_299_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_298_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(298, ##__VA_ARGS__)
+#define __ARRAY_INIT_300_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_299_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(299, ##__VA_ARGS__)
+#define __ARRAY_INIT_301_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_300_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(300, ##__VA_ARGS__)
+#define __ARRAY_INIT_302_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_301_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(301, ##__VA_ARGS__)
+#define __ARRAY_INIT_303_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_302_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(302, ##__VA_ARGS__)
+#define __ARRAY_INIT_304_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_303_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(303, ##__VA_ARGS__)
+#define __ARRAY_INIT_305_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_304_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(304, ##__VA_ARGS__)
+#define __ARRAY_INIT_306_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_305_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(305, ##__VA_ARGS__)
+#define __ARRAY_INIT_307_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_306_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(306, ##__VA_ARGS__)
+#define __ARRAY_INIT_308_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_307_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(307, ##__VA_ARGS__)
+#define __ARRAY_INIT_309_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_308_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(308, ##__VA_ARGS__)
+#define __ARRAY_INIT_310_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_309_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(309, ##__VA_ARGS__)
+#define __ARRAY_INIT_311_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_310_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(310, ##__VA_ARGS__)
+#define __ARRAY_INIT_312_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_311_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(311, ##__VA_ARGS__)
+#define __ARRAY_INIT_313_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_312_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(312, ##__VA_ARGS__)
+#define __ARRAY_INIT_314_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_313_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(313, ##__VA_ARGS__)
+#define __ARRAY_INIT_315_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_314_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(314, ##__VA_ARGS__)
+#define __ARRAY_INIT_316_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_315_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(315, ##__VA_ARGS__)
+#define __ARRAY_INIT_317_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_316_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(316, ##__VA_ARGS__)
+#define __ARRAY_INIT_318_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_317_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(317, ##__VA_ARGS__)
+#define __ARRAY_INIT_319_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_318_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(318, ##__VA_ARGS__)
+#define __ARRAY_INIT_320_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_319_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(319, ##__VA_ARGS__)
+#define __ARRAY_INIT_321_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_320_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(320, ##__VA_ARGS__)
+#define __ARRAY_INIT_322_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_321_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(321, ##__VA_ARGS__)
+#define __ARRAY_INIT_323_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_322_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(322, ##__VA_ARGS__)
+#define __ARRAY_INIT_324_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_323_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(323, ##__VA_ARGS__)
+#define __ARRAY_INIT_325_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_324_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(324, ##__VA_ARGS__)
+#define __ARRAY_INIT_326_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_325_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(325, ##__VA_ARGS__)
+#define __ARRAY_INIT_327_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_326_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(326, ##__VA_ARGS__)
+#define __ARRAY_INIT_328_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_327_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(327, ##__VA_ARGS__)
+#define __ARRAY_INIT_329_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_328_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(328, ##__VA_ARGS__)
+#define __ARRAY_INIT_330_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_329_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(329, ##__VA_ARGS__)
+#define __ARRAY_INIT_331_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_330_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(330, ##__VA_ARGS__)
+#define __ARRAY_INIT_332_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_331_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(331, ##__VA_ARGS__)
+#define __ARRAY_INIT_333_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_332_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(332, ##__VA_ARGS__)
+#define __ARRAY_INIT_334_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_333_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(333, ##__VA_ARGS__)
+#define __ARRAY_INIT_335_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_334_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(334, ##__VA_ARGS__)
+#define __ARRAY_INIT_336_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_335_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(335, ##__VA_ARGS__)
+#define __ARRAY_INIT_337_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_336_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(336, ##__VA_ARGS__)
+#define __ARRAY_INIT_338_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_337_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(337, ##__VA_ARGS__)
+#define __ARRAY_INIT_339_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_338_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(338, ##__VA_ARGS__)
+#define __ARRAY_INIT_340_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_339_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(339, ##__VA_ARGS__)
+#define __ARRAY_INIT_341_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_340_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(340, ##__VA_ARGS__)
+#define __ARRAY_INIT_342_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_341_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(341, ##__VA_ARGS__)
+#define __ARRAY_INIT_343_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_342_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(342, ##__VA_ARGS__)
+#define __ARRAY_INIT_344_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_343_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(343, ##__VA_ARGS__)
+#define __ARRAY_INIT_345_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_344_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(344, ##__VA_ARGS__)
+#define __ARRAY_INIT_346_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_345_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(345, ##__VA_ARGS__)
+#define __ARRAY_INIT_347_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_346_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(346, ##__VA_ARGS__)
+#define __ARRAY_INIT_348_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_347_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(347, ##__VA_ARGS__)
+#define __ARRAY_INIT_349_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_348_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(348, ##__VA_ARGS__)
+#define __ARRAY_INIT_350_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_349_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(349, ##__VA_ARGS__)
+#define __ARRAY_INIT_351_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_350_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(350, ##__VA_ARGS__)
+#define __ARRAY_INIT_352_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_351_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(351, ##__VA_ARGS__)
+#define __ARRAY_INIT_353_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_352_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(352, ##__VA_ARGS__)
+#define __ARRAY_INIT_354_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_353_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(353, ##__VA_ARGS__)
+#define __ARRAY_INIT_355_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_354_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(354, ##__VA_ARGS__)
+#define __ARRAY_INIT_356_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_355_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(355, ##__VA_ARGS__)
+#define __ARRAY_INIT_357_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_356_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(356, ##__VA_ARGS__)
+#define __ARRAY_INIT_358_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_357_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(357, ##__VA_ARGS__)
+#define __ARRAY_INIT_359_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_358_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(358, ##__VA_ARGS__)
+#define __ARRAY_INIT_360_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_359_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(359, ##__VA_ARGS__)
+#define __ARRAY_INIT_361_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_360_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(360, ##__VA_ARGS__)
+#define __ARRAY_INIT_362_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_361_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(361, ##__VA_ARGS__)
+#define __ARRAY_INIT_363_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_362_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(362, ##__VA_ARGS__)
+#define __ARRAY_INIT_364_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_363_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(363, ##__VA_ARGS__)
+#define __ARRAY_INIT_365_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_364_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(364, ##__VA_ARGS__)
+#define __ARRAY_INIT_366_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_365_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(365, ##__VA_ARGS__)
+#define __ARRAY_INIT_367_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_366_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(366, ##__VA_ARGS__)
+#define __ARRAY_INIT_368_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_367_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(367, ##__VA_ARGS__)
+#define __ARRAY_INIT_369_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_368_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(368, ##__VA_ARGS__)
+#define __ARRAY_INIT_370_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_369_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(369, ##__VA_ARGS__)
+#define __ARRAY_INIT_371_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_370_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(370, ##__VA_ARGS__)
+#define __ARRAY_INIT_372_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_371_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(371, ##__VA_ARGS__)
+#define __ARRAY_INIT_373_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_372_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(372, ##__VA_ARGS__)
+#define __ARRAY_INIT_374_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_373_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(373, ##__VA_ARGS__)
+#define __ARRAY_INIT_375_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_374_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(374, ##__VA_ARGS__)
+#define __ARRAY_INIT_376_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_375_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(375, ##__VA_ARGS__)
+#define __ARRAY_INIT_377_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_376_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(376, ##__VA_ARGS__)
+#define __ARRAY_INIT_378_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_377_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(377, ##__VA_ARGS__)
+#define __ARRAY_INIT_379_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_378_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(378, ##__VA_ARGS__)
+#define __ARRAY_INIT_380_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_379_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(379, ##__VA_ARGS__)
+#define __ARRAY_INIT_381_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_380_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(380, ##__VA_ARGS__)
+#define __ARRAY_INIT_382_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_381_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(381, ##__VA_ARGS__)
+#define __ARRAY_INIT_383_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_382_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(382, ##__VA_ARGS__)
+#define __ARRAY_INIT_384_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_383_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(383, ##__VA_ARGS__)
+#define __ARRAY_INIT_385_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_384_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(384, ##__VA_ARGS__)
+#define __ARRAY_INIT_386_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_385_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(385, ##__VA_ARGS__)
+#define __ARRAY_INIT_387_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_386_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(386, ##__VA_ARGS__)
+#define __ARRAY_INIT_388_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_387_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(387, ##__VA_ARGS__)
+#define __ARRAY_INIT_389_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_388_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(388, ##__VA_ARGS__)
+#define __ARRAY_INIT_390_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_389_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(389, ##__VA_ARGS__)
+#define __ARRAY_INIT_391_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_390_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(390, ##__VA_ARGS__)
+#define __ARRAY_INIT_392_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_391_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(391, ##__VA_ARGS__)
+#define __ARRAY_INIT_393_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_392_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(392, ##__VA_ARGS__)
+#define __ARRAY_INIT_394_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_393_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(393, ##__VA_ARGS__)
+#define __ARRAY_INIT_395_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_394_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(394, ##__VA_ARGS__)
+#define __ARRAY_INIT_396_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_395_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(395, ##__VA_ARGS__)
+#define __ARRAY_INIT_397_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_396_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(396, ##__VA_ARGS__)
+#define __ARRAY_INIT_398_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_397_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(397, ##__VA_ARGS__)
+#define __ARRAY_INIT_399_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_398_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(398, ##__VA_ARGS__)
+#define __ARRAY_INIT_400_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_399_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(399, ##__VA_ARGS__)
+#define __ARRAY_INIT_401_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_400_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(400, ##__VA_ARGS__)
+#define __ARRAY_INIT_402_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_401_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(401, ##__VA_ARGS__)
+#define __ARRAY_INIT_403_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_402_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(402, ##__VA_ARGS__)
+#define __ARRAY_INIT_404_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_403_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(403, ##__VA_ARGS__)
+#define __ARRAY_INIT_405_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_404_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(404, ##__VA_ARGS__)
+#define __ARRAY_INIT_406_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_405_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(405, ##__VA_ARGS__)
+#define __ARRAY_INIT_407_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_406_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(406, ##__VA_ARGS__)
+#define __ARRAY_INIT_408_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_407_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(407, ##__VA_ARGS__)
+#define __ARRAY_INIT_409_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_408_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(408, ##__VA_ARGS__)
+#define __ARRAY_INIT_410_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_409_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(409, ##__VA_ARGS__)
+#define __ARRAY_INIT_411_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_410_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(410, ##__VA_ARGS__)
+#define __ARRAY_INIT_412_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_411_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(411, ##__VA_ARGS__)
+#define __ARRAY_INIT_413_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_412_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(412, ##__VA_ARGS__)
+#define __ARRAY_INIT_414_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_413_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(413, ##__VA_ARGS__)
+#define __ARRAY_INIT_415_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_414_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(414, ##__VA_ARGS__)
+#define __ARRAY_INIT_416_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_415_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(415, ##__VA_ARGS__)
+#define __ARRAY_INIT_417_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_416_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(416, ##__VA_ARGS__)
+#define __ARRAY_INIT_418_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_417_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(417, ##__VA_ARGS__)
+#define __ARRAY_INIT_419_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_418_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(418, ##__VA_ARGS__)
+#define __ARRAY_INIT_420_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_419_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(419, ##__VA_ARGS__)
+#define __ARRAY_INIT_421_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_420_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(420, ##__VA_ARGS__)
+#define __ARRAY_INIT_422_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_421_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(421, ##__VA_ARGS__)
+#define __ARRAY_INIT_423_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_422_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(422, ##__VA_ARGS__)
+#define __ARRAY_INIT_424_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_423_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(423, ##__VA_ARGS__)
+#define __ARRAY_INIT_425_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_424_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(424, ##__VA_ARGS__)
+#define __ARRAY_INIT_426_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_425_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(425, ##__VA_ARGS__)
+#define __ARRAY_INIT_427_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_426_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(426, ##__VA_ARGS__)
+#define __ARRAY_INIT_428_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_427_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(427, ##__VA_ARGS__)
+#define __ARRAY_INIT_429_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_428_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(428, ##__VA_ARGS__)
+#define __ARRAY_INIT_430_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_429_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(429, ##__VA_ARGS__)
+#define __ARRAY_INIT_431_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_430_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(430, ##__VA_ARGS__)
+#define __ARRAY_INIT_432_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_431_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(431, ##__VA_ARGS__)
+#define __ARRAY_INIT_433_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_432_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(432, ##__VA_ARGS__)
+#define __ARRAY_INIT_434_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_433_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(433, ##__VA_ARGS__)
+#define __ARRAY_INIT_435_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_434_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(434, ##__VA_ARGS__)
+#define __ARRAY_INIT_436_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_435_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(435, ##__VA_ARGS__)
+#define __ARRAY_INIT_437_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_436_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(436, ##__VA_ARGS__)
+#define __ARRAY_INIT_438_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_437_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(437, ##__VA_ARGS__)
+#define __ARRAY_INIT_439_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_438_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(438, ##__VA_ARGS__)
+#define __ARRAY_INIT_440_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_439_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(439, ##__VA_ARGS__)
+#define __ARRAY_INIT_441_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_440_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(440, ##__VA_ARGS__)
+#define __ARRAY_INIT_442_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_441_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(441, ##__VA_ARGS__)
+#define __ARRAY_INIT_443_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_442_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(442, ##__VA_ARGS__)
+#define __ARRAY_INIT_444_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_443_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(443, ##__VA_ARGS__)
+#define __ARRAY_INIT_445_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_444_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(444, ##__VA_ARGS__)
+#define __ARRAY_INIT_446_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_445_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(445, ##__VA_ARGS__)
+#define __ARRAY_INIT_447_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_446_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(446, ##__VA_ARGS__)
+#define __ARRAY_INIT_448_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_447_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(447, ##__VA_ARGS__)
+#define __ARRAY_INIT_449_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_448_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(448, ##__VA_ARGS__)
+#define __ARRAY_INIT_450_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_449_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(449, ##__VA_ARGS__)
+#define __ARRAY_INIT_451_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_450_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(450, ##__VA_ARGS__)
+#define __ARRAY_INIT_452_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_451_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(451, ##__VA_ARGS__)
+#define __ARRAY_INIT_453_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_452_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(452, ##__VA_ARGS__)
+#define __ARRAY_INIT_454_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_453_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(453, ##__VA_ARGS__)
+#define __ARRAY_INIT_455_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_454_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(454, ##__VA_ARGS__)
+#define __ARRAY_INIT_456_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_455_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(455, ##__VA_ARGS__)
+#define __ARRAY_INIT_457_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_456_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(456, ##__VA_ARGS__)
+#define __ARRAY_INIT_458_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_457_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(457, ##__VA_ARGS__)
+#define __ARRAY_INIT_459_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_458_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(458, ##__VA_ARGS__)
+#define __ARRAY_INIT_460_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_459_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(459, ##__VA_ARGS__)
+#define __ARRAY_INIT_461_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_460_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(460, ##__VA_ARGS__)
+#define __ARRAY_INIT_462_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_461_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(461, ##__VA_ARGS__)
+#define __ARRAY_INIT_463_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_462_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(462, ##__VA_ARGS__)
+#define __ARRAY_INIT_464_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_463_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(463, ##__VA_ARGS__)
+#define __ARRAY_INIT_465_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_464_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(464, ##__VA_ARGS__)
+#define __ARRAY_INIT_466_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_465_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(465, ##__VA_ARGS__)
+#define __ARRAY_INIT_467_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_466_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(466, ##__VA_ARGS__)
+#define __ARRAY_INIT_468_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_467_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(467, ##__VA_ARGS__)
+#define __ARRAY_INIT_469_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_468_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(468, ##__VA_ARGS__)
+#define __ARRAY_INIT_470_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_469_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(469, ##__VA_ARGS__)
+#define __ARRAY_INIT_471_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_470_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(470, ##__VA_ARGS__)
+#define __ARRAY_INIT_472_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_471_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(471, ##__VA_ARGS__)
+#define __ARRAY_INIT_473_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_472_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(472, ##__VA_ARGS__)
+#define __ARRAY_INIT_474_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_473_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(473, ##__VA_ARGS__)
+#define __ARRAY_INIT_475_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_474_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(474, ##__VA_ARGS__)
+#define __ARRAY_INIT_476_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_475_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(475, ##__VA_ARGS__)
+#define __ARRAY_INIT_477_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_476_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(476, ##__VA_ARGS__)
+#define __ARRAY_INIT_478_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_477_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(477, ##__VA_ARGS__)
+#define __ARRAY_INIT_479_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_478_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(478, ##__VA_ARGS__)
+#define __ARRAY_INIT_480_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_479_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(479, ##__VA_ARGS__)
+#define __ARRAY_INIT_481_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_480_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(480, ##__VA_ARGS__)
+#define __ARRAY_INIT_482_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_481_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(481, ##__VA_ARGS__)
+#define __ARRAY_INIT_483_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_482_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(482, ##__VA_ARGS__)
+#define __ARRAY_INIT_484_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_483_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(483, ##__VA_ARGS__)
+#define __ARRAY_INIT_485_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_484_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(484, ##__VA_ARGS__)
+#define __ARRAY_INIT_486_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_485_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(485, ##__VA_ARGS__)
+#define __ARRAY_INIT_487_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_486_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(486, ##__VA_ARGS__)
+#define __ARRAY_INIT_488_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_487_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(487, ##__VA_ARGS__)
+#define __ARRAY_INIT_489_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_488_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(488, ##__VA_ARGS__)
+#define __ARRAY_INIT_490_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_489_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(489, ##__VA_ARGS__)
+#define __ARRAY_INIT_491_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_490_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(490, ##__VA_ARGS__)
+#define __ARRAY_INIT_492_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_491_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(491, ##__VA_ARGS__)
+#define __ARRAY_INIT_493_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_492_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(492, ##__VA_ARGS__)
+#define __ARRAY_INIT_494_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_493_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(493, ##__VA_ARGS__)
+#define __ARRAY_INIT_495_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_494_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(494, ##__VA_ARGS__)
+#define __ARRAY_INIT_496_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_495_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(495, ##__VA_ARGS__)
+#define __ARRAY_INIT_497_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_496_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(496, ##__VA_ARGS__)
+#define __ARRAY_INIT_498_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_497_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(497, ##__VA_ARGS__)
+#define __ARRAY_INIT_499_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_498_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(498, ##__VA_ARGS__)
+#define __ARRAY_INIT_500_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_499_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(499, ##__VA_ARGS__)
+#define __ARRAY_INIT_501_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_500_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(500, ##__VA_ARGS__)
+#define __ARRAY_INIT_502_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_501_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(501, ##__VA_ARGS__)
+#define __ARRAY_INIT_503_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_502_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(502, ##__VA_ARGS__)
+#define __ARRAY_INIT_504_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_503_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(503, ##__VA_ARGS__)
+#define __ARRAY_INIT_505_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_504_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(504, ##__VA_ARGS__)
+#define __ARRAY_INIT_506_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_505_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(505, ##__VA_ARGS__)
+#define __ARRAY_INIT_507_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_506_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(506, ##__VA_ARGS__)
+#define __ARRAY_INIT_508_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_507_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(507, ##__VA_ARGS__)
+#define __ARRAY_INIT_509_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_508_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(508, ##__VA_ARGS__)
+#define __ARRAY_INIT_510_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_509_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(509, ##__VA_ARGS__)
+#define __ARRAY_INIT_511_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_510_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(510, ##__VA_ARGS__)
+#define __ARRAY_INIT_512_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_511_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(511, ##__VA_ARGS__)
+#define __ARRAY_INIT_513_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_512_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(512, ##__VA_ARGS__)
+#define __ARRAY_INIT_514_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_513_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(513, ##__VA_ARGS__)
+#define __ARRAY_INIT_515_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_514_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(514, ##__VA_ARGS__)
+#define __ARRAY_INIT_516_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_515_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(515, ##__VA_ARGS__)
+#define __ARRAY_INIT_517_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_516_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(516, ##__VA_ARGS__)
+#define __ARRAY_INIT_518_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_517_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(517, ##__VA_ARGS__)
+#define __ARRAY_INIT_519_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_518_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(518, ##__VA_ARGS__)
+#define __ARRAY_INIT_520_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_519_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(519, ##__VA_ARGS__)
+#define __ARRAY_INIT_521_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_520_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(520, ##__VA_ARGS__)
+#define __ARRAY_INIT_522_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_521_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(521, ##__VA_ARGS__)
+#define __ARRAY_INIT_523_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_522_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(522, ##__VA_ARGS__)
+#define __ARRAY_INIT_524_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_523_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(523, ##__VA_ARGS__)
+#define __ARRAY_INIT_525_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_524_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(524, ##__VA_ARGS__)
+#define __ARRAY_INIT_526_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_525_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(525, ##__VA_ARGS__)
+#define __ARRAY_INIT_527_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_526_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(526, ##__VA_ARGS__)
+#define __ARRAY_INIT_528_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_527_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(527, ##__VA_ARGS__)
+#define __ARRAY_INIT_529_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_528_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(528, ##__VA_ARGS__)
+#define __ARRAY_INIT_530_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_529_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(529, ##__VA_ARGS__)
+#define __ARRAY_INIT_531_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_530_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(530, ##__VA_ARGS__)
+#define __ARRAY_INIT_532_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_531_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(531, ##__VA_ARGS__)
+#define __ARRAY_INIT_533_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_532_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(532, ##__VA_ARGS__)
+#define __ARRAY_INIT_534_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_533_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(533, ##__VA_ARGS__)
+#define __ARRAY_INIT_535_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_534_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(534, ##__VA_ARGS__)
+#define __ARRAY_INIT_536_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_535_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(535, ##__VA_ARGS__)
+#define __ARRAY_INIT_537_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_536_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(536, ##__VA_ARGS__)
+#define __ARRAY_INIT_538_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_537_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(537, ##__VA_ARGS__)
+#define __ARRAY_INIT_539_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_538_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(538, ##__VA_ARGS__)
+#define __ARRAY_INIT_540_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_539_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(539, ##__VA_ARGS__)
+#define __ARRAY_INIT_541_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_540_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(540, ##__VA_ARGS__)
+#define __ARRAY_INIT_542_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_541_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(541, ##__VA_ARGS__)
+#define __ARRAY_INIT_543_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_542_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(542, ##__VA_ARGS__)
+#define __ARRAY_INIT_544_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_543_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(543, ##__VA_ARGS__)
+#define __ARRAY_INIT_545_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_544_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(544, ##__VA_ARGS__)
+#define __ARRAY_INIT_546_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_545_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(545, ##__VA_ARGS__)
+#define __ARRAY_INIT_547_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_546_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(546, ##__VA_ARGS__)
+#define __ARRAY_INIT_548_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_547_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(547, ##__VA_ARGS__)
+#define __ARRAY_INIT_549_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_548_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(548, ##__VA_ARGS__)
+#define __ARRAY_INIT_550_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_549_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(549, ##__VA_ARGS__)
+#define __ARRAY_INIT_551_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_550_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(550, ##__VA_ARGS__)
+#define __ARRAY_INIT_552_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_551_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(551, ##__VA_ARGS__)
+#define __ARRAY_INIT_553_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_552_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(552, ##__VA_ARGS__)
+#define __ARRAY_INIT_554_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_553_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(553, ##__VA_ARGS__)
+#define __ARRAY_INIT_555_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_554_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(554, ##__VA_ARGS__)
+#define __ARRAY_INIT_556_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_555_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(555, ##__VA_ARGS__)
+#define __ARRAY_INIT_557_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_556_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(556, ##__VA_ARGS__)
+#define __ARRAY_INIT_558_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_557_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(557, ##__VA_ARGS__)
+#define __ARRAY_INIT_559_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_558_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(558, ##__VA_ARGS__)
+#define __ARRAY_INIT_560_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_559_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(559, ##__VA_ARGS__)
+#define __ARRAY_INIT_561_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_560_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(560, ##__VA_ARGS__)
+#define __ARRAY_INIT_562_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_561_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(561, ##__VA_ARGS__)
+#define __ARRAY_INIT_563_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_562_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(562, ##__VA_ARGS__)
+#define __ARRAY_INIT_564_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_563_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(563, ##__VA_ARGS__)
+#define __ARRAY_INIT_565_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_564_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(564, ##__VA_ARGS__)
+#define __ARRAY_INIT_566_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_565_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(565, ##__VA_ARGS__)
+#define __ARRAY_INIT_567_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_566_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(566, ##__VA_ARGS__)
+#define __ARRAY_INIT_568_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_567_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(567, ##__VA_ARGS__)
+#define __ARRAY_INIT_569_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_568_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(568, ##__VA_ARGS__)
+#define __ARRAY_INIT_570_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_569_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(569, ##__VA_ARGS__)
+#define __ARRAY_INIT_571_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_570_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(570, ##__VA_ARGS__)
+#define __ARRAY_INIT_572_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_571_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(571, ##__VA_ARGS__)
+#define __ARRAY_INIT_573_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_572_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(572, ##__VA_ARGS__)
+#define __ARRAY_INIT_574_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_573_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(573, ##__VA_ARGS__)
+#define __ARRAY_INIT_575_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_574_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(574, ##__VA_ARGS__)
+#define __ARRAY_INIT_576_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_575_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(575, ##__VA_ARGS__)
+#define __ARRAY_INIT_577_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_576_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(576, ##__VA_ARGS__)
+#define __ARRAY_INIT_578_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_577_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(577, ##__VA_ARGS__)
+#define __ARRAY_INIT_579_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_578_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(578, ##__VA_ARGS__)
+#define __ARRAY_INIT_580_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_579_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(579, ##__VA_ARGS__)
+#define __ARRAY_INIT_581_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_580_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(580, ##__VA_ARGS__)
+#define __ARRAY_INIT_582_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_581_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(581, ##__VA_ARGS__)
+#define __ARRAY_INIT_583_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_582_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(582, ##__VA_ARGS__)
+#define __ARRAY_INIT_584_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_583_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(583, ##__VA_ARGS__)
+#define __ARRAY_INIT_585_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_584_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(584, ##__VA_ARGS__)
+#define __ARRAY_INIT_586_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_585_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(585, ##__VA_ARGS__)
+#define __ARRAY_INIT_587_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_586_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(586, ##__VA_ARGS__)
+#define __ARRAY_INIT_588_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_587_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(587, ##__VA_ARGS__)
+#define __ARRAY_INIT_589_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_588_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(588, ##__VA_ARGS__)
+#define __ARRAY_INIT_590_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_589_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(589, ##__VA_ARGS__)
+#define __ARRAY_INIT_591_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_590_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(590, ##__VA_ARGS__)
+#define __ARRAY_INIT_592_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_591_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(591, ##__VA_ARGS__)
+#define __ARRAY_INIT_593_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_592_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(592, ##__VA_ARGS__)
+#define __ARRAY_INIT_594_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_593_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(593, ##__VA_ARGS__)
+#define __ARRAY_INIT_595_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_594_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(594, ##__VA_ARGS__)
+#define __ARRAY_INIT_596_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_595_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(595, ##__VA_ARGS__)
+#define __ARRAY_INIT_597_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_596_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(596, ##__VA_ARGS__)
+#define __ARRAY_INIT_598_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_597_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(597, ##__VA_ARGS__)
+#define __ARRAY_INIT_599_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_598_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(598, ##__VA_ARGS__)
+#define __ARRAY_INIT_600_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_599_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(599, ##__VA_ARGS__)
+#define __ARRAY_INIT_601_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_600_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(600, ##__VA_ARGS__)
+#define __ARRAY_INIT_602_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_601_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(601, ##__VA_ARGS__)
+#define __ARRAY_INIT_603_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_602_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(602, ##__VA_ARGS__)
+#define __ARRAY_INIT_604_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_603_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(603, ##__VA_ARGS__)
+#define __ARRAY_INIT_605_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_604_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(604, ##__VA_ARGS__)
+#define __ARRAY_INIT_606_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_605_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(605, ##__VA_ARGS__)
+#define __ARRAY_INIT_607_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_606_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(606, ##__VA_ARGS__)
+#define __ARRAY_INIT_608_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_607_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(607, ##__VA_ARGS__)
+#define __ARRAY_INIT_609_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_608_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(608, ##__VA_ARGS__)
+#define __ARRAY_INIT_610_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_609_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(609, ##__VA_ARGS__)
+#define __ARRAY_INIT_611_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_610_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(610, ##__VA_ARGS__)
+#define __ARRAY_INIT_612_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_611_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(611, ##__VA_ARGS__)
+#define __ARRAY_INIT_613_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_612_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(612, ##__VA_ARGS__)
+#define __ARRAY_INIT_614_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_613_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(613, ##__VA_ARGS__)
+#define __ARRAY_INIT_615_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_614_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(614, ##__VA_ARGS__)
+#define __ARRAY_INIT_616_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_615_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(615, ##__VA_ARGS__)
+#define __ARRAY_INIT_617_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_616_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(616, ##__VA_ARGS__)
+#define __ARRAY_INIT_618_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_617_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(617, ##__VA_ARGS__)
+#define __ARRAY_INIT_619_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_618_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(618, ##__VA_ARGS__)
+#define __ARRAY_INIT_620_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_619_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(619, ##__VA_ARGS__)
+#define __ARRAY_INIT_621_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_620_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(620, ##__VA_ARGS__)
+#define __ARRAY_INIT_622_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_621_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(621, ##__VA_ARGS__)
+#define __ARRAY_INIT_623_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_622_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(622, ##__VA_ARGS__)
+#define __ARRAY_INIT_624_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_623_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(623, ##__VA_ARGS__)
+#define __ARRAY_INIT_625_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_624_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(624, ##__VA_ARGS__)
+#define __ARRAY_INIT_626_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_625_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(625, ##__VA_ARGS__)
+#define __ARRAY_INIT_627_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_626_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(626, ##__VA_ARGS__)
+#define __ARRAY_INIT_628_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_627_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(627, ##__VA_ARGS__)
+#define __ARRAY_INIT_629_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_628_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(628, ##__VA_ARGS__)
+#define __ARRAY_INIT_630_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_629_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(629, ##__VA_ARGS__)
+#define __ARRAY_INIT_631_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_630_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(630, ##__VA_ARGS__)
+#define __ARRAY_INIT_632_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_631_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(631, ##__VA_ARGS__)
+#define __ARRAY_INIT_633_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_632_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(632, ##__VA_ARGS__)
+#define __ARRAY_INIT_634_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_633_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(633, ##__VA_ARGS__)
+#define __ARRAY_INIT_635_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_634_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(634, ##__VA_ARGS__)
+#define __ARRAY_INIT_636_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_635_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(635, ##__VA_ARGS__)
+#define __ARRAY_INIT_637_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_636_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(636, ##__VA_ARGS__)
+#define __ARRAY_INIT_638_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_637_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(637, ##__VA_ARGS__)
+#define __ARRAY_INIT_639_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_638_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(638, ##__VA_ARGS__)
+#define __ARRAY_INIT_640_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_639_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(639, ##__VA_ARGS__)
+#define __ARRAY_INIT_641_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_640_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(640, ##__VA_ARGS__)
+#define __ARRAY_INIT_642_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_641_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(641, ##__VA_ARGS__)
+#define __ARRAY_INIT_643_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_642_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(642, ##__VA_ARGS__)
+#define __ARRAY_INIT_644_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_643_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(643, ##__VA_ARGS__)
+#define __ARRAY_INIT_645_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_644_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(644, ##__VA_ARGS__)
+#define __ARRAY_INIT_646_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_645_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(645, ##__VA_ARGS__)
+#define __ARRAY_INIT_647_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_646_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(646, ##__VA_ARGS__)
+#define __ARRAY_INIT_648_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_647_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(647, ##__VA_ARGS__)
+#define __ARRAY_INIT_649_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_648_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(648, ##__VA_ARGS__)
+#define __ARRAY_INIT_650_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_649_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(649, ##__VA_ARGS__)
+#define __ARRAY_INIT_651_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_650_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(650, ##__VA_ARGS__)
+#define __ARRAY_INIT_652_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_651_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(651, ##__VA_ARGS__)
+#define __ARRAY_INIT_653_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_652_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(652, ##__VA_ARGS__)
+#define __ARRAY_INIT_654_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_653_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(653, ##__VA_ARGS__)
+#define __ARRAY_INIT_655_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_654_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(654, ##__VA_ARGS__)
+#define __ARRAY_INIT_656_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_655_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(655, ##__VA_ARGS__)
+#define __ARRAY_INIT_657_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_656_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(656, ##__VA_ARGS__)
+#define __ARRAY_INIT_658_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_657_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(657, ##__VA_ARGS__)
+#define __ARRAY_INIT_659_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_658_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(658, ##__VA_ARGS__)
+#define __ARRAY_INIT_660_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_659_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(659, ##__VA_ARGS__)
+#define __ARRAY_INIT_661_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_660_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(660, ##__VA_ARGS__)
+#define __ARRAY_INIT_662_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_661_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(661, ##__VA_ARGS__)
+#define __ARRAY_INIT_663_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_662_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(662, ##__VA_ARGS__)
+#define __ARRAY_INIT_664_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_663_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(663, ##__VA_ARGS__)
+#define __ARRAY_INIT_665_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_664_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(664, ##__VA_ARGS__)
+#define __ARRAY_INIT_666_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_665_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(665, ##__VA_ARGS__)
+#define __ARRAY_INIT_667_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_666_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(666, ##__VA_ARGS__)
+#define __ARRAY_INIT_668_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_667_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(667, ##__VA_ARGS__)
+#define __ARRAY_INIT_669_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_668_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(668, ##__VA_ARGS__)
+#define __ARRAY_INIT_670_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_669_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(669, ##__VA_ARGS__)
+#define __ARRAY_INIT_671_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_670_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(670, ##__VA_ARGS__)
+#define __ARRAY_INIT_672_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_671_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(671, ##__VA_ARGS__)
+#define __ARRAY_INIT_673_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_672_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(672, ##__VA_ARGS__)
+#define __ARRAY_INIT_674_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_673_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(673, ##__VA_ARGS__)
+#define __ARRAY_INIT_675_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_674_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(674, ##__VA_ARGS__)
+#define __ARRAY_INIT_676_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_675_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(675, ##__VA_ARGS__)
+#define __ARRAY_INIT_677_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_676_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(676, ##__VA_ARGS__)
+#define __ARRAY_INIT_678_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_677_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(677, ##__VA_ARGS__)
+#define __ARRAY_INIT_679_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_678_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(678, ##__VA_ARGS__)
+#define __ARRAY_INIT_680_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_679_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(679, ##__VA_ARGS__)
+#define __ARRAY_INIT_681_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_680_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(680, ##__VA_ARGS__)
+#define __ARRAY_INIT_682_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_681_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(681, ##__VA_ARGS__)
+#define __ARRAY_INIT_683_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_682_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(682, ##__VA_ARGS__)
+#define __ARRAY_INIT_684_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_683_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(683, ##__VA_ARGS__)
+#define __ARRAY_INIT_685_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_684_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(684, ##__VA_ARGS__)
+#define __ARRAY_INIT_686_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_685_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(685, ##__VA_ARGS__)
+#define __ARRAY_INIT_687_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_686_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(686, ##__VA_ARGS__)
+#define __ARRAY_INIT_688_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_687_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(687, ##__VA_ARGS__)
+#define __ARRAY_INIT_689_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_688_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(688, ##__VA_ARGS__)
+#define __ARRAY_INIT_690_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_689_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(689, ##__VA_ARGS__)
+#define __ARRAY_INIT_691_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_690_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(690, ##__VA_ARGS__)
+#define __ARRAY_INIT_692_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_691_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(691, ##__VA_ARGS__)
+#define __ARRAY_INIT_693_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_692_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(692, ##__VA_ARGS__)
+#define __ARRAY_INIT_694_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_693_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(693, ##__VA_ARGS__)
+#define __ARRAY_INIT_695_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_694_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(694, ##__VA_ARGS__)
+#define __ARRAY_INIT_696_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_695_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(695, ##__VA_ARGS__)
+#define __ARRAY_INIT_697_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_696_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(696, ##__VA_ARGS__)
+#define __ARRAY_INIT_698_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_697_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(697, ##__VA_ARGS__)
+#define __ARRAY_INIT_699_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_698_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(698, ##__VA_ARGS__)
+#define __ARRAY_INIT_700_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_699_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(699, ##__VA_ARGS__)
+#define __ARRAY_INIT_701_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_700_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(700, ##__VA_ARGS__)
+#define __ARRAY_INIT_702_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_701_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(701, ##__VA_ARGS__)
+#define __ARRAY_INIT_703_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_702_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(702, ##__VA_ARGS__)
+#define __ARRAY_INIT_704_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_703_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(703, ##__VA_ARGS__)
+#define __ARRAY_INIT_705_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_704_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(704, ##__VA_ARGS__)
+#define __ARRAY_INIT_706_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_705_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(705, ##__VA_ARGS__)
+#define __ARRAY_INIT_707_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_706_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(706, ##__VA_ARGS__)
+#define __ARRAY_INIT_708_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_707_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(707, ##__VA_ARGS__)
+#define __ARRAY_INIT_709_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_708_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(708, ##__VA_ARGS__)
+#define __ARRAY_INIT_710_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_709_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(709, ##__VA_ARGS__)
+#define __ARRAY_INIT_711_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_710_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(710, ##__VA_ARGS__)
+#define __ARRAY_INIT_712_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_711_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(711, ##__VA_ARGS__)
+#define __ARRAY_INIT_713_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_712_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(712, ##__VA_ARGS__)
+#define __ARRAY_INIT_714_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_713_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(713, ##__VA_ARGS__)
+#define __ARRAY_INIT_715_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_714_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(714, ##__VA_ARGS__)
+#define __ARRAY_INIT_716_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_715_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(715, ##__VA_ARGS__)
+#define __ARRAY_INIT_717_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_716_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(716, ##__VA_ARGS__)
+#define __ARRAY_INIT_718_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_717_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(717, ##__VA_ARGS__)
+#define __ARRAY_INIT_719_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_718_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(718, ##__VA_ARGS__)
+#define __ARRAY_INIT_720_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_719_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(719, ##__VA_ARGS__)
+#define __ARRAY_INIT_721_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_720_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(720, ##__VA_ARGS__)
+#define __ARRAY_INIT_722_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_721_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(721, ##__VA_ARGS__)
+#define __ARRAY_INIT_723_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_722_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(722, ##__VA_ARGS__)
+#define __ARRAY_INIT_724_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_723_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(723, ##__VA_ARGS__)
+#define __ARRAY_INIT_725_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_724_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(724, ##__VA_ARGS__)
+#define __ARRAY_INIT_726_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_725_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(725, ##__VA_ARGS__)
+#define __ARRAY_INIT_727_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_726_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(726, ##__VA_ARGS__)
+#define __ARRAY_INIT_728_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_727_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(727, ##__VA_ARGS__)
+#define __ARRAY_INIT_729_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_728_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(728, ##__VA_ARGS__)
+#define __ARRAY_INIT_730_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_729_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(729, ##__VA_ARGS__)
+#define __ARRAY_INIT_731_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_730_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(730, ##__VA_ARGS__)
+#define __ARRAY_INIT_732_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_731_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(731, ##__VA_ARGS__)
+#define __ARRAY_INIT_733_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_732_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(732, ##__VA_ARGS__)
+#define __ARRAY_INIT_734_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_733_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(733, ##__VA_ARGS__)
+#define __ARRAY_INIT_735_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_734_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(734, ##__VA_ARGS__)
+#define __ARRAY_INIT_736_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_735_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(735, ##__VA_ARGS__)
+#define __ARRAY_INIT_737_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_736_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(736, ##__VA_ARGS__)
+#define __ARRAY_INIT_738_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_737_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(737, ##__VA_ARGS__)
+#define __ARRAY_INIT_739_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_738_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(738, ##__VA_ARGS__)
+#define __ARRAY_INIT_740_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_739_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(739, ##__VA_ARGS__)
+#define __ARRAY_INIT_741_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_740_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(740, ##__VA_ARGS__)
+#define __ARRAY_INIT_742_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_741_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(741, ##__VA_ARGS__)
+#define __ARRAY_INIT_743_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_742_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(742, ##__VA_ARGS__)
+#define __ARRAY_INIT_744_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_743_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(743, ##__VA_ARGS__)
+#define __ARRAY_INIT_745_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_744_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(744, ##__VA_ARGS__)
+#define __ARRAY_INIT_746_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_745_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(745, ##__VA_ARGS__)
+#define __ARRAY_INIT_747_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_746_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(746, ##__VA_ARGS__)
+#define __ARRAY_INIT_748_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_747_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(747, ##__VA_ARGS__)
+#define __ARRAY_INIT_749_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_748_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(748, ##__VA_ARGS__)
+#define __ARRAY_INIT_750_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_749_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(749, ##__VA_ARGS__)
+#define __ARRAY_INIT_751_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_750_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(750, ##__VA_ARGS__)
+#define __ARRAY_INIT_752_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_751_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(751, ##__VA_ARGS__)
+#define __ARRAY_INIT_753_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_752_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(752, ##__VA_ARGS__)
+#define __ARRAY_INIT_754_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_753_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(753, ##__VA_ARGS__)
+#define __ARRAY_INIT_755_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_754_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(754, ##__VA_ARGS__)
+#define __ARRAY_INIT_756_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_755_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(755, ##__VA_ARGS__)
+#define __ARRAY_INIT_757_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_756_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(756, ##__VA_ARGS__)
+#define __ARRAY_INIT_758_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_757_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(757, ##__VA_ARGS__)
+#define __ARRAY_INIT_759_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_758_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(758, ##__VA_ARGS__)
+#define __ARRAY_INIT_760_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_759_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(759, ##__VA_ARGS__)
+#define __ARRAY_INIT_761_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_760_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(760, ##__VA_ARGS__)
+#define __ARRAY_INIT_762_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_761_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(761, ##__VA_ARGS__)
+#define __ARRAY_INIT_763_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_762_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(762, ##__VA_ARGS__)
+#define __ARRAY_INIT_764_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_763_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(763, ##__VA_ARGS__)
+#define __ARRAY_INIT_765_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_764_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(764, ##__VA_ARGS__)
+#define __ARRAY_INIT_766_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_765_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(765, ##__VA_ARGS__)
+#define __ARRAY_INIT_767_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_766_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(766, ##__VA_ARGS__)
+#define __ARRAY_INIT_768_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_767_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(767, ##__VA_ARGS__)
+#define __ARRAY_INIT_769_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_768_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(768, ##__VA_ARGS__)
+#define __ARRAY_INIT_770_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_769_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(769, ##__VA_ARGS__)
+#define __ARRAY_INIT_771_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_770_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(770, ##__VA_ARGS__)
+#define __ARRAY_INIT_772_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_771_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(771, ##__VA_ARGS__)
+#define __ARRAY_INIT_773_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_772_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(772, ##__VA_ARGS__)
+#define __ARRAY_INIT_774_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_773_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(773, ##__VA_ARGS__)
+#define __ARRAY_INIT_775_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_774_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(774, ##__VA_ARGS__)
+#define __ARRAY_INIT_776_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_775_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(775, ##__VA_ARGS__)
+#define __ARRAY_INIT_777_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_776_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(776, ##__VA_ARGS__)
+#define __ARRAY_INIT_778_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_777_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(777, ##__VA_ARGS__)
+#define __ARRAY_INIT_779_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_778_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(778, ##__VA_ARGS__)
+#define __ARRAY_INIT_780_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_779_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(779, ##__VA_ARGS__)
+#define __ARRAY_INIT_781_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_780_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(780, ##__VA_ARGS__)
+#define __ARRAY_INIT_782_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_781_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(781, ##__VA_ARGS__)
+#define __ARRAY_INIT_783_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_782_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(782, ##__VA_ARGS__)
+#define __ARRAY_INIT_784_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_783_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(783, ##__VA_ARGS__)
+#define __ARRAY_INIT_785_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_784_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(784, ##__VA_ARGS__)
+#define __ARRAY_INIT_786_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_785_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(785, ##__VA_ARGS__)
+#define __ARRAY_INIT_787_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_786_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(786, ##__VA_ARGS__)
+#define __ARRAY_INIT_788_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_787_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(787, ##__VA_ARGS__)
+#define __ARRAY_INIT_789_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_788_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(788, ##__VA_ARGS__)
+#define __ARRAY_INIT_790_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_789_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(789, ##__VA_ARGS__)
+#define __ARRAY_INIT_791_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_790_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(790, ##__VA_ARGS__)
+#define __ARRAY_INIT_792_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_791_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(791, ##__VA_ARGS__)
+#define __ARRAY_INIT_793_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_792_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(792, ##__VA_ARGS__)
+#define __ARRAY_INIT_794_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_793_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(793, ##__VA_ARGS__)
+#define __ARRAY_INIT_795_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_794_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(794, ##__VA_ARGS__)
+#define __ARRAY_INIT_796_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_795_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(795, ##__VA_ARGS__)
+#define __ARRAY_INIT_797_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_796_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(796, ##__VA_ARGS__)
+#define __ARRAY_INIT_798_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_797_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(797, ##__VA_ARGS__)
+#define __ARRAY_INIT_799_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_798_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(798, ##__VA_ARGS__)
+#define __ARRAY_INIT_800_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_799_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(799, ##__VA_ARGS__)
+#define __ARRAY_INIT_801_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_800_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(800, ##__VA_ARGS__)
+#define __ARRAY_INIT_802_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_801_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(801, ##__VA_ARGS__)
+#define __ARRAY_INIT_803_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_802_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(802, ##__VA_ARGS__)
+#define __ARRAY_INIT_804_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_803_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(803, ##__VA_ARGS__)
+#define __ARRAY_INIT_805_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_804_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(804, ##__VA_ARGS__)
+#define __ARRAY_INIT_806_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_805_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(805, ##__VA_ARGS__)
+#define __ARRAY_INIT_807_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_806_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(806, ##__VA_ARGS__)
+#define __ARRAY_INIT_808_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_807_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(807, ##__VA_ARGS__)
+#define __ARRAY_INIT_809_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_808_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(808, ##__VA_ARGS__)
+#define __ARRAY_INIT_810_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_809_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(809, ##__VA_ARGS__)
+#define __ARRAY_INIT_811_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_810_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(810, ##__VA_ARGS__)
+#define __ARRAY_INIT_812_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_811_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(811, ##__VA_ARGS__)
+#define __ARRAY_INIT_813_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_812_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(812, ##__VA_ARGS__)
+#define __ARRAY_INIT_814_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_813_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(813, ##__VA_ARGS__)
+#define __ARRAY_INIT_815_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_814_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(814, ##__VA_ARGS__)
+#define __ARRAY_INIT_816_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_815_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(815, ##__VA_ARGS__)
+#define __ARRAY_INIT_817_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_816_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(816, ##__VA_ARGS__)
+#define __ARRAY_INIT_818_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_817_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(817, ##__VA_ARGS__)
+#define __ARRAY_INIT_819_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_818_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(818, ##__VA_ARGS__)
+#define __ARRAY_INIT_820_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_819_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(819, ##__VA_ARGS__)
+#define __ARRAY_INIT_821_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_820_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(820, ##__VA_ARGS__)
+#define __ARRAY_INIT_822_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_821_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(821, ##__VA_ARGS__)
+#define __ARRAY_INIT_823_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_822_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(822, ##__VA_ARGS__)
+#define __ARRAY_INIT_824_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_823_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(823, ##__VA_ARGS__)
+#define __ARRAY_INIT_825_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_824_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(824, ##__VA_ARGS__)
+#define __ARRAY_INIT_826_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_825_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(825, ##__VA_ARGS__)
+#define __ARRAY_INIT_827_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_826_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(826, ##__VA_ARGS__)
+#define __ARRAY_INIT_828_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_827_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(827, ##__VA_ARGS__)
+#define __ARRAY_INIT_829_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_828_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(828, ##__VA_ARGS__)
+#define __ARRAY_INIT_830_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_829_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(829, ##__VA_ARGS__)
+#define __ARRAY_INIT_831_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_830_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(830, ##__VA_ARGS__)
+#define __ARRAY_INIT_832_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_831_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(831, ##__VA_ARGS__)
+#define __ARRAY_INIT_833_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_832_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(832, ##__VA_ARGS__)
+#define __ARRAY_INIT_834_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_833_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(833, ##__VA_ARGS__)
+#define __ARRAY_INIT_835_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_834_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(834, ##__VA_ARGS__)
+#define __ARRAY_INIT_836_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_835_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(835, ##__VA_ARGS__)
+#define __ARRAY_INIT_837_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_836_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(836, ##__VA_ARGS__)
+#define __ARRAY_INIT_838_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_837_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(837, ##__VA_ARGS__)
+#define __ARRAY_INIT_839_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_838_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(838, ##__VA_ARGS__)
+#define __ARRAY_INIT_840_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_839_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(839, ##__VA_ARGS__)
+#define __ARRAY_INIT_841_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_840_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(840, ##__VA_ARGS__)
+#define __ARRAY_INIT_842_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_841_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(841, ##__VA_ARGS__)
+#define __ARRAY_INIT_843_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_842_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(842, ##__VA_ARGS__)
+#define __ARRAY_INIT_844_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_843_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(843, ##__VA_ARGS__)
+#define __ARRAY_INIT_845_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_844_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(844, ##__VA_ARGS__)
+#define __ARRAY_INIT_846_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_845_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(845, ##__VA_ARGS__)
+#define __ARRAY_INIT_847_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_846_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(846, ##__VA_ARGS__)
+#define __ARRAY_INIT_848_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_847_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(847, ##__VA_ARGS__)
+#define __ARRAY_INIT_849_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_848_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(848, ##__VA_ARGS__)
+#define __ARRAY_INIT_850_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_849_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(849, ##__VA_ARGS__)
+#define __ARRAY_INIT_851_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_850_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(850, ##__VA_ARGS__)
+#define __ARRAY_INIT_852_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_851_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(851, ##__VA_ARGS__)
+#define __ARRAY_INIT_853_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_852_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(852, ##__VA_ARGS__)
+#define __ARRAY_INIT_854_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_853_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(853, ##__VA_ARGS__)
+#define __ARRAY_INIT_855_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_854_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(854, ##__VA_ARGS__)
+#define __ARRAY_INIT_856_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_855_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(855, ##__VA_ARGS__)
+#define __ARRAY_INIT_857_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_856_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(856, ##__VA_ARGS__)
+#define __ARRAY_INIT_858_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_857_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(857, ##__VA_ARGS__)
+#define __ARRAY_INIT_859_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_858_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(858, ##__VA_ARGS__)
+#define __ARRAY_INIT_860_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_859_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(859, ##__VA_ARGS__)
+#define __ARRAY_INIT_861_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_860_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(860, ##__VA_ARGS__)
+#define __ARRAY_INIT_862_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_861_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(861, ##__VA_ARGS__)
+#define __ARRAY_INIT_863_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_862_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(862, ##__VA_ARGS__)
+#define __ARRAY_INIT_864_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_863_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(863, ##__VA_ARGS__)
+#define __ARRAY_INIT_865_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_864_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(864, ##__VA_ARGS__)
+#define __ARRAY_INIT_866_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_865_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(865, ##__VA_ARGS__)
+#define __ARRAY_INIT_867_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_866_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(866, ##__VA_ARGS__)
+#define __ARRAY_INIT_868_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_867_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(867, ##__VA_ARGS__)
+#define __ARRAY_INIT_869_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_868_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(868, ##__VA_ARGS__)
+#define __ARRAY_INIT_870_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_869_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(869, ##__VA_ARGS__)
+#define __ARRAY_INIT_871_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_870_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(870, ##__VA_ARGS__)
+#define __ARRAY_INIT_872_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_871_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(871, ##__VA_ARGS__)
+#define __ARRAY_INIT_873_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_872_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(872, ##__VA_ARGS__)
+#define __ARRAY_INIT_874_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_873_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(873, ##__VA_ARGS__)
+#define __ARRAY_INIT_875_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_874_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(874, ##__VA_ARGS__)
+#define __ARRAY_INIT_876_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_875_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(875, ##__VA_ARGS__)
+#define __ARRAY_INIT_877_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_876_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(876, ##__VA_ARGS__)
+#define __ARRAY_INIT_878_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_877_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(877, ##__VA_ARGS__)
+#define __ARRAY_INIT_879_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_878_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(878, ##__VA_ARGS__)
+#define __ARRAY_INIT_880_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_879_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(879, ##__VA_ARGS__)
+#define __ARRAY_INIT_881_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_880_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(880, ##__VA_ARGS__)
+#define __ARRAY_INIT_882_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_881_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(881, ##__VA_ARGS__)
+#define __ARRAY_INIT_883_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_882_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(882, ##__VA_ARGS__)
+#define __ARRAY_INIT_884_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_883_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(883, ##__VA_ARGS__)
+#define __ARRAY_INIT_885_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_884_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(884, ##__VA_ARGS__)
+#define __ARRAY_INIT_886_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_885_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(885, ##__VA_ARGS__)
+#define __ARRAY_INIT_887_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_886_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(886, ##__VA_ARGS__)
+#define __ARRAY_INIT_888_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_887_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(887, ##__VA_ARGS__)
+#define __ARRAY_INIT_889_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_888_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(888, ##__VA_ARGS__)
+#define __ARRAY_INIT_890_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_889_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(889, ##__VA_ARGS__)
+#define __ARRAY_INIT_891_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_890_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(890, ##__VA_ARGS__)
+#define __ARRAY_INIT_892_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_891_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(891, ##__VA_ARGS__)
+#define __ARRAY_INIT_893_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_892_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(892, ##__VA_ARGS__)
+#define __ARRAY_INIT_894_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_893_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(893, ##__VA_ARGS__)
+#define __ARRAY_INIT_895_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_894_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(894, ##__VA_ARGS__)
+#define __ARRAY_INIT_896_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_895_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(895, ##__VA_ARGS__)
+#define __ARRAY_INIT_897_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_896_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(896, ##__VA_ARGS__)
+#define __ARRAY_INIT_898_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_897_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(897, ##__VA_ARGS__)
+#define __ARRAY_INIT_899_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_898_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(898, ##__VA_ARGS__)
+#define __ARRAY_INIT_900_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_899_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(899, ##__VA_ARGS__)
+#define __ARRAY_INIT_901_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_900_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(900, ##__VA_ARGS__)
+#define __ARRAY_INIT_902_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_901_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(901, ##__VA_ARGS__)
+#define __ARRAY_INIT_903_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_902_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(902, ##__VA_ARGS__)
+#define __ARRAY_INIT_904_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_903_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(903, ##__VA_ARGS__)
+#define __ARRAY_INIT_905_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_904_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(904, ##__VA_ARGS__)
+#define __ARRAY_INIT_906_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_905_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(905, ##__VA_ARGS__)
+#define __ARRAY_INIT_907_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_906_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(906, ##__VA_ARGS__)
+#define __ARRAY_INIT_908_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_907_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(907, ##__VA_ARGS__)
+#define __ARRAY_INIT_909_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_908_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(908, ##__VA_ARGS__)
+#define __ARRAY_INIT_910_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_909_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(909, ##__VA_ARGS__)
+#define __ARRAY_INIT_911_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_910_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(910, ##__VA_ARGS__)
+#define __ARRAY_INIT_912_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_911_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(911, ##__VA_ARGS__)
+#define __ARRAY_INIT_913_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_912_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(912, ##__VA_ARGS__)
+#define __ARRAY_INIT_914_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_913_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(913, ##__VA_ARGS__)
+#define __ARRAY_INIT_915_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_914_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(914, ##__VA_ARGS__)
+#define __ARRAY_INIT_916_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_915_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(915, ##__VA_ARGS__)
+#define __ARRAY_INIT_917_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_916_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(916, ##__VA_ARGS__)
+#define __ARRAY_INIT_918_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_917_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(917, ##__VA_ARGS__)
+#define __ARRAY_INIT_919_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_918_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(918, ##__VA_ARGS__)
+#define __ARRAY_INIT_920_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_919_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(919, ##__VA_ARGS__)
+#define __ARRAY_INIT_921_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_920_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(920, ##__VA_ARGS__)
+#define __ARRAY_INIT_922_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_921_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(921, ##__VA_ARGS__)
+#define __ARRAY_INIT_923_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_922_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(922, ##__VA_ARGS__)
+#define __ARRAY_INIT_924_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_923_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(923, ##__VA_ARGS__)
+#define __ARRAY_INIT_925_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_924_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(924, ##__VA_ARGS__)
+#define __ARRAY_INIT_926_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_925_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(925, ##__VA_ARGS__)
+#define __ARRAY_INIT_927_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_926_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(926, ##__VA_ARGS__)
+#define __ARRAY_INIT_928_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_927_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(927, ##__VA_ARGS__)
+#define __ARRAY_INIT_929_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_928_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(928, ##__VA_ARGS__)
+#define __ARRAY_INIT_930_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_929_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(929, ##__VA_ARGS__)
+#define __ARRAY_INIT_931_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_930_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(930, ##__VA_ARGS__)
+#define __ARRAY_INIT_932_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_931_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(931, ##__VA_ARGS__)
+#define __ARRAY_INIT_933_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_932_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(932, ##__VA_ARGS__)
+#define __ARRAY_INIT_934_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_933_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(933, ##__VA_ARGS__)
+#define __ARRAY_INIT_935_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_934_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(934, ##__VA_ARGS__)
+#define __ARRAY_INIT_936_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_935_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(935, ##__VA_ARGS__)
+#define __ARRAY_INIT_937_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_936_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(936, ##__VA_ARGS__)
+#define __ARRAY_INIT_938_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_937_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(937, ##__VA_ARGS__)
+#define __ARRAY_INIT_939_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_938_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(938, ##__VA_ARGS__)
+#define __ARRAY_INIT_940_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_939_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(939, ##__VA_ARGS__)
+#define __ARRAY_INIT_941_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_940_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(940, ##__VA_ARGS__)
+#define __ARRAY_INIT_942_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_941_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(941, ##__VA_ARGS__)
+#define __ARRAY_INIT_943_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_942_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(942, ##__VA_ARGS__)
+#define __ARRAY_INIT_944_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_943_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(943, ##__VA_ARGS__)
+#define __ARRAY_INIT_945_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_944_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(944, ##__VA_ARGS__)
+#define __ARRAY_INIT_946_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_945_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(945, ##__VA_ARGS__)
+#define __ARRAY_INIT_947_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_946_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(946, ##__VA_ARGS__)
+#define __ARRAY_INIT_948_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_947_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(947, ##__VA_ARGS__)
+#define __ARRAY_INIT_949_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_948_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(948, ##__VA_ARGS__)
+#define __ARRAY_INIT_950_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_949_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(949, ##__VA_ARGS__)
+#define __ARRAY_INIT_951_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_950_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(950, ##__VA_ARGS__)
+#define __ARRAY_INIT_952_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_951_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(951, ##__VA_ARGS__)
+#define __ARRAY_INIT_953_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_952_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(952, ##__VA_ARGS__)
+#define __ARRAY_INIT_954_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_953_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(953, ##__VA_ARGS__)
+#define __ARRAY_INIT_955_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_954_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(954, ##__VA_ARGS__)
+#define __ARRAY_INIT_956_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_955_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(955, ##__VA_ARGS__)
+#define __ARRAY_INIT_957_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_956_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(956, ##__VA_ARGS__)
+#define __ARRAY_INIT_958_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_957_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(957, ##__VA_ARGS__)
+#define __ARRAY_INIT_959_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_958_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(958, ##__VA_ARGS__)
+#define __ARRAY_INIT_960_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_959_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(959, ##__VA_ARGS__)
+#define __ARRAY_INIT_961_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_960_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(960, ##__VA_ARGS__)
+#define __ARRAY_INIT_962_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_961_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(961, ##__VA_ARGS__)
+#define __ARRAY_INIT_963_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_962_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(962, ##__VA_ARGS__)
+#define __ARRAY_INIT_964_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_963_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(963, ##__VA_ARGS__)
+#define __ARRAY_INIT_965_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_964_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(964, ##__VA_ARGS__)
+#define __ARRAY_INIT_966_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_965_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(965, ##__VA_ARGS__)
+#define __ARRAY_INIT_967_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_966_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(966, ##__VA_ARGS__)
+#define __ARRAY_INIT_968_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_967_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(967, ##__VA_ARGS__)
+#define __ARRAY_INIT_969_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_968_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(968, ##__VA_ARGS__)
+#define __ARRAY_INIT_970_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_969_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(969, ##__VA_ARGS__)
+#define __ARRAY_INIT_971_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_970_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(970, ##__VA_ARGS__)
+#define __ARRAY_INIT_972_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_971_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(971, ##__VA_ARGS__)
+#define __ARRAY_INIT_973_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_972_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(972, ##__VA_ARGS__)
+#define __ARRAY_INIT_974_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_973_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(973, ##__VA_ARGS__)
+#define __ARRAY_INIT_975_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_974_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(974, ##__VA_ARGS__)
+#define __ARRAY_INIT_976_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_975_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(975, ##__VA_ARGS__)
+#define __ARRAY_INIT_977_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_976_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(976, ##__VA_ARGS__)
+#define __ARRAY_INIT_978_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_977_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(977, ##__VA_ARGS__)
+#define __ARRAY_INIT_979_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_978_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(978, ##__VA_ARGS__)
+#define __ARRAY_INIT_980_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_979_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(979, ##__VA_ARGS__)
+#define __ARRAY_INIT_981_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_980_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(980, ##__VA_ARGS__)
+#define __ARRAY_INIT_982_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_981_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(981, ##__VA_ARGS__)
+#define __ARRAY_INIT_983_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_982_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(982, ##__VA_ARGS__)
+#define __ARRAY_INIT_984_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_983_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(983, ##__VA_ARGS__)
+#define __ARRAY_INIT_985_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_984_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(984, ##__VA_ARGS__)
+#define __ARRAY_INIT_986_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_985_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(985, ##__VA_ARGS__)
+#define __ARRAY_INIT_987_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_986_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(986, ##__VA_ARGS__)
+#define __ARRAY_INIT_988_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_987_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(987, ##__VA_ARGS__)
+#define __ARRAY_INIT_989_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_988_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(988, ##__VA_ARGS__)
+#define __ARRAY_INIT_990_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_989_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(989, ##__VA_ARGS__)
+#define __ARRAY_INIT_991_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_990_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(990, ##__VA_ARGS__)
+#define __ARRAY_INIT_992_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_991_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(991, ##__VA_ARGS__)
+#define __ARRAY_INIT_993_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_992_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(992, ##__VA_ARGS__)
+#define __ARRAY_INIT_994_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_993_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(993, ##__VA_ARGS__)
+#define __ARRAY_INIT_995_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_994_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(994, ##__VA_ARGS__)
+#define __ARRAY_INIT_996_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_995_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(995, ##__VA_ARGS__)
+#define __ARRAY_INIT_997_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_996_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(996, ##__VA_ARGS__)
+#define __ARRAY_INIT_998_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_997_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(997, ##__VA_ARGS__)
+#define __ARRAY_INIT_999_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_998_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(998, ##__VA_ARGS__)
+#define __ARRAY_INIT_1000_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_999_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(999, ##__VA_ARGS__)
+#define __ARRAY_INIT_1001_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1000_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1000, ##__VA_ARGS__)
+#define __ARRAY_INIT_1002_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1001_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1001, ##__VA_ARGS__)
+#define __ARRAY_INIT_1003_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1002_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1002, ##__VA_ARGS__)
+#define __ARRAY_INIT_1004_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1003_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1003, ##__VA_ARGS__)
+#define __ARRAY_INIT_1005_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1004_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1004, ##__VA_ARGS__)
+#define __ARRAY_INIT_1006_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1005_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1005, ##__VA_ARGS__)
+#define __ARRAY_INIT_1007_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1006_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1006, ##__VA_ARGS__)
+#define __ARRAY_INIT_1008_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1007_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1007, ##__VA_ARGS__)
+#define __ARRAY_INIT_1009_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1008_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1008, ##__VA_ARGS__)
+#define __ARRAY_INIT_1010_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1009_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1009, ##__VA_ARGS__)
+#define __ARRAY_INIT_1011_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1010_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1010, ##__VA_ARGS__)
+#define __ARRAY_INIT_1012_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1011_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1011, ##__VA_ARGS__)
+#define __ARRAY_INIT_1013_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1012_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1012, ##__VA_ARGS__)
+#define __ARRAY_INIT_1014_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1013_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1013, ##__VA_ARGS__)
+#define __ARRAY_INIT_1015_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1014_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1014, ##__VA_ARGS__)
+#define __ARRAY_INIT_1016_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1015_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1015, ##__VA_ARGS__)
+#define __ARRAY_INIT_1017_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1016_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1016, ##__VA_ARGS__)
+#define __ARRAY_INIT_1018_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1017_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1017, ##__VA_ARGS__)
+#define __ARRAY_INIT_1019_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1018_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1018, ##__VA_ARGS__)
+#define __ARRAY_INIT_1020_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1019_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1019, ##__VA_ARGS__)
+#define __ARRAY_INIT_1021_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1020_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1020, ##__VA_ARGS__)
+#define __ARRAY_INIT_1022_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1021_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1021, ##__VA_ARGS__)
+#define __ARRAY_INIT_1023_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1022_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1022, ##__VA_ARGS__)
+#define __ARRAY_INIT_1024_M_ONE__(__init_element, ...) \
+    __ARRAY_INIT_1023_M_ONE__(__init_element, ##__VA_ARGS__), __init_element(1023, ##__VA_ARGS__)
+
+#endif /* __ARRAY_INIT_ */

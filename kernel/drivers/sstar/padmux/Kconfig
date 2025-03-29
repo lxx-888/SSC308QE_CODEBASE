@@ -1,0 +1,7 @@
+config SSTAR_PADMUX
+    tristate "PADMUX driver"
+    help
+       enable support for SigmaStar PADMUX driver
+
+    default y
+

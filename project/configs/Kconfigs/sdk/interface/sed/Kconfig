@@ -1,0 +1,11 @@
+menuconfig INTERFACE_SED
+    depends on SUPPORT_SED
+    bool "sed"
+    default y
+    help
+        whether to compile or not
+
+config interface_sed
+    string
+    default enable if INTERFACE_SED
+    default disable if !INTERFACE_SED

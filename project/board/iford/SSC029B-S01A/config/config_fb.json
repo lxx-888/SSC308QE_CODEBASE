@@ -1,0 +1,19 @@
+    "mi_fb": {
+        "fb_device_disp_path": [
+            {
+                "fb_hwlayer_id": 2,
+                "fb_hwwin_id": 0,
+                "fb_hwlayer_dst": 3,
+                "fb_hwwin_format": 5,
+                "fb_hwlayer_outputcolor": 0,
+                "fb_width": 1024,
+                "fb_height": 600,
+                "fb_timing_width": 1024,
+                "fb_timing_height": 600,
+                "fb_mmap_name": "E_MMAP_ID_FB",
+                "fb_buffer_len": 8192
+            }
+        ],
+        "fb_device_video_path": [
+        ]
+    }

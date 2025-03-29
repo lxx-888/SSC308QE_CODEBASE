@@ -1,0 +1,882 @@
+{
+    "Page": [
+        {
+            "page_name": "VENCModPage",
+            "page_title": "VENC",
+            "component": [
+                {
+                    "name": "VencMaxVencStreamWidth",
+                    "label": "Max Stream Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "MAX_STREAM_W"
+                },
+                {
+                    "name": "VencMaxVencStreamHeight",
+                    "label": "Max Stream Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "MAX_STREAM_H"
+                },
+                {
+                    "name": "VencStreamWidth",
+                    "label": "Stream Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "STREAM_W"
+                },
+                {
+                    "name": "VencStreamHeight",
+                    "label": "Stream Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "STREAM_H"
+                },
+                {
+                    "name": "VencMaxStreamCntENCheckBox",
+                    "label": "Stream Cnt EN",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "STREAM_CNT_EN"
+                },
+                {
+                    "name": "VencMaxStreamCnt",
+                    "label": "Max Stream Cnt",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "30",
+                    "output_type": "int",
+                    "output_key": "MAX_STREAM_CNT"
+                },
+                {
+                    "name": "VencEncodeType",
+                    "label": "Encode Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "h264",
+                            "option_value": "h264"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "h265",
+                            "option_value": "h265"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "jpeg",
+                            "option_value": "jpeg"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "av1",
+                            "option_value": "av1"
+                        }
+                    ],
+                    "default_value": "h265",
+                    "output_type": "string",
+                    "output_key": "EN_TYPE"
+                },
+                {
+                    "name": "VencEncodeFpsSpinBox",
+                    "label": "Encode Fps",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "30",
+                    "output_type": "int",
+                    "output_key": "EN_FPS"
+                },
+                {
+                    "name": "VencRcMode",
+                    "label": "RC Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "cbr",
+                            "option_page": "VENCModRcModeCbrParam"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "vbr",
+                            "option_page": "VENCModRcModeVbrParam"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "fixqp",
+                            "option_page": "VENCModRcModeFixqpParam"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "avbr",
+                            "option_page": "VENCModRcModeAvbrParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "cvbr",
+                            "option_page" : "VENCModRcModeCvbrParam"
+                        }
+                    ],
+                    "default_value": "cbr",
+                    "sub_section": "RC_MODE_PARAM",
+                    "output_type": "string",
+                    "output_key": "RC_MODE"
+                },
+                {
+                    "name": "VencMultiSliceCheckBox",
+                    "label": "Multi Slice",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "MULTI_SLICE"
+                },
+                {
+                    "name": "VencSliceRowCntSpinBox",
+                    "label": "Slice Row Count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "5",
+                    "output_type": "int",
+                    "output_key": "SLICE_ROW_CNT"
+                },
+                {
+                    "name": "VencLTRCheckBox",
+                    "label": "Long Term Reference",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "LTR_OFF",
+                            "option_page": "VENCModLtrOffPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "LTR_ON",
+                            "option_page": "VENCModLtrOnPage"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "LTR_EN",
+                    "sub_section": "LTR_PARAM"
+                },
+                {
+                    "name": "VencDeBreathCheckBox",
+                    "label": "Debreathing effect",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "page",
+                            "option_name" : "DEBREATH_OFF",
+                            "option_page": "VENCModDEBREATOffPage"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "DEBREATH_ON",
+                            "option_page": "VENCModDeBreathOnPage"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DEBREATH_ENABLE",
+                    "sub_section": "DEBREATH_PARAM"
+                },
+                {
+                    "name": "VencRoi",
+                    "label": "Roi Region Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ROI_NUM",
+                    "sub_section": "ROI_REGION",
+                    "attach_name": "VencRoiRegionComboBox"
+                },
+                {
+                    "name": "VencRoiRegionComboBox",
+                    "label": "Region",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "auto_page",
+                            "option_name": "0",
+                            "option_page": "VENCModRoiRegionPage"
+                        }
+                    ],
+                    "default_value": "0"
+                },
+                {
+                    "name": "VencYuvEnableCheckBox",
+                    "label": "Enable yuv",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "ON",
+                            "option_value": "1",
+                            "option_page": "VENCModYuvOnPage"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "YUV_EN",
+                    "sub_section": "YUV_PARAM"
+                },
+                {
+                    "name": "VencBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "VENCModBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "VencBwInfo:1",
+            "component": [
+                {
+                    "name": "VencInplaceMode",
+                    "label": "Inplace Mode",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "INPLACE_MODE"
+                },
+                {
+                    "name": "VencBitrate",
+                    "label": "Bit Rate(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "90",
+                    "value_step": "1",
+                    "default_value": "4000",
+                    "output_type": "int",
+                    "output_key": "BIT_RATE"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCOutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "VencOutputPortBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "VENCOutputBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCOutputBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "VencOutputPortBwInfo:1",
+            "component": [
+                {
+                    "name": "VencOutputPortWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "VencOutputPortHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "VencOutputPortType",
+                    "label": "Video Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "raw"
+                        }
+                    ],
+                    "default_value": "raw",
+                    "option_type": "string",
+                    "output_key": "OUT_TYPE"
+                },
+                {
+                    "name": "VENCOutputPortColorFormat",
+                    "label": "Video Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv420sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModRoiRegionPage",
+            "page_title": "VencRegionPage",
+            "page_belong": "VencRoi",
+            "component": [
+                {
+                    "name": "VencRegionbEnable",
+                    "label": "bEnable",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_key": "ROI_EN"
+                },
+                {
+                    "name": "VencRegionindex",
+                    "label": "index",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "INDEX"
+                },
+                {
+                    "name": "VencRegionbAbsQp",
+                    "label": "bAbsQp",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "BABSQP"
+                },
+                {
+                    "name": "VencRegionQp",
+                    "label": "Qp",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "QP"
+                },
+                {
+                    "name": "VencRegionRectX",
+                    "label": "RectX",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "RECTX"
+                },
+                {
+                    "name": "VencRegionRectY",
+                    "label": "RectY",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "RECTY"
+                },
+                {
+                    "name": "VencRegionRectWidth",
+                    "label": "RectWidth",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "RECTW"
+                },
+                {
+                    "name": "VencRegionRectHeight",
+                    "label": "RectHeight",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "RECTH"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModRcModeCbrParam",
+            "page_title": "cbr",
+            "page_belong": "VencRcMode:cbr",
+            "component": [
+                {
+                    "name": "VencCbrBitRate",
+                    "label": "Bit Rate(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "4000",
+                    "output_key": "BIT_RATE"
+                },
+                {
+                    "name": "VencCbrGOP",
+                    "label": "GOP",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "500",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "GOP"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModRcModeVbrParam",
+            "page_title": "vbr",
+            "page_belong": "VencRcMode:vbr",
+            "component": [
+                {
+                    "name": "VencVbrBitRate",
+                    "label": "Bit Rate(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "4000",
+                    "output_key": "BIT_RATE"
+                },
+                {
+                    "name": "VencVbrGOP",
+                    "label": "GOP",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "500",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "GOP"
+                },
+                {
+                    "name": "VencVbrMIN_QP",
+                    "label": "Min QP",
+                    "component_type": "SpinBox",
+                    "min_value": "12",
+                    "max_value": "48",
+                    "value_step": "1",
+                    "default_value": "12",
+                    "output_key": "MIN_QP"
+                },
+                {
+                    "name": "VencVbrMAX_QP",
+                    "label": "Max QP",
+                    "component_type": "SpinBox",
+                    "min_value": "12",
+                    "max_value": "48",
+                    "value_step": "1",
+                    "default_value": "48",
+                    "output_key": "MAX_QP"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModRcModeFixqpParam",
+            "page_title": "fixqp",
+            "page_belong": "VencRcMode:fixqp",
+            "component": [
+                {
+                    "name": "VencFixqpBitRate",
+                    "label": "Bit Rate(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "4000",
+                    "output_key": "BIT_RATE"
+                },
+                {
+                    "name": "VencFixqpGOP",
+                    "label": "GOP",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "500",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "GOP"
+                },
+                {
+                    "name": "VencFixqpIQP",
+                    "label": "IQP",
+                    "component_type": "SpinBox",
+                    "min_value": "12",
+                    "max_value": "48",
+                    "value_step": "1",
+                    "default_value": "40",
+                    "output_key": "IQP"
+                },
+                {
+                    "name": "VencFixqpPQP",
+                    "label": "PQP",
+                    "component_type": "SpinBox",
+                    "min_value": "12",
+                    "max_value": "48",
+                    "value_step": "1",
+                    "default_value": "40",
+                    "output_key": "PQP"
+                },
+                {
+                    "name": "VencFixqpQFACTOR",
+                    "label": "QFACTOR(jpeg)",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "90",
+                    "value_step": "1",
+                    "default_value": "70",
+                    "output_key": "QFACTOR"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModRcModeAvbrParam",
+            "page_title": "avbr",
+            "page_belong": "VencRcMode:avbr",
+            "component": [
+                {
+                    "name": "VencAvbrBitrate",
+                    "label": "Bit Rate(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "4000",
+                    "output_key": "BIT_RATE"
+                },
+                {
+                    "name": "VencAvbrGOP",
+                    "label": "GOP",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "500",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "GOP"
+                },
+                {
+                    "name": "VencAvbrMIN_QP",
+                    "label": "Min QP",
+                    "component_type": "SpinBox",
+                    "min_value": "12",
+                    "max_value": "48",
+                    "value_step": "1",
+                    "default_value": "12",
+                    "output_key": "MIN_QP"
+                },
+                {
+                    "name": "VencAvbrMAX_QP",
+                    "label": "Max QP",
+                    "component_type": "SpinBox",
+                    "min_value": "12",
+                    "max_value": "48",
+                    "value_step": "1",
+                    "default_value": "48",
+                    "output_key": "MAX_QP"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModRcModeCvbrParam",
+            "page_title": "Cvbr",
+            "page_belong": "VencRcMode:cvbr",
+            "component": [
+                {
+                    "name": "VencCvbrBitrate",
+                    "label": "Bit Rate(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "4000",
+                    "output_key": "BIT_RATE"
+                },
+                {
+                    "name": "VencCvbrGOP",
+                    "label": "GOP",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "500",
+                    "value_step": "1",
+                    "default_value": "50",
+                    "output_key": "GOP"
+                },
+                {
+                    "name": "VencCvbrSSTIMES",
+                    "label": "SHORT_STATS_TIMES",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "output_key": "SHORT_STATS_TIMES"
+                },
+                {
+                    "name": "VencCvbrLSTIMES",
+                    "label": "LONG_STATS_TIMES",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "LONG_STATS_TIMES"
+                },
+                {
+                    "name": "VencCvbrLMAXBITRATE",
+                    "label": "LONG_MAX_BITRATE(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "2000",
+                    "output_key": "LONG_MAX_BITRATE"
+                },
+                {
+                    "name": "VencCvbrLMINBITRATE",
+                    "label": "LONG_MIN_BITRATE(KB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "2000",
+                    "output_key": "LONG_MIN_BITRATE"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModLtrOnPage",
+            "page_title": "VencModLtrOn",
+            "page_belong": "VencLTRCheckBox:1",
+            "component": [
+                {
+                    "name": "VencBaseSpinBox",
+                    "label": "Base",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BASE"
+                },
+                {
+                    "name": "VencEnhanceSpinBox",
+                    "label": "Enhance",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "ENHANCE"
+                },
+                {
+                    "name": "VencbEnablePredSpinBox",
+                    "label": "bEnablePred",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BENABLEPRED"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModYuvOnPage",
+            "page_title": "VencYuvEnable",
+            "page_belong": "VencYuvEnableCheckBox:1",
+            "component": [
+                {
+                    "name": "VencYuvWidthSpliBox",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65536",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "VencYuvHeightSpliBox",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65536",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                }
+            ]
+        },
+        {
+            "page_name": "VENCModDeBreathOnPage",
+            "page_title": "VencModDeBreathOn",
+            "page_belong": "VencDeBreathCheckBox:1",
+            "component": [
+                {
+                    "name": "VencStrength0SpinBox",
+                    "label": "Strength0",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "2",
+                    "output_type": "int",
+                    "output_key": "STRENGTH0"
+                },
+                {
+                    "name": "VencStrength1SpinBox",
+                    "label": "Strength1",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "6",
+                    "output_type": "int",
+                    "output_key": "STRENGTH1"
+                }
+            ]
+        }
+    ]
+}

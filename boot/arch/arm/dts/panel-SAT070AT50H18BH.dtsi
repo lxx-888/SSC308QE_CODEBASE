@@ -1,0 +1,53 @@
+/*
+* SAT070AT50H18BH-panel.dtsi- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+/ {
+    display-subsystem {
+        panels {
+            SAT070AT50H18BH {
+                compatible = "sstar,panel";
+                name = "SAT070AT50H18BH";
+                interface = "TTL"; /* TTL/MIPI/LVDS/BT1120/BT656/BT601 */
+                misc = <&panel_misc>;
+                backlight = <&backlight_ttl>;
+                status = "okay";
+
+                port {
+                    SAT070AT50H18BH_in_dpi: endpoint {
+                        remote-endpoint = <&dpi_out_panel>;
+                    };
+                };
+
+                panel-timing {
+                    clock-frequency = <51000000>;
+                    hactive = <1024>;
+                    hfront-porch = <222>;
+                    hback-porch = <46>;
+                    hsync-len = <52>;
+                    hsync-active = <0>;
+                    vactive = <600>;
+                    vfront-porch = <8>;
+                    vback-porch = <23>;
+                    vsync-len = <4>;
+                    vsync-active = <0>;
+                    de-active = <0>;
+                    pixelclk-active = <0>;
+                };
+            };
+        };
+    };
+};

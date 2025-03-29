@@ -1,0 +1,21 @@
+menuconfig INTERFACE_AIO
+    depends on SUPPORT_AIO
+    bool "aio"
+    option modules
+    default y
+    help
+        whether to compile or not
+
+
+if INTERFACE_AIO
+
+config config_mi_ai
+    bool "mi_ai"
+    default y
+
+endif # aio
+
+config interface_aio
+    string
+    default enable if INTERFACE_AIO
+    default disable if !INTERFACE_AIO

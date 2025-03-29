@@ -1,0 +1,16 @@
+menuconfig SSTAR_DEVFREQ
+	tristate "SStar generic frequency scaling driver"
+	select PM_DEVFREQ
+	help
+	  Support voltage and frequency scaling (DVFS) for non-CPU devices
+
+if SSTAR_DEVFREQ
+
+config SSTAR_DDRFREQ
+	tristate "SStar DDR frequency scaling driver"
+	select DEVFREQ_GOV_USERSPACE
+	select DEVFREQ_GOV_SIMPLE_ONDEMAND
+	help
+	  Support adjusting DRAM frequency dynamically
+
+endif # SSTAR_DEVFREQ

@@ -1,0 +1,65 @@
+{
+    "E_MI_MODULE_ID_SYS" :
+    {
+        "bEnableMmu" : true,
+        "entrySize" : 0,
+        "debugMmu" : false,
+        "gMmuStartPfn" : 0,
+        "config_ini_path" : "/misc/config.ini",
+        "g_bEnableMmuPool" : false,
+        "cmdQBufSize" : 1024,
+        "cmdQUsingMma" : true,
+        "bEnableCmdqReset" : true,
+        "mmu_vpa_length"  : "0x0",
+        "default_config_path" : "ABABABABABABABABABAB",
+        "g_bEnableMiuPanic" : false,
+        "g_bEnableMiuProtect" : true,
+        "u32CmdqTimeout": 2400000000
+    },
+    "E_MI_MODULE_ID_DISP" :
+    {
+        "threadPriority" : 98,
+        "debugFilePath" : "",
+        "u64CpuMaskAffinity" : "0x0"
+    },
+    "E_MI_MODULE_ID_MIPITX" :
+    {
+        "threadPriority" : 70
+    },
+    "E_MI_MODULE_ID_PANEL" :
+    {
+        "debugFilePath" : ""
+    },
+    "E_MI_MODULE_ID_FB" :
+    {
+        "default_reserved_mem_name": "fb"
+    },
+    "E_MI_MODULE_ID_SNR" :
+    {
+        "csi_clk": [134375000,0]
+    },
+    "E_MI_MODULE_ID_VIF" :
+    {
+        "bUseHWTimer" : 0
+    },
+    "E_MI_MODULE_ID_ISP" :
+    {
+        "u32DefaultDropNum": 0,
+        "rootPath" : "/config/iqfile",
+        "isp_clk": 120000000,
+        "bEnableSuspendWaitDone" : false
+    },
+    "E_MI_MODULE_ID_SCL" :
+    {
+        "u32FClk1RateHz": 121500000
+    },
+    "E_MI_MODULE_ID_VENC" :
+    {
+        "ven_clock": 120000000,
+        "ven_clock_2nd": 216000000
+    },
+    "E_MI_MODULE_ID_IPU" :
+    {
+        "ipu_clk": 400000000
+    }
+}

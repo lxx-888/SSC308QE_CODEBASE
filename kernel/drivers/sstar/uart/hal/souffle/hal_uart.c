@@ -1,0 +1,778 @@
+/*
+ * hal_uart.c- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+
+#include "hal_uart.h"
+#include "hal_uart_cfg.h"
+
+#define HAL_UART_REG_DLL_THR_RBR(hal) ((hal->uart_base) + ((0x00) << 2))
+#define HAL_UART_REG_DLH_IER(hal)     ((hal->uart_base) + ((0x02) << 2))
+#define HAL_UART_REG_IIR_FCR(hal)     ((hal->uart_base) + ((0x04) << 2))
+#define HAL_UART_REG_LCR(hal)         ((hal->uart_base) + ((0x06) << 2))
+#define HAL_UART_REG_MCR(hal)         ((hal->uart_base) + ((0x08) << 2))
+#define HAL_UART_REG_LSR(hal)         ((hal->uart_base) + ((0x0A) << 2))
+#define HAL_UART_REG_MSR(hal)         ((hal->uart_base) + ((0x0C) << 2))
+#define HAL_UART_REG_USR(hal)         ((hal->uart_base) + ((0x0E) << 2))
+#define HAL_UART_REG_TFL(hal)         ((hal->uart_base) + ((0x10) << 2))
+#define HAL_UART_REG_RFL(hal)         ((hal->uart_base) + ((0x12) << 2))
+#define HAL_UART_REG_RST(hal)         ((hal->uart_base) + ((0x14) << 2))
+
+#define HAL_URDMA_REG_CTRL(hal)           ((hal->urdma_base) + ((0x00) << 2))
+#define HAL_URDMA_REG_INTR_THRESHOLD(hal) ((hal->urdma_base) + ((0x01) << 2))
+#define HAL_URDMA_REG_TXBUF_H(hal)        ((hal->urdma_base) + ((0x02) << 2))
+#define HAL_URDMA_REG_TXBUF_L(hal)        ((hal->urdma_base) + ((0x03) << 2))
+#define HAL_URDMA_REG_TXBUF_SIZE(hal)     ((hal->urdma_base) + ((0x04) << 2))
+#define HAL_URDMA_REG_TXBUF_RPTR(hal)     ((hal->urdma_base) + ((0x05) << 2))
+#define HAL_URDMA_REG_TXBUF_WPTR(hal)     ((hal->urdma_base) + ((0x06) << 2))
+#define HAL_URDMA_REG_TX_TIMEOUT(hal)     ((hal->urdma_base) + ((0x07) << 2))
+#define HAL_URDMA_REG_RXBUF_H(hal)        ((hal->urdma_base) + ((0x08) << 2))
+#define HAL_URDMA_REG_RXBUF_L(hal)        ((hal->urdma_base) + ((0x09) << 2))
+#define HAL_URDMA_REG_RXBUF_SIZE(hal)     ((hal->urdma_base) + ((0x0A) << 2))
+#define HAL_URDMA_REG_RXBUF_WPTR(hal)     ((hal->urdma_base) + ((0x0B) << 2))
+#define HAL_URDMA_REG_RX_TIMEOUT(hal)     ((hal->urdma_base) + ((0x0C) << 2))
+#define HAL_URDMA_REG_INT_CTRL(hal)       ((hal->urdma_base) + ((0x0D) << 2))
+#define HAL_URDMA_REG_DEBUG(hal)          ((hal->urdma_base) + ((0x0F) << 2))
+#define HAL_URDMA_REG_2MIU_SEL(hal)       ((hal->urdma_base) + ((0x10) << 2))
+#define HAL_URDMA_REG_TXBUF_MSB(hal)      ((hal->urdma_base) + ((0x14) << 2))
+#define HAL_URDMA_REG_RXBUF_MSB(hal)      ((hal->urdma_base) + ((0x15) << 2))
+#define HAL_URDMA_REG_MIU_ADDR0_SEL(hal)  ((hal->urdma_base) + ((0x16) << 2))
+
+#define HAL_UART_READ_BYTE(_reg_)         (*(volatile unsigned char *)(IO_ADDRESS(_reg_)))
+#define HAL_UART_WRITE_BYTE(_reg_, _val_) ((*(volatile unsigned char *)(IO_ADDRESS(_reg_))) = (unsigned char)(_val_))
+#define HAL_UART_WRITE_BYTE_MASK(_reg_, _val_, mask)    \
+    ((*(volatile unsigned char *)(IO_ADDRESS(_reg_))) = \
+         ((*(volatile unsigned char *)(IO_ADDRESS(_reg_))) & ~(mask)) | ((unsigned char)(_val_) & (mask)))
+#define HAL_UART_READ_WORD(_reg_)         (*(volatile unsigned short *)(IO_ADDRESS(_reg_)))
+#define HAL_UART_WRITE_WORD(_reg_, _val_) ((*(volatile unsigned short *)(IO_ADDRESS(_reg_))) = (unsigned short)(_val_))
+#define HAL_UART_WRITE_WORD_MASK(_reg_, _val_, mask)     \
+    ((*(volatile unsigned short *)(IO_ADDRESS(_reg_))) = \
+         ((*(volatile unsigned short *)(IO_ADDRESS(_reg_))) & ~(mask)) | ((unsigned short)(_val_) & (mask)))
+
+static void hal_uart_force_rx_disable(struct uart_hal *hal, u8 status)
+{
+    if (hal->rx_pin)
+    {
+#if defined(CONFIG_SSTAR_GPIO)
+        if (status)
+        {
+            sstar_gpio_pad_oen(hal->rx_pin);
+        }
+        else
+        {
+            sstar_gpio_pad_odn(hal->rx_pin);
+        }
+#endif
+    }
+    else if (hal->digmux != 0xFF)
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_UART_REG_FORCE_RX_DISABLE, (~status << hal->digmux), (1 << hal->digmux));
+    }
+}
+
+static u8 hal_uart_clear_fifos(struct uart_hal *hal)
+{
+    unsigned int timeout = 0;
+
+    if (!hal->urdma_en)
+    {
+        do
+        {
+            if (((HAL_UART_READ_BYTE(HAL_UART_REG_LSR(hal)) & HAL_UART_LSR_DR) == HAL_UART_LSR_DR))
+                HAL_UART_READ_BYTE(HAL_UART_REG_DLL_THR_RBR(hal));
+            else
+                break;
+        } while (1);
+    }
+
+    while (timeout < 2000)
+    {
+        if (!(HAL_UART_READ_BYTE(HAL_UART_REG_USR(hal)) & HAL_UART_USR_BUSY)
+            && ((HAL_UART_READ_BYTE(HAL_UART_REG_IIR_FCR(hal)) & HAL_UART_IIR_ID_MASK) == HAL_UART_IIR_NO_INT))
+        {
+            break;
+        }
+
+        HAL_UART_WRITE_BYTE(HAL_UART_REG_IIR_FCR(hal), HAL_UART_FCR_FIFO_ENABLE | HAL_UART_FCR_CLEAR_RCVR
+                                                           | HAL_UART_FCR_CLEAR_XMIT | ((hal->tx_fifo_level & 0x3) << 4)
+                                                           | ((hal->rx_fifo_level & 0x3) << 6));
+        HAL_UART_IMPL_USDELAY(2);
+        timeout++;
+    }
+
+    if (timeout == 2000)
+        return HAL_UART_ERR_TIMEOUT;
+
+    return HAL_UART_ERR_SUCCESS;
+}
+
+static u8 hal_uart_reset(struct uart_hal *hal)
+{
+    u32 i;
+
+    if (hal->urdma_en)
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_DMA_MODE, HAL_URDMA_DMA_MODE);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_TX_DMA_EN);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_RX_DMA_EN);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_TX_INTR_CLR, HAL_URDMA_TX_INTR_CLR);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_RX_INTR_CLR, HAL_URDMA_RX_INTR_CLR);
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_SW_RST, HAL_URDMA_SW_RST);
+
+        for (i = 0; ((HAL_URDMA_RX_BUSY | HAL_URDMA_TX_BUSY) & HAL_UART_READ_WORD(HAL_URDMA_REG_CTRL(hal))); i++)
+        {
+            if (0xFFFF == i)
+            {
+                return HAL_UART_ERR_FAILURE;
+            }
+        }
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_SW_RST);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_DMA_MODE);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_DMA_MODE, HAL_URDMA_DMA_MODE);
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_TX_DMA_EN);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_TXBUF_WPTR(hal), 0);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_TX_SW_RST, HAL_URDMA_TX_SW_RST);
+
+        for (i = 0; (HAL_URDMA_TX_BUSY & HAL_UART_READ_WORD(HAL_URDMA_REG_CTRL(hal))); i++)
+        {
+            if (0xFFFF == i)
+            {
+                return HAL_UART_ERR_FAILURE;
+            }
+        }
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_TX_SW_RST);
+
+        hal->tx_first = 1;
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_RX_DMA_EN);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_RX_SW_RST, HAL_URDMA_RX_SW_RST);
+
+        for (i = 0; (HAL_URDMA_RX_BUSY & HAL_UART_READ_WORD(HAL_URDMA_REG_CTRL(hal))); i++)
+        {
+            if (0xFFFF == i)
+            {
+                return HAL_UART_ERR_FAILURE;
+            }
+        }
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_RX_SW_RST);
+
+        hal->rx_sw_rptr = 0;
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_TX_DMA_EN, HAL_URDMA_TX_DMA_EN);
+        HAL_UART_WRITE_BYTE_MASK(HAL_URDMA_REG_CTRL(hal), HAL_URDMA_RX_DMA_EN, HAL_URDMA_RX_DMA_EN);
+
+        hal->tx_empty = 1;
+    }
+
+    return HAL_UART_ERR_SUCCESS;
+}
+
+u32 hal_uart_circ_empty(u16 wptr, u16 rptr)
+{
+    return (wptr == rptr) ? 1 : 0;
+}
+
+u32 hal_uart_circ_cnt_to_end(u16 wptr, u16 rptr, u32 size)
+{
+    u32 end = size - rptr;
+    u32 n   = (wptr + end) & (size - 1);
+
+    return ((n < end) ? n : end);
+}
+
+u32 hal_uart_circ_space_end(u16 wptr, u16 rptr, u32 size)
+{
+    u32 end = size - 1 - wptr;
+    u32 n   = (end + rptr) & (size - 1);
+
+    return (n <= end ? n : end + 1);
+}
+
+void hal_uart_set_digmux(struct uart_hal *hal)
+{
+    struct reg_t *uart_select_reg      = NULL;
+    u16           uart_select_set_val  = 0;
+    u16           uart_select_read_val = 0;
+    u8            i;
+
+    for (i = 0; i < HAL_UART_CHIPTOP_SELECT_NUM; i++)
+    {
+        if (hal_uart_io2sel_val[i] == hal->uart_base)
+        {
+            uart_select_set_val = i;
+            break;
+        }
+    }
+    if (0 == uart_select_set_val)
+    {
+        return;
+    }
+
+    for (i = 0; i < HAL_UART_CHIPTOP_SELECT_NUM; i++)
+    {
+        uart_select_reg      = &hal_uart_chiptop_select[i];
+        uart_select_read_val = HAL_UART_READ_WORD(uart_select_reg->bank_base + (uart_select_reg->offset << 2));
+        uart_select_read_val = (uart_select_read_val & uart_select_reg->mask) >> uart_select_reg->bit_shift;
+        if (uart_select_read_val == uart_select_set_val)
+        {
+            HAL_UART_WRITE_WORD_MASK((uart_select_reg->bank_base + (uart_select_reg->offset << 2)), 0x0,
+                                     uart_select_reg->mask);
+        }
+    }
+
+    uart_select_reg = &hal_uart_chiptop_select[hal->digmux];
+    HAL_UART_WRITE_WORD_MASK((uart_select_reg->bank_base + (uart_select_reg->offset << 2)),
+                             (uart_select_set_val << uart_select_reg->bit_shift), uart_select_reg->mask);
+}
+
+void hal_uart_init(struct uart_hal *hal)
+{
+    if (hal->urdma_en)
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_DMA_MODE);
+    }
+
+    hal_uart_force_rx_disable(hal, 0);
+    hal_uart_clear_fifos(hal);
+
+    if (hal->urdma_en)
+    {
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_TXBUF_H(hal), (hal->tx_urdma_base >> 16) & 0xFFFF);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_TXBUF_L(hal), hal->tx_urdma_base & 0xFFFF);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_TXBUF_MSB(hal), (hal->tx_urdma_base >> 32) & 0xF);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_TXBUF_SIZE(hal), hal->tx_urdma_size >> 3);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_TX_TIMEOUT(hal), HAL_URDMA_TX_TIMEOUT);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_TXBUF_WPTR(hal), 0x0);
+
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_RXBUF_H(hal), (hal->rx_urdma_base >> 16) & 0xFFFF);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_RXBUF_L(hal), hal->rx_urdma_base & 0xFFFF);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_RXBUF_MSB(hal), (hal->rx_urdma_base >> 32) & 0xF);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_RXBUF_SIZE(hal), hal->rx_urdma_size >> 3);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_RX_TIMEOUT(hal), HAL_URDMA_RX_TIMEOUT);
+        HAL_UART_WRITE_WORD(HAL_URDMA_REG_INTR_THRESHOLD(hal), HAL_URDMA_RX_INTR_LEVEL);
+    }
+
+    hal_uart_reset(hal);
+    hal_uart_force_rx_disable(hal, 1);
+}
+
+void hal_uart_deinit(struct uart_hal *hal)
+{
+    u32 i;
+
+    hal_uart_force_rx_disable(hal, 0);
+
+    if (hal->urdma_en)
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_RX_DMA_EN);
+
+        for (i = 0; (HAL_URDMA_RX_BUSY & HAL_UART_READ_WORD(HAL_URDMA_REG_CTRL(hal))); i++)
+        {
+            if (0xFFFF == i)
+            {
+                return;
+            }
+        }
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_TX_DMA_EN);
+
+        for (i = 0; (HAL_URDMA_TX_BUSY & HAL_UART_READ_WORD(HAL_URDMA_REG_CTRL(hal))); i++)
+        {
+            if (0xFFFF == i)
+            {
+                return;
+            }
+        }
+
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_DMA_MODE);
+    }
+}
+
+void hal_uart_config(struct uart_hal *hal)
+{
+    u8 uart_flag = 0;
+
+    switch (hal->char_bits)
+    {
+        case 5:
+            uart_flag |= HAL_UART_LCR_WLEN5;
+            break;
+        case 6:
+            uart_flag |= HAL_UART_LCR_WLEN6;
+            break;
+        case 7:
+            uart_flag |= HAL_UART_LCR_WLEN7;
+            break;
+        case 8:
+            uart_flag |= HAL_UART_LCR_WLEN8;
+            break;
+        default:
+            break;
+    }
+
+    if (hal->stop_bits == 2)
+    {
+        uart_flag |= HAL_UART_LCR_STOP2;
+    }
+    else
+    {
+        uart_flag |= HAL_UART_LCR_STOP1;
+    }
+
+    if (hal->parity_en)
+    {
+        uart_flag |= HAL_UART_LCR_PARITY_EN;
+
+        if (!hal->even_parity_sel)
+        {
+            uart_flag &= (~HAL_UART_LCR_PARITY_SEL);
+        }
+        else
+        {
+            uart_flag |= HAL_UART_LCR_PARITY_SEL;
+        }
+    }
+    else
+    {
+        uart_flag &= (~HAL_UART_LCR_PARITY_EN);
+    }
+
+    if (hal->urdma_en)
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_CTRL(hal), 0, HAL_URDMA_DMA_MODE);
+    }
+
+    hal_uart_force_rx_disable(hal, 0);
+    // HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_MCR(hal), HAL_UART_MCR_LOOPBACK, HAL_UART_MCR_LOOPBACK);
+    hal_uart_clear_fifos(hal);
+
+    HAL_UART_WRITE_BYTE(HAL_UART_REG_LCR(hal), uart_flag);
+
+    if (hal->divisor)
+    {
+        HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_LCR(hal), HAL_UART_LCR_DLAB, HAL_UART_LCR_DLAB);
+        HAL_UART_WRITE_BYTE(HAL_UART_REG_DLH_IER(hal),
+                            (u8)((hal->divisor >> 8) & 0xff)); // CAUTION: this causes IER being overwritten also
+        HAL_UART_WRITE_BYTE(HAL_UART_REG_DLL_THR_RBR(hal), (u8)(hal->divisor & 0xff));
+        HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_LCR(hal), 0, HAL_UART_LCR_DLAB);
+    }
+
+    HAL_UART_WRITE_BYTE(HAL_UART_REG_IIR_FCR(hal), HAL_UART_FCR_FIFO_ENABLE | ((hal->tx_fifo_level & 0x3) << 4)
+                                                       | ((hal->rx_fifo_level & 0x3) << 6));
+
+    if (hal->rtscts_en)
+    {
+        HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_MCR(hal), HAL_UART_MCR_AFCE | HAL_UART_MCR_RTS,
+                                 HAL_UART_MCR_AFCE | HAL_UART_MCR_RTS);
+    }
+    else
+    {
+        HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_MCR(hal), 0, HAL_UART_MCR_AFCE | HAL_UART_MCR_RTS);
+    }
+
+    // HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_MCR(hal), 0, HAL_UART_MCR_LOOPBACK);
+    hal_uart_reset(hal);
+    hal_uart_force_rx_disable(hal, 1);
+}
+
+void hal_uart_break(struct uart_hal *hal, u8 ctl)
+{
+    if (hal->urdma_en)
+    {
+        if (hal->break_ctl_pad == -1)
+            return;
+
+        if (ctl)
+        {
+#ifdef CONFIG_SSTAR_GPIO
+            sstar_gpio_pad_set(hal->break_ctl_pad);
+            sstar_gpio_set_low(hal->break_ctl_pad);
+#endif
+        }
+        else
+        {
+#ifdef CONFIG_SSTAR_GPIO
+            sstar_gpio_pad_odn(hal->break_ctl_pad);
+            sstar_gpio_pad_val_set(hal->break_ctl_pad, hal->padmux);
+#endif
+        }
+    }
+    else
+    {
+        HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_LCR(hal), ctl ? HAL_UART_LCR_SBC : 0, HAL_UART_LCR_SBC);
+    }
+}
+
+void hal_uart_irq_enable(struct uart_hal *hal, enum HAL_UART_IRQ_TYPE type, u8 u8_enable)
+{
+    if (hal->urdma_en && (type == HAL_UART_IRQ_URDMA_TX))
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_INT_CTRL(hal), u8_enable ? HAL_URDMA_TX_INTR_EN : 0,
+                                 HAL_URDMA_TX_INTR_EN);
+    }
+    else if (hal->urdma_en && (type == HAL_UART_IRQ_URDMA_RX))
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_INT_CTRL(hal), u8_enable ? HAL_URDMA_RX_INTR1_EN : 0,
+                                 HAL_URDMA_RX_INTR1_EN);
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_INT_CTRL(hal), u8_enable ? HAL_URDMA_RX_INTR2_EN : 0,
+                                 HAL_URDMA_RX_INTR2_EN);
+    }
+    else if (!hal->urdma_en && (type == HAL_UART_IRQ_TX))
+    {
+        if (u8_enable)
+        {
+            HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_DLH_IER(hal), HAL_UART_IER_THRI | HAL_UART_IER_PTHRI,
+                                     HAL_UART_IER_THRI | HAL_UART_IER_PTHRI);
+        }
+        else
+        {
+            HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_DLH_IER(hal), 0, HAL_UART_IER_THRI | HAL_UART_IER_PTHRI);
+        }
+
+        hal->tx_int_en = u8_enable;
+    }
+    else if (!hal->urdma_en && (type == HAL_UART_IRQ_RX))
+    {
+        if (u8_enable)
+        {
+            HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_DLH_IER(hal), HAL_UART_IER_RDI | HAL_UART_IER_RLSI,
+                                     HAL_UART_IER_RDI | HAL_UART_IER_RLSI);
+        }
+        else
+        {
+            HAL_UART_WRITE_BYTE_MASK(HAL_UART_REG_DLH_IER(hal), 0, HAL_UART_IER_RDI | HAL_UART_IER_RLSI);
+        }
+    }
+#if HAL_UART_TX_EMPTY_INTERRUPT
+    else if (hal->urdma_base && (type == HAL_UART_IRQ_TX_EMPTY))
+    {
+        HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_INT_CTRL(hal), u8_enable ? HAL_URDMA_TX_EMPTY_INT_EN : 0,
+                                 HAL_URDMA_TX_EMPTY_INT_EN);
+    }
+#endif
+}
+
+u32 hal_uart_get_irq_type(struct uart_hal *hal, enum HAL_UART_IRQ_TYPE type)
+{
+    u8  iir_fcr  = 0; /* Interrupt Identification Register (IIR) */
+    u8  count    = 0;
+    u8  retry    = 100;
+    u32 irq_type = 0;
+
+    if (hal->urdma_en && (type == HAL_UART_IRQ_URDMA))
+    {
+        if (HAL_URDMA_RX_MCU_INTR & HAL_UART_READ_WORD(HAL_URDMA_REG_INT_CTRL(hal)))
+        {
+            if (HAL_URDMA_RX_INTR1 & HAL_UART_READ_WORD(HAL_URDMA_REG_INT_CTRL(hal)))
+            {
+                irq_type |= HAL_UART_IRQ_URDMA_RX_TIMEOUT;
+            }
+
+            if (HAL_URDMA_RX_INTR2 & HAL_UART_READ_WORD(HAL_URDMA_REG_INT_CTRL(hal)))
+            {
+                irq_type |= HAL_UART_IRQ_URDMA_RX_THRESHOLD;
+            }
+
+            HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_INT_CTRL(hal), HAL_URDMA_RX_INTR_CLR, HAL_URDMA_RX_INTR_CLR);
+            irq_type |= HAL_UART_IRQ_URDMA_RX;
+        }
+        else if (HAL_URDMA_TX_MCU_INTR & HAL_UART_READ_WORD(HAL_URDMA_REG_INT_CTRL(hal)))
+        {
+            HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_INT_CTRL(hal), HAL_URDMA_TX_INTR_CLR, HAL_URDMA_TX_INTR_CLR);
+            irq_type |= HAL_UART_IRQ_URDMA_TX;
+        }
+    }
+    else if (!hal->urdma_en && (type == HAL_UART_IRQ))
+    {
+        /* Read Interrupt Identification Register */
+        iir_fcr = HAL_UART_READ_BYTE(HAL_UART_REG_IIR_FCR(hal)) & HAL_UART_IIR_ID_MASK;
+
+        irq_type = HAL_UART_IRQ_UNKNOWN;
+
+        if ((iir_fcr == HAL_UART_IIR_RDI || iir_fcr == HAL_UART_IIR_RX_TIMEOUT
+             || iir_fcr == HAL_UART_IIR_RLSI)) /* Receive Data Available or Character timeout or Receiver line status */
+        {
+            irq_type = HAL_UART_IRQ_RX;
+        }
+        else if (iir_fcr == HAL_UART_IIR_THRI) /* Transmitter Holding Register Empty */
+        {
+            irq_type = HAL_UART_IRQ_TX;
+        }
+        else if (iir_fcr == HAL_UART_IIR_MSI) /* Modem Status */
+        {
+            // UART_ERR("UART Interrupt: Modem status\n");
+            // Read MSR to clear
+            HAL_UART_READ_BYTE(HAL_UART_REG_MSR(hal));
+            irq_type = HAL_UART_IRQ_MODEM;
+        }
+        else if (iir_fcr == HAL_UART_IIR_BUSY) /* Busy detect indication */
+        {
+            // Read USR to clear
+            HAL_UART_READ_BYTE(HAL_UART_REG_USR(hal));
+
+            while (((HAL_UART_READ_BYTE(HAL_UART_REG_IIR_FCR(hal)) & HAL_UART_IIR_ID_MASK) == HAL_UART_IIR_BUSY)
+                   && (count < retry))
+            {
+                // Read USR to clear
+                HAL_UART_READ_BYTE(HAL_UART_REG_USR(hal));
+                count++;
+            }
+            if (count == retry)
+                irq_type = HAL_UART_IRQ_BUSY;
+        }
+        else if (iir_fcr == HAL_UART_IIR_NO_INT) /* No pending interrupts */
+        {
+            irq_type = HAL_UART_IRQ_NO_INT;
+        }
+    }
+#if HAL_UART_TX_EMPTY_INTERRUPT
+    else if (hal->urdma_base && (type & HAL_UART_IRQ_TX_EMPTY))
+    {
+        if (HAL_URDMA_TX_EMPTY_INT & HAL_UART_READ_WORD(HAL_URDMA_REG_INT_CTRL(hal)))
+        {
+            HAL_UART_WRITE_WORD_MASK(HAL_URDMA_REG_INT_CTRL(hal), HAL_URDMA_TX_EMPTY_INT_CLR,
+                                     HAL_URDMA_TX_EMPTY_INT_CLR);
+            irq_type      = HAL_UART_IRQ_TX_EMPTY_INT;
+            hal->tx_empty = 1;
+        }
+    }
+#endif
+
+    return irq_type;
+}
+
+u32 hal_uart_get_status(struct uart_hal *hal)
+{
+    u8  lsr    = 0;
+    u32 status = 0;
+
+    if (!hal->urdma_en)
+    {
+        lsr = HAL_UART_READ_BYTE(HAL_UART_REG_LSR(hal));
+
+        if (lsr & HAL_UART_LSR_DR)
+        {
+            status |= HAL_UART_FIFO_RX_READY;
+        }
+
+        if (lsr & HAL_UART_LSR_OE)
+        {
+            status |= HAL_UART_FIFO_RX_OE;
+        }
+
+        if (lsr & HAL_UART_LSR_PE)
+        {
+            status |= HAL_UART_FIFO_RX_PE;
+        }
+
+        if (lsr & HAL_UART_LSR_FE)
+        {
+            status |= HAL_UART_FIFO_RX_FE;
+        }
+
+        if (lsr & HAL_UART_LSR_BI)
+        {
+            status |= HAL_UART_FIFO_BI;
+        }
+
+        if (lsr & HAL_UART_LSR_TEMT)
+        {
+            status |= HAL_UART_FIFO_TX_SHIFT_EMPTY;
+        }
+
+        if (lsr & HAL_UART_LSR_THRE)
+        {
+            status |= HAL_UART_FIFO_TX_EMPTY;
+        }
+
+        if (lsr & HAL_UART_LSR_ERROR)
+        {
+            status |= HAL_UART_FIFO_RX_ERROR;
+        }
+    }
+    else
+    {
+#if HAL_UART_TX_EMPTY_INTERRUPT
+        if (hal->tx_empty
+            && (HAL_UART_READ_WORD(HAL_URDMA_REG_TXBUF_RPTR(hal)) == HAL_UART_READ_WORD(HAL_URDMA_REG_TXBUF_WPTR(hal))))
+        {
+            status |= HAL_UART_URDMA_TX_EMPTY;
+        }
+#else
+        if (HAL_UART_READ_WORD(HAL_URDMA_REG_TXBUF_RPTR(hal)) == HAL_UART_READ_WORD(HAL_URDMA_REG_TXBUF_WPTR(hal)))
+        {
+            status |= HAL_UART_URDMA_TX_EMPTY;
+        }
+#endif
+    }
+
+    return status;
+}
+
+u32 hal_uart_write(struct uart_hal *hal, u8 *buf, u32 size)
+{
+    u32 space      = 0;
+    u32 count      = 0;
+    u16 sw_tx_wptr = 0;
+    u16 sw_tx_rptr = 0;
+
+    if (hal->urdma_en)
+    {
+        // sw_tx_wptr = hal->urdma_base->tx_buf_wptr;
+        // sw_tx_rptr = hal->urdma_base->tx_buf_rptr;
+        sw_tx_wptr = HAL_UART_READ_WORD(HAL_URDMA_REG_TXBUF_WPTR(hal));
+        sw_tx_rptr = HAL_UART_READ_WORD(HAL_URDMA_REG_TXBUF_RPTR(hal));
+
+        if (sw_tx_wptr == 0 && sw_tx_rptr == 0 && hal->tx_first)
+        {
+            hal->tx_first = 0;
+        }
+        else
+        {
+            sw_tx_wptr = (sw_tx_wptr + 1) & (hal->tx_urdma_size - 1);
+        }
+
+        do
+        {
+            space = hal_uart_circ_space_end(sw_tx_wptr, sw_tx_rptr, hal->tx_urdma_size);
+
+            if (size < space)
+                space = size;
+
+            if (space <= 0)
+                break;
+
+            memcpy(hal->tx_buf + sw_tx_wptr, buf, space);
+            sw_tx_wptr = (sw_tx_wptr + space) & (hal->tx_urdma_size - 1);
+            buf += space;
+            size -= space;
+            count += space;
+        } while (size);
+
+        if (count)
+        {
+            CamOsMemFlush(hal->tx_buf, hal->tx_urdma_size);
+            CamOsMiuPipeFlush();
+            HAL_UART_WRITE_WORD(HAL_URDMA_REG_TXBUF_WPTR(hal), (sw_tx_wptr - 1) & (hal->tx_urdma_size - 1));
+#if HAL_UART_TX_EMPTY_INTERRUPT
+            hal->tx_empty = 0;
+#endif
+        }
+    }
+    else
+    {
+        do
+        {
+            if ((HAL_UART_READ_BYTE(HAL_UART_REG_USR(hal)) & HAL_UART_USR_TXFIFO_NOT_FULL)
+                != HAL_UART_USR_TXFIFO_NOT_FULL)
+            {
+                break;
+            }
+
+            HAL_UART_WRITE_BYTE(HAL_UART_REG_DLL_THR_RBR(hal), *buf);
+            count++;
+            buf++;
+        } while (--size);
+    }
+
+    return count;
+}
+
+u32 hal_uart_read(struct uart_hal *hal, u8 *buf, u32 size)
+{
+    u32 cnt        = 0;
+    u32 count      = 0;
+    u16 sw_rx_wptr = 0;
+    u16 sw_rx_rptr = 0;
+
+    if (hal->urdma_en)
+    {
+        // sw_rx_wptr  = hal->urdma_base->rx_buf_wptr;
+        hal->rx_buf_wptr = sw_rx_wptr =
+            (HAL_UART_READ_WORD(HAL_URDMA_REG_RXBUF_WPTR(hal)) + 1) & (hal->tx_urdma_size - 1);
+        hal->rx_buf_rptr = sw_rx_rptr = hal->rx_sw_rptr;
+        hal->rx_sw_rptr               = sw_rx_wptr;
+
+        CamOsMemInvalidate((void *)hal->rx_buf, hal->tx_urdma_size);
+
+        while (buf)
+        {
+            cnt = hal_uart_circ_cnt_to_end(sw_rx_wptr, sw_rx_rptr, hal->tx_urdma_size);
+
+            if (size < cnt)
+                cnt = size;
+
+            if (cnt <= 0)
+                break;
+
+            memcpy(buf, hal->rx_buf + sw_rx_rptr, cnt);
+            hal->rx_sw_rptr = sw_rx_rptr = (sw_rx_rptr + cnt) & (hal->tx_urdma_size - 1);
+            buf += cnt;
+            size -= cnt;
+            count += cnt;
+        }
+    }
+    else
+    {
+        do
+        {
+            /* check if Receiver Data Ready */
+            if ((HAL_UART_READ_BYTE(HAL_UART_REG_LSR(hal)) & HAL_UART_LSR_DR) != HAL_UART_LSR_DR)
+            {
+                break;
+            }
+
+            *buf = HAL_UART_READ_BYTE(HAL_UART_REG_DLL_THR_RBR(hal));
+            count++;
+            buf++;
+        } while (--size);
+    }
+
+    return count;
+}
+
+u32 hal_uart_set_mctrl(struct uart_hal *hal, u8 mctrl_set)
+{
+    u8 mctrl = 0;
+
+    mctrl = HAL_UART_READ_BYTE(HAL_UART_REG_MCR(hal));
+    if (mctrl & HAL_UART_MCR_AFCE)
+    {
+        mctrl &= (~HAL_UART_MCR_CTRL_MASK);
+        mctrl |= (mctrl_set & HAL_UART_MCR_CTRL_MASK);
+        HAL_UART_WRITE_BYTE(HAL_UART_REG_MCR(hal), mctrl);
+    }
+    else
+    {
+        return HAL_UART_ERR_MCTRL;
+    }
+
+    return 0;
+}
+
+u32 hal_uart_get_mctrl(struct uart_hal *hal)
+{
+    u32 mctrl = 0;
+
+    mctrl = HAL_UART_READ_BYTE(HAL_UART_REG_MCR(hal));
+    mctrl &= (HAL_UART_MCR_CTRL_MASK | HAL_UART_MCR_AFCE);
+
+    return mctrl;
+}

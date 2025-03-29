@@ -1,0 +1,11 @@
+menu "OPTEE"
+
+config OPTEE_OS_MAKE_OPTION
+    string "OPTEE OS make Option"
+    default ""
+
+config OPTEE_TEST
+    bool "OPTEE Test"
+    default n
+
+endmenu

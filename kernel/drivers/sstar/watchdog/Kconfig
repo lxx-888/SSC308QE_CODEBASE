@@ -1,0 +1,13 @@
+config SSTAR_WATCHDOG
+	tristate "Sigmastar Watchdog Driver"
+	default n
+	help
+	  Say Y here to enable the driver for the watchdog.
+	  If unsure, say Y.
+	  To compile this driver as a module, choose M here. The
+	  module will be called drv_wdt.
+
+config SSTAR_WATCHDOG_GOV
+	bool "Sigmastar Watchdog Governor"
+	depends on SSTAR_WATCHDOG && WATCHDOG_PRETIMEOUT_GOV
+	default y

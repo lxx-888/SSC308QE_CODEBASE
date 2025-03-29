@@ -1,0 +1,4 @@
+config SSTAR_MBX
+	tristate "SStar MBX driver"
+	default y
+

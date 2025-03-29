@@ -1,0 +1,6 @@
+source "drivers/sstar/camdriver/rgn/Kconfig"
+source "drivers/sstar/camdriver/disp/Kconfig"
+source "drivers/sstar/camdriver/hdmitx/Kconfig"
+source "drivers/sstar/camdriver/panel/Kconfig"
+source "drivers/sstar/camdriver/sensor/Kconfig"
+source "drivers/sstar/camdriver/jpd/Kconfig"

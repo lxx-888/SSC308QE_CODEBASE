@@ -1,0 +1,21 @@
+menuconfig INTERFACE_IPU
+    depends on SUPPORT_IPU
+    bool "ipu"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_IPU
+
+config config_mi_ipu
+    bool "mi_ipu"
+    default y
+    help
+        whether to compile or not
+
+endif
+config interface_ipu
+    string
+    default enable if INTERFACE_IPU
+    default disable if !INTERFACE_IPU
+

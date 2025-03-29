@@ -1,0 +1,122 @@
+/*
+ * hal_pspireg.h- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+
+#ifndef __HAL_PSPI_REG_H__
+#define __HAL_PSPI_REG_H__
+/* HAL_PSPI_ADDR0_CTRL */
+#define HAL_PSPI_RX_DMA_ENABLE_SHIFT  (0)
+#define HAL_PSPI_RX_DMA_ENABLE        (0x01 << HAL_PSPI_RX_DMA_ENABLE_SHIFT)
+#define HAL_PSPI_TX_DMA_ENABLE_SHIFT  (1)
+#define HAL_PSPI_TX_DMA_ENABLE        (0x01 << HAL_PSPI_TX_DMA_ENABLE_SHIFT)
+#define HAL_PSPI_RX_DMA_DISABLE_SHIFT (2)
+#define HAL_PSPI_RX_DMA_DISABLE       (0x01 << HAL_PSPI_RX_DMA_DISABLE_SHIFT)
+#define HAL_PSPI_TX_DMA_DISABLE_SHIFT (3)
+#define HAL_PSPI_TX_DMA_DISABLE       (0x01 << HAL_PSPI_TX_DMA_DISABLE_SHIFT)
+#define HAL_PSPI_RX_FIFO_CLEAR_SHIFT  (4)
+#define HAL_PSPI_RX_FIFO_CLEAR        (0x01 << HAL_PSPI_RX_FIFO_CLEAR_SHIFT)
+#define HAL_PSPI_TX_FIFO_CLEAR_SHIFT  (5)
+#define HAL_PSPI_TX_FIFO_CLEAR        (0x01 << HAL_PSPI_TX_FIFO_CLEAR_SHIFT)
+/* HAL_PSPI_CLKDIV */
+#define HAL_PSPI_DIV_SHIFT (0)
+#define HAL_PSPI_DIV       (0xFF << HAL_PSPI_DIV_SHIFT)
+/* HAL_PSPI_ADDR2_CTRL */
+#define HAL_PSPI_POL_SHIFT             (0)
+#define HAL_PSPI_POL                   (0x01 << HAL_PSPI_POL_SHIFT)
+#define HAL_PSPI_PHA_SHIFT             (1)
+#define HAL_PSPI_PHA                   (0x01 << HAL_PSPI_PHA_SHIFT)
+#define HAL_PSPI_SSCTL_SHIFT           (2)
+#define HAL_PSPI_SSCTL                 (0x01 << HAL_PSPI_SSCTL_SHIFT)
+#define HAL_PSPI_SSPOL_SHIFT           (3)
+#define HAL_PSPI_SSPOL                 (0x01 << HAL_PSPI_SSPOL_SHIFT)
+#define HAL_PSPI_RX_ENABLR_SHIFT       (4)
+#define HAL_PSPI_RX_ENABLR             (0x01 << HAL_PSPI_RX_ENABLR_SHIFT)
+#define HAL_PSPI_TX_ENABLR_SHIFT       (5)
+#define HAL_PSPI_TX_ENABLR             (0x01 << HAL_PSPI_TX_ENABLR_SHIFT)
+#define HAL_PSPI_TX_RX_ENABLR_SHIFT    (4)
+#define HAL_PSPI_TX_RX_ENABLR          (0x03 << HAL_PSPI_TX_RX_ENABLR_SHIFT)
+#define HAL_PSPI_SPI_MODE_SELECT_SHIFT (6)
+#define HAL_PSPI_SPI_MODE_SELECT       (0x01 << HAL_PSPI_SPI_MODE_SELECT_SHIFT)
+#define HAL_PSPI_CLOCK_SELECT_SHIFT    (9)
+#define HAL_PSPI_CLOCK_SELECT          (0x01 << HAL_PSPI_CLOCK_SELECT_SHIFT)
+/* HAL_PSPI_ADDR3_CTRL */
+#define HAL_PSPI_BIT_COUNT_SHIFT        (0)
+#define HAL_PSPI_BIT_COUNT              (0x1F << HAL_PSPI_BIT_COUNT_SHIFT)
+#define HAL_PSPI_RXFIFO_THRESHOLD_SHIFT (8)
+#define HAL_PSPI_RXFIFO_THRESHOLD       (0x1f << HAL_PSPI_RXFIFO_THRESHOLD_SHIFT)
+/* HAL_PSPI_TX_RX_FIFO_LEFT */
+/* HAL_PSPI_TX_RX_FIFO_THRESHOLD */
+/* HAL_PSPI_CPU_STATUS_1_2 */
+/* HAL_PSPI_CPU_STATUS_3 */
+/* HAL_PSPI_CPU_INTERRUPT_ENABLE_0_1 */
+/* HAL_PSPI_CPU_INTERRUPT_ENABLE_3 */
+/* HAL_PSPI_HOST_STATUS_0_1 */
+#define HAL_PSPI_TX_DONE_FLAG_SHIFT (10)
+#define HAL_PSPI_TX_DONE_FLAG       (0x01 << HAL_PSPI_TX_DONE_FLAG_SHIFT)
+/* HAL_PSPI_HOST_STATUS_2 */
+/* HAL_PSPI_HOST_INTERRUPT_ENABLE_0_1 */
+#define HAL_PSPI_ENABLE_TX_DONE_SHIFT (10)
+#define HAL_PSPI_ENABLE_TX_DONE       (0x01 << HAL_PSPI_ENABLE_TX_DONE_SHIFT)
+/* HAL_PSPI_HOST_INTERRUPT_ENABLE_2 */
+/* HAL_PSPI_TX_RX_565_MODE */
+#define HAL_PSPI_TX_MODE_SHIFT       (0)
+#define HAL_PSPI_TX_MODE             (0x03 << HAL_PSPI_TX_MODE_SHIFT)
+#define HAL_PSPI_RX_MODE_SHIFT       (2)
+#define HAL_PSPI_RX_MODE             (0x03 << HAL_PSPI_RX_MODE_SHIFT)
+#define HAL_PSPI_BIT_ORDER_INV_SHIFT (5)
+#define HAL_PSPI_BIT_ORDER_INV       (0x01 << HAL_PSPI_BIT_ORDER_INV_SHIFT)
+#define HAL_PSPI_565_MODE_SHIFT      (10)
+#define HAL_PSPI_565_MODE            (0x07 << HAL_PSPI_565_MODE_SHIFT)
+/* HAL_PSPI_ADDR21_CTRL */
+#define HAL_PSPI_CS_CTRL_SHIFT        (0)
+#define HAL_PSPI_CS_CTRL              (0x1B << HAL_PSPI_CS_CTRL_SHIFT)
+#define HAL_PSPI_ONE_PIN_RW_SHIFT     (2)
+#define HAL_PSPI_ONE_PIN_RW           (0x01 << HAL_PSPI_ONE_PIN_RW_SHIFT)
+#define HAL_PSPI_TE_MODE_SHIFT        (8)
+#define HAL_PSPI_TE_MODE              (0x01 << HAL_PSPI_TE_MODE_SHIFT)
+#define HAL_PSPI_TE_POL_SHIFT         (9)
+#define HAL_PSPI_TE_POL               (0x01 << HAL_PSPI_TE_POL_SHIFT)
+#define HAL_PSPI_TE_SKIP_NUMBER_SHIFT (12)
+#define HAL_PSPI_TE_SKIP_NUMBER       (0x0F << HAL_PSPI_TE_SKIP_NUMBER_SHIFT)
+/* HAL_PSPI_AUTO_TRIG_CTRL */
+#define HAL_PSPI_SMALL_RESET_SHIFT       (0)
+#define HAL_PSPI_SMALL_RESET             (0x01 << HAL_PSPI_SMALL_RESET_SHIFT)
+#define HAL_PSPI_STATUS_CLEAR_SHIFT      (1)
+#define HAL_PSPI_STATUS_CLEAR            (0x01 << HAL_PSPI_STATUS_CLEAR_SHIFT)
+#define HAL_PSPI_ENABLE_RX_DMA_INT_SHIFT (14)
+#define HAL_PSPI_ENABLE_RX_DMA_INT       (0x01 << HAL_PSPI_ENABLE_RX_DMA_INT_SHIFT)
+#define HAL_PSPI_RX_DMA_INT_FLAG_SHIFT   (15)
+#define HAL_PSPI_RX_DMA_INT_FLAG         (0x01 << HAL_PSPI_RX_DMA_INT_FLAG_SHIFT)
+/* HAL_PSPI_ADDR24_CTRL */
+#define HAL_PSPI_TX_FIFO_READY_SHIFT (8)
+#define HAL_PSPI_TX_FIFO_READY       (0x01 << HAL_PSPI_TX_FIFO_READY_SHIFT)
+/* HAL_PSPI_HOST_STATUS_0_1 */
+#define HAL_PSPI_RX_FIFO_LE_EVENT  (0x01)
+#define HAL_PSPI_RX_FIFO_GE_EVENT  (0x02)
+#define HAL_PSPI_RX_FIFO_EMPTY     (0x04)
+#define HAL_PSPI_RX_FIFO_FULL      (0x08)
+#define HAL_PSPI_TX_FIFO_LE_EVENT  (0x10)
+#define HAL_PSPI_TX_FIFO_GE_EVENT  (0x20)
+#define HAL_PSPI_TX_FIFO_EMPTY     (0x40)
+#define HAL_PSPI_TX_FIFO_FULL      (0x80)
+#define HAL_PSPI_TRANSFER_DONE     (0x0400)
+#define HAL_PSPI_TRANSFER_COMPLETE (0x1000)
+#define HAL_PSPI_FIFO_SIZE         (0x10)
+#define HAL_PSPI_TIMEOUT_COUNT     (0x1000000)
+#define HAL_PSPI_TIMEOUT_CNT_END   (100)
+#define HAL_PSPI_CS_SWSET_HIGH     (0x00)
+#define HAL_PSPI_CS_SWSET_LOW      (0x01)
+#endif

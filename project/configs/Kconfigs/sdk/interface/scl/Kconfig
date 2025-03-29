@@ -1,0 +1,46 @@
+menuconfig INTERFACE_SCL
+    depends on SUPPORT_SCL
+    bool "scl"
+    default y
+    select MHAL_VPE
+    help
+        whether to compile or not
+
+if INTERFACE_SCL
+
+config MI_SCL_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config mi_scl_kapi
+    string
+    default yes if MI_SCL_KAPI
+    default no if !MI_SCL_KAPI
+
+config config_mi_scl
+    bool "mi_scl"
+    depends on MHAL_VPE
+    default y
+    help
+        whether to compile or not
+
+config MHAL_VPE
+    bool "mhal_vpe"
+    depends on INTERFACE_SCL
+    default y
+    help
+        whether to compile or not
+
+config mhal_vpe
+    string
+    default enable if MHAL_VPE
+    default disable if !MHAL_VPE
+
+endif
+config interface_scl
+    string
+    default enable if INTERFACE_SCL
+    default disable if !INTERFACE_SCL
+

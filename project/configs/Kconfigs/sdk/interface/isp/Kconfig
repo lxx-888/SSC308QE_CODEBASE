@@ -1,0 +1,34 @@
+menuconfig INTERFACE_ISP
+    depends on SUPPORT_ISP
+    bool "isp"
+    default y
+    select INTERFACE_VIF
+    select INTERFACE_SENSOR
+    help
+        whether to compile or not
+
+if INTERFACE_ISP
+
+config MI_ISP_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config mi_isp_kapi
+    string
+    default yes if MI_ISP_KAPI
+    default no if !MI_ISP_KAPI
+
+config config_mi_isp
+    bool "mi_isp"
+    default y
+    help
+        whether to compile or not
+
+
+endif
+config interface_isp
+    string
+    default enable if INTERFACE_ISP
+    default disable if !INTERFACE_ISP

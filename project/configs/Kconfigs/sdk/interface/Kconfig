@@ -1,0 +1,57 @@
+menu "Interface Compile Config"
+comment "Interface Compile Config"
+
+config ENABLE_UT_API
+    bool "enable ut api"
+    default n
+    help
+        whether to compile or not
+
+config enable_ut_api
+    string
+    default enable if ENABLE_UT_API
+    default disable if !ENABLE_UT_API
+
+source "configs/Kconfigs/sdk/interface/ability/Kconfig"
+source "configs/Kconfigs/sdk/interface/codesize/Kconfig"
+source "configs/Kconfigs/sdk/interface/aio/Kconfig"
+source "configs/Kconfigs/sdk/interface/ai/Kconfig"
+source "configs/Kconfigs/sdk/interface/ao/Kconfig"
+source "configs/Kconfigs/sdk/interface/aqserver/Kconfig"
+source "configs/Kconfigs/sdk/interface/cipher/Kconfig"
+source "configs/Kconfigs/sdk/interface/common/Kconfig"
+source "configs/Kconfigs/sdk/interface/cus3a/Kconfig"
+source "configs/Kconfigs/sdk/interface/debug/Kconfig"
+source "configs/Kconfigs/sdk/interface/disp/Kconfig"
+source "configs/Kconfigs/sdk/interface/gfx/Kconfig"
+source "configs/Kconfigs/sdk/interface/hdmi/Kconfig"
+source "configs/Kconfigs/sdk/interface/ipu/Kconfig"
+source "configs/Kconfigs/sdk/interface/iqserver/Kconfig"
+source "configs/Kconfigs/sdk/interface/isp/Kconfig"
+source "configs/Kconfigs/sdk/interface/ispalgo/Kconfig"
+source "configs/Kconfigs/sdk/interface/ive/Kconfig"
+source "configs/Kconfigs/sdk/interface/jpd/Kconfig"
+source "configs/Kconfigs/sdk/interface/ldc/Kconfig"
+source "configs/Kconfigs/sdk/interface/mipitx/Kconfig"
+source "configs/Kconfigs/sdk/interface/rgn/Kconfig"
+source "configs/Kconfigs/sdk/interface/sed/Kconfig"
+source "configs/Kconfigs/sdk/interface/sensor/Kconfig"
+source "configs/Kconfigs/sdk/interface/shadow/Kconfig"
+source "configs/Kconfigs/sdk/interface/sys/Kconfig"
+source "configs/Kconfigs/sdk/interface/vdec/Kconfig"
+source "configs/Kconfigs/sdk/interface/vdf/Kconfig"
+source "configs/Kconfigs/sdk/interface/vdisp/Kconfig"
+source "configs/Kconfigs/sdk/interface/venc/Kconfig"
+source "configs/Kconfigs/sdk/interface/vif/Kconfig"
+source "configs/Kconfigs/sdk/interface/scl/Kconfig"
+source "configs/Kconfigs/sdk/interface/wlan/Kconfig"
+source "configs/Kconfigs/sdk/interface/pcie/Kconfig"
+source "configs/Kconfigs/sdk/interface/dsp/Kconfig"
+source "configs/Kconfigs/sdk/interface/dpu/Kconfig"
+source "configs/Kconfigs/sdk/interface/dummy/Kconfig"
+source "configs/Kconfigs/sdk/interface/fb/Kconfig"
+source "configs/Kconfigs/sdk/interface/nir/Kconfig"
+source "configs/Kconfigs/sdk/interface/hvp/Kconfig"
+source "configs/Kconfigs/sdk/interface/pspi/Kconfig"
+source "configs/Kconfigs/sdk/interface/hdmirx/Kconfig"
+endmenu

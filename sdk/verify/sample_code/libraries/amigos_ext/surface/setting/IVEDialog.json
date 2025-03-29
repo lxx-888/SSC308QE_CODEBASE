@@ -1,0 +1,137 @@
+{
+    "Page": [
+        {
+            "page_name": "IVEModPage",
+            "page_title": "IVE",
+            "component": [
+                {
+                    "name": "IveWorkMode",
+                    "label": "Work Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "page",
+                            "option_name" : "bgblur",
+                            "option_page": "IVEModBgBlurParamPage"
+                        }
+                    ],
+                    "default_value": "bgblur",
+                    "sub_section": "IVE_MODE_PARAM",
+                    "output_type": "string",
+                    "output_key": "ALGO_TYPE"
+                }
+            ]
+        },
+        {
+            "page_name": "IVEModBgBlurParamPage",
+            "page_title": "bgblur",
+            "page_belong": "IveWorkMode:bgblur",
+            "component": [
+              {
+                  "name": "IveMode",
+                    "label": "Ive Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "blur"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "replace"
+                        }
+                    ],
+                    "default_value": "blur",
+                    "output_type": "string",
+                    "output_key": "IVE_MODE"
+              },
+              {
+                    "name": "IveYmaskPath",
+                    "label": "ymask path",
+                    "component_type": "LineEdit",
+                    "default_value": "./resource/ipu_net/ive_640x360_ymask.bin",
+                    "output_key": "YMASK_PATH"
+                },
+                {
+                    "name": "IveUvmaskPath",
+                    "label": "model path",
+                    "component_type": "LineEdit",
+                    "default_value": "./resource/ipu_net/ive_640x360_uvmask.bin",
+                    "output_key": "UVMASK_PATH"
+                },
+                {
+                    "name": "IveMaskThr",
+                    "label": "mask thredhold",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "127",
+                    "output_key": "MASK_THR"
+                },
+                {
+                    "name": "IveMaskOp",
+                    "label": "Ive MaskOp",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "none"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "dilate"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "erode"
+                        }
+                    ],
+                    "default_value": "none",
+                    "output_type": "string",
+                    "output_key": "MASK_OP"
+                },
+                {
+                    "name": "IveBlurLevel",
+                    "label": "blur level",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "BLUR_LV"
+                },
+                {
+                    "name": "IveScalstage",
+                    "label": "scaling stage",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "6",
+                    "output_key": "SCAL_STAGE"
+                },
+                {
+                    "name": "IveSturationLevel",
+                    "label": "sturation level",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "128",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "SATURATION_LV"
+                },
+                {
+                    "name": "IveMosaicSize",
+                    "label": "mosaic size",
+                    "component_type": "SpinBox",
+                    "min_value": "2",
+                    "max_value": "10",
+                    "value_step": "2",
+                    "default_value": "2",
+                    "output_key": "MOSAIC_SIZE"
+                }
+            ]
+        }
+    ]
+}

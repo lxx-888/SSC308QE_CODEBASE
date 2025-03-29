@@ -1,0 +1,80 @@
+/*
+ * pioneer5-clks.dtsi- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+
+#include "../../../drivers/sstar/clk/pioneer5/hal_clk.h"
+
+clks: clocks{
+    compatible = "sstar,clk";
+    #clock-cells = <1>;
+};
+
+pwm: pwm@1F203200 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+gmac0 {
+    clocks = <&clks SSTAR_CLK_GMAC0_GMII>, <&clks SSTAR_CLK_GPHY0_REF>;
+};
+
+gmac1 {
+    clocks = <&clks SSTAR_CLK_GMAC1_GMII>, <&clks SSTAR_CLK_GPHY1_REF>;
+};
+
+u3phy_pipe: pipe@1f2a5200 {
+    clocks = <&clks SSTAR_CLK_SSUSB_PHY_108>, <&clks SSTAR_CLK_SSUSB_PHY_432>;
+};
+
+usb3drd: usb3 {
+    clocks = <&clks SSTAR_CLK_SOF_USB30_DRD>, <&clks SSTAR_CLK_SSUSB_AXI>;
+};
+
+i2c0: i2c0@1F222800 {
+    clocks = <&clks SSTAR_CLK_MIIC0>;
+};
+
+i2c1: i2c1@1F222A00 {
+    clocks = <&clks SSTAR_CLK_MIIC1>;
+};
+
+i2c2: i2c2@1F222C00 {
+    clocks = <&clks SSTAR_CLK_MIIC2>;
+};
+
+i2c3: i2c3@1F222E00 {
+    clocks = <&clks SSTAR_CLK_MIIC3>;
+};
+
+uart0: uart@1F221000 {
+    clocks = <&clks SSTAR_CLK_UART0>;
+};
+
+uart1: uart1@1F221200 {
+    clocks = <&clks SSTAR_CLK_UART1>;
+};
+
+fuart: fuart@1F220400 {
+    clocks = <&clks SSTAR_CLK_FUART>;
+};
+
+uart2: uart2@1F221400 {
+    clocks = <&clks SSTAR_CLK_UART2>;
+};
+
+spi0: spi0@1F222000 {
+    clocks = <&clks SSTAR_CLK_MSPI0>;
+};
+

@@ -1,0 +1,330 @@
+{
+    "Page":[
+        {
+            "page_name": "VDECModPage",
+            "page_title": "VDEC",
+            "component": [
+                {
+                    "name": "VdecBufferMode",
+                    "label": "DPB Buf Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "int",
+                            "option_name" : "NORMAL",
+                            "option_value" : "0"
+                        },
+                        {
+                            "option_type" : "int",
+                            "option_name" : "INPLACE_ONE",
+                            "option_value" : "1"
+                        },
+                        {
+                            "option_type" : "int",
+                            "option_name" : "INPLACE_TWO",
+                            "option_value" : "2"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BUF_MODE"
+                },
+                {
+                    "name": "VdecRefFrameNumSpinBox",
+                    "label": "Ref Frame Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "2",
+                    "output_type": "int",
+                    "output_key": "REF_FRAME"
+                },
+                {
+                    "name": "VdecBitStreamDoubleSpinBox",
+                    "label": "BitStreamSize(MB/s)",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "90",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "BIT_STREAM_BUFFER"
+                },
+                {
+                    "name": "VdecWidthSpinBox",
+                    "label": "BUF Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "BUF_WIDTH"
+                },
+                {
+                    "name": "VdecHeightSpinBox",
+                    "label": "BUF Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "BUF_HEIGHT"
+                },
+                {
+                    "name": "VdecBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "VDECModBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VDECModBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "VdecBwInfo:1",
+            "component": [
+                {
+                    "name": "VdecEncodeType",
+                    "label": "Encode Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "h264",
+                            "option_value" : "h264"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "h265",
+                            "option_value" : "h265"
+                        }
+                    ],
+                    "default_value": "h265",
+                    "output_type": "string",
+                    "output_key": "EN_TYPE"
+                }
+            ]
+        },
+        {
+            "page_name": "VDECOutputPage",
+            "page_title": "VDEC Output",
+            "component": [
+                {
+                    "name": "VdecOutputWidthSpinBox",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "VdecOutputHeightSpinBox",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "VdecOutputCropCheckBox",
+                    "label": "Output Crop",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_ENABLE"
+                },
+                {
+                    "name": "VdecOutputCropXSpinBox",
+                    "label": "OutputCropX",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_X"
+                },
+                {
+                    "name": "VdecOutputCropYSpinBox",
+                    "label": "OutputCropY",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_Y"
+                },
+                {
+                    "name": "VdecOutputCropWSpinBox",
+                    "label": "OutputCropW",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_W"
+                },
+                {
+                    "name": "VdecOutputCropHSpinBox",
+                    "label": "OutputCropH",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_H"
+                },
+                {
+                    "name": "VdecOutputPortBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "VDECOutputBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VDECOutputBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "VdecOutputPortBwInfo:1",
+            "component": [
+                {
+                    "name": "VdecOutputPortType",
+                    "label": "Video Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "raw"
+                        }
+                    ],
+                    "default_value": "raw",
+                    "option_type": "string",
+                    "output_key": "OUT_TYPE"
+                },
+                {
+                    "name": "VDECOutputPortColorFormat",
+                    "label": "Video Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv420sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        }
+    ]
+
+}

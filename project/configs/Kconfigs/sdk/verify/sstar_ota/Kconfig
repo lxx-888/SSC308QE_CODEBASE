@@ -1,0 +1,10 @@
+config VERIFY_SSTAR_OTA
+    bool "sstar_ota"
+    default y
+    help
+        whether to compile or not
+
+config verify_sstar_ota
+    string
+    default enable if VERIFY_SSTAR_OTA
+    default disable if !VERIFY_SSTAR_OTA

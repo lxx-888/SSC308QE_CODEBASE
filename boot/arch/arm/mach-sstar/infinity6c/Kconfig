@@ -1,0 +1,17 @@
+if SSTAR_INFINITY6C
+
+config SSTAR_CHIP_ID
+	string "SigmaStar chip id"
+	default "I6C"
+
+config SYS_CONFIG_NAME
+	default "infinity6c"
+	help
+	  To load the "include/configs/infinity6c.h"
+
+config SYS_SOC
+	default "infinity6c"
+	help
+	  To generate correct  "arch/arm/include/asm/arch"
+
+endif

@@ -1,0 +1,3 @@
+config SSTAR_PNL
+	tristate "Sigmastar PNL driver"
+	default n

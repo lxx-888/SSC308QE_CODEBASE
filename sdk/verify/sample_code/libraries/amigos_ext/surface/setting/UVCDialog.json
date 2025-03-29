@@ -1,0 +1,176 @@
+{
+    "Page": [
+        {
+            "page_name": "UVCModPage",
+            "page_title": "UVC",
+            "component": [
+                {
+                    "name": "MaxCnt",
+                    "label": "Max Buffer Count",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "output_key": "MAX_CNT"
+                },
+                {
+                    "name": "MaxPacket",
+                    "label": "Max Packet",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "8192",
+                    "value_step": "1024",
+                    "default_value": "1024",
+                    "output_key": "MAX_PACKET"
+                },
+                {
+                    "name": "Mult",
+                    "label": "Mult",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "3",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "MULT"
+                },
+                {
+                    "name": "Burst",
+                    "label": "Burst",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "16",
+                    "value_step": "1",
+                    "default_value": "13",
+                    "output_key": "BURST"
+                },
+                {
+                    "name": "ControlInterface",
+                    "label": "Control Interface",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "16",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "C_INTF"
+                },
+                {
+                    "name": "StreamInterface",
+                    "label": "Stream Interface",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "16",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "S_INTF"
+                },
+                {
+                    "name": "TransferMode",
+                    "label": "Transfer Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "ISOC"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "BULK"
+                        }
+                    ],
+                    "default_value": "ISOC",
+                    "output_type": "string",
+                    "output_key": "TYPE"
+                },
+                {
+                    "name": "MemoryMode",
+                    "label": "Memory Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "MMAP"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "USERPTR"
+                        }
+                    ],
+                    "default_value": "MMAP",
+                    "output_type": "string",
+                    "output_key": "MODE"
+                },
+                {
+                    "name": "UvcBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "UVCModBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "UVCModBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "UvcBwInfo:1",
+            "component": [
+                {
+                    "name": "UvcWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "UvcHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "UvcBufferDepth",
+                    "label": "Buffer Depth",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "output_type": "int",
+                    "output_key": "BUF_DEPTH"
+                },
+                {
+                    "name": "UvcBufferSize",
+                    "label": "Buffer Size(Byte)",
+                    "component_type": "LineEdit",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BUF_SIZE"
+                }
+            ]
+        }
+    ]
+}

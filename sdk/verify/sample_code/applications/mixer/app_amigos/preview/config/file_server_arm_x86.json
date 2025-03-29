@@ -1,0 +1,47 @@
+{
+    "ROOT": [
+        {
+            "NAME": "RTSP",
+            "CHIP": "0"
+        }
+    ],
+    "RTSP": {
+        "MOD": "RTSP",
+        "CHN": "0",
+        "DEV": "0",
+        "PRELOAD": "0",
+        "IN_0": {
+            "FPS": "30",
+            "BIND_TYPE": "0",
+            "BIND_PARAM": "0",
+            "DEPTH_IN": "15",
+            "STREAM_NAME": "file0",
+            "PREV": "FILE_CH0_DEV0:OUT_0"
+        },
+        "ONVIF": "0",
+        "IN_CNT": "1",
+        "OUT_CNT": "0",
+        "POS_X": "525",
+        "POS_Y": "150",
+        "GROUP_ID": "0"
+    },
+    "FILE_CH0_DEV0": {
+        "MOD": "FILE",
+        "CHN": "0",
+        "DEV": "0",
+        "PRELOAD": "0",
+        "OUT_0": {
+            "FPS": "15",
+            "FILE_READ_PATH": "./IU_2MP25.h265",
+            "DATA_TYPE": "1",
+            "DATA_FMT": "13",
+            "VID_W": "1920",
+            "VID_H": "1080"
+        },
+        "IN_CNT": "0",
+        "OUT_CNT": "1",
+        "POS_X": "287",
+        "POS_Y": "145",
+        "GROUP_ID": "0"
+    }
+}

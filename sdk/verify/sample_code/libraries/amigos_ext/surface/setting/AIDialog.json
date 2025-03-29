@@ -1,0 +1,586 @@
+{
+    "Page": [
+        {
+            "page_name": "AIModPage",
+            "page_title": "AI",
+            "component": [
+                {
+                    "name": "Format",
+                    "label": "Audio Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "pcm_s16_le"
+                        }
+                    ],
+                    "output_type": "string",
+                    "output_key": "FORMAT",
+                    "default_value": "pcm_s16_le"
+                },
+                {
+                    "name": "SampleRate",
+                    "label": "Sample Rate",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "8k",
+                            "option_value": "8000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "16k",
+                            "option_value": "16000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "32k",
+                            "option_value": "32000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "48k",
+                            "option_value": "48000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "96k",
+                            "option_value": "96000"
+                        }
+                    ],
+                    "default_value": "8000",
+                    "output_type": "int",
+                    "output_key": "SAMPLE_RATE"
+                },
+                {
+                    "name": "SoundMode",
+                    "label": "Sound Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "mono"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "stereo"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "4ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "6ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "8ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "10ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "12ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "14ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "16ch"
+                        }
+                    ],
+                    "default_value": "mono",
+                    "output_type": "string",
+                    "output_key": "SND_MOD"
+                },
+                {
+                    "name": "Volume",
+                    "label": "Volume",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "18",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "output_key": "VOLUME"
+                },
+                {
+                    "name": "PeriodSize",
+                    "label": "Period Size",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "128",
+                    "output_key": "PERIOD_SIZE"
+                },
+                {
+                    "name": "Interleaved",
+                    "label": "Interleaved",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "INTERLEAVED"
+                },
+                {
+                    "name": "Interface",
+                    "label": "Interface",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "interface",
+                            "option_page": "AIModInterfacePage"
+                        }
+                    ],
+                    "sub_section": "INTERFACE_PARAM",
+                    "default_value": "interface",
+                    "output_type": "string",
+                    "output_key": "INTERFACE"
+                },
+                {
+                    "name": "I2SMode",
+                    "label": "I2S Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "I2S_MASTER"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "I2S_SLAVE"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "TDM_MASTER"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "TDM_SLAVE"
+                        }
+                    ],
+                    "default_value": "I2S_MASTER",
+                    "output_type": "string",
+                    "output_key": "I2S_MOD"
+                },
+                {
+                    "name": "I2SFormat",
+                    "label": "I2S Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "I2S_MSB"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "LEFT_JUSTIFY_MSB"
+                        }
+                    ],
+                    "default_value": "I2S_MSB",
+                    "output_type": "string",
+                    "output_key": "I2S_FORMAT"
+                },
+                {
+                    "name": "I2SMclk",
+                    "label": "I2S Mclk",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "12.288"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "16.348"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "18.432"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "24.576"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "24"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "48"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "string",
+                    "output_key": "I2S_MCLK"
+                },
+                {
+                    "name": "I2SynCLock",
+                    "label": "I2S Sync Clock",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_SYNCCLOCK"
+                },
+                {
+                    "name": "I2STmdSlots",
+                    "label": "I2S Tmd Slots",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "I2S_TMDSLOTS"
+                },
+                {
+                    "name": "I2SBitWidth",
+                    "label": "I2S Bit Width",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "16"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "32"
+                        }
+                    ],
+                    "default_value": "16",
+                    "output_type": "string",
+                    "output_key": "I2S_BIT_WIDTH"
+                }
+            ]
+        },
+        {
+            "page_name": "AIModInterfacePage",
+            "page_title": "Interface Setting",
+            "page_belong": "Interface:interface",
+            "component": [
+                {
+                    "name": "ADC_AB",
+                    "label": "ADC_AB",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "ADC_AB"
+                },
+                {
+                    "name": "ADC_CD",
+                    "label": "ADC_CD",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "ADC_CD"
+                },
+                {
+                    "name": "DMIC_A_01",
+                    "label": "DMIC_A_01",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DMIC_A_01"
+                },
+                {
+                    "name": "DMIC_A_23",
+                    "label": "DMIC_A_23",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DMIC_A_23"
+                },
+                {
+                    "name": "DMIC_A_45",
+                    "label": "DMIC_A_45",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DMIC_A_45"
+                },
+                {
+                    "name": "I2S_A_01",
+                    "label": "I2S_A_01",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_01"
+                },
+                {
+                    "name": "I2S_A_23",
+                    "label": "I2S_A_23",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_23"
+                },
+                {
+                    "name": "I2S_A_45",
+                    "label": "I2S_A_45",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_45"
+                },
+                {
+                    "name": "I2S_A_67",
+                    "label": "I2S_A_67",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_67"
+                },
+                {
+                    "name": "I2S_A_89",
+                    "label": "I2S_A_89",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_89"
+                },
+                {
+                    "name": "I2S_A_ab",
+                    "label": "I2S_A_ab",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_ab"
+                },
+                {
+                    "name": "I2S_A_cd",
+                    "label": "I2S_A_cd",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_cd"
+                },
+                {
+                    "name": "I2S_A_ef",
+                    "label": "I2S_A_ef",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A_ef"
+                },
+                {
+                    "name": "I2S_B_01",
+                    "label": "I2S_B_01",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_01"
+                },
+                {
+                    "name": "I2S_B_23",
+                    "label": "I2S_B_23",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_23"
+                },
+                {
+                    "name": "I2S_B_45",
+                    "label": "I2S_B_45",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_45"
+                },
+                {
+                    "name": "I2S_B_67",
+                    "label": "I2S_B_67",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_67"
+                },
+                {
+                    "name": "I2S_B_89",
+                    "label": "I2S_B_89",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_89"
+                },
+                {
+                    "name": "I2S_B_ab",
+                    "label": "I2S_B_ab",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_ab"
+                },
+                {
+                    "name": "I2S_B_cd",
+                    "label": "I2S_B_cd",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_cd"
+                },
+                {
+                    "name": "I2S_B_ef",
+                    "label": "I2S_B_ef",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B_ef"
+                },
+                {
+                    "name": "I2S_C_01",
+                    "label": "I2S_C_01",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_01"
+                },
+                {
+                    "name": "I2S_C_23",
+                    "label": "I2S_C_23",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_23"
+                },
+                {
+                    "name": "I2S_C_45",
+                    "label": "I2S_C_45",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_45"
+                },
+                {
+                    "name": "I2S_C_67",
+                    "label": "I2S_C_67",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_67"
+                },
+                {
+                    "name": "I2S_C_89",
+                    "label": "I2S_C_89",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_89"
+                },
+                {
+                    "name": "I2S_C_ab",
+                    "label": "I2S_C_ab",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_ab"
+                },
+                {
+                    "name": "I2S_C_cd",
+                    "label": "I2S_C_cd",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_cd"
+                },
+                {
+                    "name": "I2S_C_ef",
+                    "label": "I2S_C_ef",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_C_ef"
+                },
+                {
+                    "name": "I2S_D_01",
+                    "label": "I2S_D_01",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_01"
+                },
+                {
+                    "name": "I2S_D_23",
+                    "label": "I2S_D_23",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_23"
+                },
+                {
+                    "name": "I2S_D_45",
+                    "label": "I2S_D_45",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_45"
+                },
+                {
+                    "name": "I2S_D_67",
+                    "label": "I2S_D_67",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_67"
+                },
+                {
+                    "name": "I2S_D_89",
+                    "label": "I2S_D_89",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_89"
+                },
+                {
+                    "name": "I2S_D_ab",
+                    "label": "I2S_D_ab",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_ab"
+                },
+                {
+                    "name": "I2S_D_cd",
+                    "label": "I2S_D_cd",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_cd"
+                },
+                {
+                    "name": "I2S_D_ef",
+                    "label": "I2S_D_ef",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_D_ef"
+                },
+                {
+                    "name": "ECHO_A",
+                    "label": "ECHO_A",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "ECHO_A"
+                },
+                {
+                    "name": "HDMI_A",
+                    "label": "HDMI_A",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "HDMI_A"
+                }
+            ]
+        }
+    ]
+}

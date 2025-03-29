@@ -1,0 +1,6 @@
+HOST_CC="gcc -m32"
+CROSS="/tools/toolchain/gcc-6.4.0-20221118-sigmastar-glibc-x86_64_arm-linux-gnueabihf/bin/arm-linux-gnueabihf-"
+TARGET_CFLAGS=""
+ARCH="arm"
+TOOLCHAIN="glibc"
+TOOLCHAIN_VERSION="6.4.0"

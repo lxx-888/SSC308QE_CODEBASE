@@ -1,0 +1,339 @@
+{
+    "Page": [
+        {
+            "page_name": "NIRModPage",
+            "page_title": "NIR",
+            "component": [
+                {
+                    "name": "Mode",
+                    "label": "Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "vis"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "nir"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "invalid"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "MODE"
+                },
+                {
+                    "name": "IqPath",
+                    "label": "Iq Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./pipeline_i6f/resource/iq_base.bin",
+                    "output_key": "IQ_FILE"
+                }
+            ]
+        },
+        {
+            "page_name": "NIROutputPage",
+            "page_title": "Output",
+            "component" : [
+                {
+                    "name": "NIROutputPortVideoFormat",
+                    "label": "Video Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv422sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgra8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "bayer",
+                            "option_page": "NIROutputBayerFormatPage"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                },
+                {
+                    "name": "NIROutputPortWidthSpinBox",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "NIROutputPortHeightSpinBox",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "NIROutputPortType",
+                    "label": "Vide Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "raw"
+                        }
+                    ],
+                    "default_value": "raw",
+                    "option_type": "string",
+                    "output_key": "OUT_TYPE"
+                },
+                {
+                    "name": "NIROutputPortExtEn",
+                    "label": "Ext En",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_EN"
+                },
+                {
+                    "name": "NIROutputPortBindType",
+                    "label": "Bind Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "FRAME_BASE",
+                            "option_value": "0x1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "SW LOW LATENCY",
+                            "option_value": "0x2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "REALTIME",
+                            "option_value": "0x4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "HW AUTOSYNC",
+                            "option_value": "0x8"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "HW_RING",
+                            "option_value": "0x10"
+                        }
+                    ],
+                    "default_value": "0x1",
+                    "output_type": "int",
+                    "output_key": "BIND_TYPE"
+                },
+                {
+                    "name": "NIROutputPortBindPara",
+                    "label": "Bind Param",
+                    "component_type": "LineEdit",
+                    "default_value": "0",
+                    "output_key": "BIND_PARAM"
+                }
+            ]
+        },
+        {
+            "page_name": "NIRInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "NIRInputPortWidthSpinBox",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "NIRInputPortHeightSpinBox",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_key": "VID_H"
+                }
+            ]
+        },
+        {
+            "page_name": "NIROutputBayerFormatPage",
+            "page_title": "Bayer Format",
+            "component": [
+                {
+                    "name": "NIROutputBayerFormatId",
+                    "label": "Bayer ID",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_rg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_gr"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_bg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_gb"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_r0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_b0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_i0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_i1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int"
+                },
+                {
+                    "name": "NIROutputBayerPrecision",
+                    "label": "Precision",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "8bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "10bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "12bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "14bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "16bpp"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int"
+                }
+            ]
+        }
+
+    ]
+}

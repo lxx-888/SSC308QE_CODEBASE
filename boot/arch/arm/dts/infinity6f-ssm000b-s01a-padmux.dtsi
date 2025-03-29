@@ -1,0 +1,51 @@
+/*
+ * mercury6p-padmux.dtsi- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+#include "../../../drivers/sstar/include/infinity6f/padmux.h"
+#include "../../../drivers/sstar/include/drv_puse.h"
+
+/ {
+    soc {
+         padmux {
+            compatible = "sstar,padmux";
+            schematic =
+                <PAD_RGMII0_MCLK        PINMUX_FOR_GPHY0_REF_MODE_1  MDRV_PUSE_ETH0_MCLK>,
+                <PAD_RGMII0_RXCLK       PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_RX_CLK>,
+                <PAD_RGMII0_RXCTL       PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_RX_CTL>,
+                <PAD_RGMII0_RXD0        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_RXD0>,
+                <PAD_RGMII0_RXD1        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_RXD1>,
+                <PAD_RGMII0_RXD2        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_RXD2>,
+                <PAD_RGMII0_RXD3        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_RXD3>,
+                <PAD_RGMII0_TXCLK       PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_TX_CLK>,
+                <PAD_RGMII0_TXCTL       PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_TX_CTL>,
+                <PAD_RGMII0_TXD0        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_TXD0>,
+                <PAD_RGMII0_TXD1        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_TXD1>,
+                <PAD_RGMII0_TXD2        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_TXD2>,
+                <PAD_RGMII0_TXD3        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_TXD3>,
+                <PAD_RGMII0_MDIO        PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_MDIO>,
+                <PAD_RGMII0_MDC         PINMUX_FOR_RGMII0_MODE_1     MDRV_PUSE_ETH0_MDC>,
+#if 1
+                // GMAC0 EPHY LED
+                <PAD_ETH_LED0           PINMUX_FOR_LED0_MODE_1       MDRV_PUSE_ETH1_LED_GPIO_GREEN>,
+                <PAD_ETH_LED1           PINMUX_FOR_LED1_MODE_1       MDRV_PUSE_ETH1_LED_GPIO_ORANGE>,
+#endif
+                <GPIO_NR                 PINMUX_FOR_UNKNOWN_MODE         MDRV_PUSE_NA>;
+            status = "okay"; // ok or disable
+        };
+
+    };
+
+};

@@ -1,0 +1,35 @@
+{
+    "Page":[
+        {
+            "page_name": "CUSTOMModPage",
+            "page_title": "Custom",
+            "component": [
+                {
+                    "name": "CustomBandWidth",
+                    "label": "BandWidth(Byte)",
+                    "component_type": "LineEdit",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BANDWIDTH"
+                },
+                {
+                    "name": "CustomDram",
+                    "label": "Dram Size(Byte)",
+                    "component_type": "LineEdit",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DRAMESIZE"
+                },
+                {
+                    "name": "CustomEfficient",
+                    "label": "Efficiency",
+                    "component_type": "LineEdit",
+                    "default_value": "0.6",
+                    "output_type": "double",
+                    "output_key": "EFFICIENCY"
+                }
+            ]
+        }
+    ]
+
+}

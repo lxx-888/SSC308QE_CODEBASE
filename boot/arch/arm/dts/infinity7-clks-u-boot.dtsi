@@ -1,0 +1,134 @@
+/*
+* infinity7-clks-u-boot.dtsi- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+#include "../../../drivers/sstar/clk/infinity7/hal_clk.h"
+
+clks: clocks{
+    compatible = "sstar,clk";
+    #clock-cells = <1>;
+};
+
+uart0: uart@1F221000 {
+    clocks = <&clks SSTAR_CLK_UART0>;
+};
+
+uart1: uart1@1F221200 {
+    clocks = <&clks SSTAR_CLK_UART1>;
+};
+
+fuart: fuart@1F220400 {
+    clocks = <&clks SSTAR_CLK_FUART>;
+};
+
+uart2: uart2@1F221400 {
+    clocks = <&clks SSTAR_CLK_UART2>;
+};
+
+uart3: uart3@1F221600 {
+    clocks = <&clks SSTAR_CLK_UART3>;
+};
+
+uart4: uart4@1F221800 {
+    clocks = <&clks SSTAR_CLK_UART4>;
+};
+
+uart5: uart5@1F221A00 {
+    clocks = <&clks SSTAR_CLK_UART5>;
+};
+
+gmac0 {
+    clocks = <&clks SSTAR_CLK_GMAC0_GMII>;
+};
+
+gmac1 {
+    clocks = <&clks SSTAR_CLK_GMAC1_GMII>;
+};
+
+dm_pcie: dm_pcie {
+    pcie0: pcie@1F350000 {
+        clocks = <&clks SSTAR_CLK_PCIE0>, <&clks SSTAR_CLK_IPUFF>;
+    };
+
+    pcie1: pcie@1F351000 {
+        clocks = <&clks SSTAR_CLK_PCIE1>, <&clks SSTAR_CLK_IPUFF>;
+    };
+};
+
+spi0: spi0@1F222000{
+    clocks = <&clks SSTAR_CLK_MSPI0>;
+};
+
+spi1: spi1@1F222200{
+    clocks = <&clks SSTAR_CLK_MSPI1>;
+};
+
+spi2: spi2@1F222400{
+    clocks = <&clks SSTAR_CLK_MSPI2>;
+};
+
+spi3: spi3@1F222600{
+    clocks = <&clks SSTAR_CLK_MSPI3>;
+};
+
+i2c0: i2c0@1F222800{
+    clocks = <&clks SSTAR_CLK_MIIC0>;
+};
+
+i2c1: i2c1@1F222A00{
+    clocks = <&clks SSTAR_CLK_MIIC1>;
+};
+
+i2c2: i2c2@1F222C00{
+    clocks = <&clks SSTAR_CLK_MIIC2>;
+};
+
+i2c3: i2c3@1F222E00{
+    clocks = <&clks SSTAR_CLK_MIIC3>;
+};
+
+i2c4: i2c4@1F223000{
+    clocks = <&clks SSTAR_CLK_MIIC4>;
+};
+
+i2c5: i2c5@1F223200{
+    clocks = <&clks SSTAR_CLK_MIIC5>;
+};
+
+i2c6: i2c6@1F223400{
+    clocks = <&clks SSTAR_CLK_MIIC6>;
+};
+
+i2c7: i2c7@1F223800{
+    clocks = <&clks SSTAR_CLK_MIIC7>;
+};
+
+i2c8: i2c8@1F223A00{
+    clocks = <&clks SSTAR_CLK_MIIC8>;
+};
+
+i2c9: i2c9@1F223C00{
+    clocks = <&clks SSTAR_CLK_MIIC9>;
+};
+
+i2c10: i2c10@1F223E00{
+    clocks = <&clks SSTAR_CLK_MIIC10>;
+};
+
+pwm: pwm@1F203200{
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+

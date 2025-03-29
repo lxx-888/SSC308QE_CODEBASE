@@ -1,0 +1,106 @@
+menu "Rtos"
+
+config BOOL_RTOS_ENABLE
+    bool "Rtos enable"
+    default n
+    help
+        whether to compile or not
+
+config RTOS_ENABLE
+    string
+    default "on" if BOOL_RTOS_ENABLE
+    default "off" if !BOOL_RTOS_ENABLE
+
+if BOOL_RTOS_ENABLE
+config RTOS_BIN
+    string "rtos Bin"
+    default "rtos.sz"
+
+choice
+    prompt "RtosType"
+    default BOOL_DUAL_OS
+
+    config BOOL_DUAL_OS
+        bool "dualos"
+
+    config BOOL_PURE_RTOS
+        bool "pure rtos"
+endchoice
+
+config DUAL_OS
+    string
+    default "on" if BOOL_DUAL_OS
+    default "off" if !BOOL_DUAL_OS
+
+config DUAL_OS_TYPE
+    depends on BOOL_DUAL_OS
+    string "LH or HYP of Dualos Type"
+    default "LH" if BOOL_DUAL_OS
+    default "off" if !BOOL_DUAL_OS
+
+config PURE_RTOS
+    string
+    default "on" if BOOL_PURE_RTOS
+    default "off" if !BOOL_PURE_RTOS
+
+config RTOS_TOOLCHAIN
+    string "Rtos build toolchain"
+    default "arm-eabi"
+
+config RTOS_CONFIG
+    string "Rtos build config"
+    default ""
+
+config CONFIG_MI_SDK_SUPPORT
+    bool "Support MI SDK in RTOS"
+    default y
+
+config CONFIG_SENSOR_DRIVER_SUPPORT
+    bool "Support Sensor driver in RTOS"
+    default y
+
+config CONFIG_MI_SYSCALL_L2R_DESTROY_SUPPORT
+    bool "Support Linux destroy rtos mi resource by MI_SYCALL"
+    depends on BOOL_DUAL_OS
+    default n
+
+source configs/Kconfigs/rtos/earlyinit/Kconfig
+
+source configs/Kconfigs/rtos/application/Kconfig
+
+config RTOS_MASTER_HW_CORE
+    string "RTOS Master HW core ID"
+    default "1"
+
+config BOOL_FAST_DEMO
+    bool "Fast Demo"
+    default n
+
+config FAST_DEMO
+    string
+    default "on" if BOOL_FAST_DEMO
+    default "off"
+
+config SENSOR_TYPE
+    string "Sensor Type"
+    default ""
+
+config SENSOR_TYPE1
+    string "Sensor1 Type"
+    default ""
+
+config SENSOR_TYPE2
+    string "Sensor2 Type"
+    default ""
+
+config PRELOAD_FILE
+    string "Preload Setting file"
+    default "PreloadSetting.txt"
+
+config DLA_FIRMWARE_LIST
+    string "dla firmware"
+    default ""
+
+endif
+
+endmenu

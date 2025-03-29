@@ -1,0 +1,350 @@
+{
+    "Page":[
+        {
+            "page_name": "FILEInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "FILEWritePath",
+                    "label": "Write Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./file_name",
+                    "output_key": "FILE_WRITE_PATH"
+                },
+                {
+                    "name": "FILEFrameCntLimit",
+                    "label": "Frame Cnt Limit",
+                    "component_type": "LineEdit",
+                    "default_value": "-1",
+                    "output_key": "FRAME_CNT_LIMIT"
+                },
+                {
+                    "name": "FILEAddHead",
+                    "label": "File Add Head",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "HEAD"
+                }
+            ]
+        },
+        {
+            "page_name": "FILEOutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "FILEReadPath",
+                    "label": "Read Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./file_name",
+                    "output_key": "FILE_READ_PATH"
+                },
+                {
+                    "name": "FILEFrameCntLimit",
+                    "label": "Frame Cnt Limit",
+                    "component_type": "LineEdit",
+                    "default_value": "-1",
+                    "output_key": "FRAME_CNT_LIMIT"
+                },
+                {
+                    "name": "FILEOutputPortWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "FILEOutputPortHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "FILEOutputPortType",
+                    "label": "Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "video"
+                        },
+                        {
+                            "option_type" : "stringe",
+                            "option_name" : "audio"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "raw"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "user"
+                        }
+                    ],
+                    "default_value": "raw",
+                    "output_type": "string",
+                    "output_key": "OUT_TYPE"
+                },
+                {
+                    "name": "FILEOutputPortColorFormat",
+                    "label": "Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "h264"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "h265"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "jpeg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "av1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vp9"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "pcm"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "aac"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "wav"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g711u"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g711a"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_16"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_24"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_32"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_40"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv422sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgra8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb565"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "bayer",
+                            "option_page": "FILEOutputBayerFormatPage"
+                        }
+                    ],
+                    "sub_section": "BAYER_PARAM",
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                },
+                {
+                    "name": "FILEPlaneNum",
+                    "label": "Plane Num",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "VID_PLANE_NUM"
+                }
+            ]
+        },
+        {
+            "page_name": "FILEOutputBayerFormatPage",
+            "page_title": "Bayer Format",
+            "page_belong": "FILEOutputPortColorFormat:bayer",
+            "component": [
+                {
+                    "name": "FILEOutputBayerFormatId",
+                    "label": "Bayer ID",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "gr"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "gb"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "r0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "b0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i1"
+                        }
+                    ],
+                    "default_value": "rg",
+                    "output_type": "string",
+                    "output_key": "BAYER_ID"
+                },
+                {
+                    "name": "ISPOutputBayerPrecision",
+                    "label": "Precision",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "8bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "10bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "12bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "14bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "16bpp"
+                        }
+                    ],
+                    "default_value": "16bpp",
+                    "output_type": "string",
+                    "output_key": "PRECISION"
+                }
+            ]
+        }
+    ]
+}

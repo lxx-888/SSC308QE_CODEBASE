@@ -1,0 +1,5 @@
+config MS_SENSORDRIVER
+    tristate "Sensor driver"
+    default n
+    help
+    Enable support for sensor driver

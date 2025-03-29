@@ -1,0 +1,121 @@
+menu "Image"
+comment "The image configuration entry contains the partition configuration and"
+comment "the bin file that the partition burns"
+
+config CUSTOMIZE_CONFIG
+    bool "Using Customize Image Config"
+    default n
+
+config IMAGE_CONFIG
+    string "Image Partition Config"
+    default "spinand.squashfs.partition.config"
+
+config IPL_CONFIG
+    string "IPL File Config"
+    default "IPL.bin"
+
+config IPL_CUST_CONFIG
+    string "IPL_CUST File Config"
+    default "IPL_CUST.bin"
+
+config IPLX_CONFIG
+    string "IPLX File Config"
+    default "IPLX.bin"
+    help
+        only emmc need config this
+
+config USB_UPGRADE_IPL_CONFIG
+    string "USB_UPGRADE_IPL_CONFIG"
+    default "IPL.USB_UPD.bin"
+
+config USB_UPGRADE_UBOOT_CONFIG
+    string "USB_UPGRADE_UBOOT_CONFIG"
+    default "u-boot_ufu.img.bin"
+
+config SD_UPGRADE_IPL_CONFIG
+     string "SD_UPGRADE_IPL_CONFIG"
+     default ""
+
+config SD_UPGRADE_IPL_CUST_CONFIG
+     string "SD_UPGRADE_IPL_CUST_CONFIG"
+     default ""
+
+config TFA_CONFIG
+    string "TF-A File Config"
+    default ""
+
+config OPTEE_CONFIG
+    string "OPTEE File Config"
+    default ""
+
+config VMM_CONFIG
+    depends on (DUAL_OS_TYPE = HYP)
+    string "VMM File Config"
+    default ""
+
+choice
+    prompt "Flash Size"
+    default FLASE_SIZE_NONE
+    help
+        only nor flash need config this
+
+    config FLASH_SIZE_NONE
+        bool "None"
+
+    config FLASH_SIZE_8M
+        bool "8M"
+
+    config FLASH_SIZE_16M
+        bool "16M"
+
+    config FLASH_SIZE_32M
+        bool "32M"
+
+endchoice
+
+config FLASH_SIZE
+    string
+    default "" if FLASH_SIZE_NONE
+    default 8M if FLASH_SIZE_8M
+    default 16M if FLASH_SIZE_16M
+    default 32M if FLASH_SIZE_32M
+
+config EMMC_BACKUPS
+    bool "EMMC BOOT_PART.bin support backups"
+    default n
+    help
+        only emmc need config this
+
+
+source configs/Kconfigs/image/riscv/Kconfig
+
+source configs/Kconfigs/image/pm51/Kconfig
+
+config CONFIG_ENABLE_POWER_SAVE_AOV
+    bool "Support AOV Image"
+    default n
+    help
+        Packing MI modules into dualos image
+
+config ENABLE_CM4_PRELOAD
+    depends on BOOL_DUAL_OS
+    bool "Support cm4 preload Image"
+    default n
+    help
+        Packing MI modules into dualos image
+
+config DLA_FIRMWARE_LIST
+    string "dla firmware"
+    default ""
+
+config REMOVE_LIBS_LIST
+    string "libs list to remove"
+    default ""
+
+config STRIP_OPTION
+    string "STRIP OPTION"
+    default "--strip-debug"
+    help
+        Control modules/library strip level
+
+endmenu

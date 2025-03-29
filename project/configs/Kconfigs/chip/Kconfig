@@ -1,0 +1,14 @@
+choice
+    prompt "Chip"
+
+    config Souffle
+        bool "Souffle"
+
+    config iford
+        bool "iFord"
+endchoice
+
+config CHIP
+    string
+    default "souffle" if Souffle
+    default "iford" if iford

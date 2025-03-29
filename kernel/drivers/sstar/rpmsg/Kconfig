@@ -1,0 +1,35 @@
+config SSTAR_DUALOS_DRIVER
+        bool "SSTAR RPMSG-based dualos driver"
+        default n
+
+config SSTAR_CA7_VIRTIO
+	bool "SSTAR ca7 virtio driver"
+	default n
+	select RPMSG
+	select RPMSG_VIRTIO
+	select SSTAR_RPMSG
+	depends on ENABLE_CA7
+	help
+	  Say y here to enable I7 CA7 virtio device driver
+
+config SSTAR_LH_RTOS_VIRTIO
+    bool "SSTAR Light-Hypervisor RTOS virtio driver"
+    default n
+    select RPMSG
+    select RPMSG_VIRTIO
+    select SSTAR_RPMSG
+    depends on LH_RTOS
+    help
+      Say y here to enable Light-Hypervisor RTOS virtio device driver
+
+config SSTAR_RISCV_VIRTIO
+	bool "SSTAR riscv virtio driver"
+	default n
+	select RPMSG
+	select RPMSG_VIRTIO
+	select SSTAR_DUALOS_DRIVER
+	help
+	  Say y here to enable SSTAR riscv virtio device driver
+
+config SSTAR_RPMSG
+	def_bool n

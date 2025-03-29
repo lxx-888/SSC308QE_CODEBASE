@@ -1,0 +1,12 @@
+menu "ADB"
+
+config ADB_TOOL
+    bool "Support ADB"
+    default n
+
+config USE_ADB
+    string
+    default "on" if ADB_TOOL
+    default "off"
+
+endmenu

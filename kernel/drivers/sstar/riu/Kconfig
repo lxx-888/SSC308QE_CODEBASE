@@ -1,0 +1,17 @@
+config SSTAR_RIU_DBG
+	bool "Sigmastar RIU Debug Driver"
+	default y
+
+config SSTAR_RIU_TIMEOUT
+	bool "RIU timeout detector"
+	default SSTAR_RIU_DBG
+	depends on SSTAR_RIU_DBG
+	help
+	 "Support to detect RIU accessing timeout"
+
+config SSTAR_RIU_RECORDER
+	bool "RIU recorder"
+	default n
+	depends on SSTAR_RIU_DBG
+	help
+	 "Support to record RIU accessing"

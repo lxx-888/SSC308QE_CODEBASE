@@ -1,0 +1,9 @@
+config SSTAR_ADCLP
+    tristate "Sstar ADCLP driver"
+    select IIO
+    help
+        ADCLP (Analog-Digital Converter Low Precision),
+        utilize the principle of successive approximation ADC to obtain data with 10-bit accuracy.
+
+        if you want ADCLP support, you should say Y here.
+        you can also be built as a module. if so, the module will be called sstar-adclp.

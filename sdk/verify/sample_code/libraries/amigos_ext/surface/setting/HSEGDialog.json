@@ -1,0 +1,94 @@
+{
+    "Page": [
+        {
+            "page_name": "HSEGModPage",
+            "page_title": "hseg",
+            "component": [
+              {
+                  "name": "HsegMode",
+                    "label": "Hseg Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "blur"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "replace"
+                        }
+                    ],
+                    "default_value": "blur",
+                    "output_type": "string",
+                    "output_key": "HSEG_MODE"
+              },
+              {
+                  "name": "HsegMaskOp",
+                    "label": "Mask op",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "none"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "dilate"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "erode"
+                        }
+                    ],
+                    "default_value": "none",
+                    "output_type": "string",
+                    "output_key": "MASK_OP"
+              },
+              {
+                    "name": "HsegIpuPath",
+                    "label": "ipu path",
+                    "component_type": "LineEdit",
+                    "default_value": "/config/dla/ipu_lfw.bin",
+                    "output_key": "IPU_PATH"
+                },
+                {
+                    "name": "HsegModelPath",
+                    "label": "model path",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "MODEL_PATH"
+                },
+                {
+                    "name": "HsegMaskThr",
+                    "label": "mask thredhold",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "127",
+                    "output_key": "MASK_THR"
+                },
+                {
+                    "name": "HsegBlurLevel",
+                    "label": "blur level",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "BLUR_LV"
+                },
+                {
+                    "name": "HsegScalstage",
+                    "label": "scaling stage",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "6",
+                    "output_key": "SCAL_STAGE"
+                }
+            ]
+        }
+    ]
+}

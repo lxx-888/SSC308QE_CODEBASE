@@ -1,0 +1,14 @@
+config SSTAR_VOLTAGE_IDAC_CTRL
+    bool "Sstar Voltage IDAC Control"
+    depends on SSTAR_GPIO && !SSTAR_VOLTAGE_CTRL
+    default n
+
+config SSTAR_VOLTAGE_IDAC_MIU_PHASE_SCALING_EN
+    bool "Support miu phase scaling"
+    depends on SSTAR_VOLTAGE_IDAC_CTRL
+    default y
+
+config SSTAR_VOLTAGE_IDAC_CTRL_BY_RTOS
+    bool "Support rtos to control voltage"
+    depends on SSTAR_VOLTAGE_IDAC_CTRL && SS_DUALOS
+    default n

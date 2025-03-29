@@ -1,0 +1,177 @@
+/*
+* iford-ssc029a-s01a-padmux.dtsi- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+#include "../../../../drivers/sstar/include/iford/padmux.h"
+#include "../../../../drivers/sstar/include/drv_puse.h"
+#include "../../../../drivers/sstar/include/iford/gpio.h"
+
+/ {
+    soc {
+         padmux {
+            compatible = "sstar,padmux";
+            schematic =
+#if IS_ENABLED(CONFIG_SS_GYRO_TRANSFER_I2C)
+                <PAD_I2C0_SCL       PINMUX_FOR_I2C0_MODE_1      MDRV_PUSE_I2C0_SCL>,
+                <PAD_I2C0_SDA       PINMUX_FOR_I2C0_MODE_1      MDRV_PUSE_I2C0_SDA>,
+#endif
+                <PAD_I2C1_SCL       PINMUX_FOR_I2C1_MODE_1      MDRV_PUSE_I2C1_SCL>,
+                <PAD_I2C1_SDA       PINMUX_FOR_I2C1_MODE_1      MDRV_PUSE_I2C1_SDA>,
+
+#ifdef CONFIG_SSTAR_PSPI
+                <PAD_PM_PSPI0_DI       PINMUX_FOR_PM_PSPI0_MODE_1      MDRV_PUSE_PSPI0_MISO0>,
+                <PAD_PM_PSPI0_DO       PINMUX_FOR_PM_PSPI0_MODE_1      MDRV_PUSE_PSPI0_MOSI0>,
+                <PAD_PM_PSPI0_CK       PINMUX_FOR_PM_PSPI0_MODE_1      MDRV_PUSE_PSPI0_CLK>,
+                <PAD_PM_PSPI0_CZ       PINMUX_FOR_PM_PSPI0_MODE_1      MDRV_PUSE_PSPI0_CS>,
+#endif
+
+#if 1
+                //LINEOUT AMP
+                <PAD_PM_GPIO0            PINMUX_FOR_GPIO_MODE            MDRV_PUSE_AIO_AMP_PWR>,
+                <PAD_FUART_TX            PINMUX_FOR_PWM0_MODE_2          MDRV_PUSE_PWM0>,
+#endif
+#if 0
+                //DMIC mode 5
+                <PAD_PM_PWM1            PINMUX_FOR_DMIC_2CH_MODE_5      MDRV_PUSE_DMIC0_D0>,
+                <PAD_PM_PWM0            PINMUX_FOR_DMIC_2CH_MODE_5      MDRV_PUSE_DMIC0_CLK>,
+#endif
+#if 0
+                //I2S0_TX&RX 4wire mode 1
+                <PAD_MSPI_CK            PINMUX_FOR_I2S_RXTX_MODE_1     MDRV_PUSE_I2S0_RX_BCK>,
+                <PAD_MSPI_CZ            PINMUX_FOR_I2S_RXTX_MODE_1     MDRV_PUSE_I2S0_RX_WCK>,
+                <PAD_MSPI_DI            PINMUX_FOR_I2S_RXTX_MODE_1     MDRV_PUSE_I2S0_RX_SDI>,
+                <PAD_MSPI_DO            PINMUX_FOR_I2S_RXTX_MODE_1     MDRV_PUSE_I2S0_TX_SDO>,
+#endif
+#if 0
+                //I2S0_RX 3wire mode 2
+                <PAD_PM_GPIO1            PINMUX_FOR_I2S_RX_MODE_2       MDRV_PUSE_I2S0_RX_BCK>,
+                <PAD_PM_GPIO0            PINMUX_FOR_I2S_RX_MODE_2       MDRV_PUSE_I2S0_RX_WCK>,
+                <PAD_PM_GPIO2            PINMUX_FOR_I2S_RX_MODE_2       MDRV_PUSE_I2S0_RX_SDI>,
+#endif
+#if 0
+                //I2S0_TX 3wire mode 2
+                <PAD_PM_I2C_CLK          PINMUX_FOR_I2S_TX_MODE_2       MDRV_PUSE_I2S0_TX_BCK>,
+                <PAD_PM_I2C_SDA          PINMUX_FOR_I2S_TX_MODE_2       MDRV_PUSE_I2S0_TX_WCK>,
+                <PAD_PM_GPIO3            PINMUX_FOR_I2S_TX_MODE_2       MDRV_PUSE_I2S0_TX_SDO>,
+#endif
+#if 0
+                //I2S0_RX 3wire mode 3
+                <PAD_PM_FUART_TX            PINMUX_FOR_I2S_RX_MODE_3       MDRV_PUSE_I2S0_RX_BCK>,
+                <PAD_PM_FUART_RX            PINMUX_FOR_I2S_RX_MODE_3       MDRV_PUSE_I2S0_RX_WCK>,
+                <PAD_PM_FUART_CTS           PINMUX_FOR_I2S_RX_MODE_3       MDRV_PUSE_I2S0_RX_SDI>,
+#endif
+#if  0
+                //I2S0_TX 3wire mode 1
+                <PAD_PM_GPIO12           PINMUX_FOR_I2S_TX_MODE_1       MDRV_PUSE_I2S0_TX_BCK>,
+                <PAD_PM_GPIO11           PINMUX_FOR_I2S_TX_MODE_1       MDRV_PUSE_I2S0_TX_WCK>,
+                <PAD_PM_PSPI0_DO         PINMUX_FOR_I2S_TX_MODE_1       MDRV_PUSE_I2S0_TX_SDO>,
+#endif
+#if 0
+                //I2S0_RX 3wire mode 1
+                <PAD_PM_PSPI0_DI         PINMUX_FOR_I2S_RX_MODE_1       MDRV_PUSE_I2S0_RX_SDI>,
+                <PAD_PM_PSPI0_CK         PINMUX_FOR_I2S_RX_MODE_1       MDRV_PUSE_I2S0_RX_BCK>,
+                <PAD_PM_PSPI0_CZ         PINMUX_FOR_I2S_RX_MODE_1       MDRV_PUSE_I2S0_RX_WCK>,
+#endif
+#ifdef CONFIG_SS_GYRO_TRANSFER_SPI
+                // SPI
+                <PAD_MSPI_DO        PINMUX_FOR_MSPI0_MODE_1        MDRV_PUSE_SPI0_DO>,
+                <PAD_MSPI_DI        PINMUX_FOR_MSPI0_MODE_1        MDRV_PUSE_SPI0_DI>,
+                <PAD_MSPI_CK        PINMUX_FOR_MSPI0_MODE_1        MDRV_PUSE_SPI0_CK>,
+                <PAD_MSPI_CZ        PINMUX_FOR_MSPI0_MODE_1        MDRV_PUSE_SPI0_CZ>,
+#endif
+
+#if IS_ENABLED(CONFIG_SSTAR_SDMMC)
+#ifdef CONFIG_SSTAR_SELECT_EMMC
+                // EMMC0
+                <PAD_GPIO1             PINMUX_FOR_EMMC4B_MODE_1        MDRV_PUSE_SDIO0_D1>,
+                <PAD_GPIO2             PINMUX_FOR_EMMC4B_MODE_1        MDRV_PUSE_SDIO0_D0>,
+                <PAD_GPIO3             PINMUX_FOR_EMMC4B_MODE_1        MDRV_PUSE_SDIO0_CLK>,
+                <PAD_GPIO4             PINMUX_FOR_EMMC4B_MODE_1        MDRV_PUSE_SDIO0_CMD>,
+                <PAD_GPIO5             PINMUX_FOR_EMMC4B_MODE_1        MDRV_PUSE_SDIO0_D3>,
+                <PAD_GPIO6             PINMUX_FOR_EMMC4B_MODE_1        MDRV_PUSE_SDIO0_D2>,
+                <PAD_PM_GPIO11         PINMUX_FOR_GPIO_MODE            MDRV_PUSE_SDIO0_PWR>,
+                <PAD_GPIO7             PINMUX_FOR_EMMC_RST_MODE_1      MDRV_PUSE_SDIO0_CDZ>,
+		// SDMMC1
+		<PAD_PM_SDIO_D1	         PINMUX_FOR_PM_SDIO_MODE_1           MDRV_PUSE_SDIO1_D1>,
+		<PAD_PM_SDIO_D0          PINMUX_FOR_PM_SDIO_MODE_1           MDRV_PUSE_SDIO1_D0>,
+		<PAD_PM_SDIO_CLK         PINMUX_FOR_PM_SDIO_MODE_1           MDRV_PUSE_SDIO1_CLK>,
+		<PAD_PM_SDIO_CMD         PINMUX_FOR_PM_SDIO_MODE_1           MDRV_PUSE_SDIO1_CMD>,
+		<PAD_PM_SDIO_D3          PINMUX_FOR_PM_SDIO_MODE_1           MDRV_PUSE_SDIO1_D3>,
+		<PAD_PM_SDIO_D2          PINMUX_FOR_PM_SDIO_MODE_1           MDRV_PUSE_SDIO1_D2>,
+		<PAD_PM_GPIO12           PINMUX_FOR_GPIO_MODE                MDRV_PUSE_SDIO1_PWR>,
+		<PAD_PM_SDIO_INT         PINMUX_FOR_PM_SDIO_CDZ_MODE_4       MDRV_PUSE_SDIO1_CDZ>,
+#else
+                // SDMMC0
+                <PAD_SD0_D1              PINMUX_FOR_SD0_MODE_1            MDRV_PUSE_SDIO0_D1>,
+                <PAD_SD0_D0              PINMUX_FOR_SD0_MODE_1            MDRV_PUSE_SDIO0_D0>,
+                <PAD_SD0_CLK             PINMUX_FOR_SD0_MODE_1            MDRV_PUSE_SDIO0_CLK>,
+                <PAD_SD0_CMD             PINMUX_FOR_SD0_MODE_1            MDRV_PUSE_SDIO0_CMD>,
+                <PAD_SD0_D3              PINMUX_FOR_SD0_MODE_1            MDRV_PUSE_SDIO0_D3>,
+                <PAD_SD0_D2              PINMUX_FOR_SD0_MODE_1            MDRV_PUSE_SDIO0_D2>,
+                <PAD_PM_GPIO11           PINMUX_FOR_GPIO_MODE             MDRV_PUSE_SDIO0_PWR>,
+                <PAD_SD0_CDZ             PINMUX_FOR_SD0_CDZ_MODE_1        MDRV_PUSE_SDIO0_CDZ>,
+		// EMMC1
+                <PAD_PM_SDIO_D1              PINMUX_FOR_PM_SDIO_MODE_1               MDRV_PUSE_SDIO1_D1>,
+                <PAD_PM_SDIO_D0              PINMUX_FOR_PM_SDIO_MODE_1               MDRV_PUSE_SDIO1_D0>,
+                <PAD_PM_SDIO_CLK             PINMUX_FOR_PM_SDIO_MODE_1               MDRV_PUSE_SDIO1_CLK>,
+                <PAD_PM_SDIO_CMD             PINMUX_FOR_PM_SDIO_MODE_1               MDRV_PUSE_SDIO1_CMD>,
+                <PAD_PM_SDIO_D3              PINMUX_FOR_PM_SDIO_MODE_1               MDRV_PUSE_SDIO1_D3>,
+                <PAD_PM_SDIO_D2              PINMUX_FOR_PM_SDIO_MODE_1               MDRV_PUSE_SDIO1_D2>,
+                <PAD_PM_GPIO12               PINMUX_FOR_GPIO_MODE                    MDRV_PUSE_SDIO1_PWR>,
+                <PAD_PM_GPIO6                PINMUX_FOR_PM_SDIO_RSTN_MODE_1          MDRV_PUSE_SDIO1_CDZ>,
+#endif
+#endif
+#if 0
+                // TTL16
+                <PAD_GPIO0          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_LVSYNC>,
+                <PAD_GPIO1          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_LHSYNC>,
+                <PAD_GPIO2          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_LDE>,
+                <PAD_GPIO3          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_LCK>,
+                <PAD_GPIO4          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_B4>,
+                <PAD_GPIO5          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_B3>,
+                <PAD_GPIO6          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_B2>,
+                <PAD_GPIO7          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_B1>,
+                <PAD_GPIO8          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_B0>,
+                <PAD_GPIO9          PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_G5>,
+                <PAD_GPIO10         PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_G4>,
+                <PAD_GPIO11         PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_G3>,
+                <PAD_SD0_CDZ        PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_G2>,
+                <PAD_SD0_D1         PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_G1>,
+                <PAD_SD0_D0         PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_G0>,
+                <PAD_SD0_CLK        PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_R4>,
+                <PAD_SD0_CMD        PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_R3>,
+                <PAD_SD0_D3         PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_R2>,
+                <PAD_SD0_D2         PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_R1>,
+                <PAD_FUART_RTS      PINMUX_FOR_TTL16_MODE_1         MDRV_PUSE_TTL16_R0>,
+#endif
+#if 0
+                // BT656
+                <PAD_GPIO3          PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_LCK>,
+                <PAD_GPIO4          PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B0>,
+                <PAD_GPIO5          PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B1>,
+                <PAD_GPIO6          PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B2>,
+                <PAD_GPIO7          PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B3>,
+                <PAD_GPIO8          PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B4>,
+                <PAD_GPIO9          PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B5>,
+                <PAD_GPIO10         PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B6>,
+                <PAD_GPIO11         PINMUX_FOR_BT656_OUT_MODE_1     MDRV_PUSE_BT656_B7>,
+#endif
+                <GPIO_NR                 PINMUX_FOR_UNKNOWN_MODE          MDRV_PUSE_NA>;
+            status = "ok"; // ok or disable
+        };
+    };
+
+};

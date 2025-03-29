@@ -1,0 +1,38 @@
+menuconfig INTERFACE_COMMON
+    depends on SUPPORT_COMMON
+    bool "common"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_COMMON
+config MI_COMMON_APITIME
+    bool "apitime"
+    default n
+    help
+        whether to compile or not
+
+config mi_common_apitime
+    string
+    default enable if MI_COMMON_APITIME
+    default disable if !MI_COMMON_APITIME
+
+config mi_common_rgnsub
+    string
+    default enable if (INTERFACE_LDC || INTERFACE_VDISP)
+    default disable if !(INTERFACE_LDC || INTERFACE_VDISP)
+
+config SUPPORT_CJSON_WRITE
+    bool "cjson write"
+    default n
+
+config mi_common_cjson_write
+    string
+    default enable if SUPPORT_CJSON_WRITE
+    default disable if !SUPPORT_CJSON_WRITE
+endif
+
+config interface_common
+    string
+    default enable if INTERFACE_COMMON
+    default disable if !INTERFACE_COMMON

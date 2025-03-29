@@ -1,0 +1,4 @@
+1.edit data_gen/chkotp.sh to change the save path of chkotp_data.c and chkotp.h
+2.edit data_gen/chkotp.sh to change the input excel
+3.source chkotp.sh
+4.ssbuild.sh chkotp.ko

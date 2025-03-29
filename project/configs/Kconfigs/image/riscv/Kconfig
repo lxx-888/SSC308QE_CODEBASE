@@ -1,0 +1,8 @@
+menu "riscv"
+    depends on (CHIP = p5)
+
+config RISCVFW_BIN
+    string "riscvfw Bin"
+    default ""
+
+endmenu

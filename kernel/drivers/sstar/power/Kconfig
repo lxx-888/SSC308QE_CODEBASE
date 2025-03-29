@@ -1,0 +1,5 @@
+config SSTAR_DUMMY_BATTERY
+	tristate "SigmaStar dummy battery driver"
+	default n
+	help
+	  "dummy battery driver for Android not battery device"

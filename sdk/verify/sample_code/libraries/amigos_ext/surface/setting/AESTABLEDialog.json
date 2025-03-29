@@ -1,0 +1,112 @@
+{
+    "Page": [
+        {
+            "page_name": "AESTABLEModPage",
+            "page_title": "AESTABLE",
+            "component": [
+                {
+                    "name": "StartMode",
+                    "label": "Start Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "force"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "auto"
+                        }
+                    ],
+                    "default_value": "auto",
+                    "output_type": "string",
+                    "output_key": "START_MODE"
+                },
+                {
+                    "name": "RunMode",
+                    "label": "Run Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "shot",
+                            "option_page": "AESTABLEModShotPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "record",
+                            "option_page": "AESTABLEModRecordPage"
+                        }
+                    ],
+                    "default_value": "shot",
+                    "output_type": "string",
+                    "sub_section": "RUN_MODE_PARAM",
+                    "output_key": "RUN_MODE"
+                },
+                {
+                    "name": "DebugMode",
+                    "label": "Debug Mode",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DEBUG_MODE"
+                }
+            ]
+        },
+        {
+            "page_name": "AESTABLEModShotPage",
+            "page_title": "Shot mode parameter",
+            "page_belong": "RunMode:shot",
+            "component": [
+                {
+                    "name": "ShotStableCount",
+                    "label": "Stable count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "STABLE_COUNT"
+                },
+                {
+                    "name": "CaptureCount",
+                    "label": "Capture count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "CAPTURE_COUNT"
+                },
+                {
+                    "name": "UsingLowPower",
+                    "label": "Using low power",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "USING_LOW_POWER"
+                }
+            ]
+        },
+        {
+            "page_name": "AESTABLEModRecordPage",
+            "page_title": "Recode mode parameter",
+            "page_belong": "RunMode:record",
+            "component": [
+                {
+                    "name": "RecordStableCount",
+                    "label": "Stable count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "STABLE_COUNT"
+                }
+            ]
+        }
+    ]
+}

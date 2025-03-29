@@ -1,0 +1,51 @@
+/*
+ * pioneer5-ssc028b-s01a-s.dts- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+
+/dts-v1/;
+#include "pioneer5.dtsi"
+#include "pioneer5-ssc028b-s01a-s-padmux.dtsi"
+#include "pioneer5-ssc028b-s01a-s-panel.dtsi"
+
+/ {
+    #address-cells = <2>;
+    #size-cells = <1>;
+    model = "PIONEER5";
+    compatible = "sstar,pioneer5";
+
+    /*
+     * There are two methods to transmit DDR parameters to kernel:
+     * 1) "LX_MEM=start_addr,len" parameters in bootargs, which has higher priority, will cover memory node parameters in dts;
+     * 2) memory mode paramters in dts file, which has lower priority, only as spare parameter.
+     */
+    memory {
+        device_type = "memory";
+        #address-cells = <1>;
+        #size-cells = <1>;
+        reg = <0x20000000 0x10000000>;
+    };
+
+    // mmc aliases
+    aliases {
+        mmc0 = &sstar_mmc2; //FCIE
+        mmc1 = &sstar_mmc0; //SD
+        mmc2 = &sstar_mmc1; //SDIO
+    };
+
+    soc {
+        #include "pioneer5-clks.dtsi"
+    };
+};

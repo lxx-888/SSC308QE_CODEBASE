@@ -1,0 +1,357 @@
+{
+    "Page": [
+        {
+            "page_name": "AOModPage",
+            "page_title": "AO",
+            "component": [
+                {
+                    "name": "Volume",
+                    "label": "Volume",
+                    "component_type": "SpinBox",
+                    "min_value": "-500",
+                    "max_value": "500",
+                    "value_step": "1",
+                    "default_value": "18",
+                    "output_key": "VOLUME"
+                },
+                {
+                    "name": "Format",
+                    "label": "Audio Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "pcm_s16_le"
+                        }
+                    ],
+                    "output_type": "string",
+                    "output_key": "FORMAT",
+                    "default_value": "pcm_s16_le"
+                },
+                {
+                    "name": "SoundMode",
+                    "label": "Sound Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "mono"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "stereo"
+                        }
+                    ],
+                    "default_value": "mono",
+                    "output_type": "string",
+                    "output_key": "SND_MOD"
+                },
+                {
+                    "name": "SampleRate",
+                    "label": "Sample Rate",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "8k",
+                            "option_value": "8000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "11.025k",
+                            "option_value": "11025"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "16k",
+                            "option_value": "16000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "22.05k",
+                            "option_value": "22050"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "24k",
+                            "option_value": "24000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "32k",
+                            "option_value": "32000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "44.1k",
+                            "option_value": "44100"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "48k",
+                            "option_value": "48000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "96k",
+                            "option_value": "96000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "192k",
+                            "option_value": "192000"
+                        }
+                    ],
+                    "default_value": "8000",
+                    "output_type": "int",
+                    "output_key": "SAMPLE_RATE"
+                },
+                {
+                    "name": "PeriodSize",
+                    "label": "Period Size",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "128",
+                    "output_key": "PERIOD_SIZE"
+                },
+                {
+                    "name": "ChannelMode",
+                    "label": "Channel Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "STEREO"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "DOUBLE_MONO"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "DOUBLE_LEFT"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "DOUBLE_RIGHT"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "EXCHANGE"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "ONLY_LEFT"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "ONLY_RIGHT"
+                        }
+                    ],
+                    "default_value": "DOUBLE_MONO",
+                    "output_type": "string",
+                    "output_key": "CHN_MOD"
+                },
+                {
+                    "name": "Interface",
+                    "label": "Interface",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "interface",
+                            "option_page": "AOModInterfacePage"
+                        }
+                    ],
+                    "sub_section": "INTERFACE_PARAM",
+                    "default_value": "interface",
+                    "output_type": "string",
+                    "output_key": "INTERFACE"
+                },
+                {
+                    "name": "Sync",
+                    "label": "Sync",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "SYNC"
+                },
+                {
+                    "name": "I2SMode",
+                    "label": "I2S Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "I2S_MASTER"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "I2S_SLAVE"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "TDM_MASTER"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "TDM_SLAVE"
+                        }
+                    ],
+                    "default_value": "I2S_MASTER",
+                    "output_type": "string",
+                    "output_key": "I2S_MOD"
+                },
+                {
+                    "name": "I2SFormat",
+                    "label": "I2S Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "I2S_MSB"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "LEFT_JUSTIFY_MSB"
+                        }
+                    ],
+                    "default_value": "I2S_MSB",
+                    "output_type": "string",
+                    "output_key": "I2S_FORMAT"
+                },
+                {
+                    "name": "I2SMclk",
+                    "label": "I2S Mclk",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "12.288"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "16.348"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "18.432"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "24.576"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "24"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "48"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "string",
+                    "output_key": "I2S_MCLK"
+                },
+                {
+                    "name": "I2SynCLock",
+                    "label": "I2S Sync Clock",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_SYNCCLOCK"
+                },
+                {
+                    "name": "I2STmdSlots",
+                    "label": "I2S Tmd Slots",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "I2S_TMDSLOTS"
+                },
+                {
+                    "name": "I2SBitWidth",
+                    "label": "I2S Bit Width",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "16"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "32"
+                        }
+                    ],
+                    "default_value": "16",
+                    "output_type": "string",
+                    "output_key": "I2S_BIT_WIDTH"
+                }
+            ]
+        },
+        {
+            "page_name": "AOModInterfacePage",
+            "page_title": "Interface Setting",
+            "page_belong": "Interface:interface",
+            "component": [
+                {
+                    "name": "DAC_AB",
+                    "label": "DAC_AB",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "DAC_AB"
+                },
+                {
+                    "name": "DAC_CD",
+                    "label": "DAC_CD",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DAC_CD"
+                },
+                {
+                    "name": "I2S_A",
+                    "label": "I2S_A",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_A"
+                },
+                {
+                    "name": "I2S_B",
+                    "label": "I2S_B",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "I2S_B"
+                },
+                {
+                    "name": "ECHO_A",
+                    "label": "ECHO_A",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "ECHO_A"
+                },
+                {
+                    "name": "HDMI_A",
+                    "label": "HDMI_A",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "HDMI_A"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+menuconfig INTERFACE_MIPITX
+    depends on SUPPORT_MIPITX
+    bool "mipitx"
+    select MHAL_MIPITX
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_MIPITX
+
+config config_mi_mipitx
+    bool "mi_mipitx"
+    depends on MHAL_MIPITX
+    default y
+    help
+        whether to compile or not
+
+config MHAL_MIPITX
+    bool "mhal_mipitx"
+    depends on INTERFACE_MIPITX
+    default y
+    help
+        whether to compile or not
+
+config mhal_mipitx
+    string
+    default enable if MHAL_MIPITX
+    default disable if !MHAL_MIPITX
+
+endif
+config interface_mipitx
+    string
+    default enable if INTERFACE_MIPITX
+    default disable if !INTERFACE_MIPITX

@@ -1,0 +1,91 @@
+{
+    "Page": [
+        {
+            "page_name": "PASSInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "Tail",
+                    "label": "Tail Module Section",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "TAIL"
+                },
+                {
+                    "name": "TailInId",
+                    "label": "Tail Input Port",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "TAIL_IN_ID"
+                }
+            ]
+        },
+        {
+            "page_name": "PASSOutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "Head",
+                    "label": "Head Module Section",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "HEAD"
+                },
+                {
+                    "name": "HeadOutId",
+                    "label": "Head Output Port",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "HEAD_OUT_ID"
+                },
+                {
+                    "name": "PASSOutputRootCount",
+                    "label": "Root Count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "ROOT_CNT",
+                    "sub_section": "ROOT",
+                    "attach_name": "PASSOutputRootComboBox"
+                },
+                {
+                    "name": "PASSOutputRootComboBox",
+                    "label": "Root Num",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "PASSOutputRootPage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "PASSOutputRootPage",
+            "page_title": "Root",
+            "page_belong": "PASSOutputRootCount",
+            "component": [
+                {
+                    "name": "Root",
+                    "label": "Root Section",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "SEC_NAME"
+                }
+            ]
+        }
+    ]
+}

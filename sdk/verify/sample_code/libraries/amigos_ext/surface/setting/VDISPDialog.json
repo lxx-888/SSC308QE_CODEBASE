@@ -1,0 +1,213 @@
+{
+    "Page": [
+        {
+            "page_name": "VDISPInputPage",
+            "page_title": "Input",
+            "component": [
+              {
+                  "name": "VdispModeFreeRun",
+                    "label": "free run",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "int",
+                            "option_name" : "0"
+                        },
+                        {
+                            "option_type" : "int",
+                            "option_name" : "1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "FREE_RUN"
+              },
+              {
+                    "name": "VdispInX",
+                    "label": "in x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VDISP_X"
+                },
+                {
+                    "name": "VdispInY",
+                    "label": "in y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VDISP_Y"
+                },
+                {
+                    "name": "VdispInW",
+                    "label": "in w",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_key": "VDISP_W"
+                },
+                {
+                    "name": "VdispInH",
+                    "label": "in h",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_key": "VDISP_H"
+                }
+            ]
+        },
+        {
+            "page_name": "VDISPOutputPage",
+            "page_title": "Output",
+            "component": [
+              {
+                    "name": "VdispOutVidW",
+                    "label": "vid w",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "VdispOutVidH",
+                    "label": "vid h",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "VdispOutPts",
+                    "label": "out pts",
+                    "component_type": "LineEdit",
+                    "default_value": "0",
+                    "output_key": "PTS"
+                },
+                {
+                    "name": "VdispOutVidFmt",
+                    "label": "vid fmt",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                      {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv422sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgra8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb565"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "black",
+                    "output_key": "OUT_FMT"
+                },
+                {
+                    "name": "VdispOutBKCOLOR",
+                    "label": "back color",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "black"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "white"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "red"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "green"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "blue"
+                        }
+                    ],
+                    "default_value": "black",
+                    "output_type": "string",
+                    "output_key": "BK_COLOR"
+                }
+            ]
+        }
+    ]
+}

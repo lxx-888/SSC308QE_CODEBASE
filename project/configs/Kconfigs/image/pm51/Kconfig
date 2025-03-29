@@ -1,0 +1,8 @@
+menu "pm51"
+    depends on (CHIP = p5)
+
+config PM51_BIN
+    string "pm51 Bin"
+    default ""
+
+endmenu

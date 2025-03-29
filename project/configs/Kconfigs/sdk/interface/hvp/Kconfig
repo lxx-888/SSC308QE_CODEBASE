@@ -1,0 +1,38 @@
+menuconfig INTERFACE_HVP
+    depends on SUPPORT_HVP
+    bool "hvp"
+    default n
+    help
+        whether to compile or not
+
+if INTERFACE_HVP
+
+config config_mi_hvp
+    bool "mi_hvp"
+    default y
+    depends on MHAL_HVP
+    help
+        whether to compile or not
+
+config MHAL_HVP
+    bool "mhal_HVP"
+    default y
+    depends on INTERFACE_HVP
+    help
+        whether to compile or not
+
+config mhal_hvp
+    string
+    default enable if MHAL_HVP
+    default disable if !MHAL_HVP
+
+endif
+config interface_hvp
+    string
+    default enable if INTERFACE_HVP
+    default disable if !INTERFACE_HVP
+
+config interface_hvp
+    string
+    default enable if INTERFACE_HVP
+    default disable if !INTERFACE_HVP

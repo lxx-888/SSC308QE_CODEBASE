@@ -1,0 +1,13 @@
+menu "SSH"
+
+config SSH_TOOL
+    bool "Support SSH"
+    default n
+
+config USE_SSH
+    string
+    default "on" if SSH_TOOL
+    default "off"
+
+endmenu
+

@@ -1,0 +1,19 @@
+menuconfig INTERFACE_AQSERVER
+    bool "aqserver"
+    default n
+    help
+        whether to compile or not
+
+if INTERFACE_AQSERVER
+config config_alg_apc
+    bool "alg_apc"
+    default n
+    help
+        whether to compile or not
+
+endif
+
+config interface_aqserver
+    string
+    default enable if INTERFACE_AQSERVER
+    default disable if !INTERFACE_AQSERVER

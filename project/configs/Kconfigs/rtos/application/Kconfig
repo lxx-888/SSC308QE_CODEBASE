@@ -1,0 +1,198 @@
+menu "Rtos Application Options"
+
+config CONFIG_APPLICATION_AUDIO
+    bool "Support audio application"
+    default n
+
+config CONFIG_APPLICATION_BENCH
+    bool "Support bench application"
+    default n
+
+config CONFIG_APPLICATION_BOOTLOADER
+    bool "Support bootloader application"
+    default n
+
+config CONFIG_COREMARK_SUPPORT
+    bool "Support coremark application"
+    default n
+
+menu "Support pipeline demo applications"
+
+config CONFIG_APPLICATION_SELECTOR
+    bool "Support application selector"
+
+config CONFIG_APPLICATION_CARDV
+    bool "Support CarCam application"
+    depends on CONFIG_MI_SDK_SUPPORT
+
+config CONFIG_APPLICATION_USB_GADGET
+    bool "Support USB gadget application"
+    select CONFIG_USB_GADGET_SUPPORT
+    default n
+    menu "USB_GADGET applicattion config"
+        depends on CONFIG_MI_SDK_SUPPORT && CONFIG_USB_GADGET_SUPPORT
+        config CONFIG_IPU_IN_RTOS_ENABLE
+            bool "Support IPU in USB gadget application"
+            default n
+            depends on CONFIG_USB_GADGET_SUPPORT
+        config CONFIG_IPU_DETECT_STREAM
+            int "Support IPU Detect Stream Number"
+            depends on CONFIG_IPU_IN_RTOS_ENABLE
+            default 0
+        config CONFIG_FD3A_IN_RTOS_ENABLE
+            bool "Support FD3A by IPU"
+            depends on CONFIG_IPU_IN_RTOS_ENABLE
+            default n
+        config CONFIG_MISC_AUTHENTICATE
+            bool "Support MISC partition signature verification"
+            default n
+    endmenu
+
+config CONFIG_USB_GADGET_SUPPORT
+    bool "Support Cust USB gadget"
+    default n if !CONFIG_APPLICATION_USB_GADGET
+    default y if CONFIG_APPLICATION_USB_GADGET
+
+config CONFIG_APPLICATION_IPC
+    bool "Support IPC application"
+    default n if !CONFIG_MI_SDK_SUPPORT
+    default y if CONFIG_MI_SDK_SUPPORT
+    select CONFIG_APPLICATION_SELECTOR
+    menu "IPC application config"
+        depends on CONFIG_MI_SDK_SUPPORT && CONFIG_APPLICATION_IPC
+        config CONFIG_ENABLE_MI_SDK_PIPELINE_FLOW
+            bool "enable MI_SDK_PIPELINE"
+            depends on CONFIG_APPLICATION_IPC
+            default n
+        config CONFIG_AI_APC_ENABLE
+            bool "Support AI APC in IPC application"
+            depends on CONFIG_APPLICATION_IPC
+            default n
+        config CONFIG_SED_ENABLE
+            bool "Support SED in IPC application"
+            depends on CONFIG_APPLICATION_IPC
+            default n
+        config CONFIG_IPU_IN_RTOS_ENABLE
+            bool "Support IPU in IPC application"
+            depends on CONFIG_APPLICATION_IPC || CONFIG_APPLICATION_USB_GADGET
+            default n
+        config CONFIG_OSD_USE_ARGB1555
+            bool "Support OSD ARGB1555 in IPC application"
+            depends on CONFIG_APPLICATION_IPC
+            default n
+        config CONFIG_OSD_USE_BMP
+            bool "Support OSD BMP in IPC application"
+            depends on CONFIG_APPLICATION_IPC
+            default n
+        config CONFIG_LDC_IN_RTOS_ENABLE
+            bool "Support LDC in IPC application"
+            depends on CONFIG_APPLICATION_IPC
+            default n
+        config CONFIG_VDF_IN_RTOS_ENABLE
+            bool "Support VDF in IPC application"
+            depends on CONFIG_APPLICATION_IPC
+            default n
+        config CONFIG_PANEL_IN_RTOS_ENABLE
+        bool "Support PANEL in IPC application"
+        depends on CONFIG_APPLICATION_IPC
+        default n
+        choice
+            prompt "LDC calibration file format"
+            default CONFIG_LDC_USE_BIN
+            depends on CONFIG_APPLICATION_IPC && LDC_IN_RTOS_ENABLE
+            config CONFIG_LDC_USE_CFG
+                bool "Use config"
+            config CONFIG_LDC_USE_BIN
+                bool "Use bin"
+        endchoice
+    endmenu
+
+config CONFIG_BSP_MENU
+    bool "Support Auto Bsp Test"
+
+config CONFIG_PIPELINE_TREE
+    bool "Support pipeline tree(PTREE)"
+
+config CONFIG_APPLICATION_SAMPLE
+    bool "Applications supported in sdk/verify/sample_code"
+    depends on CONFIG_MI_SDK_SUPPORT
+    select CONFIG_APPLICATION_SELECTOR
+    menu "Applications configuration"
+        depends on CONFIG_APPLICATION_SAMPLE
+        config CONFIG_APPLICATION_CM4
+            bool "Support CM4 application"
+        config CONFIG_APPLICATION_PRELOAD_SAMPLE
+            bool "Support PRELOAD SAMPLE application"
+        config CONFIG_APPLICATION_DUALOS_SAMPLE
+            bool "Support DUALOS SAMPLE application"
+        config CONFIG_APPLICATION_PTREE
+            bool "Support PTREE application"
+            select CONFIG_PIPELINE_TREE
+        choice
+            prompt "Pipeline tree configuration source"
+            default CONFIG_PIPELINE_TREE_USING_JSON
+            depends on CONFIG_APPLICATION_PTREE
+            config CONFIG_PIPELINE_TREE_USING_BINARY
+                bool "Support BINARY in pipeline tree"
+            config CONFIG_PIPELINE_TREE_USING_JSON
+                bool "Support JSON in pipeline tree"
+            config CONFIG_PIPELINE_TREE_USING_INI
+                bool "Support INI in pipeline tree"
+        endchoice
+        config CONFIG_PIPELINE_TREE_FILE
+            string "Pipeline tree file"
+            depends on CONFIG_PIPELINE_TREE_USING_JSON || CONFIG_PIPELINE_TREE_USING_INI
+            default "1snr_isp_scl_venc_ptree.json"
+    endmenu
+
+config CONFIG_RTOS_APPLICATION
+    string
+    default "app_selector" if CONFIG_APPLICATION_SELECTOR
+    default "dualos_camera" if CONFIG_APPLICATION_IPC
+    default "sample_code" if CONFIG_APPLICATION_SAMPLE
+    default "usb_gadget_app" if CONFIG_APPLICATION_USB_GADGET
+    default "rtos_bsp_demo" if CONFIG_BSP_MENU
+    default "coremark" if CONFIG_COREMARK_SUPPORT
+
+endmenu
+
+choice
+    prompt "Camera setting storage"
+    default CONFIG_LOAD_CAMERA_SETTING_FROM_MISC
+
+    config CONFIG_LOAD_CAMERA_SETTING_FROM_MISC
+        bool "misc"
+
+    config CONFIG_LOAD_CAMERA_SETTING_FROM_BOOTENV
+        bool "bootenv"
+
+endchoice
+
+config CONFIG_CUS3A_SUPPORT
+    bool "Support CUS3A"
+    depends on CONFIG_MI_SDK_SUPPORT
+    default n
+
+config CONFIG_CUS3A_AF_ENABLE
+    hex "CUS3A AF enable map"
+    depends on CONFIG_MI_SDK_SUPPORT
+    default 0
+
+config CONFIG_CUST_ISP_SUPPORT
+    bool "Support Cust ISP"
+    depends on CONFIG_MI_SDK_SUPPORT
+    default n
+
+config CONFIG_LPC_SUPPORT
+    bool "Support LPC driver"
+    default n
+
+if CONFIG_USB_GADGET_SUPPORT
+    source configs/Kconfigs/rtos/application/usb_gadget_app/Kconfig
+endif
+
+config CONFIG_APPLICATION_MBX_TEST
+    bool "Support mbx test application"
+    default n
+
+endmenu

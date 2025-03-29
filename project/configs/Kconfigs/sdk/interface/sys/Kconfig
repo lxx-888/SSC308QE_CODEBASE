@@ -1,0 +1,69 @@
+menuconfig INTERFACE_SYS
+    depends on SUPPORT_SYS
+    depends on SUPPORT_SYS
+    bool "sys"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_SYS
+config MI_SYS_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config mi_sys_kapi
+    string
+    default yes if MI_SYS_KAPI
+    default no if !MI_SYS_KAPI
+
+config MI_SYS_DMABUF
+    bool "dmabuf"
+    default n
+    help
+        whether to compile or not
+
+config mi_sys_dmabuf
+    string
+    default enable if MI_SYS_DMABUF
+    default disable if !MI_SYS_DMABUF
+
+config MI_SYS_META_POOL
+    bool "meta_pool"
+    default y
+    help
+        whether to compile or not
+
+config mi_sys_meta_pool
+    string
+    default enable if MI_SYS_META_POOL
+    default disable if !MI_SYS_META_POOL
+
+config MI_SYS_SHRINKABLE_POOL
+    bool "shrinkable_pool"
+    default n
+    help
+        whether to compile or not
+
+config mi_sys_shrinkable_pool
+    string
+    default enable if MI_SYS_SHRINKABLE_POOL
+    default disable if !MI_SYS_SHRINKABLE_POOL
+
+config MI_SYS_RINGHEAP_POOL
+    bool "ringheap_pool"
+    default y
+    help
+        whether to compile or not
+
+config mi_sys_ringheap_pool
+    string
+    default enable if MI_SYS_RINGHEAP_POOL
+    default disable if !MI_SYS_RINGHEAP_POOL
+endif
+
+config interface_sys
+    string
+    default enable if INTERFACE_SYS
+    default disable if !INTERFACE_SYS

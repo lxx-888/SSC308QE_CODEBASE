@@ -1,0 +1,11 @@
+menuconfig INTERFACE_WLAN
+    depends on SUPPORT_WLAN
+    bool "wlan"
+    default y
+    help
+        whether to compile or not
+
+config interface_wlan
+    string
+    default enable if INTERFACE_WLAN
+    default disable if !INTERFACE_WLAN

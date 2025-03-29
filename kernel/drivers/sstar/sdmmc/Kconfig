@@ -1,0 +1,63 @@
+config SSTAR_SDMMC
+        tristate "SStar SD/MMC Card Interface Support"
+        depends on MMC
+        default m
+  help
+        Enable SD/MMC Driver Support for SStar Product
+
+choice
+    prompt "Sstar SDMMC DDR Mode"
+    depends on SSTAR_SDMMC
+    default SSTAR_SDMMC_ADVANCE_MODE
+
+config SSTAR_SDMMC_ADVANCE_MODE
+    bool "sdr/ddr Mode"
+
+config SSTAR_SDMMC_BYPASS_MODE
+    bool "bypass Mode"
+
+endchoice
+
+choice
+    prompt "Sstar SDMMC RECEIVE RESPONSE Mode"
+    depends on SSTAR_SDMMC
+    default SSTAR_SDMMC_INTERRUPT_MODE
+
+config SSTAR_SDMMC_INTERRUPT_MODE
+    bool "interrupt Mode"
+
+config SSTAR_SDMMC_POLLING_MODE
+    bool "polling Mode"
+
+endchoice
+
+config SUPPORT_SD30
+        bool "Support SD30"
+        depends on SSTAR_SDMMC
+        default n
+
+config SUPPORT_EMMC50
+        bool "Support EMMC50"
+        depends on SSTAR_SDMMC
+        default n
+
+config SUPPORT_SDMMC_COMMAND
+        bool "Support SDMMC Command"
+        depends on SSTAR_SDMMC
+        default n
+
+if SUPPORT_SDMMC_COMMAND
+config SUPPORT_SDMMC_UT_VERIFY
+        bool "Support SDMMC UT verify"
+        depends on SSTAR_SDMMC
+        default n
+endif
+config SUPPORT_SDMMC_AT_SMOKE
+       bool "Support SDMMC AT/SMOKE test"
+       depends on SSTAR_SDMMC
+       default n
+
+config SSTAR_SELECT_EMMC
+        bool "SELECT EMMC"
+        depends on SSTAR_SDMMC
+        default n

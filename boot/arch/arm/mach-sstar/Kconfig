@@ -1,0 +1,150 @@
+if ARCH_SSTAR
+
+menu "SigmaStar arch features support"
+	depends on ARCH_SSTAR
+
+choice
+	prompt "Select architecture"
+	default SSTAR_ARM32
+
+	config SSTAR_ARM32
+		bool "SigmaStar ARM32"
+		select CPU_V7A
+
+	config SSTAR_ARM64
+		bool "SigmaStar ARM64"
+		select ARM64
+endchoice
+
+config SYS_CONFIG_NAME
+	default $(SSTAR_CHIP_NAME)
+
+config SYS_SOC
+	default $(SSTAR_CHIP_NAME)
+
+config SSTAR_BOOTING_PERF
+	bool "booting time"
+	default n
+
+config SSTAR_VERSION_FPGA
+	bool "FPGA version"
+	default n
+
+config SSTAR_VERSION_PZ1
+	bool "Palladium version"
+	default n
+	help
+	  This will disable some board settings.
+	  And it will enable the system DCache to speed up kernel loading.
+
+config SSTAR_BOOT_DEV
+	string "boot device"
+	default "mmc"
+	help
+	  specify boot device type
+
+config SSTAR_BOOT_DEV_ID
+	int "boot device id"
+	default 0
+	help
+	  specify boot device id
+
+config SSTAR_ENV_PART_NAME
+	string "env patition name"
+	default "env"
+	help
+	  secify the real 'env' partition name in partition table
+
+config SSTAR_LOGO_PART_NAME
+        string "logo patition name"
+        default "logo"
+        help
+          secify the real 'logo' partition name in partition table
+
+config SSTAR_MISC_PART_NAME
+	string "misc patition name"
+	default "misc"
+	help
+	  secify the real 'misc' partition name in partition table
+
+config SSTAR_DTBO_PART_NAME
+	string "dtbo patition name"
+	default "dtbo"
+	help
+	  secify the real 'dtbo' partition name in partition table
+
+config SSTAR_BUILTIN_KERNEL_DTB
+	bool "Built-in dtb support"
+	default y
+	help
+	  When Kernel use SigmaStar built-in dtb, uboot should pass
+	  atags instead fdt to kernel from x0.
+
+config SSTAR_KERNEL_ADDR_OFFSET
+	hex "Address offset between kernel and uboot"
+	default 0x0
+	help
+	  In some special cases, such as infinity7 we load kernel/fdt/initrd at
+	  address base 0x20000000 but jump address base 0x1000000000 to start
+	  kernel(those starting addr are mapped to same physical address).
+	  uImage and android bootimage header only support spcify 32-bit wide
+	  address for kernel&fdt&initrd. enable this config to support add
+	  offset to those addr. use this config, must set env initrd_high and
+	  fdt_high to -1UL to avoid initrd/fdt reloacate.
+
+config SSTAR_DISABLE_FIXUP_DTB_MEMORY_NODE
+	bool "disable fixup 'memory' node"
+	default n
+	help
+	  Before cmd boot<i|z|m> jump Linux will fixup memory node, set the
+	  memory node to the DRAM range used by uboot. enable this config to
+	  disable this feature.
+
+config SSTAR_UBOOT_DTB_OVERLAY
+	bool "Uboot DTB overlay"
+	select SSTAR_DTB_OVERLAY_SUPPORT
+	default n
+	help
+	  Select this config to enable uboot dtb overlay feature, this feature
+	  will load fdt table from 'dtbo' partition. all dtbo specify in env
+	  'uboot_dtbo_list' will be overlay to uboot dtb. If your driver cares
+	  about the result of dtb overlay, please try to get property from
+	  the device node after 'board_init'.
+
+config SSTAR_KERNEL_DTB_OVERLAY
+	bool "Kernel DTB overlay"
+	select SSTAR_DTB_OVERLAY_SUPPORT
+	default n
+	help
+	  Select this config to enable kernel dtb overlay feature, this feature
+	  will load fdt table from 'dtbo' partition. all dtbo specify in env
+	  'kernel_dtbo_list' will be overlay to kernel dtb.
+
+config SSTAR_DTB_OVERLAY_SUPPORT
+	bool
+	select OF_LIBFDT_OVERLAY
+	select CMD_ADTIMG
+	default n
+
+config SSTAR_RAM_SIZE
+	hex "DRAM size managed by system"
+	default 0x4000000
+	help
+	  DRAM size managed by system can not equal to actual
+	  DRAM size.
+
+config SSTAR_USE_TOOLCHAIN_DEFAULT_FLOAT_ABI
+	bool "Use toolchain default float ABI"
+	default n
+	help
+	  Enable uboot to use the same float ABI as toolchain
+
+config SSTAR_DISABLE_CODE_RELOC
+	bool "Disable code relocate at board_init_f"
+	default y
+	help
+	  Support uboot keep stay at TEXT_START, no
+	  been relocate boot flow
+
+endmenu
+endif

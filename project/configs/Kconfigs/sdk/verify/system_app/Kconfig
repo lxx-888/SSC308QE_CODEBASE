@@ -1,0 +1,10 @@
+config VERIFY_SYSTEM_APP
+    bool "system_app"
+    default y
+    help
+        whether to compile or not
+
+config verify_system_app
+    string
+    default enable if VERIFY_SYSTEM_APP
+    default disable if !VERIFY_SYSTEM_APP

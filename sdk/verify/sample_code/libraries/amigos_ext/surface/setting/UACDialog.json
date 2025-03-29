@@ -1,0 +1,196 @@
+{
+    "Page": [
+        {
+            "page_name": "UACModPage",
+            "page_title": "UAC",
+            "component": [
+                {
+                    "name": "UACInMode",
+                    "label": "In Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Disable",
+                            "option_page": " "
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "Enable",
+                            "option_page": "UACModInParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "sub_section": "IN_MODE_PARAM",
+                    "output_type": "int",
+                    "output_key": "IN_MODE"
+                },
+                {
+                    "name": "UACOutMode",
+                    "label": "Out Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Disable",
+                            "option_page": " "
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "Enable",
+                            "option_page": "UACModOutParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "sub_section": "OUT_MODE_PARAM",
+                    "output_type": "int",
+                    "output_key": "OUT_MODE"
+                },
+                {
+                    "name": "UacBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "UACModBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "UACModBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "UacBwInfo:1",
+            "component": [
+                {
+                    "name": "UacWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "UacHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "UacBufferDepth",
+                    "label": "Buffer Depth",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "output_type": "int",
+                    "output_key": "BUF_DEPTH"
+                },
+                {
+                    "name": "UacBufferSize",
+                    "label": "Buffer Size(Byte)",
+                    "component_type": "LineEdit",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BUF_SIZE"
+                }
+            ]
+        },
+        {
+            "page_name": "UACModInParam",
+            "page_title": "Audio In Param",
+            "page_belong": "UACInMode:1",
+            "component": [
+                {
+                    "name": "InSoundMode",
+                    "label": "Sound Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "mono",
+                            "option_value": "1"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "stereo",
+                            "option_value": "2"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "SND_MOD"
+                },
+                {
+                    "name": "OutSampleRate",
+                    "label": "Sample Rate",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "96000",
+                    "value_step": "1000",
+                    "default_value": "8000",
+                    "output_key": "SAMPLE_RATE"
+                }
+            ]
+        },
+        {
+            "page_name": "UACModOutParam",
+            "page_title": "Audio Out Param",
+            "page_belong": "UACOutMode:1",
+            "component": [
+                {
+                    "name": "OutSoundMode",
+                    "label": "Sound Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "mono",
+                            "option_value": "1"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "stereo",
+                            "option_value": "2"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "SND_MOD"
+                },
+                {
+                    "name": "InSampleRate",
+                    "label": "Sample Rate",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "96000",
+                    "value_step": "1000",
+                    "default_value": "8000",
+                    "output_key": "SAMPLE_RATE"
+                }
+            ]
+        }
+    ]
+}

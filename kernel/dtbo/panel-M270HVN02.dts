@@ -1,0 +1,55 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "sstar_dtbo,panel-M270HVN02";
+};
+
+&panels {
+    panel_misc:panel_misc {
+        lvds-lane-config {
+            u8Channel = <0>;     /* 0:dual_channel 1:channel_1 2:channel_2*/
+        };
+    };
+    M270HVN02 {
+        compatible = "sstar,panel";
+        name = "M270HVN02";
+        interface = "LVDS";
+        width-mm = <598>;
+        height-mm = <336>;
+        misc = <&panel_misc>;
+        backlight = <&backlight_lvds>;
+        status = "okay";
+
+        port {
+            M270HVN02_in_lvds: endpoint {
+                remote-endpoint = <&lvds_out_panel>;
+            };
+        };
+
+        panel-timing {
+            clock-frequency = <144000000>;
+            hactive = <1920>;
+            hfront-porch = <88>;
+            hback-porch = <148>;
+            hsync-len = <44>;
+            hsync-active = <0>;
+            vactive = <1080>;
+            vfront-porch = <4>;
+            vback-porch = <36>;
+            vsync-len = <5>;
+            vsync-active = <0>;
+            de-active = <0>;
+            pixelclk-active = <0>;
+        };
+        lvds-params {
+            enFormat = <0>;
+            u8DualChn = <4>;
+            u8SwapML = <0>;
+        };
+    };
+};
+
+&lvds_out_panel {
+    remote-endpoint = <&M270HVN02_in_lvds>;
+};

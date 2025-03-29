@@ -1,0 +1,101 @@
+/*
+* iford-clks-u-boot.dtsi- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+#include "../../../drivers/sstar/clk/iford/hal_clk.h"
+
+clks: clocks{
+    compatible = "sstar,clk";
+    #clock-cells = <1>;
+};
+
+watchdog: watchdog {
+    clocks = <&clks SSTAR_CLK_WDT>;
+};
+
+pwm0: pwm@0x1F203200 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm1: pwm@0x1F203280 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm2: pwm@0x1F203300 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm3: pwm@0x1F203380 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm4: pwm@0x1F203400 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm5: pwm@0x1F203440 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm6: pwm@0x1F203480 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm7: pwm@0x1F2034C0 {
+    clocks = <&clks SSTAR_CLK_PWM>;
+};
+
+pwm8: pwm@0x1F003400 {
+    clocks = <&clks SSTAR_CLK_PM_PWM>;
+};
+
+pwm9: pwm@0x1F003440 {
+    clocks = <&clks SSTAR_CLK_PM_PWM>;
+};
+
+pwm10: pwm@0x1F003480 {
+    clocks = <&clks SSTAR_CLK_PM_PWM>;
+};
+
+pwm11: pwm@0x1F0034C0 {
+    clocks = <&clks SSTAR_CLK_PM_PWM>;
+};
+
+i2c0: i2c0@1F222800 {
+    clocks = <&clks SSTAR_CLK_MIIC0>;
+};
+
+i2c1: i2c1@1F222A00 {
+    clocks = <&clks SSTAR_CLK_MIIC1>;
+};
+
+#if !defined(CONFIG_OPTEE)
+i2c2: i2c2@1F222C00 {
+    clocks = <&clks SSTAR_CLK_MIIC2>;
+};
+#endif
+
+i2c3: i2c3@1F007C00 {
+    clocks = <&clks SSTAR_CLK_PM_MIIC0>;
+};
+
+spi0: spi0@1F222000 {
+    clocks = <&clks SSTAR_CLK_MSPI0>;
+};
+
+adclp: adclp {
+    clocks = <&clks SSTAR_CLK_SAR>;
+};
+

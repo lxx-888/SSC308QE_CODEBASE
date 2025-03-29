@@ -1,0 +1,34 @@
+menuconfig INTERFACE_GFX
+    depends on SUPPORT_GFX
+    bool "gfx"
+    default y
+    select MHAL_GE
+    help
+        whether to compile or not
+
+if INTERFACE_GFX
+
+config config_mi_gfx
+    bool "mi_gfx"
+    default y
+    depends on MHAL_GE
+    help
+        whether to compile or not
+
+config MHAL_GE
+    bool "mhal_ge"
+    default y
+    depends on INTERFACE_GFX
+    help
+        whether to compile or not
+
+config mhal_ge
+    string
+    default enable if MHAL_GE
+    default disable if !MHAL_GE
+
+endif
+config interface_gfx
+    string
+    default enable if INTERFACE_GFX
+    default disable if !INTERFACE_GFX

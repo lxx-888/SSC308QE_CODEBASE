@@ -1,0 +1,1106 @@
+{
+    "Page":[
+        {
+            "page_name": "ISPModPage",
+            "page_title": "ISP",
+            "component": [
+                {
+                    "name": "IspHdrType",
+                    "label": "Hdr Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "VC"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "DOL"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "COMP"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "LI"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "COMPVS"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "DCG"
+                        }
+                    ],
+                    "output_type": "int",
+                    "output_key": "HDR_TYPE",
+                    "default_value": "0"
+                },
+                {
+                    "name": "IspHdrFusionType",
+                    "label": "Hdr Fusion Type",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "2",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "HDR_FUSION_TYPE"
+                },
+                {
+                    "name": "IspHdrExposureMask",
+                    "label": "Hdr Exposure Mask",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "7",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "HDR_EXPOSURE_MASK"
+                },
+                {
+                    "name": "IspSnrMask",
+                    "label": "Snr Mask",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "SNR_MASK"
+                },
+                {
+                    "name": "IspSnrMaskNum",
+                    "label": "Snr Mask Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SNR_MASK_NUM"
+                },
+                {
+                    "name": "IspRot",
+                    "label": "Rot",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "0",
+                            "option_value" : "0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "90",
+                            "option_value" : "1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "180",
+                            "option_value" : "2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "270",
+                            "option_value" : "3"
+                        }
+                    ],
+                    "output_type": "int",
+                    "output_key": "ROT",
+                    "default_value": "0"
+                },
+                {
+                    "name": "Isp3dnr",
+                    "label": "3dnr",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "5",
+                    "value_step": "1",
+                    "default_value": "2",
+                    "output_type": "int",
+                    "output_key": "3DNR_LV"
+                },
+                {
+                    "name": "Isp3aType",
+                    "label": "Sync 3A Type",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "7",
+                    "value_step": "1",
+                    "default_value": "7",
+                    "output_type": "int",
+                    "output_key": "SYNC_3A_TYPE"
+                },
+                {
+                    "name": "IspStitchMask",
+                    "label": "Stitch Mask",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "STITCH_MASK"
+                },
+                {
+                    "name": "IspAiBnrEn",
+                    "label": "bnr",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                         {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "ISPModBnrParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "sub_section": "BNR_PARAM",
+                    "output_key": "AIBNR_EN"
+                },
+                {
+                    "name": "IspMirror",
+                    "label": "Mirror",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "IS_MIRROR"
+                },
+                {
+                    "name": "IspFlip",
+                    "label": "Flip",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "IS_FLIP"
+                },
+                {
+                    "name": "IspApiBin",
+                    "label": "Api Bin",
+                    "component_type": "LineEdit",
+                    "default_value": "./isp_imx415_4k60fps.bin",
+                    "output_key": "IQ_API_FILE"
+                },
+                {
+                    "name": "IspZoomEn",
+                    "label": "Zoom",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "ISPModZoomParam"
+                        }
+                    ],
+                    "sub_section": "ZOOM_PARAM",
+                    "output_type": "int",
+                    "output_key": "ZOOM_EN",
+                    "default_value": "0"
+                },
+                {
+                    "name": "IspCustIqEn",
+                    "label": "Cust Iq",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "ISPModCustIqParam"
+                        }
+                    ],
+                    "output_type": "int",
+                    "output_key": "CUST_IQ_EN",
+                    "default_value": "0",
+                    "sub_section": "CUST_IQ_PARAM"
+                },
+                {
+                    "name": "IspSubChnIqEn",
+                    "label": "Sub Iq",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "ISPModSubIqParam"
+                        }
+                    ],
+                    "output_type": "int",
+                    "output_key": "SUB_CHN_IQ_EN",
+                    "default_value": "0",
+                    "sub_section": "SUB_CHN_IQ_PARAM"
+                },
+                {
+                    "name": "IspLdcEn",
+                    "label": "Isp Ldc",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "ISPModLdcParam"
+                        }
+                    ],
+                    "output_type": "int",
+                    "output_key": "ISP_LDC_EN",
+                    "default_value": "0",
+                    "sub_section": "ISP_LDC_PARAM"
+                },
+                {
+                    "name": "IspMutiChnEn",
+                    "label": "MutiChn",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "MUTI_CHN_EN"
+                },
+                {
+                    "name": "IspOverlapEn",
+                    "label": "Isp Overlap",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "ISPModOverlapParam"
+                        }
+                    ],
+                    "output_type": "int",
+                    "output_key": "OVER_LAP_EN",
+                    "default_value": "0",
+                    "sub_section": "OVER_LAP_PARAM"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "IspInputPortCropX",
+                    "label": "CropX",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_X"
+                },
+                {
+                    "name": "IspInputPortCropY",
+                    "label": "CropY",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_Y"
+                },
+                {
+                    "name": "IspInputPortCropW",
+                    "label": "CropW",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_W"
+                },
+                {
+                    "name": "IspInputPortCropH",
+                    "label": "CropH",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_H"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPOutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "ISPOutputPortCropX",
+                    "label": "CropX",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_CROP_X"
+                },
+                {
+                    "name": "ISPOutputPortCropY",
+                    "label": "CropY",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_CROP_Y"
+                },
+                {
+                    "name": "ISPOutputPortCropW",
+                    "label": "CropW",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_CROP_W"
+                },
+                {
+                    "name": "ISPOutputPortCropH",
+                    "label": "CropH",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "VID_CROP_H"
+                },
+                {
+                    "name": "ISPOutputPortType",
+                    "label": "Video Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "raw"
+                        }
+                    ],
+                    "default_value": "raw",
+                    "output_type": "string",
+                    "output_key": "OUT_TYPE"
+                },
+                {
+                    "name": "ISPOutputPortColorFormat",
+                    "label": "Video Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv422sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgra8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb565"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "gray8"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "bayer",
+                            "option_page": "IspOutputBayerFormatPage"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                },
+                {
+                    "name": "ISPOutputPortCompressMode",
+                    "label": "Compress Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "NONE",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "SEG",
+                            "option_value": "1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "LINE",
+                            "option_value": "2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "FRAME",
+                            "option_value": "3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "TO_8BIT",
+                            "option_value": "4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "TO_6BIT",
+                            "option_value": "5"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "AFBC",
+                            "option_value": "6"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "SFBC0",
+                            "option_value": "7"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "SFBC1",
+                            "option_value": "8"
+                        },
+                                                {
+                            "option_type" : "string",
+                            "option_name" : "SFBC2",
+                            "option_value": "9"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "BUTT",
+                            "option_value": "10"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "COMPRESS_MODE"
+                },
+                {
+                    "name": "ISPOutBufLayout",
+                    "label": "Buf Layout",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "ONE_FRAME",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "MULTI_PLANE",
+                            "option_value": "1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BUF_LAYOUT"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPModBnrParam",
+            "page_title": "Bnr Param",
+            "page_belong": "IspAiBnrEn:1",
+            "component": [
+                {
+                    "name": "IspAiBnr",
+                    "label": "bnr",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "none"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "linear"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "fusion"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "long"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "max"
+                        }
+                    ],
+                    "default_value": "none",
+                    "output_type": "string",
+                    "output_key": "BNR_SRC_TYPE"
+                },
+                {
+                    "name": "BnrModelFile",
+                    "label": "Model File",
+                    "output_type": "string",
+                    "component_type": "LineEdit",
+                    "default_value": "./AI_BNR_Linear_2688x1520_V1_RGGB_0711_2040_fixed.sim_sgsimg.img",
+                    "output_key": "BNR_MODEL_FILE"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPModZoomParam",
+            "page_title": "Zoom Param",
+            "page_belong": "IspZoomEn:1",
+            "component": [
+                {
+                    "name": "ZoomFromIndex",
+                    "label": "From Index",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "FROM_ENTRY_INDEX"
+                },
+                {
+                    "name": "ZoomToIndex",
+                    "label": "To Index",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "TO_ENTRY_INDEX"
+                },
+                {
+                    "name": "ZoomTableNum",
+                    "label": "Table Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "ZOOM_TABLE_NUM",
+                    "sub_section": "TABLE",
+                    "attach_name": "ZoomTableComboBox"
+                },
+                {
+                    "name": "ZoomTableComboBox",
+                    "label": "Table",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "ISPModTablePage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPModCustIqParam",
+            "page_title": "Cust Iq Param",
+            "page_belong": "IspCustIqEn:1",
+            "component": [
+                {
+                    "name": "CustIqRevision",
+                    "label": "Revision",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "200",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "REVISION"
+                },
+                {
+                    "name": "CustIqFps",
+                    "label": "Fps",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "200",
+                    "value_step": "1",
+                    "default_value": "30",
+                    "output_type": "int",
+                    "output_key": "FPS"
+                },
+                {
+                    "name": "CustIqFlocker",
+                    "label": "Flicker",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "FLICKER"
+                },
+                {
+                    "name": "CustIqShutter",
+                    "label": "Shutter",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SHUTTER"
+                },
+                {
+                    "name": "CustIqGainX1024",
+                    "label": "GainX1024",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "GAIN_X1024"
+                },
+                {
+                    "name": "CustIqDGain",
+                    "label": "DGain",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DGAIN"
+                },
+                {
+                    "name": "CustIqAwbRGain",
+                    "label": "Awb RGain",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "AWB_RGAIN"
+                },
+                {
+                    "name": "CustIqAwbGGain",
+                    "label": "Awb GGain",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "AWB_GGAIN"
+                },
+                {
+                    "name": "CustIqAwbBGain",
+                    "label": "Awb BGain",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "AWB_BGAIN"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPModSubIqParam",
+            "page_title": "Sub Iq Param",
+            "page_belong": "IspSubChnIqEn:1",
+            "component": [
+                {
+                    "name": "SubDev",
+                    "label": "Dev",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DEV"
+                },
+                {
+                    "name": "SubChn",
+                    "label": "Chn",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CHN"
+                },
+                {
+                    "name": "SubApiBin",
+                    "label": "Api Bin",
+                    "component_type": "LineEdit",
+                    "default_value": "./isp_imx415_4k60fps.bin",
+                    "output_key": "API_FILE"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPModLdcParam",
+            "page_title": "Isp Ldc Param",
+            "page_belong": "IspLdcEn:1",
+            "component": [
+                {
+                    "name": "CenterXOffset",
+                    "label": "Center X",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CENTER_X"
+                },
+                {
+                    "name": "CenterYOffset",
+                    "label": "Center Y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CENTER_Y"
+                },
+                {
+                    "name": "Alpha",
+                    "label": "Alpha",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "ALPHA"
+                },
+                {
+                    "name": "Beta",
+                    "label": "Beta",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "BETA"
+                },
+                {
+                    "name": "CropLeft",
+                    "label": "Crop Left",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_L"
+                },
+                {
+                    "name": "CropRight",
+                    "label": "Crop Right",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_R"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPModOverlapParam",
+            "page_title": "Isp Overlap Param",
+            "page_belong": "IspOverlapEn:1",
+            "component": [
+                {
+                    "name": "IspAiBnr",
+                    "label": "bnr",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "none"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "128"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "256"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "max"
+                        }
+                    ],
+                    "default_value": "none",
+                    "output_type": "string",
+                    "output_key": "OVER_LAP_TYPE"
+                }
+            ]
+        },
+        {
+            "page_name": "ISPModTablePage",
+            "page_title": "Table",
+            "page_belong": "ZoomTableNum",
+            "component": [
+                {
+                    "name": "ZoomSnrId",
+                    "label": "Snr Id",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SNR_ID"
+                },
+                {
+                    "name": "ZoomTableX",
+                    "label": "TableX",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "TABLE_X"
+                },
+                {
+                    "name": "ZoomTableY",
+                    "label": "TableY",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "TABLE_Y"
+                },
+                {
+                    "name": "ZoomTableW",
+                    "label": "TableW",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "TABLE_W"
+                },
+                {
+                    "name": "ZoomTableH",
+                    "label": "TableH",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "TABLE_H"
+                }
+            ]
+        },
+        {
+            "page_name": "IspOutputBayerFormatPage",
+            "page_title": "Bayer Format",
+            "component": [
+                {
+                    "name": "ISPOutputBayerFormatId",
+                    "label": "Bayer ID",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_rg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_gr"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_bg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_gb"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_r0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_b0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_i0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_i1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int"
+                },
+                {
+                    "name": "ISPOutputBayerPrecision",
+                    "label": "Precision",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "8bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "10bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "12bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "14bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "16bpp"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int"
+                }
+            ]
+        }
+    ]
+}

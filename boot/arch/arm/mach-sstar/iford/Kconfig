@@ -1,0 +1,17 @@
+if SSTAR_IFORD
+
+config SSTAR_CHIP_ID
+	string "SigmaStar chip id"
+	default "IFORD"
+
+config SYS_CONFIG_NAME
+	default "iford"
+	help
+	  To load the "include/configs/iford.h"
+
+config SYS_SOC
+	default "iford"
+	help
+	  To generate correct  "arch/arm/include/asm/arch"
+
+endif

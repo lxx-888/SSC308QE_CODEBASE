@@ -1,0 +1,34 @@
+menuconfig INTERFACE_HDMI
+    depends on SUPPORT_HDMI
+    bool "hdmi"
+    default y
+    select MHAL_HDMITX
+    help
+        whether to compile or not
+
+if INTERFACE_HDMI
+
+config config_mi_hdmi
+    bool "mi_hdmi"
+    default y
+    depends on MHAL_HDMITX
+    help
+        whether to compile or not
+
+config MHAL_HDMITX
+    bool "mhal_hdmitx"
+    default y
+    depends on INTERFACE_HDMI
+    help
+        whether to compile or not
+
+config mhal_hdmitx
+    string
+    default enable if MHAL_HDMITX
+    default disable if !MHAL_HDMITX
+
+endif
+config interface_hdmi
+    string
+    default enable if INTERFACE_HDMI
+    default disable if !INTERFACE_HDMI

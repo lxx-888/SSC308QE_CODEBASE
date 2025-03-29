@@ -1,0 +1,75 @@
+{
+    "Page":[
+        {
+            "page_name": "POOLModPage",
+            "page_title": "POOL",
+            "component": [
+                {
+                    "name": "PoolDevModeComboBox",
+                    "label": "Dev Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "VENC",
+                            "option_value": "2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "SCL",
+                            "option_value": "34"
+                        }
+                    ],
+                    "default_value": "34",
+                    "output_type": "int",
+                    "output_key": "DEV_MOD"
+                },
+                {
+                    "name": "PoolDevIDSpinBox",
+                    "label": "Dev ID",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DEV_ID"
+                },
+                {
+                    "name": "PoolWidthSpinBox",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "PoolHeightSpinBox",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "PoolRingLineSpinBox",
+                    "label": "Ring Line",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "RING_LINE"
+                }
+            ]
+        }
+    ]
+
+}

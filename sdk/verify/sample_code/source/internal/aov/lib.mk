@@ -1,0 +1,14 @@
+INC += $(BUILD_TOP)/source/internal/common
+INC += $(BUILD_TOP)/source/internal/common/platform/$(CHIP)
+INC += $(BUILD_TOP)/source/internal/light_misc_control
+INC += $(BUILD_TOP)/source/internal/vif
+INC += $(BUILD_TOP)/source/internal/isp
+INC += $(BUILD_TOP)/source/internal/scl
+INC += $(BUILD_TOP)/source/internal/venc
+INC += $(BUILD_TOP)/source/internal/dla
+INC += $(BUILD_TOP)/source/internal/rgn
+INC += $(BUILD_TOP)/source/internal/audio
+INC += $(BUILD_TOP)/source/internal/aov
+INC += $(BUILD_TOP)/source/internal/fast_ae
+INC += $(BUILD_TOP)/../common/list
+INC += $(BUILD_TOP)/../common/ss_font

@@ -1,0 +1,26 @@
+/* SigmaStar trade secret */
+/* Copyright (c) [2019~2020] SigmaStar Technology.
+All rights reserved.
+
+Unless otherwise stipulated in writing, any and all information contained
+herein regardless in any format shall remain the sole proprietary of
+SigmaStar and be kept in strict confidence
+(SigmaStar Confidential Information) by the recipient.
+Any unauthorized act including without limitation unauthorized disclosure,
+copying, use, reproduction, sale, distribution, modification, disassembling,
+reverse engineering and compiling of the contents of SigmaStar Confidential
+Information is unlawful and strictly prohibited. SigmaStar hereby reserves the
+rights to any and all damages, losses, costs and expenses resulting therefrom.
+*/
+#include <linux/module.h>
+// #include "drv_ms_isp_general_vif.h"
+
+struct mi_vif_internal_apis_t;
+// mi_sys_internal
+
+// s32 DrvVifIsp3aStatisticConfig(void* handle, u8 sel, ISP_Vif3aStatData_t Cus3aStatsInfo, u32 nVifGroup){return -1;};
+extern struct mi_vif_internal_apis_t g_mi_vif_internal_apis;
+EXPORT_SYMBOL(g_mi_vif_internal_apis);
+// EXPORT_SYMBOL(DrvVifIsp3aStatisticConfig);
+
+

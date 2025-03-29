@@ -1,0 +1,11 @@
+menuconfig INTERFACE_IQSERVER
+    depends on SUPPORT_IQSERVER
+    bool "iqserver"
+    default y
+    help
+        whether to compile or not
+
+config interface_iqserver
+    string
+    default enable if INTERFACE_IQSERVER
+    default disable if !INTERFACE_IQSERVER

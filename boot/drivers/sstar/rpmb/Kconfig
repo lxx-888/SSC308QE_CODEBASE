@@ -1,0 +1,11 @@
+menuconfig SSTAR_RPMB
+	bool "SigmaStar RPMB support"
+	default n
+
+if SSTAR_RPMB
+config RPMB_KEY_FILE
+	string "RPMB key path"
+	default "drivers/sstar/rpmb/default.rpmbkey"
+	help
+	  Specify binary rpmb key file path
+endif

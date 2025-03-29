@@ -1,0 +1,1 @@
+DEP += source/internal/common source/internal/dualos_sample_manager

@@ -1,0 +1,90 @@
+{
+    "E_MI_MODULE_ID_SYS" :
+    {
+        "bEnableMmu" : true,
+        "entrySize" : 0,
+        "debugMmu" : false,
+        "gMmuStartPfn" : 0,
+        "config_ini_path" : "/misc/config.ini",
+        "g_bEnableMmuPool" : false,
+        "cmdQBufSize" : 8192,
+        "cmdQUsingMma" : true,
+        "bEnableCmdqReset" : true,
+        "mmu_vpa_length"  : "0x0",
+        "default_config_path" : "ABABABABABABABABABAB",
+        "g_bEnableMiuProtect" : true,
+    },
+    "E_MI_MODULE_ID_SNR" :
+    {
+        "bEnMonitor" : [0,0,0,0,0,0,0,0]
+    },
+    "E_MI_MODULE_ID_VIF" :
+    {
+        "bSupportIrq" : 1,
+        "bUseReset" : 1,
+        "bUseHWTimer" : 0,
+        "u32threadPriority" : 98,
+        "u32CpuMaskAffinity" : 0,
+        "bIsrCheckLost" : 0,
+        "u32DevDebugLevel" : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        "u8DevNeedUsePipeId" : [255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255],
+        "bCrcEnable" : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        "u8CompressMode" : [255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255],
+        "u8ChangeBufMode" : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        "VifExternalConfig" : "/config/sensor_v3.json",
+        "u32PatGen" : [0,0,0,0,0,0,0,0],
+        "bEnableOutputCrop" : [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    },
+    "E_MI_MODULE_ID_ISP" :
+    {
+        "bSeg1Hdrout" : false,
+        "u32DefaultDropNum" : 10,
+        "s32ForceOverlap" : -1,
+        "s32RotExtraBuf" : -1,
+        "s32BufLayout" : -1,
+        "bUseHwResetArray" : [false],
+        "bCmdqTimeOutDbgArray" : [true],
+        "u16CpuMaskAffinityArray" : [0],
+        "u32threadPriorityArray" : [98],
+        "u32ChnMaxNumArray" : [8],
+        "bCrcEnableArray" : [false,false,false]
+    },
+    "E_MI_MODULE_ID_SCL" :
+    {
+        "bEnableMultiRing" : true,
+        "bUseHwResetArray" : [false,false,false],
+        "bCmdqTimeOutDbgArray" : [true,true,true],
+        "u16CpuMaskAffinityArray" : [0,0,0],
+        "u32threadPriorityArray" : [98,98,98],
+        "u32CmdqSizeArray" : [91136,91136,91136],
+        "bCrcEnableArray" : [false,false,false,false],
+        "bEnableTileModeArray" : [false,false,false,false],
+        "u16ByteWriteArray" : [65535,65535,65535,65535],
+        "u16FilterTypeArray" : [0,0,0,0]
+    },
+    "E_MI_MODULE_ID_SNR" :
+    {
+        "chmap" : 1,
+        "mclk" : "use default parameter" ,
+        "lane_num" : 2,
+        "hdr_lane_num": 2,
+        "i2c_slave_id": 0,
+        "SnrExternalConfig" : "/config/sensor_v3.json"
+    },
+    "E_MI_MODULE_ID_VENC" :
+    {
+        "use_ring_ref" : 1,
+        "max_h26x_task" : 2,
+        "max_jpe_task" : 2,
+        "mi_timeout_reset" : 0,
+        "jpeg_timeout_reset" : 0,
+        "compress_mode" : 6,
+        "max_chn_num" : 64,
+        "enable_bsp_ring" : 0
+    },
+    "E_MI_MODULE_ID_VDEC" :
+    {
+        "CpuMaskAffinity" : 0,
+        "thrNotifyPriority" : 99
+    }
+}

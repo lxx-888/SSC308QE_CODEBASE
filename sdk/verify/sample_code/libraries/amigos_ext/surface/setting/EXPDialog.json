@@ -1,0 +1,330 @@
+{
+    "Page": [
+        {
+            "page_name": "EXPInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "RunMode",
+                    "label": "Run Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "page",
+                            "option_name" : "direct",
+                            "option_page" : "EXPInputDirectModePage"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "handshake",
+                            "option_page" : "EXPInputHandshakeModePage"
+                        }
+                    ],
+                    "default_value": "direct",
+                    "sub_section": "MODE_PARAM",
+                    "output_type": "string",
+                    "output_key": "MODE"
+                }
+            ]
+        },
+        {
+            "page_name": "EXPOutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "URL",
+                    "label": "URL",
+                    "component_type": "LineEdit",
+                    "default_value": "exp://ipaddr:port/url_suffix",
+                    "output_type": "string",
+                    "output_key": "URL"
+                },
+{
+                    "name": "ExpOutputStreamType",
+                    "label": "Stream Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "video",
+                            "option_page": "EXPOutputVideoPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "audio",
+                            "option_page": "EXPOutputAudioPage"
+                        }
+                    ],
+                    "sub_section": "TYPE_PARAM",
+                    "default_value": "video",
+                    "output_type": "string",
+                    "output_key": "TYPE"
+                },
+                {
+                    "name": "ExpWorkId",
+                    "label": "Work Id",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "WORK_ID"
+                }
+            ]
+        },
+        {
+            "page_name": "EXPInputDirectModePage",
+            "page_title": "direct",
+            "page_belong": "RunMode:direct",
+            "component": [
+                {
+                    "name": "SocketPort",
+                    "label": "Socket Port",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "12120",
+                    "output_type": "int",
+                    "output_key": "SOCKET_PORT"
+                }
+            ]
+        },
+        {
+            "page_name": "EXPInputHandshakeModePage",
+            "page_title": "handshake",
+            "page_belong": "RunMode:handshake",
+            "component": [
+                {
+                    "name": "UrlSuffix",
+                    "label": "URL Suffix",
+                    "component_type": "LineEdit",
+                    "default_value": "video0",
+                    "output_type": "string",
+                    "output_key": "URL_SUFFIX"
+                },
+                {
+                    "name": "SocketPort",
+                    "label": "Socket Port",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "1668",
+                    "output_type": "int",
+                    "output_key": "SOCKET_PORT"
+                },
+                {
+                    "name": "ExpWorkId",
+                    "label": "Work Id",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "WORK_ID"
+                }
+            ]
+        },
+        {
+            "page_name": "EXPOutputVideoPage",
+            "page_title": "Video Setting",
+            "page_belong": "ExpOutputStreamType:video",
+            "component": [
+                {
+                    "name": "ExpOutputPortWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "ExpOutputPortHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "ExpOutputPortColorFormat",
+                    "label": "Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "h264"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "h265"
+                        }
+                    ],
+                    "default_value": "h264",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        },
+        {
+            "page_name": "EXPOutputAudioPage",
+            "page_title": "Audio Setting",
+            "page_belong": "ExpOutputStreamType:audio",
+            "component": [
+                {
+                    "name": "ExpOutputPortSampleRate",
+                    "label": "Sample Rate",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "8k",
+                            "option_value": "8000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "11.025k",
+                            "option_value": "11025"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "16k",
+                            "option_value": "16000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "22.05k",
+                            "option_value": "22050"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "24k",
+                            "option_value": "24000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "32k",
+                            "option_value": "32000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "44.1k",
+                            "option_value": "44100"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "48k",
+                            "option_value": "48000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "96k",
+                            "option_value": "96000"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "192k",
+                            "option_value": "192000"
+                        }
+                    ],
+                    "default_value": "8000",
+                    "output_type": "int",
+                    "output_key": "SAMPLE_RATE"
+                },
+                {
+                    "name": "ExpOutputPortSoundMode",
+                    "label": "Sound Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "mono"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "stereo"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "4ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "6ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "8ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "10ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "12ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "14ch"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "16ch"
+                        }
+                    ],
+                    "default_value": "mono",
+                    "output_type": "string",
+                    "output_key": "CHN"
+                },
+                {
+                    "name": "ExpOutputPortAudioFormat",
+                    "label": "Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "pcm"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g711u"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g711a"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_16"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_24"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_32"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "g726_40"
+                        }
+                    ],
+                    "default_value": "pcm",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        }
+    ]
+}

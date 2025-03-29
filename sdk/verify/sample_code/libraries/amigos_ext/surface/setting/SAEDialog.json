@@ -1,0 +1,31 @@
+{
+    "Page": [
+        {
+            "page_name": "SAEModPage",
+            "page_title": "sae",
+            "component": [
+                {
+                    "name": "SAEModIspDev",
+                    "label": "isp dev",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "2",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ISP_DEV"
+                },
+                {
+                    "name": "SAEModIspChn",
+                    "label": "isp chn",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ISP_CHN"
+                }
+            ]
+        }
+    ]
+}
+

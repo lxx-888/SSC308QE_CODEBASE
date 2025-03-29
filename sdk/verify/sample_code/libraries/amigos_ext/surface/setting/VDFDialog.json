@@ -1,0 +1,739 @@
+{
+    "Page": [
+        {
+            "page_name": "VDFModPage",
+            "page_title": "vdf",
+            "component": [
+              {
+                  "name": "VdfModeType",
+                    "label": "Mode Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "page",
+                            "option_name" : "md",
+                            "option_page": "VDFModMdParamPage"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "od",
+                            "option_page": "VDFModOdParamPage"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "vg",
+                            "option_page": "VDFModVgParamPage"
+                        }
+                    ],
+                    "default_value": "md",
+                    "sub_section": "MODE_TYPE_PARAM",
+                    "output_type": "string",
+                    "output_key": "MOD_TYPE"
+              }
+            ]
+        },
+        {
+            "page_name": "VDFModMdParamPage",
+            "page_title": "md param",
+            "page_belong": "VdfModeType:md",
+            "component": [
+              {
+                  "name": "VdfMdAlgoMode",
+                    "label": "Algo mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "page",
+                            "option_name" : "fg",
+                            "option_page": "VDFModAlgoModeFgPage"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "sad",
+                            "option_page": "VDFModAlgoModeSadPage"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "framediff",
+                            "option_page": "VDFModAlgoModeFramediffPage"
+                        }
+                    ],
+                    "default_value": "fg",
+                    "sub_section": "VDF_ALGO_MODE",
+                    "output_type": "string",
+                    "output_key": "ALG_MODE"
+              },
+              {
+                  "name": "VdfMdMbMode",
+                    "label": "mb mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "4x4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "8x8"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "16x16"
+                        }
+                    ],
+                    "default_value": "8x8",
+                    "output_type": "string",
+                    "output_key": "MB_MODE"
+              },
+              {
+                  "name": "VdfMdSadCtrl",
+                    "label": "sad ctrl",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "16bit"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "8bit"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bult"
+                        }
+                    ],
+                    "default_value": "8bit",
+                    "output_type": "string",
+                    "output_key": "SAD_MODE"
+              },
+              {
+                    "name": "VdfMdAlgoSensitivity",
+                    "label": "algo sensitivity",
+                    "component_type": "SpinBox",
+                    "min_value": "10",
+                    "max_value": "100",
+                    "value_step": "10",
+                    "default_value": "10",
+                    "output_key": "ALG_SENS"
+                },
+                {
+                    "name": "VdfMdObjMaxNum",
+                    "label": "obj maxnum",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "90",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "OBJ_MAXNUM"
+                },
+                {
+                    "name": "VDFMdPointCount",
+                    "label": "Point Count",
+                    "component_type": "SpinBox",
+                    "min_value": "4",
+                    "max_value": "8",
+                    "value_step": "4",
+                    "default_value": "4",
+                    "output_key" : "POINT_NUM",
+                    "sub_section": "POINT",
+                    "attach_name": "VDFMdPointComboBox"
+                },
+                {
+                    "name": "VDFMdPointComboBox",
+                    "label": "point",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "VDFModMdPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "1",
+                            "option_page" : "VDFModMdPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "2",
+                            "option_page" : "VDFModMdPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "3",
+                            "option_page" : "VDFModMdPointPage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModAlgoModeFgPage",
+            "page_title": "fg param",
+            "page_belong": "VdfMdAlgoMode:fg",
+            "component": [
+                {
+                    "name": "VdfMdFgMdThr",
+                    "label": "md thr",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key" : "MD_THR"
+                },
+                {
+                    "name": "VdfMdFgMdLearnRate",
+                    "label": "learn rate",
+                    "component_type": "SpinBox",
+                    "min_value": "1000",
+                    "max_value": "30000",
+                    "value_step": "100",
+                    "default_value": "2000",
+                    "output_key" : "LEARN_RATE"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModAlgoModeSadPage",
+            "page_title": "sad param",
+            "page_belong": "VdfMdAlgoMode:sad",
+            "component": [
+                {
+                    "name": "VDFMDSadMdThr",
+                    "label": "md thr",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key" : "MD_THR"
+                },
+                {
+                    "name": "VDFMDSadMdLearnRate",
+                    "label": "learn rate",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "128",
+                    "output_key" : "LEARN_RATE"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModAlgoModeFramediffPage",
+            "page_title": "framediff param",
+            "page_belong": "VdfMdAlgoMode:framediff",
+            "component": [
+                {
+                    "name": "VDFMDFrameDiffMdThr",
+                    "label": "md thr",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key" : "MD_THR"
+                },
+                {
+                    "name": "VDFMDFrameDiffMdLearnRate",
+                    "label": "learn rate",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "128",
+                    "output_key" : "LEARN_RATE"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModMdPointPage",
+            "page_title": "md point",
+            "page_belong": "VDFMdPointCount",
+            "component": [
+                {
+                    "name": "VdfMDPoint_X",
+                    "label": "point_x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PX"
+                },
+                {
+                    "name": "VdfMDPoint_Y",
+                    "label": "point_y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PY"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModOdParamPage",
+            "page_title": "od param",
+            "page_belong": "VdfModeType:od",
+            "component": [
+              {
+                  "name": "VdfOdMotSensitivity",
+                    "label": "motion sens",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "min"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "low"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "middle"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "high"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "max"
+                        }
+                    ],
+                    "default_value": "min",
+                    "output_type": "string",
+                    "output_key": "MOT_SENS"
+              },
+              {
+                  "name": "VdfOdAlgoSensitivity",
+                    "label": "algo sens",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "low"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "middle"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "high"
+                        }
+                    ],
+                    "default_value": "min",
+                    "output_type": "string",
+                    "output_key": "ALG_SENS"
+              },
+              {
+                  "name": "VdfOdMWindow",
+                    "label": "od window",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "1x1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "2x2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "3x3"
+                        }
+                    ],
+                    "default_value": "3x3",
+                    "output_type": "string",
+                    "output_key": "OD_WINDOW"
+              },
+              {
+                    "name": "VdfOdPointCount",
+                    "label": "Point Count",
+                    "component_type": "SpinBox",
+                    "min_value": "4",
+                    "max_value": "8",
+                    "value_step": "4",
+                    "default_value": "4",
+                    "output_key" : "POINT_NUM",
+                    "sub_section": "POINT",
+                    "attach_name": "VdfOdPointComboBox"
+                },
+                {
+                    "name": "VdfOdPointComboBox",
+                    "label": "point",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "VDFModOdPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "1",
+                            "option_page" : "VDFModOdPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "2",
+                            "option_page" : "VDFModOdPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "3",
+                            "option_page" : "VDFModOdPointPage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModOdPointPage",
+            "page_title": "od point",
+            "page_belong": "VdfOdPointCount",
+            "component": [
+                {
+                    "name": "VDFODPoint_X",
+                    "label": "point_x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PX"
+                },
+                {
+                    "name": "VDFODPoint_Y",
+                    "label": "point_y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PY"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModVgParamPage",
+            "page_title": "vg param",
+            "page_belong": "VdfModeType:vg",
+            "component": [
+              {
+                  "name": "VdfVgAlgoSensitivity",
+                    "label": "algo sens",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "min"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "low"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "middle"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "high"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "max"
+                        }
+                    ],
+                    "default_value": "min",
+                    "output_type": "string",
+                    "output_key": "ALG_SENS"
+              },
+              {
+                  "name": "VdfModVgAlgoMode",
+                    "label": "algo mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "page",
+                            "option_name" : "gate",
+                            "option_page": "VDFModVgAlgoModeGatePage"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "reg",
+                            "option_page": "VDFModVgAlgoModeRegPage"
+                        }
+                    ],
+                    "default_value": "gate",
+                    "sub_section": "VG_ALGO_TYPE",
+                    "output_type": "string",
+                    "output_key": "ALG_MODE"
+              }
+            ]
+        },
+        {
+            "page_name": "VDFModVgAlgoModeGatePage",
+            "page_title": "gate param",
+            "page_belong": "VdfModVgAlgoMode:gate",
+            "component": [
+              {
+                    "name": "VDFVGGateLineCount",
+                    "label": "Line Count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "4",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key" : "LINE_COUNT",
+                    "sub_section": "LINE",
+                    "attach_name": "VDFVgGateLineComboBox"
+                },
+                {
+                    "name": "VDFVgGateLineComboBox",
+                    "label": "line",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "VDFModVgGateLinePage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "1",
+                            "option_page" : "VDFModVgGateLinePage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "2",
+                            "option_page" : "VDFModVgGateLinePage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "3",
+                            "option_page" : "VDFModVgGateLinePage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModVgGateLinePage",
+            "page_title": "gate line",
+            "page_belong": "VDFVGGateLineCount",
+            "component": [
+                {
+                    "name": "VdfVGGateLineX_x",
+                    "label": "linex_x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PX_X"
+                },
+                {
+                    "name": "VdfVGGateLineX_Y",
+                    "label": "linex_y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PX_Y"
+                },
+                {
+                    "name": "VdfVGGateLineY_x",
+                    "label": "liney_x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PY_X"
+                },
+                {
+                    "name": "VdfVGGateLineY_Y",
+                    "label": "liney_y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PY_Y"
+                },
+                {
+                    "name": "VdfVGGateLineDX_x",
+                    "label": "linedx_x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PDX_X"
+                },
+                {
+                    "name": "VdfVGGateLineDX_Y",
+                    "label": "linedx_y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PDX_Y"
+                },
+                {
+                    "name": "VdfVGGateLineDY_x",
+                    "label": "linedy_x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PDY_X"
+                },
+                {
+                    "name": "VdfVGGateLineDY_Y",
+                    "label": "linedy_y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PDY_Y"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModVgAlgoModeRegPage",
+            "page_title": "reg param",
+            "page_belong": "VdfModVgAlgoMode:reg",
+            "component": [
+                {
+                  "name": "VdfVgRegDir",
+                    "label": "reg direct",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "enter"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "leave"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Cross"
+                        }
+                    ],
+                    "default_value": "enter",
+                    "output_type": "string",
+                    "output_key": "REG_DIR"
+              },
+              {
+                  "name": "VdfVgRegSpecDir",
+                    "label": "spec direct",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "enter"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "leave"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Cross"
+                        }
+                    ],
+                    "default_value": "enter",
+                    "output_type": "string",
+                    "output_key": "SPEC_DIR"
+              },
+              {
+                    "name": "VdfVGRegPointCount",
+                    "label": "Point Count",
+                    "component_type": "SpinBox",
+                    "min_value": "4",
+                    "max_value": "4",
+                    "value_step": "4",
+                    "default_value": "4",
+                    "output_key" : "POINT_NUM",
+                    "sub_section": "POINT",
+                    "attach_name": "VdfVgRegPointComboBox"
+                },
+                {
+                    "name": "VdfVgRegPointComboBox",
+                    "label": "point",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "VDFModVgRegPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "1",
+                            "option_page" : "VDFModVgRegPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "2",
+                            "option_page" : "VDFModVgRegPointPage"
+                        },
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "3",
+                            "option_page" : "VDFModVgRegPointPage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "VDFModVgRegPointPage",
+            "page_title": "reg point",
+            "page_belong": "VdfVGRegPointCount",
+            "component": [
+                {
+                    "name": "VdfVGRegPoint_x",
+                    "label": "point_x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PX"
+                },
+                {
+                    "name": "VdfVGRegPoint_Y",
+                    "label": "point_y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PY"
+                }
+            ]
+        }
+    ]
+}

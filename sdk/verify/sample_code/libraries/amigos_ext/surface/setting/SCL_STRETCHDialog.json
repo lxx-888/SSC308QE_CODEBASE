@@ -1,0 +1,181 @@
+{
+    "Page":[
+        {
+            "page_name": "SCL_STRETCHModPage",
+            "page_title": "SCL_STRETCH",
+            "component": [
+                {
+                    "name": "SclPortMode",
+                    "label": "Port Mode",
+                    "component_type": "LineEdit",
+                    "default_value": "0x1",
+                    "output_key": "PORT_MODE"
+                },
+                {
+                    "name": "SclOsd",
+                    "label": "Osd En",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "OSD_EN"
+                }
+            ]
+        },
+        {
+            "page_name": "SCL_STRETCHInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "SclInputPortCropX",
+                    "label": "CropX",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_X"
+                },
+                {
+                    "name": "SclInputPortCropY",
+                    "label": "CropY",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_Y"
+                },
+                {
+                    "name": "SclInputPortCropW",
+                    "label": "CropW",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_W"
+                },
+                {
+                    "name": "SclInputPortCropH",
+                    "label": "CropH",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_CROP_H"
+                }
+            ]
+        },
+        {
+            "page_name": "SCL_STRETCHOutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "SclOutputRowNum",
+                    "label": "Row Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "200",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "ROW_NUM"
+                },
+                {
+                    "name": "SclOutputColNum",
+                    "label": "Col Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "200",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "COL_NUM"
+                },
+                {
+                    "name": "SclOutputPortColorFormat",
+                    "label": "Video Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv422sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgra8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb565"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        }
+    ]
+}

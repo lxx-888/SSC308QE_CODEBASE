@@ -1,0 +1,4 @@
+config SSTAR_FSP_QSPI
+    tristate "Sigmastar FSP-QSPI Driver"
+    default n
+

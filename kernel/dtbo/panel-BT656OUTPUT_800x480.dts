@@ -1,0 +1,43 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "sstar_dtbo,panel-BT656OUTPUT_800x480";
+};
+
+&panels {
+    BT656OUTPUT_800x480 {
+        compatible = "sstar,panel";
+        name = "BT656OUTPUT_800x480";
+        interface = "BT656"; /* TTL/MIPI/LVDS/BT1120/BT656/BT601 */
+        misc = <&panel_misc>;
+        backlight = <&backlight_ttl>;
+        status = "disable";
+
+        port {
+            BT656OUTPUT_800x480_in_dpi: endpoint {
+                remote-endpoint = <&dpi_out_panel>;
+            };
+        };
+
+        panel-timing {
+            clock-frequency = <12000000>;
+            hactive = <800>;
+            hfront-porch = <34>;
+            hback-porch = <46>;
+            hsync-len = <48>;
+            hsync-active = <0>;
+            vactive = <480>;
+            vfront-porch = <18>;
+            vback-porch = <23>;
+            vsync-len = <4>;
+            vsync-active = <0>;
+            de-active = <0>;
+            pixelclk-active = <0>;
+        };
+    };
+};
+
+&dpi_out_panel {
+    remote-endpoint = <&BT656OUTPUT_800x480_in_dpi>;
+};

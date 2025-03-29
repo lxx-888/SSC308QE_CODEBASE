@@ -1,0 +1,82 @@
+/*
+ * pioneer5-ssc028b-s01a-s-panel.dtsi- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+
+/ {
+    display-subsystem {
+        panels {
+            backlight_ttl {
+                compatible = "pwm-backlight";
+                pwms = <&pwm 8 5000000 0>;
+                brightness-levels = <0 100 1024>;
+                num-interpolated-steps = <255>;
+                default-brightness-level = <200>;
+                status = "okay";
+            };
+            backlight_mipi {
+                compatible = "pwm-backlight";
+                pwms = <&pwm 8 5000000 0>;
+                brightness-levels = <0 100 1024>;
+                num-interpolated-steps = <255>;
+                default-brightness-level = <200>;
+                status = "disable";
+            };
+            backlight_lvds {
+                compatible = "pwm-backlight";
+                pwms = <&pwm 8 5000000 0>;
+                brightness-levels = <0 100 1024>;
+                num-interpolated-steps = <255>;
+                default-brightness-level = <200>;
+                status = "disable";
+            };
+            panel_misc {
+                power-gpios = <&gpio PAD_PWM_OUT7 0>; /* 0:GPIO_ACTIVE_HIGH 1:GPIO_ACTIVE_LOW */
+                reset-gpios = <&gpio PAD_PWM_OUT9 0>;
+                drive-current-level = <1>;
+                mipi-lane-config {
+                    u8Channel = <1>;     /* 0:Reserved 1:mipi_tx1 2:mipi_tx2*/
+                    enLaneNum = <4>;
+                    u8PolCh0 = <1>;
+                    u8PolCh1 = <1>;
+                    u8PolCh2 = <1>;
+                    u8PolCh3 = <1>;
+                    u8PolCh4 = <1>;
+                    u8SwapCh0 = <2>;
+                    u8SwapCh1 = <4>;
+                    u8SwapCh2 = <3>;
+                    u8SwapCh3 = <1>;
+                    u8SwapCh4 = <0>;
+                };
+                lvds-lane-config {
+                    u8Channel = <0>;     /* 0:dual_channel 1:channel_1 2:channel_2*/
+                    enLaneNum = <4>;
+                    u8ClkLane = <0x63>;
+                    u8PolLane0 = <0>;
+                    u8PolLane1 = <0>;
+                    u8PolLane2 = <0>;
+                    u8PolLane3 = <0>;
+                    u8PolLane4 = <0>;
+                    u8SwapLane0 = <4>;
+                    u8SwapLane1 = <3>;
+                    u8SwapLane2 = <2>;
+                    u8SwapLane3 = <0>;
+                    u8SwapLane4 = <1>;
+                };
+                /* spi/rgb swap/mipi lane select/... */
+            };
+        };
+    };
+};

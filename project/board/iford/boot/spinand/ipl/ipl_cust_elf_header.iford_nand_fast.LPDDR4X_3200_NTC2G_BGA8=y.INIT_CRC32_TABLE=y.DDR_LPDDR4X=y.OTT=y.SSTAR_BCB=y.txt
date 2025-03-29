@@ -1,0 +1,20 @@
+
+Elf file type is EXEC (Executable file)
+Entry point 0x23000000
+There are 5 program headers, starting at offset 52
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000000 0x20800000 0x20800000 0x00000 0xffff00 RW  0x10000
+  LOAD           0x010000 0x23000000 0x23000000 0x07da0 0x07da0 RWE 0x10000
+  LOAD           0x000000 0x23020000 0x23020000 0x00000 0x110d0 RW  0x10000
+  LOAD           0x000000 0x23040000 0x23040000 0x00000 0xc0000 RW  0x10000
+  GNU_STACK      0x000000 0x00000000 0x00000000 0x00000 0x00000 RWE 0x10
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .dram_shmem 
+   01     .rom 
+   02     .ram 
+   03     .dram_heap 
+   04     

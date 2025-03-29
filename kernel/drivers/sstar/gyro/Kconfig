@@ -1,0 +1,91 @@
+menuconfig SS_GYRO
+    tristate "SStar Gyro Driver Support"
+    default n
+    help
+        Support gyro for disalgo.
+
+if SS_GYRO
+
+# Limit: only support one device on souffle chip
+#config  SUPPORT_MAXNUM_OF_GYRODEV
+#        int "can support the max number of gyro devices"
+#    default 4
+#    depends on SS_GYRO_TRANSFER_I2C || SS_GYRO_TRANSFER_SPI
+#
+#menu "GYRO transfer choice"
+#
+#config SS_GYRO_TRANSFER_I2C
+#    bool "Use I2C"
+#    depends on I2C
+#    default n
+#    help
+#        Use i2c to transfer data.
+#
+#config SS_GYRO_TRANSFER_SPI
+#    bool "Use SPI"
+#    depends on SPI_MASTER
+#    default y
+#    help
+#        Use spi to transfer data.
+#
+#endmenu
+
+choice
+    prompt "GYRO transfer choice"
+    default SS_GYRO_TRANSFER_SPI
+
+config SS_GYRO_TRANSFER_I2C
+	bool "Use I2C"
+    depends on I2C
+	help
+		Use i2c to transfer data.
+
+config SS_GYRO_TRANSFER_SPI
+	bool "Use SPI"
+    depends on SPI_MASTER
+	help
+		Use spi to transfer data.
+
+endchoice
+
+choice
+    prompt "GYRO chip choice"
+    default SS_GYRO_CHIP_ICG20660
+
+config SS_GYRO_CHIP_ICG20660
+    bool "ICG20660"
+    help
+        Use ICG20660
+
+config SS_GYRO_CHIP_ICM40607
+    bool "ICM40607"
+    help
+        Use ICM40607
+
+config SS_GYRO_CHIP_ICM42607
+    bool "ICM42607"
+    help
+        Use ICM42607
+
+endchoice
+
+config SS_GYRO_IOCTL
+    bool "Enable gyro ioctl"
+    default n
+    help
+        Enable gyro ioctl driver for user mode
+
+config SS_GYRO_SYSFS
+    bool "Enable gyro sysfs"
+    default n
+    help
+        Enable gyro sysfs nodes for debug
+
+config SS_GYRO_DEBUG_ON
+    bool "Show debug info"
+    default n
+    help
+        Show debug info
+
+endif # SS_GYRO #
+

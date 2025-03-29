@@ -1,0 +1,76 @@
+menu "Earlyinit Options"
+
+choice
+    prompt "Select Earlyinit Mode"
+    default CONFIG_NO_EARLYINIT_SUPPORT
+
+    config CONFIG_NO_EARLYINIT_SUPPORT
+        bool "No earlyinit support"
+    config CONFIG_SENSOR_EARLYINIT_SUPPORT
+        bool "Init sensor from rtos boot"
+    config CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+        bool "Init sensor and vif from IPL"
+endchoice
+
+config CONFIG_EARLYINIT_SETTING_JSON
+    string "Set Earlyinit Setting Default Json Name"
+    default "single_sensor_realtime.json"
+    help
+        set the json name that will be converted into header file,
+        and it will be selected as default.
+
+config CONFIG_EARLYINIT_SETTING_JSON_LIST
+    string "Set Earlyinit Setting Built-in Json Name List"
+    default ""
+    help
+        set the json name list that will be converted into header file.
+
+config CONFIG_EARLYINIT_SETTING_FS
+    bool "Support Dynamically Load Earlyinit Setting From File System"
+    default n
+    depends on CONFIG_SENSOR_EARLYINIT_SUPPORT
+    help
+        dynamically load earlyinit setting from file system if enable.
+
+config CONFIG_SENSOR_EARLYINIT_ENABLE
+    hex "Bitmap for early init enable"
+    depends on CONFIG_SENSOR_EARLYINIT_SUPPORT||CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+    default 0x01
+
+config CONFIG_IPL_SENSOR_EARLYINIT_PIPELINE_SUPPORT
+    bool "Support Vif pipe line create"
+    depends on CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+    default y
+
+config CONFIG_SENSOR_EARLYINIT_LOG_LEVEL
+    int "EarlyInit log level"
+    depends on CONFIG_SENSOR_EARLYINIT_SUPPORT||CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+    help
+        0:Disable all, 1:Error only, 2:Error and Info, 3:Enable all
+    default 1
+
+config CONFIG_EARLYINIT_SENSOR_CM4_SUPPORT
+    bool "Support sensor CM4"
+    depends on CONFIG_SENSOR_EARLYINIT_SUPPORT||CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+    default n
+
+config CONFIG_EARLYINIT_SENSOR_MIPIRX_2LANE_SUPPORT
+    bool "Support MIPI RX 2Lane mode"
+    depends on CONFIG_SENSOR_EARLYINIT_SUPPORT||CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+    default n
+
+config CONFIG_EARLYINIT_SENSOR_LIGHTSENSOR_SUPPORT
+    bool "Support earlyinit light sensor enable"
+    depends on CONFIG_SENSOR_EARLYINIT_SUPPORT||CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+    default n
+
+config CONFIG_EARLYINIT_SENSOR_COLD_BOOT_SKIP
+    bool "Support skip earlyinit in cold boot"
+    default n
+
+config CONFIG_EARLYINIT_SENSOR_2_2_LANE_SUPPORT
+    bool "Support MIPI 2+2 lane mode"
+    depends on CONFIG_SENSOR_EARLYINIT_SUPPORT||CONFIG_SENSOR_IPL_EARLYINIT_SUPPORT
+    default n
+
+endmenu

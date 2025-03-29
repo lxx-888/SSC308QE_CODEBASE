@@ -1,0 +1,5 @@
+config SSTAR_MSPI
+    tristate "Sstar MSPI driver"
+    default n
+    help
+    Enable support for SPI master driver

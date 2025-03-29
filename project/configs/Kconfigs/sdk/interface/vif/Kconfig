@@ -1,0 +1,43 @@
+menuconfig INTERFACE_VIF
+    depends on SUPPORT_VIF
+    bool "vif"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_VIF
+
+config config_mi_vif
+    bool "mi_vif"
+    default y
+    help
+        whether to compile or not
+
+config MI_VIF_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config mi_vif_kapi
+    string
+    default yes if MI_VIF_KAPI
+    default no if !MI_VIF_KAPI
+
+config VIF_DEBUG_IF
+    bool "vif_debug_interface"
+    default y
+    help
+        whether to enable vif debug interface
+
+config DRV_VIF_LOG_LEVEL
+    int "driver layer debug level"
+    default 2
+    help
+        vif driver layer debug level
+
+endif
+config interface_vif
+    string
+    default enable if INTERFACE_VIF
+    default disable if !INTERFACE_VIF

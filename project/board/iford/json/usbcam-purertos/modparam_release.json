@@ -1,0 +1,63 @@
+{
+    "E_MI_MODULE_ID_SYS" :
+    {
+        "bEnableMmu" : true,
+        "entrySize" : 0,
+        "debugMmu" : false,
+        "gMmuStartPfn" : 0,
+        "config_ini_path" : "/misc/config.ini",
+        "g_bEnableMmuPool" : false,
+        "cmdQBufSize" : 800,
+        "cmdQUsingMma" : true,
+        "bEnableCmdqReset" : true,
+        "mmu_vpa_length"  : "0x0",
+        "default_config_path" : "ABABABABABABABABABAB",
+        "g_bEnableMiuPanic" : false,
+        "g_bEnableMiuProtect" : true
+    },
+    "E_MI_MODULE_ID_VENC" :
+    {
+        "s32PreloadChnFlag" : 0,
+        "u32Chn0PreloadBufSize" : 0,
+        "u32Chn1PreloadBufSize" : 0,
+        "u32Chn2PreloadBufSize" : 0,
+        "s32JpePreloadChnFlag" : 0,
+        "u32JpeChn0PreloadBufSize" : 0,
+        "u32JpeChn1PreloadBufSize" : 0,
+        "u32JpeChn2PreloadBufSize" : 0
+    },
+    "E_MI_MODULE_ID_AI" :
+    {
+        "s32PreloadAI" : 0
+    },
+    "E_MI_MODULE_ID_AO" :
+    {
+        "s32PreloadAO" : 0
+    },
+    "E_MI_MODULE_ID_DISP" :
+    {
+        "threadPriority" : 98,
+        "debugFilePath" : "",
+        "u64CpuMaskAffinity" : "0x0"
+    },
+    "E_MI_MODULE_ID_ISP" :
+    {
+        "isp_clk" : 288000000
+    },
+    "E_MI_MODULE_ID_VIF" :
+    {
+        "vif_clk" : 0
+    },
+    "E_MI_MODULE_ID_MIPITX" :
+    {
+        "threadPriority" : 70
+    },
+    "E_MI_MODULE_ID_PANEL" :
+    {
+        "debugFilePath" : ""
+    },
+    "E_MI_MODULE_ID_FB" :
+    {
+        "default_reserved_mem_name": "fb"
+    }
+}

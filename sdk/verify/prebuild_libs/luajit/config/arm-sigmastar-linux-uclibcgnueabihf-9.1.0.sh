@@ -1,0 +1,6 @@
+HOST_CC="gcc -m32"
+CROSS="/tools/toolchain/arm-sigmastar-linux-uclibcgnueabihf-9.1.0/bin/arm-sigmastar-linux-uclibcgnueabihf-"
+TARGET_CFLAGS=""
+ARCH="arm"
+TOOLCHAIN="uclibc"
+TOOLCHAIN_VERSION="9.1.0"

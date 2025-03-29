@@ -1,0 +1,80 @@
+{
+    "ROOT": [
+        {
+            "NAME": "CMD_TEST_0_0_0",
+            "CHIP": "0",
+            "DELAY": "0"
+        },
+        {
+            "NAME": "CMD_TEST_0_1_0",
+            "CHIP": "0",
+            "DELAY": "0"
+        },
+        {
+            "NAME": "STR_CMD_TEST_0_0_0",
+            "CHIP": "0",
+            "DELAY": "0"
+        },
+        {
+            "NAME": "STR_CMD_TEST_0_1_0",
+            "CHIP": "0",
+            "DELAY": "0"
+        }
+    ],
+    "CMD_TEST_0_0_0": {
+        "MOD": "CMD_TEST",
+        "DEV": "0",
+        "CHN": "0",
+        "CHIP_ID": "0",
+        "PRELOAD": "0",
+        "IN_CNT": "0",
+        "OUT_CNT": "0",
+        "POS_X": "259",
+        "POS_Y": "132",
+        "BANDWIDTH": "0",
+        "DRAMESIZE": "0",
+        "EFFICIENCY": "0.6"
+    },
+    "CMD_TEST_0_1_0": {
+        "MOD": "CMD_TEST",
+        "DEV": "0",
+        "CHN": "1",
+        "CHIP_ID": "0",
+        "PRELOAD": "0",
+        "IN_CNT": "0",
+        "OUT_CNT": "0",
+        "POS_X": "271",
+        "POS_Y": "176",
+        "BANDWIDTH": "0",
+        "DRAMESIZE": "0",
+        "EFFICIENCY": "0.6"
+    },
+    "STR_CMD_TEST_0_0_0": {
+        "MOD": "STR_CMD_TEST",
+        "DEV": "0",
+        "CHN": "0",
+        "CHIP_ID": "0",
+        "PRELOAD": "0",
+        "IN_CNT": "0",
+        "OUT_CNT": "0",
+        "POS_X": "295",
+        "POS_Y": "253",
+        "BANDWIDTH": "0",
+        "DRAMESIZE": "0",
+        "EFFICIENCY": "0.6"
+    },
+    "STR_CMD_TEST_0_1_0": {
+        "MOD": "STR_CMD_TEST",
+        "DEV": "0",
+        "CHN": "1",
+        "CHIP_ID": "0",
+        "PRELOAD": "131579504",
+        "IN_CNT": "0",
+        "OUT_CNT": "0",
+        "POS_X": "308",
+        "POS_Y": "338",
+        "BANDWIDTH": "0",
+        "DRAMESIZE": "0",
+        "EFFICIENCY": "0.6"
+    }
+}

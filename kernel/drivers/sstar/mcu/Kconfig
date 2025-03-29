@@ -1,0 +1,13 @@
+config SSTAR_MCU
+    bool "SStar MCU configuration driver"
+    default n
+    help
+      Enable MCU configuration driver pass parameters to MCU only
+
+config IR_KEY_NR
+    int "Number of IR key for wakeup"
+    depends on SSTAR_MCU
+    default 3
+    help
+      Define number of IR key for wakeup system should match with
+      configuration of MCU.

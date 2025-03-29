@@ -1,0 +1,25 @@
+
+1) 配置
+    Device:
+      menuconfig打开configfs下面的 Loopback and sourcesink function (for testing)， 生成ko:usb_f_ss_lb.ko
+
+      gadget-configfs.sh默认参数如下
+      步长=1,  pattern=0，bulk最大传输pkt size=30720, iso最大传输pkt size=3072, int最大传输pkt size=64
+      echo 30720 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/bulk_buflen
+      echo 3072 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/iso_buflen
+      echo 64 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/int_buflen
+      echo 0 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/pattern
+      echo 1 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/buflen_vary
+      echo 1 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/int_qlen
+      echo 1 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/bulk_qlen
+      echo 1 > ${USB_FUNCTIONS_DIR}/SourceSink.instance0/iso_qlen
+
+      进入kernel后通过gadget-configfs.sh -o1 配置为sourcesink function
+
+    Host
+      menuconfig开启USB testing driver， 生成usbtest.ko
+
+2) 测试
+    将配置好的device 和配置好的host， 用usb cable连接
+    host跑脚本usbtest.sh, 就会下control,iso,int, bulk都跑一次
+

@@ -1,0 +1,11 @@
+menuconfig INTERFACE_DUMMY
+    depends on SUPPORT_DUMMY
+    bool "dummy"
+    default n
+    help
+        whether to compile or not
+
+config interface_dummy
+    string
+    default enable if INTERFACE_DUMMY
+    default disable if !INTERFACE_DUMMY

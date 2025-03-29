@@ -1,0 +1,42 @@
+menuconfig INTERFACE_FB
+    depends on SUPPORT_FB
+    bool "fb"
+    default y
+    select MHAL_RGN
+    help
+        whether to compile or not
+
+if INTERFACE_FB
+
+config MI_FB_KAPI
+    bool "KAPI"
+    default y
+    help
+        whether to compile or not
+
+config mi_fb_kapi
+    string
+    default yes if MI_FB_KAPI
+    default no if !MI_FB_KAPI
+
+
+config MI_FB_NORMAL
+    bool "disp_path"
+    default y
+    select INTERFACE_DISP
+    help
+        whether to compile or not
+
+config MI_FB_VIDEO
+    bool "video_path"
+    default y
+    select INTERFACE_RGN
+    help
+        whether to compile or not
+
+endif
+
+config interface_fb
+    string
+    default enable if INTERFACE_FB
+    default disable if !INTERFACE_FB

@@ -1,0 +1,1213 @@
+{
+    "Page":[
+        {
+            "page_group": "1",
+            "page_name": "RC ENC",
+            "component": [
+                {
+                    "name": "IntraPeriod",
+                    "label": "IntraPeriod",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "rc_cfg_type": "3"
+                },
+                {
+                    "name": "FrameRate",
+                    "label": "FrameRate",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "30",
+                    "rc_cfg_type": "3"
+                },
+                {
+                    "name": "FrameRate_den",
+                    "label": "FrameRate_den",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "65535",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "3"
+                },
+                {
+                    "name": "RateControlMode",
+                    "label": "RateControlMode",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-1",
+                    "max_value": "3",
+                    "value_step": "1",
+                    "default_value": "-1",
+                    "rc_cfg_type": "2"
+                },
+                {
+                    "name": "TargetBitrate",
+                    "label": "TargetBitrate",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "102400000",
+                    "value_step": "1",
+                    "default_value": "2000000",
+                    "rc_cfg_type": "5"
+                }
+            ]
+        },
+        {
+            "page_group": "2",
+            "page_name": "RC COMMON",
+            "component": [
+                {
+                    "name": "MinQp",
+                    "label": "MinQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "51",
+                    "value_step": "1",
+                    "default_value": "12",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "MaxQp",
+                    "label": "MaxQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "51",
+                    "value_step": "1",
+                    "default_value": "48",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "MinIQp",
+                    "label": "MinIQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "51",
+                    "value_step": "1",
+                    "default_value": "12",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MaxIQp",
+                    "label": "MaxIQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "51",
+                    "value_step": "1",
+                    "default_value": "48",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "IPQpDelta",
+                    "label": "IPQpDelta",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-12",
+                    "max_value": "12",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "2"
+                },
+                {
+                    "name": "MaxIPProp",
+                    "label": "MaxIPProp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "200000",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "MaxISize",
+                    "label": "MaxISize",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4294967295",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "MaxPSize",
+                    "label": "MaxPSize",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4294967295",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "MaxFrameSize",
+                    "label": "MaxFrameSize",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4294967295",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "SeqDeflickerMode",
+                    "label": "SeqDeflickerMode",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "2",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "deflicker_rc_strength",
+                    "label": "deflicker_rc_strength",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "11",
+                    "value_step": "1",
+                    "default_value": "6",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "deflicker_with_hw_strength",
+                    "label": "deflicker_with_hw_strength",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "8",
+                    "value_step": "1",
+                    "default_value": "5",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "RcLogCtrl",
+                    "label": "RcLogCtrl",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4294967295",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "LambdaCalAlg",
+                    "label": "LambdaCalAlg",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "3",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "LambdaFactorI_hevc",
+                    "label": "LambdaFactorI_hevc",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "52",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "LambdaFactorP_hevc",
+                    "label": "LambdaFactorP_hevc",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "79",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "chroma_weight_percent_hevc",
+                    "label": "chroma_weight_percent_hevc",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "100",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "LambdaFactorI_avc",
+                    "label": "LambdaFactorI_avc",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "25",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "LambdaFactorP_avc",
+                    "label": "LambdaFactorP_avc",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "60",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "chroma_weight_percent_avc",
+                    "label": "chroma_weight_percent_avc",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "BitTolerance",
+                    "label": "BitTolerance",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "120",
+                    "value_step": "1",
+                    "default_value": "25",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "VbvBufferSize",
+                    "label": "VbvBufferSize",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "25000",
+                    "value_step": "1",
+                    "default_value": "1000",
+                    "rc_cfg_type": "3"
+                },
+                {
+                    "name": "VbvBufferInitLevel",
+                    "label": "VbvBufferInitLevel",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "8",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "InitialQP",
+                    "label": "InitialQP",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-1",
+                    "max_value": "51",
+                    "value_step": "1",
+                    "default_value": "-1",
+                    "rc_cfg_type": "2"
+                },
+                {
+                    "name": "MaxIncQp",
+                    "label": "MaxIncQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "50",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MaxDecQp",
+                    "label": "MaxDecQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "50",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MdAdaDeltaQp",
+                    "label": "MdAdaDeltaQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "50",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "IBitReferPrePeriod",
+                    "label": "IBitReferPrePeriod",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MinIPModelBppRatio",
+                    "label": "MinIPModelBppRatio",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "5",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "AdvanceOptions",
+                    "label": "AdvanceOptions",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "31",
+                    "value_step": "1",
+                    "default_value": "6",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "QualityStyle",
+                    "label": "QualityStyle",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "3",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "SeqHvsLvAdaEnable",
+                    "label": "SeqHvsLvAdaEnable",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "IpQpDeltaAdaEnable",
+                    "label": "IpQpDeltaAdaEnable",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "RcDefloatAdaEnable",
+                    "label": "RcDefloatAdaEnable",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "UbrForceIfbcEnable",
+                    "label": "UbrForceIfbcEnable",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "LumaSceneChgThr",
+                    "label": "LumaSceneChgThr",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "20",
+                    "rc_cfg_type": "3"
+                },
+                {
+                    "name": "LumaSceneChgDqp",
+                    "label": "LumaSceneChgDqp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "5",
+                    "value_step": "1",
+                    "default_value": "2",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "IfbcAdaMotionThr",
+                    "label": "IfbcAdaMotionThr",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "rc_cfg_type": "1"
+                }
+            ]
+        },
+        {
+            "page_group": "3",
+            "page_name": "RC VBR",
+            "component": [
+                {
+                    "name": "ChangePos",
+                    "label": "ChangePos",
+                    "component_type": "NumericUpDown",
+                    "min_value": "5",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "80",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MinStillPercent",
+                    "label": "MinStillPercent",
+                    "component_type": "NumericUpDown",
+                    "min_value": "5",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "80",
+                    "rc_cfg_type": "1"
+                }
+            ]
+        },
+        {
+            "page_group": "4",
+            "page_name": "RC AVBR",
+            "component": [
+                {
+                    "name": "MaxStillQp",
+                    "label": "MaxStillQp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "51",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MDResponseSpeed",
+                    "label": "MDResponseSpeed",
+                    "component_type": "NumericUpDown",
+                    "min_value": "20",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "100",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MDDownSpeedRatio",
+                    "label": "MDDownSpeedRatio",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "7",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "StillBRCompensate",
+                    "label": "StillBRCompensate",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "AvbrBitrateMode",
+                    "label": "AvbrBitrateMode",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MdBoundEn",
+                    "label": "MdBoundEn",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "MdUpperBound",
+                    "label": "MdUpperBound",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MdLowerBound",
+                    "label": "MdLowerBound",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "MDSensitivity",
+                    "label": "MDSensitivity",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "7",
+                    "value_step": "1",
+                    "default_value": "5",
+                    "rc_cfg_type": "1"
+                }
+            ]
+        },
+        {
+            "page_group": "5",
+            "page_name": "RC CVBR",
+            "component": [
+                {
+                    "name": "CvbrLongTermStatsTime",
+                    "label": "CvbrLongTermStatsTime",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "1440",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "CvbrLongTermMaxBitrate",
+                    "label": "CvbrLongTermMaxBitrate",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4294967295",
+                    "value_step": "1",
+                    "default_value": "1000",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "CvbrLongTermMinBitrate",
+                    "label": "CvbrLongTermMinBitrate",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4294967295",
+                    "value_step": "1",
+                    "default_value": "750",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "CvbrShortTermStatsTime",
+                    "label": "CvbrShortTermStatsTime",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "120",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "CvbrMaxBitRate",
+                    "label": "CvbrMaxBitRate",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4294967295",
+                    "value_step": "1",
+                    "default_value": "2000000",
+                    "rc_cfg_type": "5"
+                },
+                {
+                    "name": "CvbrExtraBitPercent",
+                    "label": "CvbrExtraBitPercent",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "5",
+                    "rc_cfg_type": "1"
+                }
+            ]
+        },
+        {
+            "page_group": "6",
+            "page_name": "RC DEFLICKER",
+            "component": [
+                {
+                    "name": "deflicker_rc_min_intra_bit_ratio",
+                    "label": "deflicker_rc_min_intra_bit_ratio",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "14",
+                    "value_step": "1",
+                    "default_value": "6",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "deflicker_rc_max_ip_dec_qp",
+                    "label": "deflicker_rc_max_ip_dec_qp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "50",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "deflicker_rc_max_ip_inc_qp",
+                    "label": "deflicker_rc_max_ip_inc_qp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "1",
+                    "max_value": "50",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "deflicker_min_intra_bit_ratio_ex",
+                    "label": "deflicker_min_intra_bit_ratio_ex",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "8",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                }
+            ]
+        },
+        {
+            "page_group": "50",
+            "page_name": "BLOCK RC",
+            "component": [
+                {
+                    "name": "reg_ven_rc_ifbc_en",
+                    "label": "reg_ven_rc_ifbc_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_ven_rc_hvs_en",
+                    "label": "reg_ven_rc_hvs_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_ven_rc_ifbc_level",
+                    "label": "reg_ven_rc_ifbc_level",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "7",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "reg_ven_rc_hvs_level",
+                    "label": "reg_ven_rc_hvs_level",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "7",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "reg_ven_rc_cu_inc_delta_qp",
+                    "label": "reg_ven_rc_cu_inc_delta_qp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "reg_ven_rc_cu_dec_delta_qp",
+                    "label": "reg_ven_rc_cu_dec_delta_qp",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_skip_penalty_stren",
+                    "label": "fw_rc_skip_penalty_stren",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_split_penalty_stren",
+                    "label": "fw_rc_split_penalty_stren",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_split_penalty_sad_thr",
+                    "label": "fw_rc_split_penalty_sad_thr",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "2",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_defloat_sensitivity",
+                    "label": "fw_rc_defloat_sensitivity",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_defloat_internal_mv_frame_cnt",
+                    "label": "fw_rc_defloat_internal_mv_frame_cnt",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_hvs_byluma_en",
+                    "label": "fw_rc_hvs_byluma_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "fw_rc_hvs_lumagain",
+                    "label": "fw_rc_hvs_lumagain",
+                    "component_type": "ListBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "default_value": "[255,224,63,60,57,57,55,57,60,62,64,66,75,128,168,224,255]",
+                    "rc_cfg_type": "7"
+                },
+                {
+                    "name": "fw_rc_hvs_remap_en",
+                    "label": "fw_rc_hvs_remap_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "fw_rc_hvs_remap_bymot_coe",
+                    "label": "fw_rc_hvs_remap_bymot_coe",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "63",
+                    "value_step": "1",
+                    "default_value": "32",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_hvs_remap_endclip",
+                    "label": "fw_rc_hvs_remap_endclip",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "63",
+                    "value_step": "1",
+                    "default_value": "51",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_hvs_remap",
+                    "label": "fw_rc_hvs_remap",
+                    "component_type": "ListBox",
+                    "min_value": "0",
+                    "max_value": "63",
+                    "default_value": "[6,8,8,12,16,23,27,30,48]",
+                    "rc_cfg_type": "7"
+                },
+                {
+                    "name": "fw_rc_motion_sad_map_en",
+                    "label": "fw_rc_motion_sad_map_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "motion_sad_level_lut_1x",
+                    "label": "motion_sad_level_lut_1x",
+                    "component_type": "ListBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "default_value": "[12,11,10,9,8,7,6,5,4,3,2,1,0,0,0,0]",
+                    "rc_cfg_type": "7"
+                },
+                {
+                    "name": "motion_sad_level_lut_32x",
+                    "label": "motion_sad_level_lut_32x",
+                    "component_type": "ListBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "default_value": "[12,10,8,6,5,4,3,2,2,2,2,2,2,2,2,0]",
+                    "rc_cfg_type": "7"
+                },
+                {
+                    "name": "fw_rc_ctrlmap_en",
+                    "label": "fw_rc_ctrlmap_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "fw_rc_last_motion_gain",
+                    "label": "fw_rc_last_motion_gain",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "value_step": "1",
+                    "default_value": "32",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "fw_rc_gain_by_motion_lut",
+                    "label": "fw_rc_gain_by_motion_lut",
+                    "component_type": "ListBox",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "default_value": "[18,18,18,16,16,20,20,16,16,16,16,16,16,16,16,16]",
+                    "rc_cfg_type": "7"
+                }
+            ]
+        },
+        {
+            "page_group": "51",
+            "page_name": "REG DEFLICKER",
+            "component": [
+                {
+                    "name": "reg_ven_deflicker_enable",
+                    "label": "reg_ven_deflicker_enable",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                }
+            ]
+        },
+        {
+            "page_group": "52",
+            "page_name": "REG PENALTY",
+            "component": [
+                {
+                    "name": "reg_ven_penalty_enable",
+                    "label": "reg_ven_penalty_enable",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_ven_is_fix_penalty",
+                    "label": "reg_ven_is_fix_penalty",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "reg_ven_penalty_intra4",
+                    "label": "reg_ven_penalty_intra4",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_intra8",
+                    "label": "reg_ven_penalty_intra8",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_intra16",
+                    "label": "reg_ven_penalty_intra16",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_intra32",
+                    "label": "reg_ven_penalty_intra32",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_inter8",
+                    "label": "reg_ven_penalty_inter8",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_inter16",
+                    "label": "reg_ven_penalty_inter16",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_inter32",
+                    "label": "reg_ven_penalty_inter32",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_skip8",
+                    "label": "reg_ven_penalty_skip8",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_skip16",
+                    "label": "reg_ven_penalty_skip16",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_skip32",
+                    "label": "reg_ven_penalty_skip32",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_split16",
+                    "label": "reg_ven_penalty_split16",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_penalty_split32",
+                    "label": "reg_ven_penalty_split32",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-512",
+                    "max_value": "511",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "4"
+                },
+                {
+                    "name": "reg_ven_intra_pu32_penalty",
+                    "label": "reg_ven_intra_pu32_penalty",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-128",
+                    "max_value": "127",
+                    "value_step": "1",
+                    "default_value": "5",
+                    "rc_cfg_type": "2"
+                },
+                {
+                    "name": "reg_ven_intra_dc_fast_penalty",
+                    "label": "reg_ven_intra_dc_fast_penalty",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-16",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "-2",
+                    "rc_cfg_type": "2"
+                },
+                {
+                    "name": "reg_ven_intra_dc_full_penalty",
+                    "label": "reg_ven_intra_dc_full_penalty",
+                    "component_type": "NumericUpDown",
+                    "min_value": "-16",
+                    "max_value": "15",
+                    "value_step": "1",
+                    "default_value": "-2",
+                    "rc_cfg_type": "2"
+                }
+            ]
+        },
+        {
+            "page_group": "53",
+            "page_name": "REG SCALING",
+            "component": [
+                {
+                    "name": "reg_ven_scaling_list_mode",
+                    "label": "reg_ven_scaling_list_mode",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "2",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "reg_ven_dynamic_semiscal_enable",
+                    "label": "reg_ven_dynamic_semiscal_enable",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_ven_semi_grad_thr",
+                    "label": "reg_ven_semi_grad_thr",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "1023",
+                    "value_step": "1",
+                    "default_value": "170",
+                    "rc_cfg_type": "3"
+                }
+            ]
+        },
+        {
+            "page_group": "54",
+            "page_name": "REG HW DEFLOAT",
+            "component": [
+                {
+                    "name": "reg_ven_defloat_strength",
+                    "label": "reg_ven_defloat_strength",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "7",
+                    "value_step": "1",
+                    "default_value": "2",
+                    "rc_cfg_type": "1"
+                }
+            ]
+        },
+        {
+            "page_group": "55",
+            "page_name": "REG HEVC",
+            "component": [
+                {
+                    "name": "reg_hevc_skip_blk_sao_en",
+                    "label": "reg_hevc_skip_blk_sao_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_hevc_skip_sao_grad_thr",
+                    "label": "reg_hevc_skip_sao_grad_thr",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "4095",
+                    "value_step": "1",
+                    "default_value": "256",
+                    "rc_cfg_type": "3"
+                },
+                {
+                    "name": "reg_hevc_split_use_around_info_en",
+                    "label": "reg_hevc_split_use_around_info_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_hevc_zero_residual_candidate_en",
+                    "label": "reg_hevc_zero_residual_candidate_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "1",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_hevc_prior_dc_planar_by_grad_en",
+                    "label": "reg_hevc_prior_dc_planar_by_grad_en",
+                    "component_type": "CheckBox",
+                    "min_value": "0",
+                    "max_value": "1",
+                    "default_value": "0",
+                    "rc_cfg_type": "0"
+                },
+                {
+                    "name": "reg_hevc_dc_planar_grad_thr_min",
+                    "label": "reg_hevc_dc_planar_grad_thr_min",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "25",
+                    "rc_cfg_type": "1"
+                },
+                {
+                    "name": "reg_hevc_dc_planar_grad_thr_max",
+                    "label": "reg_hevc_dc_planar_grad_thr_max",
+                    "component_type": "NumericUpDown",
+                    "min_value": "0",
+                    "max_value": "1023",
+                    "value_step": "1",
+                    "default_value": "35",
+                    "rc_cfg_type": "3"
+                }
+            ]
+        }
+    ]
+}

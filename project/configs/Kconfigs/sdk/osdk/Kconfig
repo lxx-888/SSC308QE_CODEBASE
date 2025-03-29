@@ -1,0 +1,60 @@
+menu "Osdk Compile Config"
+comment "Osdk Compile Config"
+
+menuconfig OSDK_DRM
+    bool "drm"
+    default n
+    select MHAL_DISP
+    select MHAL_RGN
+    help
+        whether to compile drm driver or not
+
+if OSDK_DRM
+
+config MHAL_DISP
+    bool "mhal_disp"
+    default y
+    help
+        whether to compile or not
+
+config mhal_disp
+    string
+    default enable if MHAL_DISP
+    default disable if !MHAL_DISP
+
+config MHAL_RGN
+    bool "mhal_rgn"
+    default y
+    help
+        whether to compile or not
+
+config mhal_rgn
+    string
+    default enable if MHAL_RGN
+    default disable if !MHAL_RGN
+
+config MHAL_HDMITX
+    bool "mhal_hdmitx"
+    default n
+    help
+        whether to compile or not
+
+config mhal_hdmitx
+    string
+    default enable if MHAL_HDMITX
+    default disable if !MHAL_HDMITX
+
+endif
+
+config osdk_drm
+    string
+    default enable if OSDK_DRM
+    default disable if !OSDK_DRM
+
+config GLES_LDC_ENABLE
+    bool "gles_ldc"
+    default n
+    help
+        whether use gles_ldc
+
+endmenu

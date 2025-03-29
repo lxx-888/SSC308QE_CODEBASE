@@ -1,0 +1,842 @@
+{
+    "Page": [
+        {
+            "page_name": "RGNModPage",
+            "page_title": "rgn",
+            "component": [
+                {
+                    "name": "RgnColorInvertEnable",
+                    "label": "enable color invert",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "int",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "int",
+                            "option_name": "1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "COLOR_INVERT_EN"
+                },
+                {
+                    "name": "RgnColorInvertMode",
+                    "label": "color invert Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "auto"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "manual"
+                        }
+                    ],
+                    "default_value": "auto",
+                    "output_type": "string",
+                    "output_key": "COLOR_INVERT_MODE"
+                },
+                {
+                    "name": "RgnThresholdLow",
+                    "label": "Threshold low",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "64",
+                    "output_key": "THRESHOLD_LOW"
+                },
+                {
+                    "name": "RgnThresholdHigh",
+                    "label": "Threshold high",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "128",
+                    "output_key": "THRESHOLD_HIGH"
+                },
+                {
+                    "name": "RgnAttachCount",
+                    "label": "attach Count",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "128",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "ATTACH_COUNT",
+                    "sub_section": "ATTACH",
+                    "attach_name": "RgnAttachNumComboBox"
+                },
+                {
+                    "name": "RgnAttachNumComboBox",
+                    "label": "attach num",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "auto_page",
+                            "option_name": "0",
+                            "option_page": "RGNModAttachparamPage"
+                        }
+                    ],
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNModAttachparamPage",
+            "page_title": "attach param",
+            "page_belong": "RgnAttachCount",
+            "component": [
+                {
+                    "name": "RgnAttachModule",
+                    "label": "attach module",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "MODULE"
+                },
+                {
+                    "name": "RgnAttachModulePort",
+                    "label": "attach port",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PORT"
+                },
+                {
+                    "name": "RgnAttachModuleIsInPort",
+                    "label": "is inport",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "int",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "int",
+                            "option_name": "1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "IS_INPORT"
+                },
+                {
+                    "name": "RgnTimingWidth",
+                    "label": "timing W",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "3840",
+                    "output_key": "TIMING_W"
+                },
+                {
+                    "name": "RgnTimingHeight",
+                    "label": "timing H",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "2160",
+                    "output_key": "TIMING_H"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputPage",
+            "page_title": "input mode",
+            "component": [
+                {
+                    "name": "RgnInputMode",
+                    "label": "mode type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "canvas",
+                            "option_page": "RGNInputModeCanvasPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "line",
+                            "option_page": "RGNInputModeLinePage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "osd_frame",
+                            "option_page": "RGNInputModeOsdFramePage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "osd_dot_matrix",
+                            "option_page": "RGNInputModeOsdDotMatrixPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "text",
+                            "option_page": "RGNInputModeTextPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "cover",
+                            "option_page": "RGNInputModeCoverPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "poly",
+                            "option_page": "RGNInputModePolyPage"
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "frame",
+                            "option_page": "RGNInputModeFramePage"
+                        }
+                    ],
+                    "default_value": "text",
+                    "output_type": "string",
+                    "sub_section": "MODE_PARAM",
+                    "output_key": "MODE"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModeCanvasPage",
+            "page_title": "canvas param",
+            "page_belong": "RgnInputMode:canvas",
+            "component": [
+                {
+                    "name": "RgnCanvasIsShow",
+                    "label": "show enable",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "int",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "int",
+                            "option_name": "1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SHOW"
+                },
+                {
+                    "name": "RgnCanvasLayerid",
+                    "label": "layer id",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "63",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "LAYER"
+                },
+                {
+                    "name": "RgnCanvasPosX",
+                    "label": "pos x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "POS_X"
+                },
+                {
+                    "name": "RgnCanvasPosY",
+                    "label": "pos y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "POS_Y"
+                },
+                {
+                    "name": "RgnCanvasAlphaType",
+                    "label": "alpha type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "pixel"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "const"
+                        }
+                    ],
+                    "default_value": "pixel",
+                    "output_type": "string",
+                    "output_key": "ALPHA_TYPE"
+                },
+                {
+                    "name": "RgnCanvasAlphaValue",
+                    "label": "alpha val",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ALPHA_VAL"
+                },
+                {
+                    "name": "RgnCanvasAlpha0",
+                    "label": "alpha0",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ALPHA_0"
+                },
+                {
+                    "name": "RgnCanvasAlpha1",
+                    "label": "alpha1",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ALPHA_1"
+                },
+                {
+                    "name": "RgnCanvasPaletteIdx",
+                    "label": "palette idx",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "255",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PALETTE_IDX"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModeLinePage",
+            "page_title": "line",
+            "page_belong": "RgnInputMode:line",
+            "component": [
+                {
+                    "name": "RgnLinePixelFormat",
+                    "label": "pixel format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "argb1555"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb4444"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i2"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i4"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i8"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "rgb565"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb8888"
+                        }
+                    ],
+                    "default_value": "i4",
+                    "output_type": "string",
+                    "output_key": "PIXEL_FORMAT"
+                },
+                {
+                    "name": "RgnLineColor",
+                    "label": "color",
+                    "component_type": "LineEdit",
+                    "default_value": "0xffffff00",
+                    "output_key": "COLOR"
+                },
+                {
+                    "name": "RgnLineThickness",
+                    "label": "thickness",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "thin"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "thick"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "THICKNESS"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModeOsdFramePage",
+            "page_title": "osd frame",
+            "page_belong": "RgnInputMode:osd_frame",
+            "component": [
+                {
+                    "name": "RgnOsdFramePixelFormat",
+                    "label": "pixel format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "argb1555"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb4444"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i2"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i4"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i8"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "rgb565"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb8888"
+                        }
+                    ],
+                    "default_value": "i4",
+                    "output_type": "string",
+                    "output_key": "PIXEL_FORMAT"
+                },
+                {
+                    "name": "RgnOsdFrameColor",
+                    "label": "color",
+                    "component_type": "LineEdit",
+                    "default_value": "0xffffff00",
+                    "output_key": "COLOR"
+                },
+                {
+                    "name": "RgnOsdFrameThickness",
+                    "label": "thickness",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "thin"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "thick"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "THICKNESS"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModeOsdDotMatrixPage",
+            "page_title": "osd dot matrix",
+            "page_belong": "RgnInputMode:osd_dot_matrix",
+            "component": [
+                {
+                    "name": "RgnOsdDotMatrixPixelFormat",
+                    "label": "pixel format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "argb1555"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb4444"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i2"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i4"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i8"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "rgb565"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb8888"
+                        }
+                    ],
+                    "default_value": "i4",
+                    "output_type": "string",
+                    "output_key": "PIXEL_FORMAT"
+                },
+                {
+                    "name": "RgnOsdDotMatrixColor",
+                    "label": "color",
+                    "component_type": "LineEdit",
+                    "default_value": "0xffffff00",
+                    "output_key": "COLOR"
+                },
+                {
+                    "name": "RgnOsdDotMatrixSize",
+                    "label": "size",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "tiny"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "small"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "large"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "huge"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "SIZE"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModeTextPage",
+            "page_title": "text",
+            "page_belong": "RgnInputMode:text",
+            "component": [
+                {
+                    "name": "RgnTextPixelFormat",
+                    "label": "pixel format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "argb1555"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb4444"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i2"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i4"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "i8"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "rgb565"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "argb8888"
+                        }
+                    ],
+                    "default_value": "i4",
+                    "output_type": "string",
+                    "output_key": "PIXEL_FORMAT"
+                },
+                {
+                    "name": "RgnTextColor",
+                    "label": "color",
+                    "component_type": "LineEdit",
+                    "default_value": "0xffffff00",
+                    "output_key": "COLOR"
+                },
+                {
+                    "name": "RgnTextFontSize",
+                    "label": "font size",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "tiny"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "small"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "large"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "huge"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "FONT_SIZE"
+                },
+                {
+                    "name": "RgnTextPosX",
+                    "label": "pos x",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "POS_X"
+                },
+                {
+                    "name": "RgnTextPosY",
+                    "label": "pos y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "POS_Y"
+                },
+                {
+                    "name": "RgnTextAreaW",
+                    "label": "area w",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "20",
+                    "output_key": "AREA_W"
+                },
+                {
+                    "name": "RgnTextAreaH",
+                    "label": "area h",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "AREA_H"
+                },
+                {
+                    "name": "RgnTextFontFile",
+                    "label": "Font file",
+                    "component_type": "LineEdit",
+                    "default_value": "./resource/font/default.ttf",
+                    "output_key": "FONT_FILE"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModeCoverPage",
+            "page_title": "cover",
+            "page_belong": "RgnInputMode:cover",
+            "component": [
+                {
+                    "name": "RgnCoverType",
+                    "label": "type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "color"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "mosaic"
+                        }
+                    ],
+                    "default_value": "color",
+                    "output_type": "string",
+                    "output_key": "TYPE"
+                },
+                {
+                    "name": "RgnCoverColor",
+                    "label": "color",
+                    "component_type": "LineEdit",
+                    "default_value": "0xffffff00",
+                    "output_key": "COLOR"
+                },
+                {
+                    "name": "RgnCoverBlockSize",
+                    "label": "block size",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "tiny"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "small"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "large"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "huge"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "BLOCK_SIZE"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModePolyPage",
+            "page_title": "poly",
+            "page_belong": "RgnInputMode:poly",
+            "component": [
+                {
+                    "name": "RgnPolyType",
+                    "label": "type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "color"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "mosaic"
+                        }
+                    ],
+                    "default_value": "color",
+                    "output_type": "string",
+                    "output_key": "TYPE"
+                },
+                {
+                    "name": "RgnPolyColor",
+                    "label": "color",
+                    "component_type": "LineEdit",
+                    "default_value": "0xffffff00",
+                    "output_key": "COLOR"
+                },
+                {
+                    "name": "RgnPolyBlockSize",
+                    "label": "block size",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "tiny"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "small"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "large"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "huge"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "BLOCK_SIZE"
+                }
+            ]
+        },
+        {
+            "page_name": "RGNInputModeFramePage",
+            "page_title": "frame",
+            "page_belong": "RgnInputMode:frame",
+            "component": [
+                {
+                    "name": "RgnFrameColor",
+                    "label": "color",
+                    "component_type": "LineEdit",
+                    "default_value": "0xffffff00",
+                    "output_key": "COLOR"
+                },
+                {
+                    "name": "RgnFrameThickness",
+                    "label": "thickness",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "normal"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "thin"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "thick"
+                        }
+                    ],
+                    "default_value": "normal",
+                    "output_type": "string",
+                    "output_key": "THICKNESS"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+menu "BOOTLOGO"
+
+config BOOTLOGO
+    bool "Support BOOTLOGO"
+    default n
+
+config USE_BOOTLOGO
+    string
+    default "on" if BOOTLOGO
+    default "off"
+
+endmenu
+

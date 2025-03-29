@@ -1,0 +1,94 @@
+menu "Misc Options"
+
+config BOOL_FPGA
+    bool "Fpga"
+    default n
+
+config FPGA
+    int
+    range 0 1
+    default 1 if BOOL_FPGA
+    default 0
+
+config BOOL_PZ1
+    bool "Fz1"
+    default n
+
+config PZ1
+    int
+    range 0 1
+    default 1 if BOOL_PZ1
+    default 0
+
+config BOOL_BENCH
+    bool "Bench"
+    default n
+
+config BENCH
+    string
+    default yes if BOOL_BENCH
+    default no
+
+config DOWNLOADADDR
+    string "TFTP Download Addr"
+    default ""
+
+config KERNELBOOTADDR
+    string "Kernel Boot Addr"
+    default ""
+
+config INITRAMFSLOADADDR
+    string "Init Ramfs Addr"
+    default ""
+
+config SPLIT_EACH_FILE_SIZE
+    string "Split Each File Size"
+    default ""
+
+choice
+    prompt "upgrade_type"
+    default TFTP
+
+    config TFTP
+        bool "tftp"
+
+    config SD
+        bool "sd"
+endchoice
+
+config UPGRADE_TYPE
+    string
+    default tftp if TFTP
+    default sd if SD
+
+config SD_UPGRADE_DEV
+    int "which mmc device is the SD upgrade card"
+    default 0
+    help
+    "when upgrade type is sd, or do make_sd_upgrade_sigmastar.sh, the option is useful"
+
+config PACK_MOD_LIST
+    string "kernel module list that only packs into image but not insmod"
+    default ""
+
+config CUST_MODPARAM
+    string "customized linux modparam.json files"
+    default ""
+
+config CUST_MODPARAM_RTOS
+    string "customized dualos or rtos modparam.json files"
+    default ""
+
+config USE_AB_SYSTEM_BOOT
+    bool "use ab system boot"
+    default n
+
+source configs/Kconfigs/misc_options/sigma_wifi/Kconfig
+
+source configs/Kconfigs/misc_options/ssh/Kconfig
+
+source  configs/Kconfigs/misc_options/adb/Kconfig
+
+source  configs/Kconfigs/misc_options/bootlogo/Kconfig
+
+endmenu

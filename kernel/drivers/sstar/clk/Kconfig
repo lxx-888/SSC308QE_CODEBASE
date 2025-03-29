@@ -1,0 +1,6 @@
+config SSTAR_MEASURE_CLK
+    tristate "Sstar CLK support peripheral clock measure function"
+
+config SSTAR_CLK_OS_MANAGE
+    tristate "Sstar CLK OS Manage"
+    default n

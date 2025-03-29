@@ -1,0 +1,54 @@
+{
+    "Page": [
+        {
+            "page_name": "ENV_MONITOROutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "Mode",
+                    "label": "Running Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "venc_info"
+                        }
+                    ],
+                    "default_value": "venc_info",
+                    "output_type": "string",
+                    "output_key": "MODE"
+                },
+                {
+                    "name": "Section",
+                    "label": "Section Name",
+                    "component_type": "LineEdit",
+                    "default_value": "VENC_",
+                    "output_type": "string",
+                    "output_key": "MODULE"
+                },
+                {
+                    "name": "AimInputPort",
+                    "label": "Input Port",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "IN_PORT"
+                },
+                {
+                    "name": "AimOutputPort",
+                    "label": "Output Port",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "OUT_PORT"
+                }
+            ]
+        }
+    ]
+}

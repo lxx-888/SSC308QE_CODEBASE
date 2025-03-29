@@ -1,0 +1,10 @@
+config VERIFY_BSP_DEMO
+    bool "bsp_demo"
+    default n
+    help
+        whether to compile or not
+
+config verify_bsp_demo
+    string
+    default enable if VERIFY_BSP_DEMO
+    default disable if !VERIFY_BSP_DEMO

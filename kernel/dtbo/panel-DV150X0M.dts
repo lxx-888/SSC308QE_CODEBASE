@@ -1,0 +1,55 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "sstar_dtbo,panel-DV150X0M";
+};
+
+&panels {
+    panel_misc:panel_misc {
+        lvds-lane-config {
+            u8Channel = <1>;     /* 0:dual_channel 1:channel_1 2:channel_2*/
+        };
+    };
+    DV150X0M {
+        compatible = "sstar,panel";
+        name = "DV150X0M";
+        interface = "LVDS"; /* TTL/MIPI/LVDS/BT1120/BT656 */
+        width-mm = <327>;
+        height-mm = <254>;
+        misc = <&panel_misc>;
+        backlight = <&backlight_lvds>;
+        status = "okay";
+
+        port {
+            DV150X0M_in_lvds: endpoint {
+                remote-endpoint = <&lvds_out_panel>;
+            };
+        };
+
+        panel-timing {
+            clock-frequency = <58000000>;
+            hactive = <1024>;
+            hfront-porch = <24>;
+            hback-porch = <160>;
+            hsync-len = <136>;
+            hsync-active = <0>;
+            vactive = <768>;
+            vfront-porch = <3>;
+            vback-porch = <30>;
+            vsync-len = <5>;
+            vsync-active = <0>;
+            de-active = <0>;
+            pixelclk-active = <0>;
+        };
+        lvds-params {
+            enFormat = <0>;
+            u8DualChn = <0>;
+            u8SwapML = <0>;
+        };
+    };
+};
+
+&lvds_out_panel {
+    remote-endpoint = <&DV150X0M_in_lvds>;
+};

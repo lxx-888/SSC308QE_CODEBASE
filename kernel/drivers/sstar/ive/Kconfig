@@ -1,0 +1,9 @@
+menuconfig SSTAR_IVE
+    bool "SStar IVE driver"
+    depends on SSTAR_DRIVERS
+    default n
+
+config SSTAR_IVE_SYS
+    bool "Support IVE sys fs"
+    depends on SSTAR_IVE
+    default n

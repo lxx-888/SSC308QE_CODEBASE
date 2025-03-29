@@ -1,0 +1,11 @@
+menuconfig INTERFACE_HDMIRX
+    depends on SUPPORT_HDMIRX
+    bool "hdmirx"
+    default n
+    help
+        whether to compile or not
+
+config interface_hdmirx
+    string
+    default enable if INTERFACE_HDMIRX
+    default disable if !INTERFACE_HDMIRX

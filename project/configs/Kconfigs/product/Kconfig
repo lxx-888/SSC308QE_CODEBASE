@@ -1,0 +1,65 @@
+choice
+    prompt "Product"
+    default IPC
+
+    config IPC
+        bool "ipc"
+
+    config NVR
+        bool "nvr"
+
+    config XVR
+        bool "xvr"
+
+    config CARDV
+        bool "cardv"
+
+    config USBCAM
+        bool "usbcam"
+
+    config DISPCAM
+        bool "dispcam"
+
+    config IPC-RTOS
+        bool "ipc-rtos"
+
+    config IPC-RTOS-SMPLH
+        bool "ipc-rtos-smplh"
+
+    config USBCAM-PURERTOS
+        bool "usbcam-purertos"
+
+    config USBCAM-RTOS
+        bool "usbcam-rtos"
+
+    config IPC-FASTBOOT
+        bool "ipc-fastboot"
+
+    config NVR-FASTBOOT
+        bool "nvr-fastboot"
+
+    config USBCAM-FASTBOOT
+        bool "usbcam-fastboot"
+
+    config ANDROID
+        bool "android"
+
+endchoice
+
+config PRODUCT
+    string
+    default ipc if IPC
+    default nvr if NVR
+    default xvr if XVR
+    default cardv if CARDV
+    default usbcam if USBCAM
+    default dispcam if DISPCAM
+    default ipc-rtos if IPC-RTOS
+    default ipc-rtos-smplh if IPC-RTOS-SMPLH
+    default usbcam-rtos if USBCAM-RTOS
+    default usbcam-purertos if USBCAM-PURERTOS
+    default ipc-fastboot if IPC-FASTBOOT
+    default nvr-fastboot if NVR-FASTBOOT
+    default usbcam-fastboot if USBCAM-FASTBOOT
+    default android if ANDROID
+    default ipc

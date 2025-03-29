@@ -1,0 +1,4 @@
+config SSTAR_FCIE
+    bool "Sigmastar FCIE Driver"
+    default n
+

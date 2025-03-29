@@ -1,0 +1,34 @@
+menuconfig INTERFACE_PCIE
+    depends on SUPPORT_PCIE
+    bool "pcie"
+    default n
+    help
+        whether to compile or not
+
+if INTERFACE_PCIE
+
+config config_mi_pcie
+    bool "mi_pcie"
+    default y
+    depends on MHAL_PCIE
+    help
+        whether to compile or not
+
+config MHAL_PCIE
+    bool "mhal_PCIE"
+    default y
+    depends on INTERFACE_PCIE
+    help
+        whether to compile or not
+
+config mhal_pcie
+    string
+    default enable if MHAL_PCIE
+    default disable if !MHAL_PCIE
+
+endif
+
+config interface_pcie
+    string
+    default enable if INTERFACE_PCIE
+    default disable if !INTERFACE_PCIE

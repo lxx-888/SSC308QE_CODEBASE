@@ -1,0 +1,11 @@
+menuconfig INTERFACE_CIPHER
+    depends on SUPPORT_CIPHER
+    bool "cipher"
+    default y
+    help
+        whether to compile or not
+
+config interface_cipher
+    string
+    default enable if INTERFACE_CIPHER
+    default disable if !INTERFACE_CIPHER

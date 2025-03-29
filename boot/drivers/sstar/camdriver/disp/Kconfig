@@ -1,0 +1,4 @@
+config SSTAR_DISP
+	bool "Sigmastar DISP driver"
+	default n
+

@@ -1,0 +1,402 @@
+menu "Customer Options"
+config mi_dbg
+    bool "Mi Dbg"
+    default y
+
+config MI_DBG
+    int
+    range 0 1
+    default 0 if !mi_dbg
+    default 1
+
+config mi_enable_uv420_nv21_height16_align
+    bool "Yuv420/nv21 data is max align uv height to 16"
+    default n
+
+config MI_ENABLE_UV420_NV21_HEIGHT16_ALIGN
+    int
+    range 0 1
+    default 0 if !mi_enable_uv420_nv21_height16_align
+    default 1
+
+config BOOL_DEBUG_MODPARAM
+    bool "DEBUG_MODPARAM"
+    default n
+
+config DEBUG_MODPARAM
+    int
+    range 0 1
+    default 1 if BOOL_DEBUG_MODPARAM
+    default 0
+
+config CONFIG_ENABLE_MI_NORMAL_STR
+    bool "MI suspend to RAM and standby"
+    default n
+    help
+      Allow the mi modules to enter sleep states in which main memory is
+      powered and thus its contents are preserved, such as the suspend-to-RAM state.
+
+      If unsure, say N.
+
+config CONFIG_ENABLE_MI_RTPM
+    bool "MI runtime pm core functionality"
+    default n
+    help
+      Enable functionality allowing mi modules to be put into energy-saving
+      (low power) states, for example after a specified period of inactivity
+      (autosuspended), and woken up in response to a hardware-generated
+      wake-up event or a driver's request.
+
+      Hardware support is generally required for this functionality to work.
+
+      If unsure, say N.
+
+config COMBINE_MI_MODULE
+    bool "Merge all mi modules to a sstar_mi.ko"
+    default n
+    help
+      This option will disable the compilation of standalone modules,
+      and all mi modules will be linked to a sstar_mi.ko.
+
+      If unsure, say N.
+
+config COMBINE_MODULE_NAME
+    string "Set combine module name"
+    depends on COMBINE_MI_MODULE
+    default "sstar_mi"
+
+config COMBINE_IGNORE_MODULES
+    string "Set combine ignore modules name"
+    depends on COMBINE_MI_MODULE
+    default "debug dummy"
+    help
+      These modules will not be linked to sstar_mi.ko,
+      and mi_xxx.ko (xxx is a module name) will be generated.
+
+config OVERDRIVE
+    int "idac voltage ctrl: 0 - LD, 1 - NOD, 2 - OD, 3 - OFF"
+    range 0 3
+    default 3
+
+menu "PROC DEBUG"
+config DEBUG_SUPPORT
+    tristate "DEBUG SUPPORT"
+    help
+      If you want to support debug,please INTERFACE_DEBUG say y,such as:
+      Sdk config->Interface Compile Config->[*]debug
+
+config ENABLE_PROC_DEBUG
+    depends on DEBUG_SUPPORT=y && INTERFACE_DEBUG
+    bool "ENABLE PROC DEBUG"
+    default y
+
+if  ENABLE_PROC_DEBUG
+config enable_common_dump_buf_info
+    bool "Enable Common Dump Buf Info"
+    default y
+
+config CONFIG_ENABLE_COMMON_DUMP_BUF_INFO
+    int
+    range 0 1
+    default 0 if !enable_common_dump_buf_info
+    default 1
+
+config enable_module_dump_buf_info
+    bool "Enable Module Dump Buf Info"
+    default y
+
+config CONFIG_ENABLE_MODULE_DUMP_BUF_INFO
+    int
+    range 0 1
+    default 0 if !enable_module_dump_buf_info
+    default 1
+
+config ENABLE_ECHO_CMD
+    bool "ENABLE ECHO CMD"
+    default y
+
+if  ENABLE_ECHO_CMD
+config enable_sys_debug
+    bool "Enable Sys Debug"
+    default y
+
+config CONFIG_ENABLE_SYS_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_sys_debug
+    default 1
+
+config enable_snr_debug
+    bool "Enable Snr Debug"
+    default y
+
+config CONFIG_ENABLE_SNR_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_snr_debug
+    default 1
+
+config enable_vif_debug
+    bool "Enable Vif Debug"
+    default y
+
+config CONFIG_ENABLE_VIF_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_vif_debug
+    default 1
+
+config enable_isp_debug
+    bool "Enable Isp Debug"
+    default y
+
+config CONFIG_ENABLE_ISP_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_isp_debug
+    default 1
+
+config enable_scl_debug
+    bool "Enable Scl Debug"
+    default y
+
+config CONFIG_ENABLE_SCL_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_scl_debug
+    default 1
+
+config enable_venc_debug
+    bool "Enable Venc Debug"
+    default y
+
+config CONFIG_ENABLE_VENC_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_venc_debug
+    default 1
+
+config enable_vdec_debug
+    bool "Enable Vdec Debug"
+    default y
+
+config CONFIG_ENABLE_VDEC_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_vdec_debug
+    default 1
+
+config enable_ive_debug
+    bool "Enable Ive Debug"
+    default y
+
+config CONFIG_ENABLE_IVE_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_ive_debug
+    default 1
+
+config enable_jpd_debug
+    bool "Enable Jpd Debug"
+    default y
+
+config CONFIG_ENABLE_JPD_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_jpd_debug
+    default 1
+
+config enable_ai_debug
+    bool "Enable Ai Debug"
+    default y
+
+config CONFIG_ENABLE_AI_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_ai_debug
+    default 1
+
+config enable_ao_debug
+    bool "Enable Ao Debug"
+    default y
+
+config CONFIG_ENABLE_AO_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_ao_debug
+    default 1
+
+config enable_rgn_debug
+    bool "Enable Rgn Debug"
+    default y
+
+config CONFIG_ENABLE_RGN_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_rgn_debug
+    default 1
+
+config enable_disp_debug
+    bool "Enable Disp Debug"
+    default y
+
+config CONFIG_ENABLE_DISP_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_disp_debug
+    default 1
+
+config enable_wbc_debug
+    bool "Enable Wbc Debug"
+    default y
+
+config CONFIG_ENABLE_WBC_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_wbc_debug
+    default 1
+
+config enable_hdmi_debug
+    bool "Enable Hdmi Debug"
+    default y
+
+config CONFIG_ENABLE_HDMI_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_hdmi_debug
+    default 1
+
+config enable_panel_debug
+    bool "Enable Panel Debug"
+    default y
+
+config CONFIG_ENABLE_PANEL_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_panel_debug
+    default 1
+
+config enable_vdisp_debug
+    bool "Enable Vdisp Debug"
+    default y
+
+config CONFIG_ENABLE_VDISP_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_vdisp_debug
+    default 1
+
+config enable_pcie_debug
+    bool "Enable Pcie Debug"
+    default y
+
+config CONFIG_ENABLE_PCIE_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_pcie_debug
+    default 1
+
+config enable_shadow_debug
+    bool "Enable Shadow(Vdf) Debug"
+    default y
+
+config CONFIG_ENABLE_SHADOW_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_shadow_debug
+    default 1
+
+config enable_ldc_debug
+    bool "Enable LDC Debug"
+    depends on (config_mi_ldc)
+    default y
+
+config CONFIG_ENABLE_LDC_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_ldc_debug
+    default 1
+
+config enable_dsp_debug
+    bool "Enable Dsp Debug"
+    default y
+
+config CONFIG_ENABLE_DSP_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_dsp_debug
+    default 1
+
+config enable_fb_debug
+    bool "Enable Fb Debug"
+    default y
+
+config CONFIG_ENABLE_FB_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_fb_debug
+    default 1
+
+config enable_gfx_debug
+    bool "Enable Gfx Debug"
+    default y
+
+config CONFIG_ENABLE_GFX_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_gfx_debug
+    default 1
+
+config enable_hvp_debug
+    bool "Enable Hvp Debug"
+    default y
+
+config CONFIG_ENABLE_HVP_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_hvp_debug
+    default 1
+
+config enable_pspi_debug
+    bool "Enable Pspi Debug"
+    default y
+
+config CONFIG_ENABLE_PSPI_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_pspi_debug
+    default 1
+
+config enable_hdmirx_debug
+    bool "Enable hdmirx Debug"
+    default y
+
+config CONFIG_ENABLE_HDMIRX_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_hdmirx_debug
+    default 1
+
+config enable_nir_debug
+    bool "Enable Nir Debug"
+    default y
+
+config CONFIG_ENABLE_NIR_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_nir_debug
+    default 1
+
+config enable_dummy_debug
+    bool "Enable Dummy Debug"
+    default y
+
+config CONFIG_ENABLE_DUMMY_DEBUG
+    int
+    range 0 1
+    default 0 if !enable_dummy_debug
+    default 1
+endif
+endif
+endmenu
+endmenu

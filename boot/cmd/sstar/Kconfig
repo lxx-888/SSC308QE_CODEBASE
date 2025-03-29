@@ -1,0 +1,395 @@
+menu "SigmaStar android commands"
+config CMD_SSTAR_AB_RESET
+	bool "ab_reset"
+	default n
+	depends on ANDROID_AB
+	help
+	  Init ab control block at Android "misc" partition
+
+config CMD_SSTAR_RPMB
+	bool "rpmb"
+	default n
+	depends on SSTAR_RPMB
+	help
+	  Support operations for eMMC rpmb part
+endmenu
+
+menu "SigmaStar cmmon commands"
+config CMD_SSTAR_ESTAR
+	bool "estar"
+	default n
+	help
+	  support SigmaStar cmd estar
+
+if CMD_SSTAR_ESTAR
+config SSTAR_ESTAR_LOAD_SCRIPT_ADDR
+	hex "Cmd estar load script addr"
+	default 0x21000000
+endif
+
+config CMD_SSTAR_AIO
+	bool "aio"
+	depends on SSTAR_AIO
+	help
+	  SigmaStar support cmd aio
+
+config CMD_SSTAR_UART
+	bool "uart"
+	default n
+	help
+	  SigmaStar support cmd uart
+
+config CMD_SSTAR_RIU
+	bool "riu"
+	default n
+	help
+	  SigmaStar support cmd riu
+
+config CMD_SSTAR_DEBUG
+	bool "debug"
+	default n
+	help
+	  SigmaStar support cmd debug
+
+config CMD_SSTAR_MMC
+	bool "emmc/dstar/sdstar/emmcstar/..."
+	select SSTAR_MMC_HOST
+	select SSTAR_EMMC_PARTTION
+	select CMD_MMC
+	default n
+	help
+	  SigmaStar support cmd emmc, emmcstar, emmc_get_cust, emmc_wp, bootbp
+
+config CMD_SSTAR_MMC_FDISK
+	bool "fdisk"
+	select DOS_PARTITION
+	select SSTAR_MMC_HOST
+	select CMD_MMC
+	select CMD_FAT
+	select FAT_WRITE
+	default n
+	help
+	  SigmaStar support cmd fdisk
+
+config CMD_SSTAR_SIGAUTH
+	bool "sigauth"
+	depends on SSTAR_AESDMA
+	default y
+	help
+	  SigmaStar support cmd sigauth
+
+config CMD_SSTAR_AES
+	bool "AES"
+	depends on SSTAR_AESDMA
+	default y
+	help
+	  SigmaStar support verify aesdma.
+
+config CMD_SSTAR_VERSIG
+	bool "versig"
+	depends on OPTEE
+	default n
+	help
+	  SigmaStar support cmd versig
+
+menu "SigmaStar usbstar commands"
+config CMD_SSTAR_USBSTAR
+	bool "usbstar"
+	default n
+	select CMD_FAT
+	select DOS_PARTITION
+	select USB_STORAGE
+	help
+	  SigmaStar support download image through usb host
+
+config SSTAR_AUTOBOOT_RUN_USBSTAR_BY_GPIO
+	bool "autoboot usbstar by gpio"
+	depends on CMD_SSTAR_USBSTAR
+	default n
+	help
+	  Sigmastar run usbstar command in autoboot by gpio
+
+config SSTAR_AUTOBOOT_RUN_USBSTAR_GPIO_NUM
+	int "GPIO NUM"
+	depends on SSTAR_AUTOBOOT_RUN_USBSTAR_BY_GPIO
+	default "0"
+	help
+	  Sigmastar run usbstar command in autoboot gpio num
+
+config SSTAR_AUTOBOOT_RUN_USBSTAR_BY_ENV
+	bool "autoboot usbstar by env(auto_usbstar)"
+	depends on CMD_SSTAR_USBSTAR
+	default n
+	help
+	  Sigmastar run usbstar command in autoboot by env
+
+config CMD_SSTAR_USBSTAR_USB2
+	bool "usb2.0"
+	depends on CMD_SSTAR_USBSTAR
+	select USB_EHCI_HCD
+	select SSTAR_USB_EHCI
+	default y
+	help
+	  cmd usbstar usb2.0 host
+
+config CMD_SSTAR_USBSTAR_USB3
+	bool "usb3.0"
+	depends on CMD_SSTAR_USBSTAR
+	select USB_XHCI_HCD
+	select USB_XHCI_DWC3
+	select USB_XHCI_DWC3_OF_SIMPLE
+	select SSTAR_USB_DWC3
+	select SSTAR_USB_PHY
+	default n
+	help
+	  cmd usbstar usb3.0 host
+endmenu
+
+config CMD_SSTAR_SPINAND
+	bool "spinand"
+	depends on SSTAR_NAND
+	default n
+	help
+	  SigmaStar support copy data from the current Flash to another Flash
+
+config CMD_SSTAR_FLASH_PROGRAMMER
+	bool "flash_program"
+	default n
+	help
+	  SigmaStar support flash programmer
+
+config CMD_SSTAR_FLASH_AUTOK
+	bool "flash_autok"
+	default y
+	help
+	  SigmaStar support flash autok
+
+config CMD_SSTAR_OTP
+	bool "otpctrl/otpread"
+	default y
+	help
+	  SigmaStar support write/read OTP.
+
+config CMD_SSTAR_JPD
+	bool "jpd"
+	default n
+	help
+	  SigmaStar support decode JPEG.
+
+config CMD_SSTAR_DISP
+	bool "disp"
+	default n
+	help
+	  SigmaStar support cmd disp
+
+config CMD_SSTAR_RGN
+	bool "rgn"
+	default n
+	help
+	  SigmaStar support cmd rgn
+
+config CMD_SSTAR_BOOTLOGO
+	bool "bootlogo"
+	default n
+	help
+	  SigmaStar support cmd bootlogo.
+
+choice
+	prompt "Bootlogo Parser mode"
+	default SSTAR_BOOTLOGO_DTS_PARSER
+
+config SSTAR_BOOTLOGO_CONFIGFILE_PARSER
+	bool "CONFIGFILE"
+	depends on SSTAR_CJSON_PARSER
+
+config SSTAR_BOOTLOGO_DTS_PARSER
+	bool "DTS"
+	depends on SSTAR_CJSON_PARSER
+endchoice
+
+config SSTAR_BOOTLOGO_UT
+	bool "Bootlogo UT support"
+	depends on CMD_SSTAR_BOOTLOGO
+	default n
+
+config CMD_SSTAR_BOOT_AB
+	bool "Boot ab support"
+	default n
+
+config CMD_SSTAR_RNDIS
+	bool "rndis"
+	default n
+	help
+	  SigmaStar support rndis command to initial USB ethernet RNDIS
+
+config CMD_SSTAR_UFU
+	bool "ufu"
+	default n
+
+config SSTAR_AUTOBOOT_RUN_UFU_ALWAYS
+	bool "autoboot ufu always"
+	depends on CMD_SSTAR_UFU
+	default n
+	help
+	  Sigmastar force to run ufu command in autoboot
+
+config SSTAR_AUTOBOOT_RUN_UFU_BY_GPIO
+	bool "autoboot ufu by gpio"
+	depends on CMD_SSTAR_UFU
+	default n
+	help
+	  Sigmastar run ufu command in autoboot by gpio
+
+config SSTAR_AUTOBOOT_RUN_UFU_BY_ENV
+	bool "autoboot ufu by env(ota_upgrade_status)"
+	depends on CMD_SSTAR_UFU
+	default n
+	help
+	  Sigmastar run ufu command in autoboot by env
+
+choice
+	bool "UDC selection"
+	depends on CMD_SSTAR_UFU || CMD_SSTAR_RNDIS
+	default SSTAR_UDC_MSB250X
+
+config SSTAR_UDC_MSB250X
+	bool "USB2.0 port(msb250x)"
+	select SSTAR_USB_GADGET_MSB250X
+	help
+	  sigmaster usb device controller msb250x
+
+config SSTAR_UDC_DWC3
+	bool "USB3.0 port(dwc3)"
+	select SSTAR_USB_DWC3_GADGET
+
+endchoice
+
+config CMD_SSTAR_VENDOR
+	bool "vendor partition"
+	default n
+	help
+	  usb tool write vendor info
+choice
+	bool "vendor flash selection"
+	depends on CMD_SSTAR_VENDOR
+	default SSTAR_VENDOR_SPINAND
+
+config SSTAR_VENDOR_SPINAND
+	bool "spinand"
+	help
+	  vendor spinand
+
+config SSTAR_VENDOR_SPINOR
+	bool "spinor"
+	help
+	  vendor spinor
+
+config SSTAR_VENDOR_EMMC
+	bool "emmc"
+	help
+	  vendor emmc
+endchoice
+
+config CMD_SSTAR_ACM
+        bool "acm"
+	select USB_GADGET_DOWNLOAD
+	select USB_FUNCTION_ACM
+        default n
+        help
+          SigmaStar support cmd usb cdc acm
+
+config CMD_SSTAR_SRCFG
+	bool "srcfg"
+	default n
+	help
+	  SigmaStar support cmd srcfg
+
+config CMD_SSTAR_GMAC
+	bool "gmac"
+	default n
+	help
+	  SigmaStar gmac cmd
+
+config CMD_SSTAR_PCIE
+	bool "pcie"
+	default n
+	depends on SSTAR_PCIE_ENDPOINT
+	help
+	  SigmaStar PCIe endpoint cmd
+
+config CMD_SSTAR_FWFS
+	bool "fwfs"
+	default n
+	depends on FS_FIRMWAREFS
+	help
+	  SigmaStar firmware filesystem cmd
+
+config CMD_SSTAR_PM
+	bool "pm"
+	default n
+	help
+	  Sigmastar power management cmd
+
+config CMD_SSTAR_LOADOS
+	bool "loados"
+	default n
+	help
+	  SigmaStar support loados
+
+config CMD_SSTAR_CHKOTP
+	bool "chkotp"
+	default n
+	help
+	  SigmaStar trim test
+
+config CMD_SSTAR_CPUWAIT
+	bool "cpuwait"
+	default n
+	help
+	  SigmaStar cpu wait
+
+config CMD_SSTAR_RTC
+	bool "rtcpwc"
+	default n
+	help
+	  Sigmastar rtcpwc cmd
+
+config CMD_SSTAR_DDR_OTT
+	bool "ddr_ott"
+	default n
+	help
+	  SigmaStar ott(DDR one-time training) cmd
+
+choice
+	prompt "ddrtrain data locattion"
+	depends on CMD_SSTAR_DDR_OTT
+	default SSTAR_DDRTRAIN_INFO_STORE_IN_FIXED_BLOCK
+	help
+	  Specify ddrtrain data store location in boot
+	  device.
+
+config SSTAR_DDRTRAIN_INFO_STORE_IN_FIXED_BLOCK
+	bool "fixed block offset"
+	help
+	  Select this to indicate that "ddrtrain_info" is store
+	  in the specified fixed offset of the boot device, set
+	  offset in SSTAR_DDRTRAIN_INFO_BLOCK_OFFSET.
+
+config SSTAR_DDRTRAIN_INFO_STORE_IN_PARTITION
+	bool "partition"
+	help
+	  Select this to indicate that "ddrtrain_info" is store
+	  in the specified partition of the boot device, set
+	  partition name in SSTAR_DDRTRAIN_INFO_PARTITION.
+
+endchoice
+
+config SSTAR_DDRTRAIN_INFO_BLOCK_OFFSET
+	hex "block offset"
+	depends on SSTAR_DDRTRAIN_INFO_STORE_IN_FIXED_BLOCK
+
+config SSTAR_DDRTRAIN_INFO_PARTITION
+	string "partition name"
+	depends on SSTAR_DDRTRAIN_INFO_STORE_IN_PARTITION
+
+endmenu

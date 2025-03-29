@@ -1,0 +1,493 @@
+{
+    "Page": [
+        {
+            "page_name": "AUDIOALGOModPage",
+            "page_title": "AUDIOALGO",
+            "component": [
+                {
+                    "name": "Sync",
+                    "label": "Sync",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "SYNC"
+                },
+                {
+                    "name": "SampleRate",
+                    "label": "Sample Rate",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "96000",
+                    "value_step": "1000",
+                    "default_value": "8000",
+                    "output_key": "SAMPLE_RATE"
+                },
+                {
+                    "name": "SoundMode",
+                    "label": "Sound Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "mono"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "stereo"
+                        }
+                    ],
+                    "default_value": "mono",
+                    "output_type": "string",
+                    "output_key": "SND_MOD"
+                },
+                {
+                    "name": "PeriodSize",
+                    "label": "Period Size",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "128",
+                    "output_key": "PERIOD_SIZE"
+                },
+                {
+                    "name": "APCMode",
+                    "label": "APC Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "Off"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "On"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "APC"
+                },
+                {
+                    "name": "ANRMode",
+                    "label": "ANR Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Off",
+                            "option_page": " "
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "On",
+                            "option_page": "AUDIOALGOModANRParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "sub_section": "ANR_PARAM",
+                    "output_type": "int",
+                    "output_key": "ANR"
+                },
+                {
+                    "name": "EQHPFMode",
+                    "label": "EQ HPF Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Off",
+                            "option_page": " "
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "On",
+                            "option_page": "AUDIOALGOModEQHPFParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "sub_section": "EQHPF_PARAM",
+                    "output_type": "int",
+                    "output_key": "EQHPF"
+                },
+                {
+                    "name": "AGCMode",
+                    "label": "AGC Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Off",
+                            "option_page": " "
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "On",
+                            "option_page": "AUDIOALGOModAGCParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "sub_section": "AGC_PARAM",
+                    "output_type": "int",
+                    "output_key": "AGC"
+                },
+                {
+                    "name": "SEDMode",
+                    "label": "SED Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Off",
+                            "option_page": " "
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "On",
+                            "option_page": "AUDIOALGOModSEDParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "sub_section": "SED_PARAM",
+                    "output_type": "int",
+                    "output_key": "SED"
+                },
+                {
+                    "name": "SRCMode",
+                    "label": "SRC Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Off",
+                            "option_page": " "
+                        },
+                        {
+                            "option_type": "page",
+                            "option_name": "On",
+                            "option_page": "AUDIOALGOModSRCParam"
+                        }
+                    ],
+                    "default_value": "0",
+                    "sub_section": "SRC_PARAM",
+                    "output_type": "int",
+                    "output_key": "SRC"
+                }
+            ]
+        },
+        {
+            "page_name": "AUDIOALGOModANRParam",
+            "page_title": "ANR Param",
+            "page_belong": "ANRMode:1",
+            "component": [
+                {
+                    "name": "ANRUserMode",
+                    "label": "User Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "1"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "2"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "string",
+                    "output_key": "USER_MOD"
+                },
+                {
+                    "name": "SmoothLevel",
+                    "label": "Smooth Level",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "output_key": "SMOOTH_LEVEL"
+                },
+                {
+                    "name": "Speed",
+                    "label": "Speed",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "low"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "mid"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "high"
+                        }
+                    ],
+                    "default_value": "2",
+                    "output_type": "int",
+                    "output_key": "SPEED"
+                }
+            ]
+        },
+        {
+            "page_name": "AUDIOALGOModEQHPFParam",
+            "page_title": "EQ HPF Param",
+            "page_belong": "EQHPFMode:1",
+            "component": [
+                {
+                    "name": "EQUserMode",
+                    "label": "EQ User Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "1"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "2"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "string",
+                    "output_key": "EQ_USER_MOD"
+                },
+                {
+                    "name": "HPFUserMode",
+                    "label": "HPF User Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "1"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "2"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "string",
+                    "output_key": "HPF_USER_MOD"
+                },
+                {
+                    "name": "CutoffFrequency",
+                    "label": "Cutoff Frequency",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "80Hz",
+                            "option_value": "80"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "120Hz",
+                            "option_value": "120"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "150Hz",
+                            "option_value": "150"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "500Hz",
+                            "option_value": "500"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "BUTT",
+                            "option_value": "BUTT"
+                        }
+                    ],
+                    "default_value": "150",
+                    "output_type": "int",
+                    "output_key": "CUTOFF_FREQ"
+                }
+            ]
+        },
+        {
+            "page_name": "AUDIOALGOModAGCParam",
+            "page_title": "AGC Param",
+            "page_belong": "AGCMode:1",
+            "component": [
+                {
+                    "name": "AGCUserMode",
+                    "label": "User Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "0"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "1"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "2"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "string",
+                    "output_key": "USER_MOD"
+                },
+                {
+                    "name": "DropGainMax",
+                    "label": "Drop Gain Max",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "60",
+                    "value_step": "1",
+                    "default_value": "36",
+                    "output_key": "DROP_GAIN_MAX"
+                },
+                {
+                    "name": "AttackTime",
+                    "label": "Attack Time",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "20",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "ATTACK_TIME"
+                },
+                {
+                    "name": "ReleaseTime",
+                    "label": "Release Time",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "20",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key": "RELEASE_TIME"
+                },
+                {
+                    "name": "DropGainThreshold",
+                    "label": "Drop Gain Threshold",
+                    "component_type": "SpinBox",
+                    "min_value": "-80",
+                    "max_value": "0",
+                    "value_step": "1",
+                    "default_value": "-5",
+                    "output_key": "DROP_GAIN_THRESHOLD"
+                }
+            ]
+        },
+        {
+            "page_name": "AUDIOALGOModSEDParam",
+            "page_title": "SED Param",
+            "page_belong": "SEDMode:1",
+            "component": [
+                {
+                    "name": "DetectMode",
+                    "label": "Detect Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "SENSTITIVE_MODE"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "ROBUST_MODE"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "DETECT_MODE"
+                },
+                {
+                    "name": "SmoothLength",
+                    "label": "Smooth Length",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "3",
+                    "output_key": "SMOOTH_LENGTH"
+                },
+                {
+                    "name": "VadTheshold",
+                    "label": "Vad Theshold",
+                    "component_type": "LineEdit",
+                    "default_value": "-70",
+                    "output_key": "VAD_THESHOLD"
+                },
+                {
+                    "name": "EventTheshold0",
+                    "label": "Event Theshold 0",
+                    "component_type": "LineEdit",
+                    "default_value": "0.1",
+                    "output_key": "EVENT_THESHOLD_0"
+                },
+                {
+                    "name": "EventTheshold1",
+                    "label": "Event Theshold 1",
+                    "component_type": "LineEdit",
+                    "default_value": "0.1",
+                    "output_key": "EVENT_THESHOLD_1"
+                },
+                {
+                    "name": "ModelPath",
+                    "label": "Mode Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./resource/ipu_net/sed_tcbs.img",
+                    "output_key": "MODEL_PATH"
+                }
+            ]
+        },
+        {
+            "page_name": "AUDIOALGOModSRCParam",
+            "page_title": "SRC Param",
+            "page_belong": "SRCMode:1",
+            "component": [
+                {
+                    "name": "Order",
+                    "label": "Order",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "low"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "high"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "ORDER"
+                },
+                {
+                    "name": "OutSampleRate",
+                    "label": "Out Sample Rate",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "96000",
+                    "value_step": "1000",
+                    "default_value": "8000",
+                    "output_key": "OUT_SAMPLE_RATE"
+                }
+            ]
+        }
+    ]
+}

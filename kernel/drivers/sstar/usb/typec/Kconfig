@@ -1,0 +1,11 @@
+config TYPEC_TUSB320
+	tristate "TUSB320 USB Type-C connector driver"
+	depends on I2C && USB_DWC3
+	select REGMAP_I2C
+	select TYPEC
+	help
+	  Say Y or M here if your system has a TUSB320xA Type-C DRP port
+	  controller.
+
+	  If you choose to build this driver as a dynamically linked module, the
+	  module will be called tusb320.ko.

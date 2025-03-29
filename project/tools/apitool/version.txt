@@ -1,0 +1,240 @@
+﻿﻿Version  2.01.155  2/24/2025
+    1. AwbAnalyzerComb v1.21，客户分支板端api结构体从U8 - U16，插件修改适配结构体
+
+Version  2.01.155  2/18/2025
+    1. AwbAnalyzerComb v1.20，加打印信息适配插件ut
+
+Version  2.01.155  2/7/2025
+    1. 添加VencDebugTool插件
+
+Version  2.01.155  1/6/2025
+    1. 支持iFliegen
+    2. 修复xml "S8" 类型数据读不对的问题
+    3. CalibrationTool J1之前的所有芯片适配
+    4. AwbAnalyzerComb v1.8，修复默认设置AlgType为normal时，没有更新计算结果的问题
+
+Version  2.01.154  12/18/2024
+    1. 修复YUVGamma reset之后，save导出的数据不正确的问题
+
+Version  2.01.153  12/17/2024
+    1. 支持抓raw/raw stream配置不解压功能
+    2. raw stream single模式功能修复
+
+Version  2.01.152  11/28/2024
+    1. 修复IFackel vif demo开compress mode的情况下，IQTool抓raw失败的问题
+    2. AIBNR插件v1.0.0.4，增加ROI区域选择功能
+
+Version  2.01.151  11/21/2024
+    1. CalibrationV20.dll api结构体修改，3DNR和AIBNR插件需要做兼容
+    2. Gamma 曲线支持jaguar1
+    3. 修改AIBNR插件不需要做芯片限制
+
+Version  2.01.150  11/12/2024
+    1. 修复Pudding打开AwbAnalyzerComb插件报错的问题
+    2. 修复AIBNR插件CailApply的时候调用的api错误的问题
+
+Version  2.01.149  10/22/2024
+    1. 工具及AFAnalyzerCurve/AwbAnalyzerCombo/SensorLinearity/3DNRCalibration插件支持jaguar1
+    2. 修复AwbAnalyzerCombo/AwbAnalyzerTool插件使用crop api导致落点不对的问题
+    3. 修复CCMAnalyzer插件I6DC OBC显示不对的问题
+    4. 新增功能，AwbAnalyzerCmob v1.17 Get Raw功能鼠标悬停，增加亮度值计算
+
+Version  2.01.148  10/18/2024
+    1. 修复3DNR插件校正结果不对的问题，修正配置文件以及libComm.dll中的CalibrateChipID
+
+Version  2.01.147  9/20/2024
+    1. 修复frame mode开hdr的场景抓raw stream循环错误问题
+    2. raw image的命名精确到当前时间毫秒，避免同一秒内抓2张raw出现命名重复
+
+Version  2.01.146  9/19/2024
+    1. 修复Tool解析isp_api.xml Param字段生成table 行标题错误问题
+
+Version  2.01.145  8/14/2024
+    1. AFAnalyzerCurve/SensorLinearity插件支持ifackel
+    2. AwbAnalyzerCombo插件支持ifackel和Ispahan
+    3. CalibrationTool插件支持Decompress最大为14个节点并根据chip切换
+
+Version  2.01.144  8/9/2024
+    1. AwbAnalyzerCombo V1.15插件支持Pudding
+    2. ShowAWB的页面坐标增加Rgain/Bgain值显示
+
+Version  2.01.143  8/1/2024
+    1. AwbAnalyzerCombo V1.14插件支持Souffle
+    2. 3DNRCalibration插件Pcupid隐藏HDR Mode按钮
+
+Version  2.01.142  7/30/2024
+    1. 修复WDR Curve参数存档时未更新同步到xml的问题，兼容新旧版本的xml
+
+Version  2.01.141  7/29/2024
+    1. 新增插件RawProcessTool，用于叠raw图
+    2. 修复问题，USB下连接板子无法save xml的错误
+    3. 修复问题，存在相同名称已经相同结构体的group，工具识别apiid错误
+
+Version  2.01.140  6/20/2024
+    1. AFAnalyzerCurve/3DNRCalibration插件支持IFackel
+    2. 支持解析isp_apt.xml中的S8类型的参数
+    3. CalibrationV20.dll V1.0.49.0: 修复问题，FW不能处理浮点AINR cali数据
+
+
+Version  2.01.139  6/19/2024
+    1. AwbAnalyzerComboV1.13插件支持IFado/IFord/Pcupid
+    2. 增加功能从RAW文件的命名规则中提取OBC并自动下参数到板端
+    3. CalibrationV20.dll V1.0.48.0: 修复问题，IFackel中有错误的参数设定
+
+
+Version  2.01.138  5/14/2024
+    1. 新增动态切换Icon的功能，在根目录下如果存在对应的Icon文件，工具中所有的Icon都替换
+    2. 修复问题，当板端不存在isp_api.xml文件时，tool会弹出get xml failed的错误
+
+
+Version  2.01.137  5/14/2024
+    1. 修复问题，如果isp_api.xml中存在相同名称的item，会导致tool读错apiid
+    2. CCMAnalyzerV1.1.10.0: 修复问题，在NLopt中查找CCM的初始参数超过了下边界
+    3. AwbAnalyzerCombo V1.11: 修复问题，showSelectedBlock按钮显示的点不正确
+    4. AwbAnalyzerCombo V1.12:
+        (1)在设置ProInclude/ProExclude/Include/Exclude/SpecialCase时添加alternative
+        参数的平均值点。
+        (2)在init时增加容错。
+    5. CalibrationV20.dll V1.0.46.0: 修复问题，AWB在ini模式下不能正确分配内存
+    6. CalibrationV20.dll V1.0.47.0: 新增AIBNR Calibration和支持IFackel
+
+
+Version  2.01.136  4/18/2024
+    1. 修复问题，Pcupid芯片在CCM Analyzer和3DNRCailbration插件存在报错，由于结构体和其他chip不同导致的
+    2. AwbAnalyzerCombo V1.10:
+        (1)修正了半宽设置不生效的问题
+        (2)修复了点击选择框不更新信息的问题
+
+
+Version  2.01.135  4/10/2024
+    1. 修复问题，获取fbcDecode raw失败，增加支持获取fbcDecode raw的流程。
+    2. 修复问题，IFado芯片AFAnalyzerCurve插件缺失apiid，更新config json，添加AFAnalyzerCurve插件的AFHWWin值
+    3. 修复问题，IFado芯片CCM Analyzer插件initvaluetask复制数组索引超出范围，使用不同的方式
+
+
+Version  2.01.134  4/19/2024
+    1. AwbAnalyzerCombo V1.9：
+        (1) 新增功能，打开插件就默认加载raw图
+        (2) 新增功能，可以在原始图表上选择多个点来计算数据平均值
+        (3) 新增功能，通过鼠标右键为选中的框设置specialCase值和Include/Exclude值
+        (4) 新增功能，单击鼠标右键可以设置选中框的ProInclude/ProExclude值
+    2. 修改xml2struct减少cfg大小
+
+
+Version  2.01.133  3/19/2024
+    1. IQTool兼容xml名称相同的场景
+    2. CalibrationV20.dll V1.0.45.0: 实现Gray mode，并将其设置为IFado的默认模式
+
+
+Version  2.01.132  1/19/2024
+    1.  IQTool/AFAnalyzerCurve/3DNRCalibration插件支持IFado芯片
+    2.  SensorLinearity V1.0.0.1: 支持Maruko/IFord芯片
+    3.  优化流程，关闭tool的时候需要下发usb xu cmd去关闭IQServer
+    4.  AFAnalyzerCurve添加功能，导出的数据增加计算总和结果。
+    5.  AwbAnalyzerCombo V1.8: 兼容长度为16和4的CaseNum结构
+    6.  3DNRCalibration V1.0.0.3: 修复问题，IFord芯片报错"Funsion Type API ID invaild", 由于IFord不支持3Frame mode，所以不需要get Function Type
+    7.  CCMAnalyzer V1.1.9.0: CCMAnalyzer支持IFord芯片
+    8.  LibIQCom增加客制化API: Connect/WriteIQByID/ReadIQByID/CaptureImage/ReadIQXml/ReadIQData/WriteIQData/Disconnect
+    9.  CalibrationV20.dll V1.0.44.0: 优化流程，需要NE calibration去决定ISP Gian
+    10. GammaFitting V1.0.1.0: 修复问题，当输入曲线中有重复点时插件会崩溃
+    11. SensorLinearity V1.0.0.2: 支持Pudding芯片
+    12. AwbAnalyzerCombo V1.7: 实现鼠标悬停chart图上显示坐标
+    13. AFAnalyzerCurve V1.0.0.1: 支持Muffin芯片
+
+
+Version  2.01.131  1/10/2024
+    1. 在IQTool上增加转换按钮，实现isp_api.xml转换转换成C的结构体文件
+    2. 在comandLine中实现isp_api.xml转换转换成C的结构体文件
+
+
+Version  2.01.130  1/5/2024
+    1. IQTool支持IFado芯片。修复问题，板子连接后，加载bin档失败
+    2. 3DNRCalibration V1.0.0.2: 支持Tiramisu/Pudding/IFord芯片。修复问题，Maruko get OBC失败
+    3. CalibrationV20.dll V1.0.42.0: 支持IFord芯片
+    4. CalibrationV20.dll V1.0.43.0: 支持IFado芯片
+    5. SStarCalibrationTool: 将ALSC/LSC默认比率表设置为衰变表
+
+
+Version  2.01.129  11/22/2023
+    1. IQTool支持Pcupid芯片。修复问题，前置界面关闭会导致工具卡死
+    2. 新增AFAnalyZerCurve 插件
+    3. CalibrationV20.dll V1.0.40.0:
+        (1)处理超过硬件限制的alsc gain
+        (2)将调试标志与校准标志分开
+    4. CalibrationV20.dll V1.0.41.0: NE calibration支持Ispahan/Pudding/Tiramisu芯片
+
+
+Version  2.01.128  11/7/2023
+    1. 修复问题，某些电脑上打开插件会报"An attempt was made to load an assembly from a network location"此错误
+    2. AwbAnalyzerCombo插件在chart图上添加AWBpro/SpecialCaseGroup框
+    3. 3DNRCalibration V1.0.0.1: 增加容错机制，get obc/dummyEx/FunsionType fail的时候，插件弹窗报错
+    4. CalibrationV20.dll V1.0.38.0:
+        (1)新增“Manual Npf Node Dist”模式，用于NE calibration
+        (2)将数据添加到txt模式进行校准。
+    5. CalibrationV20.dll V1.0.39.0: 修复问题，HighLowCTMode与插件模式时AWB设置错误的OB
+
+
+Version  2.01.127  10/27/2023
+    1. SStarCalibrationTool支持Tiramisu/Maruko的LSC
+    2. CalibrationV20.dll V1.0.36.0: 修复问题，插件模式下HighLowCTMode设置不正确
+    3. CalibrationV20.dll V1.0.37.0: 新增全局变量用于SDC在CMD模式下保存diff dump_sdc_data和加载的校准数据
+    4. CCMAnalyzer V1.1.8.0: 只有当源图像和目标图像一起设置，微调正常工作，修改成当源图像被设置时，设置条件微调。
+    5. SStarRawTool V1.3: 修复问题，在pc 模式下注入raw失败
+
+
+Version  2.01.126  9/15/2023
+    1. 将config中Dount修改成IFord
+    2. 修复问题，curve1 set param界面会弹窗两次。
+    3. YUV Gamma支持IFord芯片
+    4. 新增SensorLinearity Plugin
+    5. CalibrationV20.dll V1.0.34.0: Source_type 4支持向任何目标位的移位
+
+
+Version  2.01.125  8/17/2023
+    1. 新增raw stream 选择类型
+    2. SStar3DNRCalibration Plugin条形图中增加一条警戒线。
+    3. 修改OBC在config中的定义名称
+    4. SStar3DNRCalibration Plugin柱状图选择高亮
+    5. 修改get obc时对应api，3frame mode => p2, 2 frame mode => p1
+    6. SStarRawTool V1.2: 支持使用板端的raw路径
+
+
+Version  2.01.124  8/7/2023
+    1. 新增SStar3DNRCalibration Plugin
+    2. 优化NirIQTunning Plugin，Plugin打开新增Do you want to read all parameters? 提示框
+    3. IQTool新增异常提示
+    4. 新增支持IFord芯片
+
+
+Version  2.01.123  7/12/2023
+    1. Souffle支持3F HDR GetRaw
+    2. NirIQTuning Tool V1.0.2:
+        (1)修复问题，NIR datagridview不能复制粘贴功能
+        (2)打开XML支持写入所有参数
+    3. 增加xml转换bin档的IQCommandLine
+
+
+Version  2.01.122  6/8/2023
+    1. WDRCure用api去获取和写入参数到FW
+    2. Souffle芯片支持NE Calibration
+
+
+Version  2.01.121  5/8/2023
+    1. 修复问题，WDRCure加载data失败
+
+
+Version  2.01.120  4/10/2023
+    1. 修改YUV GAMMA流程
+
+
+Version  2.01.119  2/9/2023
+    1. WDCurve兼容Souffle芯片
+
+
+Version  2.01.118  2/9/2023
+    1. 调整WDRCure的取值范围
+    2. 增加XML批量传输到bin功能
+    3. 修复问题，转换不同的xml出来的bin档名称一致
+    4. SStarRateControl插件支持64位平台
+    5. 添加SStarRateControl_TP插件为tp_link由于venc结构不同
+    6. IQTool支持Souffle芯片

@@ -1,0 +1,4 @@
+config SSTAR_VIF
+	tristate "Sigmastar VIF driver"
+	default n
+

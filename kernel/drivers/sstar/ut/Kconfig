@@ -1,0 +1,5 @@
+config SSTAR_UT
+    tristate "Sigmastar UT Framework"
+    default n
+    help
+      enable support for Sigmastar UT Framework

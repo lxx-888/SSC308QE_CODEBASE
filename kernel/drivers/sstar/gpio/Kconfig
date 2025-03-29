@@ -1,0 +1,3 @@
+config SSTAR_GPIO
+    tristate "Sstar GPIO driver"
+    default y

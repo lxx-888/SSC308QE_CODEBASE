@@ -1,0 +1,19 @@
+config USB_SSTAR_MSB250X_UDC
+	tristate "Sstar MSB250X USB 2.0 Device Controller"
+	help
+	  MSB250X is discrete USB2.0 device controller that supports both full and high speed
+	  USB2.0 data transfers.
+
+config USB_FPGA_VERIFICATION
+	bool "FPGA verification only"
+	depends on USB_SSTAR_MSB250X_UDC
+	default n
+	help
+	  this only for FPGA, not select this item in asic.
+
+config USB_MANUAL_MATCH_EP
+        bool "test ep func of mamual match ep"
+        depends on USB_SSTAR_MSB250X_UDC
+        default n
+        help
+          usb endpoint selection, enable this can be insmod with parameters to specify which ep to use

@@ -1,0 +1,3 @@
+source "drivers/sstar/usb/dwc3/Kconfig"
+source "drivers/sstar/usb/phy/Kconfig"
+source "drivers/sstar/usb/typec/Kconfig"

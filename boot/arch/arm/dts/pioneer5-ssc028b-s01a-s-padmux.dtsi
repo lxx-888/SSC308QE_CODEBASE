@@ -1,0 +1,90 @@
+/*
+ * pioneer5-ssc028b-s01a-s-padmux.dtsi- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+
+#include "../../../drivers/sstar/include/pioneer5/padmux.h"
+#include "../../../drivers/sstar/include/drv_puse.h"
+
+/ {
+    soc {
+         padmux {
+            compatible = "sstar,padmux";
+            schematic =
+                // SDMMC0
+                <PAD_I2C0_SDA            PINMUX_FOR_I2C0_MODE_1          MDRV_PUSE_I2C0_SDA>,
+                <PAD_I2C0_SCL            PINMUX_FOR_I2C0_MODE_1          MDRV_PUSE_I2C0_SCL>,
+                <PAD_I2C1_SDA            PINMUX_FOR_I2C1_MODE_1          MDRV_PUSE_I2C1_SDA>,
+                <PAD_I2C1_SCL            PINMUX_FOR_I2C1_MODE_1          MDRV_PUSE_I2C1_SCL>,
+                // Touch panel
+                <PAD_I2C5_SCL            PINMUX_FOR_I2C5_MODE_1          MDRV_PUSE_I2C5_SCL>,
+                <PAD_I2C5_SDA            PINMUX_FOR_I2C5_MODE_1          MDRV_PUSE_I2C5_SDA>,
+                // TTL24
+                <PAD_SAR_ADC_4           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R0>,
+                <PAD_SAR_ADC_5           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R1>,
+                <PAD_SAR_ADC_6           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R2>,
+                <PAD_SAR_ADC_7           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R3>,
+                <PAD_SAR_ADC_8           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R4>,
+                <PAD_SAR_ADC_9           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R5>,
+                <PAD_SAR_ADC_10          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R6>,
+                <PAD_SAR_ADC_11          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_R7>,
+                <PAD_SAR_ADC_12          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G0>,
+                <PAD_SAR_ADC_13          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G1>,
+                <PAD_SAR_ADC_14          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G2>,
+                <PAD_SAR_ADC_15          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G3>,
+                <PAD_SAR_ADC_16          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G4>,
+                <PAD_SAR_ADC_17          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G5>,
+                <PAD_SAR_ADC_18          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G6>,
+                <PAD_SAR_ADC_19          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_G7>,
+                <PAD_SAR_ADC_20          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B0>,
+                <PAD_SAR_ADC_21          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B1>,
+                <PAD_SAR_ADC_22          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B2>,
+                <PAD_SAR_ADC_23          PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B3>,
+                <PAD_PWM_OUT0            PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B4>,
+                <PAD_PWM_OUT1            PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B5>,
+                <PAD_PWM_OUT2            PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B6>,
+                <PAD_PWM_OUT3            PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_B7>,
+                <PAD_SAR_ADC_0           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_LDE>,
+                <PAD_SAR_ADC_1           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_LVSYNC>,
+                <PAD_SAR_ADC_2           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_LHSYNC>,
+                <PAD_SAR_ADC_3           PINMUX_FOR_TTL24_MODE_1         MDRV_PUSE_TTL24_LCK>,
+                // Panel backlight
+                <PAD_PWM_OUT8            PINMUX_FOR_PWM_OUT8_MODE_1      MDRV_PUSE_PWM8>,
+                <PAD_PM_IR_RX            PINMUX_FOR_IR_IN_MODE_1         MDRV_PUSE_IR>,
+                // SPDIF
+                <PAD_SPDIF_TX            PINMUX_FOR_SPDIF_MODE_1         MDRV_PUSE_AIO_SPDIF_TX>,
+
+                // PSPI0 SNESOR
+                <PAD_I2C1_SDA            PINMUX_FOR_I2C1_MODE_1          MDRV_PUSE_I2C1_SDA>,
+                <PAD_I2C1_SCL            PINMUX_FOR_I2C1_MODE_1          MDRV_PUSE_I2C1_SCL>,
+                <PAD_SR_MCLK0            PINMUX_FOR_SR00_MCLK_MODE_1     MDRV_PUSE_SR00_MCLK>,
+                <PAD_OUTN_RX0_CH_0       PINMUX_FOR_PSPI0_SENSOR_MODE_1  MDRV_PUSE_PSPI0_VSYNC>,
+                <PAD_OUTP_RX0_CH_1       PINMUX_FOR_PSPI0_SENSOR_MODE_1  MDRV_PUSE_PSPI0_CLK>,
+                <PAD_OUTN_RX0_CH_1       PINMUX_FOR_PSPI0_SENSOR_MODE_1  MDRV_PUSE_PSPI0_MOSI0>,
+                <PAD_OUTP_RX0_CH_2       PINMUX_FOR_PSPI0_SENSOR_MODE_1  MDRV_PUSE_PSPI0_MOSI1>,
+                <PAD_OUTN_RX0_CH_2       PINMUX_FOR_PSPI0_SENSOR_MODE_1  MDRV_PUSE_PSPI0_MOSI2>,
+                <PAD_OUTP_RX0_CH_3       PINMUX_FOR_PSPI0_VSYNC_MODE_1   MDRV_PUSE_PSPI0_MOSI3>,
+
+                // HDMI
+                <PAD_PWM_OUT7            PINMUX_FOR_HDMI_CEC_MODE_1      MDRV_PUSE_HDMI_CEC>,
+                <PAD_PWM_OUT8            PINMUX_FOR_HDMI_HTP_MODE_1      MDRV_PUSE_HDMI_HOT_PLUG>,
+                <PAD_PWM_OUT9            PINMUX_FOR_HDMI_5VDET_MODE_1    MDRV_PUSE_HDMI_DET>,
+                <PAD_PWM_OUT10           PINMUX_FOR_HDMI_I2C_MODE_1      MDRV_PUSE_HDMI_RX_SDA>,
+                <PAD_PWM_OUT11           PINMUX_FOR_HDMI_I2C_MODE_1      MDRV_PUSE_HDMI_RX_SCL>,
+                <GPIO_NR                 PINMUX_FOR_UNKNOWN_MODE         MDRV_PUSE_NA>;
+            status = "okay";
+        };
+    };
+};

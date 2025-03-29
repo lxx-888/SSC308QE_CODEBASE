@@ -1,0 +1,168 @@
+/*
+* iford-ssc029c-s01a-dualos.dts- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+ /*
+ * Memory Layout
+ * 0x20000000-0x24000000 64M Kernel
+ * 0x24000000-0x24800000 8M  system
+ * 0x24800000-0x24900000 1M  data
+ * 0x24900000-0x25000000 7M  temp0
+ * 0x25000000-0x28000000 48M temp1
+ */
+/dts-v1/;
+
+#include "iford.dtsi"
+#include "iford-ssz029c-s01b-demo-camdriver_dualsnr.dtsi"
+#include "iford-ssz029c-s01b-demo-padmux-glasses.dtsi"
+
+/ {
+    #address-cells = <1>;
+    #size-cells = <1>;
+    model = "IFORD SSC029C-S01A";
+    compatible = "sstar,iford";
+/*
+    memory {
+        device_type = "memory";
+        #address-cells = <2>;
+        #size-cells = <2>;
+        reg = <0x00000000 0x20000000 0x00000000 0x04000000>;
+    };
+*/
+#if IS_ENABLED(CONFIG_SSTAR_VOLTAGE_CTRL) || IS_ENABLED(CONFIG_SSTAR_VOLTAGE_IDAC_CTRL)
+    cpu0_opp_table: opp_table0 {
+        compatible = "operating-points-v2";
+        opp-shared;
+
+        opp00 {
+            opp-hz = /bits/ 64 <600000000>;
+            opp-microvolt = <800000 800000 820000>; /* <normal min max> */
+            status = "ok";
+        };
+
+        opp01 {
+            opp-hz = /bits/ 64 <800000000>;
+            opp-microvolt = <830000 830000 850000>; /* <normal min max> */
+            status = "ok";
+        };
+
+        opp02 {
+            opp-hz = /bits/ 64 <1000000000>;
+            opp-microvolt = <890000 890000 920000>;
+            status = "ok";
+        };
+    };
+#endif
+    chosen {
+        bootargs = "console=ttyS0,115200n8r androidboot.console=ttyS0 user_debug=31 root=/dev/mtdblock0 init=/linuxrc LX_MEM=0x1fee0000 mma_heap=mma_heap_name0,miu=0,sz=0xA000000,max_start_off=0x29800000 mma_memblock_remove=1 cma=2M nohz=off";
+    };
+#if IS_ENABLED(CONFIG_SSTAR_SDMMC) || IS_ENABLED(CONFIG_SSTAR_VOLTAGE_IDAC_CTRL)
+    soc {
+#if IS_ENABLED(CONFIG_SSTAR_SDMMC)
+#ifdef CONFIG_SSTAR_SELECT_EMMC
+        sstar_sdmmc0: sstar_sdmmc0 {
+            compatible = "sstar,sdmmc";
+            pwr-off-delay = <5>;
+            status = "ok";
+        };
+#endif
+        sstar_sdmmc1: sstar_sdmmc1 {
+           compatible = "sstar,sdmmc";
+
+            bus-width = <4>;
+            max-frequency = <480000000>;
+            non-removable;
+            broken-cd;
+            cap-mmc-highspeed;
+            //sd-uhs-sdr50;
+            //sd-uhs-sdr104;
+            //sd-uhs-ddr50;
+            cap-sdio-irq;
+            /delete-property/ no-sdio;
+            no-sd;
+            no-mmc;
+            reg = <0x1F008400 0x200>;
+            //reg = <0x1F282600 0x200>;
+            pll-reg = <0x1F283200 0x200>;
+            cifd-reg = <0x1F008600 0x200>;
+            //cifd-reg = <0x1F282800 0x200>;
+            pwr-save-reg = <0x1F008800 0x200>;
+            //pwr-save-reg = <0x1F282A00 0x200>;
+            ip-order = /bits/ 8 <1>;
+            pad-order = /bits/ 8 <0>;
+            //pad-order = /bits/ 8 <1>;
+            trans-mode = /bits/ 8 <1>; // 0:dma 1:adma default is 1
+            fake-cdz = /bits/ 8 <1>;
+            rev-cdz = /bits/ 8 <0>;
+            //cdz-pad = <PAD_PM_SD_CDZ>;
+            //pwr-pad = <PAD_FUART_RTS>;
+            pwr-on-delay = <1>;
+            pwr-off-delay = <30>;
+            support-runtime-pm = /bits/ 8 <1>; // sd/sdio runtime-pm default disable
+            sdio-use-1bit = /bits/ 8 <0>;
+            cifd-mcg-off = /bits/ 8 <0>; // mcg on/off in cifd
+            support-cmd23 = /bits/ 8 <0>;
+            clk-driving = <1>;
+            cmd-driving = <1>;
+            data-driving = <1>;
+            en-clk-phase = /bits/ 8 <0>; //0/1
+            rx-clk-phase = <0>; //0-3
+            tx-clk-phase = <0>; //0-3
+            en-eight-phase = /bits/ 8 <0>; //0/1
+            rx-eight-phase = /bits/ 8 <0>; //0/1
+            tx-eight-phase = /bits/ 8 <0>; //0/1
+            interrupts = <GIC_SPI INT_IRQ_SD IRQ_TYPE_LEVEL_HIGH>,
+                        <GIC_SPI INT_IRQ_SDIO IRQ_TYPE_LEVEL_HIGH>;
+            interrupt-names = "mie0_irq", "mie1_irq";
+            clocks = <&CLK_sd>, <&CLK_pm_sdio>, <&CLK_mcu_pm>;
+            clock-names = "clk_sdmmc0", "clk_sdmmc1", "pm_mcu_sdmmc1";
+            status = "ok";
+        };
+
+#endif
+#ifdef CONFIG_SSTAR_VOLTAGE_IDAC_CTRL
+        core_power {
+            compatible = "sstar,voltage-idac-ctrl";
+            vid_gpio = <PAD_PM_GPIO4>;
+            base_voltage = <900>;
+            init_voltage = <900>;
+            status = "ok";
+        };
+#endif
+    };
+#endif
+#if IS_ENABLED(CONFIG_SSTAR_SDMMC)
+    // mmc aliases
+    aliases {
+          sdmmc0 = &sstar_sdmmc0; //FCIE
+          sdmmc1 = &sstar_sdmmc1; //SDIO
+    };
+#endif
+/*!!IMPORTANT!! The reserved memory must be 1MB aligned*/
+    reserved-memory {
+        #address-cells = <1>;
+        #size-cells = <1>;
+        ranges;
+
+        cma0 {
+            compatible = "shared-dma-pool";
+            reusable;
+            size = <0x01000000>;
+            alignment = <0x1000>;
+            linux,cma-default;
+        };
+    };
+};

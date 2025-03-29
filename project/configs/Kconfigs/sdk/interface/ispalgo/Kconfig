@@ -1,0 +1,11 @@
+menuconfig INTERFACE_ISPALGO
+    depends on SUPPORT_ISPALGO
+    bool "ispalgo"
+    default y
+    help
+        whether to compile or not
+
+config interface_ispalgo
+    string
+    default enable if INTERFACE_ISPALGO
+    default disable if !INTERFACE_ISPALGO

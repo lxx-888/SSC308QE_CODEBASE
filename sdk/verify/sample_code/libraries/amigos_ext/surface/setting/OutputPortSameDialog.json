@@ -1,0 +1,184 @@
+{
+    "Page":[
+        {
+            "page_name": "CommonOutputPortPage",
+            "page_title": "OutputPort",
+            "component": [
+                {
+                    "name": "OutputPortUserFrc",
+                    "label": "User Frc",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "USER_FRC_EN"
+                },
+                {
+                    "name": "OutputPortFps",
+                    "label": "Fps",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "30",
+                    "output_key": "FPS"
+                },
+                {
+                    "name": "OutputPort",
+                    "label": "Port Index",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PORT"
+                },
+                {
+                    "name": "OutputPortDepthEn",
+                    "label": "Depth En",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "CommonOutputPortDepthParam"
+                        }
+                    ],
+                    "sub_section": "DEPTH_PARAM",
+                    "output_type": "int",
+                    "output_key": "DEPTH_EN",
+                    "default_value": "0"
+                },
+                {
+                    "name": "OutputPortExtEn",
+                    "label": "Ext En",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "CommonOutputPortExtParam"
+                        }
+                    ],
+                    "sub_section": "EXT_PARAM",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_EN"
+                }
+            ]
+        },
+        {
+            "page_name": "CommonOutputPortDepthParam",
+            "page_title": "Depth Param",
+            "page_belong": "OutputPortDepthEn:1",
+            "component": [
+                {
+                    "name": "OutputPortDepthUser",
+                    "label": "Depth User",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "DEPTH_USER"
+                },
+                {
+                    "name": "OutputPortDepthTotal",
+                    "label": "Depth Total",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_type": "int",
+                    "output_key": "DEPTH_TOTAL"
+                }
+            ]
+        },
+        {
+            "page_name": "CommonOutputPortExtParam",
+            "page_title": "Ext Param",
+            "page_belong": "OutputPortExtEn:1",
+            "component": [
+                {
+                    "name": "OutputPortExtHAlign",
+                    "label": "Ext H Align",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_H_ALIGN"
+                },
+                {
+                    "name": "OutputPortExtVAlign",
+                    "label": "Ext V Align",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_V_ALIGN"
+                },
+                {
+                    "name": "OutputPortExtChromaAlign",
+                    "label": "Ext Chroma Align",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_CHROMA_ALIGN"
+                },
+                {
+                    "name": "OutputPortExtCompressAlign",
+                    "label": "Ext Compress Align",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_COMPRESS_ALIGN"
+                },
+                {
+                    "name": "OutputPortExtExtraSize",
+                    "label": "Ext Extra Size",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_EXTRA_SIZE"
+                },
+                {
+                    "name": "OutputPortExtClearPadding",
+                    "label": "Ext Clear Padding",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "EXT_CLEAR_PADDING"
+                }
+            ]
+        }
+    ]
+}

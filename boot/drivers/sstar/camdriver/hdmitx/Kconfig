@@ -1,0 +1,3 @@
+config SSTAR_HDMITX
+	bool "Sigmastar HDMITX driver"
+	default n

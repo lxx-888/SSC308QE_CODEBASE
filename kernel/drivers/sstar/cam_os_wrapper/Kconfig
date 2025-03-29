@@ -1,0 +1,4 @@
+config TRACE_CAM_OS_MEM
+        bool "Sigmastar trace cam_os_wrapper memory function"
+        depends on SSTAR_DRIVERS
+        default y

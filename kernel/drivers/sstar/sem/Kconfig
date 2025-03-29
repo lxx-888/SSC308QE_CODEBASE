@@ -1,0 +1,3 @@
+config SSTAR_SEM
+    bool "SStar H/W semaphore driver"
+    default n

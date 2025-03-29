@@ -1,0 +1,70 @@
+menu "DRAM_LAYOUT"
+
+config DRAM_SIZE
+    string "dram size"
+    default "0"
+
+config LX_MEM_SIZE
+    string "LX Memory Size"
+    default "0"
+
+config MMA_MEM_SIZE
+    string "MMA Memory Size"
+    default "0"
+
+config CMA_MEM_SIZE
+    string "CMA Memory Size"
+    default "0"
+
+config LOGO_MEM_SIZE
+    string "LOGO Memory Size"
+    default "0"
+
+config SMF_MEM_SIZE
+    string "SMF Memory Size"
+    default "0"
+
+config RISCV_MEM_SIZE
+    string "RISCV Memory Size"
+    default "0"
+
+config RTOS_MEM_SIZE
+    string "RTOS Memory Size"
+    default "0"
+
+config RTOS_TIMESTAMP_MEM_SIZE
+    string "RTOS Timestamp Memory Size"
+    default "0"
+
+config RTOS_RAMDISK_MEM_SIZE
+    string "RTOS Ramdisk Memory Size"
+    default "0"
+
+config EARLYINIT_MEM_SIZE
+    string "earlyinit Memory Size"
+    default "0"
+
+config RIU_RECORDER_MEM_SIZE
+    string "riu recorder Memory Size"
+    default "0"
+
+config VMM_MEM_SIZE
+    string "VMM Memory Size"
+    default "0"
+
+config OPTEE_MEM_SIZE
+    string "OPTEE Memory Size"
+    default "0"
+
+config TFA_MEM_SIZE
+    string "TF-A Memory Size"
+    default "0"
+
+config UBOOT_MEM_SIZE
+    string "u-boot Memory Size"
+    default "0x100000"
+
+config FB_MEM_SIZE
+    string "FB Memory Size"
+    default "0"
+endmenu

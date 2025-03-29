@@ -1,0 +1,64 @@
+menu "Kernel"
+    depends on !BOOL_PURE_RTOS
+
+choice
+    prompt "Kernel Version"
+    default KERNEL_VERSION_4.9.84
+
+    config KERNEL_VERSION_4.9.84
+        bool "4.9.84"
+
+    config KERNEL_VERSION_4.9.227
+        bool "4.9.227"
+
+    config KERNEL_VERSION_4.19.162
+        bool "4.19.162"
+
+    config KERNEL_VERSION_5.10
+        bool "5.10"
+
+    config KERNEL_VERSION_6.1
+        bool "6.1"
+endchoice
+
+config KERNEL_VERSION
+    string
+    default 4.9.84 if KERNEL_VERSION_4.9.84
+    default 4.9.227 if KERNEL_VERSION_4.9.227
+    default 4.19.162 if KERNEL_VERSION_4.19.162
+    default 5.10 if KERNEL_VERSION_5.10
+    default 6.1 if KERNEL_VERSION_6.1
+
+config KERNEL_CONFIG
+    string "Kernel Config"
+    default ""
+
+config KERNEL_BIN
+    string "kernel Bin"
+    default "Image-fpga" if BOOL_FPGA
+    default "uImage" if BOOL_PZ1
+    default "uImage.sz"
+
+if CHIP = android
+config KERNEL_DTB_NAME
+    string "Kernel DTB NAME"
+    default ""
+
+config KERNEL_DTBO_NAME
+    string "Kernel DTBO NAME"
+    default ""
+
+config KERNEL_DTBO_LIST
+    string "Kernel DTBO LIST"
+    default ""
+endif
+
+menu "Mmap"
+
+config KERNEL_RESERVED_RISCV
+    depends on (CHIP = p5)
+    string "Kernel Reserved RISCV"
+    default ""
+endmenu
+
+endmenu

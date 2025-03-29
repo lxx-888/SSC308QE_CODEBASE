@@ -1,0 +1,48 @@
+{
+    "Page": [
+        {
+            "page_name": "AUDIODECODEModPage",
+            "page_title": "AUDIODECODE",
+            "component": [
+                {
+                    "name": "CoderType",
+                    "label": "Coder Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "aac"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "g711u"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "g711a"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "g726_16"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "g726_24"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "g726_32"
+                        },
+                        {
+                            "option_type": "string",
+                            "option_name": "g726_40"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "string",
+                    "output_key": "TYPE"
+                }
+            ]
+        }
+    ]
+}

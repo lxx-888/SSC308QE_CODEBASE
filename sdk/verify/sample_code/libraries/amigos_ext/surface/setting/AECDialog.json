@@ -1,0 +1,244 @@
+{
+    "Page": [
+        {
+            "page_name": "AECModPage",
+            "page_title": "AEC",
+            "component": [
+                {
+                    "name": "SampleRate",
+                    "label": "Sample Rate",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "96000",
+                    "value_step": "1000",
+                    "default_value": "8000",
+                    "output_key": "SAMPLE_RATE"
+                },
+                {
+                    "name": "SoundMode",
+                    "label": "Sound Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "int",
+                            "option_name": "mono",
+                            "option_value": "1"
+                        },
+                        {
+                            "option_type": "int",
+                            "option_name": "stereo",
+                            "option_value": "2"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "CHN_NUM"
+                },
+                {
+                    "name": "PeriodSize",
+                    "label": "Period Size",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "128",
+                    "output_key": "PERIOD_SIZE"
+                },
+                {
+                    "name": "Noise",
+                    "label": "Noise",
+                    "component_type": "CheckBox",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "NOISE"
+                },
+                {
+                    "name": "DelaySample",
+                    "label": "Delay Sample",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "1000",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "DELAY_SAMPLE"
+                },
+                {
+                    "name": "SuppressionModeFreq",
+                    "label": "Suppression Mode Freq",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Freq",
+                            "option_page": "AECModSupFreqPage"
+                        }
+                    ],
+                    "sub_section": "SUP_FREQ_PARAM",
+                    "default_value": "Freq",
+                    "output_type": "string",
+                    "output_key": "SUP_FREQ"
+                },
+                {
+                    "name": "SuppressionModeIntensity",
+                    "label": "Suppression Mode Intensity",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "page",
+                            "option_name": "Intensity",
+                            "option_page": "AECModSupIntensityPage"
+                        }
+                    ],
+                    "sub_section": "SUP_INTENSITY_PARAM",
+                    "default_value": "Intensity",
+                    "output_type": "string",
+                    "output_key": "SUP_INTENSITY"
+                }
+            ]
+        },
+        {
+            "page_name": "AECModSupFreqPage",
+            "page_title": "Suppression Freq",
+            "page_belong": "SuppressionModeFreq:Freq",
+            "component": [
+                {
+                    "name": "Freq_0",
+                    "label": "Freq[0]",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "127",
+                    "value_step": "1",
+                    "default_value": "20",
+                    "output_key": "FREQ_0"
+                },
+                {
+                    "name": "Freq_1",
+                    "label": "Freq[1]",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "127",
+                    "value_step": "1",
+                    "default_value": "40",
+                    "output_key": "FREQ_1"
+                },
+                {
+                    "name": "Freq_2",
+                    "label": "Freq[2]",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "127",
+                    "value_step": "1",
+                    "default_value": "60",
+                    "output_key": "FREQ_2"
+                },
+                {
+                    "name": "Freq_3",
+                    "label": "Freq[3]",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "127",
+                    "value_step": "1",
+                    "default_value": "80",
+                    "output_key": "FREQ_3"
+                },
+                {
+                    "name": "Freq_4",
+                    "label": "Freq[4]",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "127",
+                    "value_step": "1",
+                    "default_value": "100",
+                    "output_key": "FREQ_4"
+                },
+                {
+                    "name": "Freq_5",
+                    "label": "Freq[5]",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "127",
+                    "value_step": "1",
+                    "default_value": "120",
+                    "output_key": "FREQ_5"
+                }
+            ]
+        },
+        {
+            "page_name": "AECModSupIntensityPage",
+            "page_title": "Suppression Intensity",
+            "page_belong": "SuppressionModeIntensity:Intensity",
+            "component": [
+                {
+                    "name": "Intensity_0",
+                    "label": "Intensity[0]",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "25",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key": "INTENSITY_0"
+                },
+                {
+                    "name": "Intensity_1",
+                    "label": "Intensity[1]",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "25",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key": "INTENSITY_1"
+                },
+                {
+                    "name": "Intensity_2",
+                    "label": "Intensity[2]",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "25",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key": "INTENSITY_2"
+                },
+                {
+                    "name": "Intensity_3",
+                    "label": "Intensity[3]",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "25",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key": "INTENSITY_3"
+                },
+                {
+                    "name": "Intensity_4",
+                    "label": "Intensity[4]",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "25",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key": "INTENSITY_4"
+                },
+                {
+                    "name": "Intensity_5",
+                    "label": "Intensity[5]",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "25",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key": "INTENSITY_5"
+                },
+                {
+                    "name": "Intensity_6",
+                    "label": "Intensity[6]",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "25",
+                    "value_step": "1",
+                    "default_value": "4",
+                    "output_key": "INTENSITY_6"
+                }
+            ]
+        }
+    ]
+}

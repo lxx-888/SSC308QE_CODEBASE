@@ -1,0 +1,11 @@
+menuconfig INTERFACE_SHADOW
+    depends on SUPPORT_SHADOW
+    bool "shadow"
+    default y
+    help
+        whether to compile or not
+
+config interface_shadow
+    string
+    default enable if INTERFACE_SHADOW
+    default disable if !INTERFACE_SHADOW

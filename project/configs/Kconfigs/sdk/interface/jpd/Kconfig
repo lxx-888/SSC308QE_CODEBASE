@@ -1,0 +1,31 @@
+menuconfig INTERFACE_JPD
+    depends on SUPPORT_JPD
+    bool "jpd"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_JPD
+
+config config_mi_jpd
+    bool "mi_jpd"
+    default y
+    help
+        whether to compile or not
+
+config MI_JPD_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config mi_jpd_kapi
+    string
+    default yes if MI_JPD_KAPI
+    default no if !MI_JPD_KAPI
+
+endif
+config interface_jpd
+    string
+    default enable if INTERFACE_JPD
+    default disable if !INTERFACE_JPD

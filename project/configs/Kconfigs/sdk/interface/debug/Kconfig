@@ -1,0 +1,22 @@
+menuconfig INTERFACE_DEBUG
+    depends on SUPPORT_DEBUG
+    bool "debug"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_DEBUG
+config MI_DEBUG_TRACE_CAM_OS_MEM
+    bool "trace_cam_os_mem"
+    default n
+
+config mi_debug_trace_cam_os_mem
+    string
+    default enable if MI_DEBUG_TRACE_CAM_OS_MEM
+    default disable if !MI_DEBUG_TRACE_CAM_OS_MEM
+endif
+
+config interface_debug
+    string
+    default enable if INTERFACE_DEBUG
+    default disable if !INTERFACE_DEBUG

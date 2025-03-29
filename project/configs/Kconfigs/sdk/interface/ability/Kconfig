@@ -1,0 +1,117 @@
+config SUPPORT_AI
+    bool
+    default y
+config SUPPORT_AIO
+    bool
+    default y
+config SUPPORT_AO
+    bool
+    default y
+config SUPPORT_CIPHER
+    bool
+    default n
+config SUPPORT_COMMON
+    bool
+    default y
+config SUPPORT_CUS3A
+    bool
+    default y
+config SUPPORT_DEBUG
+    bool
+    default y
+config SUPPORT_DISP
+    bool
+    default y
+config SUPPORT_DPU
+    bool
+    default n
+config SUPPORT_DSP
+    bool
+    default n
+config SUPPORT_DUMMY
+    bool
+    default y
+config SUPPORT_FB
+    bool
+    default y
+config SUPPORT_GFX
+    bool
+    default n
+config SUPPORT_HDMI
+    bool
+    default n
+config SUPPORT_HDMIRX
+    bool
+    default n
+config SUPPORT_HVP
+    bool
+    default n
+config SUPPORT_IPU
+    bool
+    default y
+config SUPPORT_IQSERVER
+    bool
+    default y
+config SUPPORT_ISP
+    bool
+    default y
+config SUPPORT_ISPALGO
+    bool
+    default y
+config SUPPORT_IVE
+    bool
+    default y
+config SUPPORT_JPD
+    bool
+    default n
+config SUPPORT_LDC
+    bool
+    default y
+config SUPPORT_MIPITX
+    bool
+    default n
+config SUPPORT_NIR
+    bool
+    default n
+config SUPPORT_PCIE
+    bool
+    default n
+config SUPPORT_PSPI
+    bool
+    default n
+config SUPPORT_RGN
+    bool
+    default y
+config SUPPORT_SCL
+    bool
+    default y
+config SUPPORT_SED
+    bool
+    default n
+config SUPPORT_SENSOR
+    bool
+    default y
+config SUPPORT_SHADOW
+    bool
+    default y
+config SUPPORT_SYS
+    bool
+    default y
+config SUPPORT_VDEC
+    bool
+    default n
+config SUPPORT_VDF
+    bool
+    default y
+config SUPPORT_VDISP
+    bool
+    default y
+config SUPPORT_VENC
+    bool
+    default y
+config SUPPORT_VIF
+    bool
+    default y
+config SUPPORT_WLAN
+    bool
+    default y

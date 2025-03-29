@@ -1,0 +1,10 @@
+config SSTAR_VOLTAGE_CTRL
+    bool "Sstar Voltage Control"
+    depends on SSTAR_GPIO
+    default y
+
+config SSTAR_VOLTAGE_CTRL_WITH_OSC
+    bool "Sstar Voltage Control With OSC"
+    depends on ARCH_INFINITY6C && SSTAR_VOLTAGE_CTRL
+    default n
+

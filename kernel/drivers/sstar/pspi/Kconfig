@@ -1,0 +1,6 @@
+config SSTAR_PSPI
+    tristate "SStar PSPI driver"
+    default n
+    help
+    Enable support for PSPI driver
+

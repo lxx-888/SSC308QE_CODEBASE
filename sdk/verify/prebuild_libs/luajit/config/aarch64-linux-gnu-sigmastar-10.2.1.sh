@@ -1,0 +1,6 @@
+HOST_CC="gcc"
+CROSS="/tools/toolchain/gcc-10.2.1-20210303-sigmastar-glibc-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu-"
+TARGET_CFLAGS=""
+ARCH="arm64"
+TOOLCHAIN="glibc"
+TOOLCHAIN_VERSION="10.2.1"

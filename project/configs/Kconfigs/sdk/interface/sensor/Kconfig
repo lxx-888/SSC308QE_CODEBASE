@@ -1,0 +1,59 @@
+menuconfig INTERFACE_SENSOR
+    depends on SUPPORT_SENSOR
+    bool "sensor"
+    default y
+    select INTERFACE_VIF
+    help
+        whether to compile or not
+
+if INTERFACE_SENSOR
+
+config MI_SENSOR_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config mi_sensor_kapi
+    string
+    default yes if MI_SENSOR_KAPI
+    default no if !MI_SENSOR_KAPI
+
+config config_mi_sensor
+    bool "mi_sensor"
+    default y
+    help
+        whether to compile or not
+
+config SENSOR_SUPPORT_IR
+    bool "sensor support IR"
+    default n
+    select SENSOR_SUPPORT_PWM
+    help
+       whether sensor support IR
+
+config SENSOR_SUPPORT_DUALSNR_RT
+    bool "sensor support dual sensor realtime"
+    default n
+    select SENSOR_SUPPORT_PWM
+    help
+       whether sensor support dual sensor realtime
+
+config SENSOR_SUPPORT_AOV_DUALSNR_RT
+    bool "sensor support aov dual sensor realtime"
+    default n
+    select SENSOR_SUPPORT_PWM
+    help
+       whether sensor support aov dual sensor realtime
+
+config SENSOR_SUPPORT_PWM
+    bool "sensor support PWM"
+    default n
+    help
+        whether sensor support pwm
+
+endif
+config interface_sensor
+    string
+    default enable if INTERFACE_SENSOR
+    default disable if !INTERFACE_SENSOR

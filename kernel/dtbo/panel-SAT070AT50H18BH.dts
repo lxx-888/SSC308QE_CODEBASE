@@ -1,0 +1,45 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "sstar_dtbo,panel-SAT070AT50H18BH";
+};
+
+&panels {
+    SAT070AT50H18BH {
+        compatible = "sstar,panel";
+        name = "SAT070AT50H18BH";
+        interface = "TTL";
+        width-mm = <154>;
+        height-mm = <86>;
+        misc = <&panel_misc>;
+        backlight = <&backlight_ttl>;
+        status = "disable";
+
+        port {
+            SAT070AT50H18BH_in_dpi: endpoint {
+                remote-endpoint = <&dpi_out_panel>;
+            };
+        };
+
+        panel-timing {
+            clock-frequency = <51000000>;
+            hactive = <1024>;
+            hfront-porch = <222>;
+            hback-porch = <46>;
+            hsync-len = <52>;
+            hsync-active = <0>;
+            vactive = <600>;
+            vfront-porch = <8>;
+            vback-porch = <23>;
+            vsync-len = <4>;
+            vsync-active = <0>;
+            de-active = <0>;
+            pixelclk-active = <0>;
+        };
+    };
+};
+
+&dpi_out_panel {
+    remote-endpoint = <&SAT070AT50H18BH_in_dpi>;
+};

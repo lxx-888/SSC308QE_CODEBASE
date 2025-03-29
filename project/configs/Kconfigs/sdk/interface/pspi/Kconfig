@@ -1,0 +1,35 @@
+menuconfig INTERFACE_PSPI
+    depends on SUPPORT_PSPI
+    bool "pspi"
+    default n
+    select MHAL_PSPI
+    help
+        whether to compile or not
+
+if INTERFACE_PSPI
+
+config MHAL_PSPI
+    bool "mhal_pspi"
+    depends on INTERFACE_PSPI
+    default y
+    help
+        whether to compile or not
+
+config config_mi_pspi
+    bool "mi_pspi"
+    default y
+    depends on MHAL_PSPI
+    help
+        whether to compile or not
+
+config mhal_pspi
+    string
+    default enable if MHAL_PSPI
+    default disable if !MHAL_PSPI
+
+endif # pspi
+
+config interface_pspi
+    string
+    default enable if INTERFACE_PSPI
+    default disable if !INTERFACE_PSPI

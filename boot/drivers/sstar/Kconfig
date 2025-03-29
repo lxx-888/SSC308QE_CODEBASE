@@ -1,0 +1,264 @@
+config SSTAR_AESDMA
+	bool "SigmaStar AESDMA"
+	default y
+
+config SSTAR_AIO
+	bool "SigmaStar AIO"
+	default n
+
+config SSTAR_BDMA
+	bool "Sigmastar BDMA"
+	default y
+
+config SSTAR_CLK
+	bool "SigmaStar clock support"
+	select CLK
+	select CLK_CCF
+	select CLK_COMPOSITE_CCF
+
+config PM_CLK_SRC_24M
+	bool "Supports the removal of the RTC 32K crystal oscillator"
+	default n
+
+config SSTAR_MMC_HOST
+	bool 'SigmaStar mmc host'
+	select MMC
+	select SUPPORT_EMMC_BOOT
+
+config SSTAR_SELECT_EMMC
+	bool "SELECT EMMC"
+	depends on SSTAR_MMC_HOST
+	default n
+
+config SSTAR_SUPPORT_SDIO
+	bool 'Support SDIO driver'
+	depends on SSTAR_MMC_HOST
+	default n
+
+config SSTAR_GPIO
+	bool 'SigmaStar GPIO'
+	default y
+
+config SSTAR_IIC
+	bool 'SigmaStar IIC'
+	depends on DM_I2C
+
+config SSTAR_MSPI
+	bool 'SigmaStar MSPI'
+	depends on DM_SPI
+
+
+config SSTAR_PADMUX
+	bool 'SigmaStar padmux'
+	depends on DM && SSTAR_GPIO
+
+config SSTAR_PWM
+	bool 'SigmaStar PWM'
+	select DM_PWM
+	select CMD_PWM
+	default n
+
+config SSTAR_PWM_EXTEND
+	bool "Support high precision calculation"
+	depends on SSTAR_PWM
+	default y
+	help
+	  support a wider range of parameter settings
+
+config SSTAR_ADCLP
+	bool "SigmaStar ADCLP"
+	select CONFIG_ADC
+	select CONFIG_CMD_ADC
+	default n
+
+config SSTAR_EMAC
+	select CMD_NET
+	select NET
+	bool 'SigmaStar EMAC'
+
+config SSTAR_EMAC1
+	bool "EMAC 1"
+	depends on SSTAR_EMAC
+
+menu "SSTAR GMAC"
+config SSTAR_GMAC
+	select CMD_NET
+	select NET
+	select NETDEVICES
+	select DM_ETH
+	select PHY_GIGE
+	select PHY
+	select PHY_FIXED
+	select DWC_ETH_QOS
+	select CMD_MDIO
+	select CMD_SSTAR_GMAC
+	select CONFIG_CMD_PING
+	bool 'SigmaStar GMAC'
+
+config MOTORCOMM_PHY
+	bool 'MOTORCOMM PHY'
+
+config SSTAR_GMAC_DISABLE_TX_FCTL
+	bool 'Disable flow control'
+	depends on SSTAR_GMAC
+	default y
+
+config SSTAR_SNPS_GMAC_RXCTL_PATCH
+	depends on SSTAR_GMAC
+	bool "SSTAR_SNPS_GMAC_RXCTL_PATCH"
+	default y
+	help
+		SSTAR GMAC RXCTL patch
+
+choice
+	prompt "GMAC_RGMII0_TXC_PHASE_100M_DEGREE"
+	depends on SSTAR_GMAC
+	default GMAC_RGMII0_TXC_PHASE_100M_DEGREE_0
+config GMAC_RGMII0_TXC_PHASE_100M_DEGREE_0
+	bool "DEGREE 0"
+config GMAC_RGMII0_TXC_PHASE_100M_DEGREE_90
+	bool "DEGREE 90"
+config GMAC_RGMII0_TXC_PHASE_100M_DEGREE_180
+	bool "DEGREE 180"
+config GMAC_RGMII0_TXC_PHASE_100M_DEGREE_270
+	bool "DEGREE 270"
+endchoice
+
+choice
+	prompt "GMAC_RGMII0_TXC_PHASE_1G_DEGREE"
+	depends on SSTAR_GMAC
+	default GMAC_RGMII0_TXC_PHASE_1G_DEGREE_0
+config GMAC_RGMII0_TXC_PHASE_1G_DEGREE_0
+	bool "DEGREE 0"
+config GMAC_RGMII0_TXC_PHASE_1G_DEGREE_90
+	bool "DEGREE 90"
+config GMAC_RGMII0_TXC_PHASE_1G_DEGREE_180
+	bool "DEGREE 180"
+config GMAC_RGMII0_TXC_PHASE_1G_DEGREE_270
+	bool "DEGREE 270"
+endchoice
+
+choice
+	prompt "GMAC_RGMII1_TXC_PHASE_100M_DEGREE"
+	depends on SSTAR_GMAC
+	default GMAC_RGMII1_TXC_PHASE_100M_DEGREE_0
+config GMAC_RGMII1_TXC_PHASE_100M_DEGREE_0
+	bool "DEGREE 0"
+config GMAC_RGMII1_TXC_PHASE_100M_DEGREE_90
+	bool "DEGREE 90"
+config GMAC_RGMII1_TXC_PHASE_100M_DEGREE_180
+	bool "DEGREE 180"
+config GMAC_RGMII1_TXC_PHASE_100M_DEGREE_270
+	bool "DEGREE 270"
+endchoice
+
+choice
+	prompt "GMAC_RGMII1_TXC_PHASE_1G_DEGREE"
+	depends on SSTAR_GMAC
+	default GMAC_RGMII1_TXC_PHASE_1G_DEGREE_0
+config GMAC_RGMII1_TXC_PHASE_1G_DEGREE_0
+	bool "DEGREE 0"
+config GMAC_RGMII1_TXC_PHASE_1G_DEGREE_90
+	bool "DEGREE 90"
+config GMAC_RGMII1_TXC_PHASE_1G_DEGREE_180
+	bool "DEGREE 180"
+config GMAC_RGMII1_TXC_PHASE_1G_DEGREE_270
+	bool "DEGREE 270"
+endchoice
+endmenu
+
+config SSTAR_QFN
+	bool "EMAC 1 FOR QFN"
+	depends on SSTAR_EMAC1
+
+config SSTAR_LQFP
+	bool "EMAC 1 FOR LQFP"
+	depends on SSTAR_EMAC1
+
+config SSTAR_ETHERNET_ALBANY
+	bool "EMAC supply to internel PHY"
+	depends on SSTAR_EMAC
+
+config SSTAR_ETHERNET_RMII
+	bool "EMAC supply to RMII"
+	depends on SSTAR_EMAC
+
+config SSTAR_ETHERNET_ICPLUS
+	bool "EMAC supply to IC+ Phy"
+	depends on SSTAR_EMAC
+
+config SSTAR_ETHERNET_FIXLINK
+	bool "EMAC fix link to mii/rmii"
+	depends on SSTAR_EMAC
+
+config SSTAR_IMAGE_POSTFIX
+	string "Append postfix name to compressed file"
+	default ""
+	help
+	  u-boot"CONFIG_SSTAR_IMAGE_POSTFIX"
+
+config SSTAR_DISP_HDMITX_VGA
+	bool "SigmaStar Display HDMI_TX VGA"
+
+config SSTAR_UPGRADE_UI
+	bool "Support upgrade UI"
+	depends on SSTAR_DISP
+
+config SSTAR_UPGRADE_UI_WITH_TXT
+	bool "Support upgrade UI with text"
+	depends on SSTAR_DISP
+	depends on SSTAR_UPGRADE_UI
+
+config SSTAR_UPGRADE_UI_DRAW_YUV
+	bool "Support upgrade UI(buffer is YUV FMT)"
+	depends on SSTAR_DISP
+	depends on SSTAR_UPGRADE_UI
+
+config SSTAR_CJSON_PARSER
+	bool "SSTAR CJSON FILE PARSER"
+
+config SSTAR_FORCE_IGNORE_ACCESS_WARN
+	bool "Ignore H_FORCE flag never print warning msg"
+	default y
+
+config SSTAR_WDT
+	bool "Sigmastar watchdog"
+	select WDT
+	select CMD_WDT
+	default n
+
+config SSTAR_EMMC_PARTTION
+	bool 'Support emmc partitions'
+	depends on PARTITIONS
+
+config SSTAR_PCIE
+	bool "Sigmastar PCIe bus function"
+	select PCI
+	select PCIE_DW_COMMON
+	default n
+
+config SSTAR_PCIE_ENDPOINT
+	bool "Sigmastar PCIe endpoint"
+	select PCI_ENDPOINT
+	default n
+
+config SSTAR_XZDEC
+	bool "Sigmastar xz decompression"
+	select LZMA2
+	default n
+
+menuconfig SSTAR_CAMDRIVER
+	bool "Sigmastar camdriver"
+	default n
+
+if (SSTAR_CAMDRIVER)
+source "drivers/sstar/camdriver/Kconfig"
+endif
+source "drivers/sstar/usb/Kconfig"
+source "drivers/sstar/fsp_qspi/Kconfig"
+source "drivers/sstar/fcie/Kconfig"
+source "drivers/sstar/flash/Kconfig"
+source "drivers/sstar/usb/gadget/udc/usb20/Kconfig"
+source "drivers/sstar/rpmb/Kconfig"
+source "drivers/sstar/rtc/Kconfig"
+source "drivers/sstar/mcu/Kconfig"

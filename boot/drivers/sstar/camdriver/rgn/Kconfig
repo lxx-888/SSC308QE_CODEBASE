@@ -1,0 +1,4 @@
+config SSTAR_RGN
+	tristate "Sigmastar RGN driver"
+	default n
+

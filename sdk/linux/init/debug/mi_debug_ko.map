@@ -1,0 +1,665 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+LOAD /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.interp
+ *(.interp)
+
+.note.gnu.build-id
+ *(.note.gnu.build-id)
+
+.hash
+ *(.hash)
+
+.gnu.hash
+ *(.gnu.hash)
+
+.dynsym
+ *(.dynsym)
+
+.dynstr
+ *(.dynstr)
+
+.gnu.version
+ *(.gnu.version)
+
+.gnu.version_d
+ *(.gnu.version_d)
+
+.gnu.version_r
+ *(.gnu.version_r)
+
+.rel.init
+ *(.rel.init)
+
+.rela.init
+ *(.rela.init)
+
+.rel.text
+ *(.rel.text)
+
+.rela.text
+ *(.rela.text)
+
+.rel.fini
+ *(.rel.fini)
+
+.rela.fini
+ *(.rela.fini)
+
+.rel.rodata
+ *(.rel.rodata)
+
+.rela.rodata
+ *(.rela.rodata)
+
+.rel.data.rel.ro
+ *(.rel.data.rel.ro)
+
+.rela.data.rel.ro
+ *(.rela.data.rel.ro)
+
+.rel.data
+ *(.rel.data)
+
+.rela.data
+ *(.rela.data)
+
+.rel.tdata
+ *(.rel.tdata)
+
+.rela.tdata
+ *(.rela.tdata)
+
+.rel.tbss
+ *(.rel.tbss)
+
+.rela.tbss
+ *(.rela.tbss)
+
+.rel.ctors
+ *(.rel.ctors)
+
+.rela.ctors
+ *(.rela.ctors)
+
+.rel.dtors
+ *(.rel.dtors)
+
+.rela.dtors
+ *(.rela.dtors)
+
+.rel.got
+ *(.rel.got)
+
+.rela.got
+ *(.rela.got)
+
+.rel.bss
+ *(.rel.bss)
+
+.rela.bss
+ *(.rela.bss)
+
+.rel.iplt
+ *(.rel.iplt)
+
+.rela.iplt
+ *(.rela.iplt)
+
+.rel.plt
+ *(.rel.plt)
+
+.rela.plt
+ *(.rela.plt)
+
+.init
+ *(SORT_NONE(.init))
+
+.plt
+ *(.plt)
+
+.iplt
+ *(.iplt)
+
+.text           0x0000000000000000    0x27e3c
+ *(.text .stub)
+ .text          0x0000000000000000    0x27e0c /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+                0x000000000000003c                MI_DEVICE_WrapperFunction_debug
+                0x0000000000000040                IS_PRINT_MATCH_debug
+                0x00000000000000a0                MI_DEVICE_Instance_debug
+                0x00000000000000a8                MI_DEVICE_GetSelfDir_debug
+                0x00000000000000b4                AddUTIoctlTable
+                0x00000000000000b6                debug__module_init
+                0x0000000000000180                debug__module_exit
+                0x0000000000000694                MI_SYS_Cmd_DumpInputportFrcInfo
+                0x00000000000009b8                MI_SYS_Cmd_DumpOutputportFrcInfo
+                0x0000000000000e44                MI_SYS_Proc_DevDumpInputportCommonInfo
+                0x00000000000012a8                MI_SYS_Proc_DevDumpOutputportEarlyInitBufInfo
+                0x00000000000012b6                MI_SYS_Proc_DevDumpOutputportCommonInfo
+                0x000000000000188c                MI_SYS_Proc_DevDumpDevCommonInfo
+                0x0000000000001cc8                MI_SYS_Proc_DevDumpChnCommonInfo
+                0x0000000000002164                MI_SYS_Stop_Dump_Queuebuf
+                0x00000000000021cc                MI_SYS_Dump_Frc_Inputport
+                0x0000000000002264                MI_SYS_Dump_Frc_Outputport
+                0x00000000000022f8                MI_SYS_Dump_Common_Info_Init
+                0x000000000000232c                MI_SYS_Dump_Common_Info_DeInit
+                0x00000000000044a4                _MI_SYS_Cmd_GetInputPortFromArg
+                0x00000000000045dc                _MI_SYS_Cmd_DebugFrc
+                0x00000000000047b0                MI_DEBUG_RegisterMoniter
+                0x00000000000048e0                MI_DEBUG_UnRegisterMoniter
+                0x000000000000493c                MI_DEBUG_Sys_Init
+                0x0000000000004a10                MI_DEBUG_Sys_DeInit
+                0x0000000000004c02                MI_SYS_Proc_DevOnPrintOutVprintk
+                0x0000000000004c7c                MI_SYS_Proc_DevOnPrintOutSeqWrite
+                0x0000000000004d7e                MI_SYS_Meta_AllocatorProcExecCmd
+                0x0000000000004ffc                _MI_SYS_IMPL_FreeLxMem_write
+                0x0000000000005334                _MI_SYS_IMPL_file_show
+                0x0000000000006a30                MI_SYS_Proc_Debug_Register
+                0x0000000000006acc                MI_SYS_Proc_Debug_UnRegister
+                0x0000000000006b0c                MI_SYS_Mma_HeapInfoShow
+                0x0000000000006b68                MI_SYS_Proc_Debug_Init
+                0x0000000000006c34                MI_SYS_Proc_Debug_Deinit
+                0x0000000000006c78                MI_SYS_Proc_Debug_WriteFile
+                0x000000000000873c                CmdqProcInit
+                0x00000000000088e0                CmdqProcDeInit
+                0x0000000000008984                mi_debug_init
+                0x00000000000089ca                mi_debug_exit
+                0x0000000000009860                MI_SNR_DEBUG_ProcOnExecCmd
+                0x00000000000098f8                MI_DEBUG_Sensor_Init
+                0x00000000000099d0                MI_DEBUG_Sensor_DeInit
+                0x000000000000a07c                HalSensorProcInit
+                0x000000000000a20c                HalSensorProcDeInit
+                0x000000000000a27e                MI_VIF_DEBUG_OnDumpChannelAttr
+                0x000000000000a3f8                MI_VIF_DEBUG_OnDumpInputPortAttr
+                0x000000000000a406                MI_VIF_DEBUG_ProcFroceFifoFullCallBack
+                0x000000000000a414                MI_VIF_DEBUG_OnDumpDevAttr
+                0x000000000000a854                MI_VIF_DEBUG_OnDumpOutPortAttr
+                0x000000000000ad88                MI_VIF_DEBUG_SetDevInitAtom
+                0x000000000000ae1c                MI_VIF_DEBUG_EraseBuffer
+                0x000000000000aeb0                MI_VIF_DEBUG_ProcMaskVif
+                0x000000000000afa8                MI_VIF_DEBUG_ProcEnVifPort
+                0x000000000000b080                MI_VIF_DEBUG_ProcCfgVifPort
+                0x000000000000b240                MI_VIF_DEBUG_ProcHwReset
+                0x000000000000b330                MI_VIF_DEBUG_ProcSetFpsThreshold
+                0x000000000000b3f0                MI_VIF_DEBUG_ProcSetPtsThreshold
+                0x000000000000b4b0                MI_VIF_DEBUG_ProcSetCrcMode
+                0x000000000000b558                MI_VIF_DEBUG_ProcSetDevDebugLv
+                0x000000000000b5cc                MI_VIF_DEBUG_ProcDataGen
+                0x000000000000b670                MI_VIF_DEBUG_ProcChangeBuf
+                0x000000000000b81c                MI_VIF_DEBUG_ProcOffSnrResumeOnce
+                0x000000000000b980                MI_VIF_DEBUG_ProcDumpFrame
+                0x000000000000bac8                MI_VIF_DEBUG_ProcPatternGen
+                0x000000000000bcc0                MI_VIF_DEBUG_OnHelp
+                0x000000000000bda8                MI_VIF_DEBUG_ProcOnExecCmd
+                0x000000000000be50                MI_DEBUG_VIF_Init
+                0x000000000000bf34                MI_DEBUG_VIF_DeInit
+                0x000000000000c14c                HalVifProcInit
+                0x000000000000c36c                HalVifProcDeInit
+                0x000000000000c3ec                MI_ISP_DEBUG_OnDumpInputPortAttr
+                0x000000000000c3fa                MI_ISP_DEBUG_OnDumpDevAttr
+                0x000000000000c62c                MI_ISP_DEBUG_DebugResetDev
+                0x000000000000c734                MI_ISP_DEBUG_SetInitAtom
+                0x000000000000c85c                MI_ISP_DEBUG_DebugClearBuf
+                0x000000000000c9b0                MI_ISP_DEBUG_DebugLv
+                0x000000000000cb00                MI_ISP_DEBUG_DebugEnablePort
+                0x000000000000cc24                MI_ISP_DEBUG_DebugSendOneFrame
+                0x000000000000cd50                MI_ISP_DEBUG_DebugSkipFrame
+                0x000000000000ce58                MI_ISP_DEBUG_ProcClearBindQ
+                0x000000000000cf48                MI_ISP_DEBUG_ProcSetFpsThreshold
+                0x000000000000d068                MI_ISP_DEBUG_ProcSetPtsThreshold
+                0x000000000000d198                MI_ISP_DEBUG_DebugSet3DNROnOff
+                0x000000000000d284                MI_ISP_DEBUG_ProcSetOutputCRCEn
+                0x000000000000d384                MI_ISP_DEBUG_DebugDataGen
+                0x000000000000d4d8                MI_ISP_DEBUG_DebugSetModuleTotalPlaneNum
+                0x000000000000d540                MI_ISP_DEBUG_DebugStopChnl
+                0x000000000000d668                MI_ISP_DEBUG_DebugOutputParam
+                0x000000000000d898                MI_ISP_DEBUG_DebugSetChnParam
+                0x000000000000db20                MI_ISP_DEBUG_DumpTaskFile
+                0x000000000000dce8                MI_ISP_DEBUG_SetSensorPadSort
+                0x000000000000ddd4                MI_ISP_DEBUG_SetCmdqTimeOutInfo
+                0x000000000000ded4                MI_ISP_TRANS_BayerIdToString
+                0x000000000000df80                MI_ISP_TRANS_PixelDataPrecToString
+                0x000000000000dfd8                MI_ISP_TRANS_PixelToString
+                0x000000000000e160                MI_ISP_DEBUG_OnDumpChannelAttr
+                0x000000000000e854                MI_ISP_TRANS_BindTypeToString
+                0x000000000000e898                MI_ISP_DEBUG_OnDumpOutPortAttr
+                0x000000000000eb64                MI_ISP_DEBUG_OnHelp
+                0x000000000000ecdc                MI_ISP_DEBUG_ProcOnExecCmd
+                0x000000000000ed7c                MI_ISP_DEBUG_AibnrCtrlParam
+                0x000000000000eefc                MI_DEBUG_Isp_Init
+                0x000000000000efe4                MI_DEBUG_Isp_DeInit
+                0x000000000000effc                HalIspIntsProcShow
+                0x000000000000f492                _HAL_ISP_COMMON_IspInfoShow
+                0x000000000000f6ca                _HAL_ISP_COMMON_IspClkShow
+                0x000000000000f812                _HAL_ISP_COMMON_IspClkStore
+                0x000000000000f930                _HAL_ISP_COMMON_IspResetShow
+                0x000000000000f946                _HAL_ISP_COMMON_IspResetStore
+                0x000000000000fa10                _HAL_ISP_COMMON_IspFileWriteStore
+                0x00000000000101c8                _HAL_ISP_COMMON_IspRootShow
+                0x0000000000010226                _HAL_ISP_COMMON_IspRootStore
+                0x00000000000102fc                _HAL_ISP_COMMON_MloadInfoShow
+                0x00000000000103c2                _HAL_ISP_COMMON_MloadFileWriteStore
+                0x000000000001051c                HalIspProcInit
+                0x0000000000010788                HalIspProcDeInit
+                0x000000000001083c                MI_SCL_DEBUG_OnDumpInputPortAttr
+                0x000000000001092c                MI_SCL_DEBUG_PrepareOutTaskMetaInfo
+                0x0000000000010a00                MI_SCL_DEBUG_OnDumpDevAttr
+                0x0000000000010c78                MI_SCL_DEBUG_EnqueOutputTask
+                0x0000000000010dac                MI_SCL_DEBUG_BarrierInputTask
+                0x000000000001100c                MI_SCL_DEBUG_DequeOutputTask
+                0x0000000000011258                MI_SCL_DEBUG_CallBackEnterFuncDbg
+                0x0000000000011388                MI_SCL_DEBUG_PrepareInputTask
+                0x00000000000115c4                MI_SCL_DEBUG_PrintMultringInfo
+                0x0000000000011bcc                MI_SCL_DEBUG_CheckOutputTask
+                0x0000000000011c4c                MI_SCL_DEBUG_DumpCmdqTimeOutInfo
+                0x0000000000011de4                MI_SCL_DEBUG_ReadHvspFilterTblByPath
+                0x0000000000011de8                MI_SCL_DEBUG_StopChnl
+                0x0000000000011f24                MI_SCL_DEBUG_SetInitAtom
+                0x0000000000011f90                MI_SCL_DEBUG_ClearBuf
+                0x0000000000012060                MI_SCL_DEBUG_Level
+                0x000000000001215c                MI_SCL_DEBUG_EnablePort
+                0x00000000000122a8                MI_SCL_DEBUG_ClearBindQ
+                0x0000000000012354                MI_SCL_DEBUG_SetFpsThreshold
+                0x0000000000012440                MI_SCL_DEBUG_SetPtsThreshold
+                0x0000000000012544                MI_SCL_DEBUG_ResetDev
+                0x0000000000012640                MI_SCL_DEBUG_CMDQDelay
+                0x0000000000012694                MI_SCL_DEBUG_OutputParam
+                0x0000000000012964                MI_SCL_DEBUG_SetOutputCRCEn
+                0x0000000000012a54                MI_SCL_DEBUG_SetByteWrite
+                0x0000000000012b6c                MI_SCL_DEBUG_DebugPatenGen
+                0x0000000000012cfc                MI_SCL_DEBUG_SetCmdqTimeOutInfo
+                0x0000000000012df4                MI_SCL_DEBUG_SetOutputFilterType
+                0x0000000000012ee4                MI_SCL_DEBUG_DoubleVsyncDrop
+                0x0000000000012f7c                MI_SCL_DEBUG_SetOutbufFailRet
+                0x0000000000013010                MI_SCL_DEBUG_SetRingLineCnt
+                0x00000000000130f8                MI_SCL_DEBUG_AvgMode
+                0x000000000001318c                MI_SCL_DEBUG_DumpTaskFile
+                0x000000000001330c                MI_SCL_DEBUG_MultiringDbgEn
+                0x0000000000013b3c                MI_SCL_DEBUG_DequeInputTask
+                0x0000000000013b64                MI_SCL_DEBUG_DumpTaskThread
+                0x0000000000013be4                MI_SCL_DEBUG_BindTypeToString
+                0x0000000000013c2c                MI_SCL_DEBUG_PixelToString
+                0x0000000000013d4c                MI_SCL_DEBUG_OnDumpChannelAttr
+                0x0000000000014174                MI_SCL_DEBUG_OnDumpOutPortAttr
+                0x0000000000014480                MI_SCL_DEBUG_ReleaseFilterTbl
+                0x00000000000144e4                MI_SCL_DEBUG_RemoveHvspFilterTbl
+                0x000000000001451c                MI_SCL_DEBUG_AllocFilterTbl
+                0x0000000000014594                MI_SCL_DEBUG_LoadHvspFilterTbl
+                0x0000000000014698                MI_SCL_DEBUG_GetProcessCnt
+                0x00000000000146cc                MI_SCL_DEBUG_GetIrqStat
+                0x0000000000014704                MI_SCL_DEBUG_SetFuncVal
+                0x0000000000014734                MI_SCL_DEBUG_GetFuncVal
+                0x0000000000014768                MI_SCL_DEBUG_SetDbgMsgLv
+                0x0000000000014794                MI_SCL_DEBUG_GetDbgMsgLv
+                0x00000000000147c4                MI_SCL_DEBUG_SetLimitRange
+                0x00000000000147f0                MI_SCL_DEBUG_GetLimitRange
+                0x0000000000014820                MI_SCL_DEBUG_SetClkCfg
+                0x0000000000014854                MI_SCL_DEBUG_GetClkDescript
+                0x0000000000014888                MI_SCL_DEBUG_SetDbgReg
+                0x00000000000148f8                MI_SCL_DEBUG_SetDoubleVsyncDrop
+                0x000000000001492c                MI_SCL_DEBUG_GetDoubleVsyncDrop
+                0x000000000001494c                MI_SCL_DEBUG_OnHelp
+                0x0000000000014ac4                MI_SCL_DEBUG_ProcOnExecCmd
+                0x0000000000014b64                MI_SCL_DEBUG_SetProtectPort
+                0x0000000000014b72                MI_DEBUG_Scl_Init
+                0x0000000000014d24                MI_DEBUG_Scl_DeInit
+                0x00000000000162ba                HAL_SCL_DEBUG_DumpCmdqTimeOutBankInfo
+                0x000000000001632c                _HAL_SCL_DEBUG_SplitString
+                0x0000000000016664                HAL_SCL_DEBUG_ReadHvspFilterTblByPath
+                0x0000000000016844                HAL_SCL_DEBUG_Init
+                0x00000000000169bc                HAL_SCL_DEBUG_DeInit
+                0x00000000000175e8                MI_DEBUG_Ive_Init
+                0x0000000000017680                MI_DEBUG_Ive_DeInit
+                0x000000000001967c                MI_DEBUG_Ai_Init
+                0x0000000000019728                MI_DEBUG_Ai_DeInit
+                0x000000000001afb0                MI_DEBUG_Ao_Init
+                0x000000000001b054                MI_DEBUG_Ao_DeInit
+                0x000000000001e934                MI_DEBUG_Rgn_Init
+                0x000000000001e9d4                MI_DEBUG_Rgn_DeInit
+                0x000000000001f370                HAL_RGN_Debug_Init
+                0x000000000001f414                HAL_RGN_Debug_Deinit
+                0x000000000001f9a8                MI_DEBUG_Shadow_Init
+                0x000000000001fa4c                MI_DEBUG_Shadow_DeInit
+                0x000000000001fa6e                _MI_DISP_DEBUG_ShowPanelParam
+                0x000000000001fa94                _MI_DISP_DEBUG_SetBgColor
+                0x000000000001faf4                _MI_DISP_DEBUG_SetRotateMode
+                0x000000000001fb64                _MI_DISP_DEBUG_SetInputPortCrop
+                0x000000000001fc10                _MI_DISP_DEBUG_HideInputPort
+                0x000000000001fc64                _MI_DISP_DEBUG_ShowInputPort
+                0x000000000001fcb8                _MI_DISP_DEBUG_PauseInputPort
+                0x000000000001fd0c                _MI_DISP_DEBUG_ResumeInputPort
+                0x000000000001fd60                _MI_DISP_DEBUG_StepInputPort
+                0x000000000001fdb4                _MI_DISP_DEBUG_ClearInputPort
+                0x000000000001feb0                _MI_DISP_DEBUG_StopGetInBuff
+                0x000000000001ff6c                _MI_DISP_DEBUG_SetCsc
+                0x000000000002018c                _MI_DISP_DEBUG_SetColorTempInfo
+                0x0000000000020250                _MI_DISP_DEBUG_SetDecompressMode
+                0x0000000000020320                _MI_DISP_DEBUG_SetBufExtraSize
+                0x0000000000020404                _MI_DISP_DEBUG_SetStatDuration
+                0x00000000000204cc                _MI_DISP_DEBUG_TraceOnOff
+                0x00000000000205a0                _MI_DISP_DEBUG_SetVideoLayerPriority
+                0x00000000000214b8                _MI_DISP_DEBUG_DumpFrameFromChn
+                0x00000000000215e4                _MI_DISP_DEBUG_DumpFrame
+                0x0000000000021670                _MI_DISP_DEBUG_OnHelp
+                0x000000000002167e                MI_DEBUG_Disp_Init
+                0x0000000000021764                MI_DEBUG_Disp_DeInit
+                0x0000000000022940                HAL_DISP_DEBUG_Init
+                0x0000000000022a4c                HAL_DISP_DEBUG_DeInit
+                0x0000000000022aa8                MI_WBC_DEBUG_TraceOnOff
+                0x0000000000022ad4                MI_WBC_DEBUG_SetCompressMode
+                0x0000000000022b98                MI_WBC_DEBUG_SetCrcType
+                0x0000000000022c00                MI_WBC_DEBUG_SetStatDuration
+                0x0000000000022c60                MI_WBC_DEBUG_OnDumpDevAttr
+                0x0000000000022ff0                MI_WBC_DEBUG_OnDumpOutPortAttr
+                0x0000000000022ffc                MI_WBC_DEBUG_OnDumpInputPortAttr
+                0x0000000000023008                MI_WBC_DEBUG_OnDumpChannelAttr
+                0x0000000000023014                MI_WBC_DEBUG_DumpFrameFromDevRes
+                0x0000000000023128                MI_WBC_DEBUG_DumpFrame
+                0x00000000000231bc                MI_WBC_DEBUG_OnHelp
+                0x00000000000231ca                MI_DEBUG_Wbc_Init
+                0x0000000000023280                MI_DEBUG_Wbc_DeInit
+                0x000000000002646c                MI_DEBUG_Venc_Init
+                0x0000000000026534                MI_DEBUG_Venc_DeInit
+                0x00000000000277ec                HalVencProcInit
+                0x0000000000027858                HalVencProcDeInit
+                0x0000000000027d4c                MI_IPU_Debug_Init
+                0x0000000000027df4                MI_IPU_Debug_DeInit
+ .text          0x0000000000027e0c       0x30 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+                0x0000000000027e0c                MI_Debug_FreeReservedArea
+                0x0000000000027e1c                debug_mod_init
+                0x0000000000027e2c                debug_mod_exit
+ *(.gnu.warning)
+
+.init.text      0x0000000000000000        0x4
+ .init.text     0x0000000000000000        0x4 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+                0x0000000000000000                init_module
+
+.exit.text      0x0000000000000000        0x4
+ .exit.text     0x0000000000000000        0x4 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+                0x0000000000000000                cleanup_module
+
+.fini
+ *(SORT_NONE(.fini))
+
+.rodata         0x0000000000000000      0xf9e
+ *(.rodata)
+ .rodata        0x0000000000000000      0xf54 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .rodata        0x0000000000000f54       0x4a /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.rodata.str1.1  0x0000000000000000    0x14d6a
+ .rodata.str1.1
+                0x0000000000000000    0x14d6a /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+
+.rodata.cst4    0x0000000000000000      0x33c
+ .rodata.cst4   0x0000000000000000      0x33c /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+
+.pv_table       0x0000000000000000        0x8
+ .pv_table      0x0000000000000000        0x8 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.ARM.extab.init.text
+                0x0000000000000000        0x0
+ .ARM.extab.init.text
+                0x0000000000000000        0x0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.ARM.exidx.init.text
+                0x0000000000000000        0x8
+ .ARM.exidx.init.text
+                0x0000000000000000        0x8 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.ARM.extab.exit.text
+                0x0000000000000000        0x0
+ .ARM.extab.exit.text
+                0x0000000000000000        0x0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.ARM.exidx.exit.text
+                0x0000000000000000        0x8
+ .ARM.exidx.exit.text
+                0x0000000000000000        0x8 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.modinfo        0x0000000000000000       0x87
+ .modinfo       0x0000000000000000       0x87 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+__param         0x0000000000000000       0x3c
+ __param        0x0000000000000000       0x3c /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.rodata1
+ *(.rodata1)
+
+.ARM.extab      0x0000000000000000      0x180
+ *(.ARM.extab)
+ .ARM.extab     0x0000000000000000      0x180 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .ARM.extab     0x0000000000000180        0x0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.ARM.exidx      0x0000000000000000     0x1448
+ *(.ARM.exidx)
+ .ARM.exidx     0x0000000000000000     0x1430 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .ARM.exidx     0x0000000000001430       0x18 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.eh_frame_hdr
+ *(.eh_frame_hdr)
+
+.eh_frame
+ *(.eh_frame)
+
+.gcc_except_table
+ *(.gcc_except_table)
+
+.gnu_extab
+ *(.gnu_extab*)
+
+.exception_ranges
+ *(.exception_ranges)
+
+.eh_frame
+ *(.eh_frame)
+
+.gnu_extab
+ *(.gnu_extab)
+
+.gcc_except_table
+ *(.gcc_except_table)
+
+.exception_ranges
+ *(.exception_ranges)
+
+.tdata
+ *(.tdata)
+
+.tbss
+ *(.tbss)
+
+.jcr
+ *(.jcr)
+
+.dynamic
+ *(.dynamic)
+
+.got
+ *(.got)
+
+.data           0x0000000000000000      0x220
+ *(.data)
+ .data          0x0000000000000000      0x220 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+                0x0000000000000048                debug_debug_level
+                0x000000000000004c                g_pstFreeLxMemCmdTbl
+ .data          0x0000000000000220        0x0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.data1
+ *(.data1)
+
+.bss            0x0000000000000000      0x5d0
+ *(.bss)
+ .bss           0x0000000000000000      0x5d0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+                0x0000000000000000                debug_debug_file
+                0x0000000000000100                debug_debug_func
+                0x0000000000000210                gp_miSysprocWorkQueue
+                0x0000000000000228                g_stDebugFrc
+                0x0000000000000240                g_pstSysModRefDbgParam
+                0x00000000000004b4                g_cmdqDumEngine
+                0x00000000000004b8                g_cmdqPara
+                0x00000000000004c8                g_cmdqProcTimeoutPara
+                0x00000000000004d0                g_pRootCmdqDir
+                0x00000000000004d4                g_initCmdqProc
+                0x00000000000004d8                g_pstSnrModDbgParam
+                0x00000000000004dc                g_miSensorDeBugHandle
+                0x00000000000004e0                g_pRootSensorHalDir
+                0x00000000000004e4                g_initHalSensorProc
+                0x00000000000004e8                g_pstVifModDbgParam
+                0x00000000000004ec                g_pRootVifHalDir
+                0x00000000000004f0                g_initHalVifProc
+                0x00000000000004f4                g_pRootVifCoreDir
+                0x00000000000004f8                g_pstIspModDbgParam
+                0x00000000000004fc                g_miIspDeBugHandle
+                0x0000000000000500                g_pRootIspHalDir
+                0x0000000000000504                g_initHalIspProc
+                0x0000000000000508                g_pstSclModDbgParam
+                0x0000000000000514                g_miSclDeBugHandle
+                0x0000000000000518                g_ppstIveModDbgParam
+                0x000000000000051c                g_pstAiModRefDbgParam
+                0x0000000000000520                g_pstAoModRefDbgParam
+                0x0000000000000524                gp_stRgnModRefDbgParam
+                0x0000000000000528                g_stRgnCapablity
+                0x0000000000000558                g_pstShadowModRefDbgParam
+                0x000000000000055c                g_ppstDispModRefOpsParam
+                0x0000000000000560                g_u32DispDbgmgLevel
+                0x0000000000000568                g_bInitDispHalProc
+                0x000000000000056c                gp_stWbcModRefOpsParam
+                0x0000000000000574                g_ppstVencModuleParam
+                0x00000000000005b8                g_pstVencDevProcfsOps
+ .bss           0x00000000000005d0        0x0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.stab
+ *(.stab)
+
+.stabstr
+ *(.stabstr)
+
+.stab.excl
+ *(.stab.excl)
+
+.stab.exclstr
+ *(.stab.exclstr)
+
+.stab.index
+ *(.stab.index)
+
+.stab.indexstr
+ *(.stab.indexstr)
+
+.comment        0x0000000000000000      0x3b8
+ *(.comment)
+ .comment       0x0000000000000000      0x396 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .comment       0x0000000000000396       0x22 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.ARM.attributes
+                0x0000000000000000       0x31
+ .ARM.attributes
+                0x0000000000000000       0x31 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .ARM.attributes
+                0x0000000000000031       0x2f /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.gnu.build.attributes
+ *(.gnu.build.attributes)
+
+.debug
+ *(.debug)
+
+.line
+ *(.line)
+
+.debug_srcinfo
+ *(.debug_srcinfo)
+
+.debug_sfnames
+ *(.debug_sfnames)
+
+.debug_aranges  0x0000000000000000      0x388
+ *(.debug_aranges)
+ .debug_aranges
+                0x0000000000000000      0x358 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_aranges
+                0x0000000000000358       0x30 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_pubnames
+ *(.debug_pubnames)
+
+.debug_info     0x0000000000000000   0x147784
+ *(.debug_info)
+ .debug_info    0x0000000000000000   0x13c452 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_info    0x000000000013c452     0xb332 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_abbrev   0x0000000000000000     0x8fd9
+ *(.debug_abbrev)
+ .debug_abbrev  0x0000000000000000     0x88ff /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_abbrev  0x00000000000088ff      0x6da /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_line     0x0000000000000000    0x27e9b
+ *(.debug_line)
+ .debug_line    0x0000000000000000    0x272b0 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_line    0x00000000000272b0      0xbeb /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_frame    0x0000000000000000     0x76d0
+ *(.debug_frame)
+ .debug_frame   0x0000000000000000     0x7670 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_frame   0x0000000000007670       0x60 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_str      0x0000000000000000   0x12a9e2
+ *(.debug_str)
+ .debug_str     0x0000000000000000   0x12380d /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_str     0x000000000012380d     0x71d5 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_loc      0x0000000000000000    0x31783
+ *(.debug_loc)
+ .debug_loc     0x0000000000000000    0x316d7 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_loc     0x00000000000316d7       0xac /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_macinfo
+ *(.debug_macinfo)
+
+.debug_weaknames
+ *(.debug_weaknames)
+
+.debug_funcnames
+ *(.debug_funcnames)
+
+.debug_typenames
+ *(.debug_typenames)
+
+.debug_varnames
+ *(.debug_varnames)
+
+.debug_pubtypes
+ *(.debug_pubtypes)
+
+.debug_ranges   0x0000000000000000     0x10b0
+ *(.debug_ranges)
+ .debug_ranges  0x0000000000000000     0x1060 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/../../obj/uclibc/9.1.0/debug.o
+ .debug_ranges  0x0000000000001060       0x50 /home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/debug_init.o
+
+.debug_macro
+ *(.debug_macro)
+
+.debug_addr
+ *(.debug_addr)
+
+.gnu.attributes
+ *(.gnu.attributes)
+
+.note.gnu.arm.ident
+ *(.note.gnu.arm.ident)
+OUTPUT(/home/lixx/ZGCX/S1_Project/SSC308QE_SDK/Iford_IMD00V005.0.1_fastboot/SourceCode/SSC308QE_SDK_TEXT/SSC308QE_CODEBASE/sdk/linux/init/debug/mi_debug.o elf32-littlearm)

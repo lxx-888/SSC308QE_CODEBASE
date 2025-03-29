@@ -1,0 +1,30 @@
+{
+    "Page": [
+        {
+            "page_name": "GAEModPage",
+            "page_title": "gae",
+            "component": [
+                {
+                    "name": "GAEModIspDev",
+                    "label": "isp dev",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "2",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ISP_DEV"
+                },
+                {
+                    "name": "GAEModIspChn",
+                    "label": "isp chn",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "64",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ISP_CHN"
+                }
+            ]
+        }
+    ]
+}

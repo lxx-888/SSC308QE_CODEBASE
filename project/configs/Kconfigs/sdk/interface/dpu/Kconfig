@@ -1,0 +1,11 @@
+menuconfig INTERFACE_DPU
+    depends on SUPPORT_DPU
+    bool "dpu"
+    default n
+    help
+        whether to compile or not
+
+config interface_dpu
+    string
+    default enable if INTERFACE_DPU
+    default disable if !INTERFACE_DPU

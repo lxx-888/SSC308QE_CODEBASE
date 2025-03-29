@@ -1,0 +1,48 @@
+menu "Android Ndk"
+
+config NDK_API_VERSION
+    string "NDK API Version"
+    default 30
+
+config NDK_CLANG_VERSION
+    string "NDK Clang Version"
+    default "9.0.9"
+
+choice
+    prompt "NDK Clang Target"
+    default TARGET_ARMV7A-LINUX-ANDROIDEABI
+
+    config TARGET_ARMV7A-LINUX-ANDROIDEABI
+        bool "armv7a-linux-androideabi"
+
+    config TARGET_AARCH64-LINUX-ANDROID
+        bool "aarch64-linux-android"
+endchoice
+
+config NDK_CLANG_PREFIX
+    string
+    default "armv7a-linux-androideabi" if TARGET_ARMV7A-LINUX-ANDROIDEABI
+    default "aarch64-linux-android" if TARGET_AARCH64-LINUX-ANDROID
+
+
+choice
+    prompt "NDK Binutils Prefix"
+    default BINUTILS_PREFIX_ARM-LINUX-ANDROIDEABI
+
+    config BINUTILS_PREFIX_ARM-LINUX-ANDROIDEABI
+        bool "arm-linux-androideabi"
+
+    config BINUTILS_PREFIX_AARCH64-LINUX-ANDROID
+        bool "aarch64-linux-android"
+
+    config BINUTILS_PREFIX_LLVM
+        bool "llvm"
+endchoice
+
+config NDK_BINUTILS_PREFIX
+    string
+    default "arm-linux-androideabi" if BINUTILS_PREFIX_ARM-LINUX-ANDROIDEABI
+    default "aarch64-linux-android" if BINUTILS_PREFIX_AARCH64-LINUX-ANDROID
+    default "llvm" if BINUTILS_PREFIX_LLVM
+
+endmenu

@@ -1,0 +1,5 @@
+config SSTAR_CPU_FREQ
+	tristate "Mstar CPU frequency scaling driver"
+    select CPU_FREQ
+    select CPU_FREQ_GOV_ONDEMAND
+    select PM_OPP

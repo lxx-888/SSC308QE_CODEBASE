@@ -1,0 +1,60 @@
+menu "MI debug level for code size verify config"
+    choice
+        prompt "Valid mi log level"
+        default MI_DBG_ALL
+        config MI_DBG_MINIMAL
+            bool "Keep ERR&WRN(brief version)"
+        config MI_DBG_NONE
+            bool "MI_DBG_NONE"
+        config MI_DBG_ERR
+            bool "MI_DBG_ERR"
+        config MI_DBG_WRN
+            bool "MI_DBG_WRN"
+        config MI_DBG_API
+            bool "MI_DBG_API"
+        config MI_DBG_KMSG
+            bool "MI_DBG_KMSG"
+        config MI_DBG_INFO
+            bool "MI_DBG_INFO"
+        config MI_DBG_DEBUG
+            bool "MI_DBG_DEBUG"
+        config MI_DBG_TRACE
+            bool "MI_DBG_TRACE"
+        config MI_DBG_ALL
+            bool "MI_DBG_ALL"
+    endchoice
+    choice
+        prompt "MI USER LIB OPTIMAZITION"
+        default MI_USER_LIB_OPT_O3
+        config MI_USER_LIB_OPT_Os
+            bool "Os"
+        config MI_USER_LIB_OPT_O3
+            bool "O3"
+    endchoice
+    config ENABLE_MI_KAPI
+        bool "enable mi kapi for mi interface called from kernel space"
+        default y
+    config ENABLE_MI_LOG_FUNCTION
+        bool "enable mi log __FUNCTION__ info"
+        default y
+    config ENABLE_MI_LOG_FILE
+        bool "enable mi log __FILE__ info"
+        default y
+endmenu
+
+config MI_DBG_LEVEL
+    int
+    default -1 if  MI_DBG_MINIMAL
+    default 0 if  MI_DBG_NONE
+    default 1 if  MI_DBG_ERR
+    default 2 if  MI_DBG_WRN
+    default 3 if  MI_DBG_API
+    default 4 if  MI_DBG_KMSG
+    default 5 if  MI_DBG_INFO
+    default 6 if  MI_DBG_DEBUG
+    default 7 if  MI_DBG_TRACE
+    default 8 if  MI_DBG_ALL
+config MI_USER_LIB_OPT
+    string
+    default "Os" if  MI_USER_LIB_OPT_Os
+    default "O3" if  MI_USER_LIB_OPT_O3

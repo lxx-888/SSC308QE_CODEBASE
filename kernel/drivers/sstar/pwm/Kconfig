@@ -1,0 +1,27 @@
+config SSTAR_PWM
+    tristate "Sstar PWM driver"
+    select PWM
+    help
+        enable support for PWM driver
+
+config SSTAR_SPWM
+    bool "Support SPWM function"
+    depends on SSTAR_PWM
+    default n
+    help
+        spwm and normal pwm functions are mutually exclusive
+
+config SSTAR_PWM_DDT
+    bool "Support dead time generation"
+    depends on SSTAR_PWM
+    default n
+    help
+        support dead time and break input
+
+config SSTAR_PWM_EXTEND
+    bool "Support high precision calculation"
+    depends on SSTAR_PWM
+    default y
+    help
+        support a wider range of parameter settings
+

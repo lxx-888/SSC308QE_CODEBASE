@@ -1,0 +1,18 @@
+menu "SigmaStar Android Support"
+config SSTAR_ANDROID_BOOTLOADER
+	bool "SigmaStar Android Bootloader customized part"
+	default n
+	depends on ANDROID_BOOTLOADER
+	help
+	  If enabled, insert SigmaStar additional code into common
+	  android bootloader flow to support SigmaStar android bootloader
+	  flow.
+
+config SSTAR_ANDROID_AB
+	bool "SigmaStar Android A/B updates"
+	depends on ANDROID_AB
+	default n
+	help
+	  If enabled, support SigmaStar additional code for
+	  Android A/B update.
+endmenu

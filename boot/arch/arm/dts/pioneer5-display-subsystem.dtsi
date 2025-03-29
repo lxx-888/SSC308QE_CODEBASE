@@ -1,0 +1,243 @@
+/*
+ * pioneer5-display-subsystem.dtsi- Sigmastar
+ *
+ * Copyright (c) [2019~2020] SigmaStar Technology.
+ *
+ *
+ * This software is licensed under the terms of the GNU General Public
+ * License version 2, as published by the Free Software Foundation, and
+ * may be copied, distributed, and modified under those terms.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License version 2 for more details.
+ *
+ */
+
+/ {
+    display-subsystem {
+        compatible = "sstar,display-subsystem","simple-mfd";
+        ports = <&disp0>, <&disp1>, <&drmscl>;
+
+        display {
+            compatible = "sstar,display";
+            #address-cells = <1>;
+            #size-cells = <0>;
+
+            disp0: port@0 {
+                reg = <0>;
+                preferred = <1>;
+                gop-ui-support-ifcd = <1>; /* Support IFCD for GOP_UI on this disp */
+                cursor-layer-enable = <1>;
+                cursor-for-ui = <0>;
+                /* mop-layers = <layerId winCount ... ...>
+                                 layerId:  even for mopg, odd for mops
+                                 winCount: win count on mop layer
+                */
+                mop-layers = <0 12
+                              1 1>;
+                mops-realtime = <1>;
+                port {
+                    disp0_out_dpi: endpoint@0 {
+                        remote-endpoint = <&dpi_in_disp0>;
+                    };
+                    disp0_out_mipi: endpoint@1 {
+                        remote-endpoint = <&mipi_in_disp0>;
+                    };
+                    disp0_out_lvds: endpoint@2 {
+                        remote-endpoint = <&lvds_in_disp0>;
+                    };
+                    disp0_out_mipi_1: endpoint@3 {
+                        remote-endpoint = <&mipi_1_in_disp0>;
+                    };
+                    disp0_out_lvds_1: endpoint@4 {
+                        remote-endpoint = <&lvds_1_in_disp0>;
+                    };
+                };
+            };
+            disp1: port@1 {
+                reg = <1>;
+                cursor-layer-enable = <1>;
+                cursor-for-ui = <0>;
+                /* mop-layers = <layerId winCount ... ...>
+                                 layerId:  even for mopg, odd for mops
+                                 winCount: win count on mop layer
+                */
+                mop-layers = <2 12
+                              3 1>;
+                port {
+                    disp1_out_dpi: endpoint@0 {
+                        remote-endpoint = <&dpi_in_disp1>;
+                    };
+                    disp1_out_mipi: endpoint@1 {
+                        remote-endpoint = <&mipi_in_disp1>;
+                    };
+                    disp1_out_lvds: endpoint@2 {
+                        remote-endpoint = <&lvds_in_disp1>;
+                    };
+                    disp1_out_mipi_1: endpoint@3 {
+                        remote-endpoint = <&mipi_1_in_disp1>;
+                    };
+                    disp1_out_lvds_1: endpoint@4 {
+                        remote-endpoint = <&lvds_1_in_disp1>;
+                    };
+                };
+            };
+            drmscl: port@2 {
+                reg = <2>;
+                rdma-support = <1>;
+                rot-support = <1>;
+                rdmaid = <1>;
+                sclid = <0x2>;
+            };
+        };
+
+        dpi {
+            compatible = "sstar,dpi";
+            status = "okay";
+            preferred = <1>;
+
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    dpi_in_disp0: endpoint@0 {
+                        remote-endpoint = <&disp0_out_dpi>;
+                    };
+                    dpi_in_disp1: endpoint@1 {
+                        remote-endpoint = <&disp1_out_dpi>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    dpi_out_panel: endpoint {
+                        remote-endpoint = <&SAT070AT50H18BH_in_dpi>;
+                    };
+                };
+                port@2 {
+                };
+            };
+        };
+
+        mipi_dsi {
+            compatible = "sstar,mipi-dsi";
+            status = "okay";
+
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    mipi_in_disp0: endpoint@0 {
+                        remote-endpoint = <&disp0_out_mipi>;
+                    };
+                    mipi_in_disp1: endpoint@1 {
+                        remote-endpoint = <&disp1_out_mipi>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    mipi_out_panel: endpoint {
+                        remote-endpoint = <0>;
+                    };
+                };
+                port@2 {
+                };
+            };
+        };
+
+        mipi_dsi_1 {
+            compatible = "sstar,mipi-dsi";
+            status = "okay";
+
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    mipi_1_in_disp0: endpoint@0 {
+                        remote-endpoint = <&disp0_out_mipi_1>;
+                    };
+                    mipi_1_in_disp1: endpoint@1 {
+                        remote-endpoint = <&disp1_out_mipi_1>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    mipi_1_out_panel: endpoint {
+                        remote-endpoint = <0>;
+                    };
+                };
+            };
+        };
+
+        lvds {
+            compatible = "sstar,lvds";
+            status = "okay";
+
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    lvds_in_disp0: endpoint@0 {
+                        remote-endpoint = <&disp0_out_lvds>;
+                    };
+                    lvds_in_disp1: endpoint@1 {
+                        remote-endpoint = <&disp1_out_lvds>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    lvds_out_panel: endpoint {
+                        remote-endpoint = <0>;
+                    };
+                };
+                port@2 {
+                };
+            };
+        };
+
+        lvds_1 {
+            compatible = "sstar,lvds";
+            status = "okay";
+
+            ports {
+                #address-cells = <1>;
+                #size-cells = <0>;
+                port@0 {
+                    reg = <0>;
+                    lvds_1_in_disp0: endpoint@0 {
+                        remote-endpoint = <&disp0_out_lvds_1>;
+                    };
+                    lvds_1_in_disp1: endpoint@1 {
+                        remote-endpoint = <&disp1_out_lvds_1>;
+                    };
+                };
+                port@1 {
+                    reg = <1>;
+                    lvds_1_out_panel: endpoint {
+                        remote-endpoint = <0>;
+                    };
+                };
+            };
+        };
+
+        panels: panels {
+            compatible = "simple-mfd";
+            backlight_ttl: backlight_ttl {
+            };
+            backlight_mipi: backlight_mipi {
+            };
+            backlight_lvds: backlight_lvds {
+            };
+            panel_misc: panel_misc {
+            };
+        };
+    };
+};
+
+#include "panel-SAT070AT50H18BH.dtsi"
+

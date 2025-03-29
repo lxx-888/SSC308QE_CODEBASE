@@ -1,0 +1,1324 @@
+{
+    "Page":[
+        {
+            "page_name": "LDCModPage",
+            "page_title": "LDC",
+            "component": [
+                {
+                    "name": "LdcWorkMode",
+                    "label": "Work Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ldc",
+                            "option_page": "LDCModLdcParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "lut",
+                            "option_page": "LDCModLutParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "dis",
+                            "option_page": "LDCModDisParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "pmf",
+                            "option_page": "LDCModPMFParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "stitch",
+                            "option_page": "LDCModSTITCHParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "nir",
+                            "option_page": "LDCModNIRParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "dpu",
+                            "option_page": "LDCModDPUParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ldc_horizontal",
+                            "option_page": "LDCModHorizontalParam"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "dis_ldc",
+                            "option_page": "LDCModDisLdcParam"
+                        }
+                    ],
+                    "default_value": "ldc",
+                    "sub_section": "WORK_MODE_PARAM",
+                    "output_type": "string",
+                    "output_key": "WORK_MODE"
+                },
+                {
+                    "name": "LdcBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "LDCModBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "LdcBwInfo:1",
+            "component": [
+                {
+                    "name": "LdcStitchPairNum",
+                    "label": "Pair Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "PAIR_NUM"
+                },
+                {
+                    "name": "LdcCommonTitleNum",
+                    "label": "Title Num",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "650",
+                    "value_step": "1",
+                    "default_value": "13",
+                    "output_type": "int",
+                    "output_key": "TITLE_NUM"
+                },
+                {
+                    "name": "LdcCommonOutRectW",
+                    "label": "Out Rect W",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "OUT_RECT_W"
+                },
+                {
+                    "name": "LdcCommonOutRectH",
+                    "label": "Out Rect H",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "OUT_RECT_H"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModLdcParam",
+            "page_title": "LDC Mode",
+            "page_belong": "LdcWorkMode:ldc",
+            "component": [
+                {
+                    "name": "LdcCommonFisheyeRadius",
+                    "label": "Fisheye Radius",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "585",
+                    "output_key": "FISHEYE_RADIUS"
+                },
+                {
+                    "name": "LdcCommonCenterX",
+                    "label": "Center X",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "CENTER_X_OFFSET"
+                },
+                {
+                    "name": "LdcCommonCenterY",
+                    "label": "Center Y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "CENTER_Y_OFFSET"
+                },
+                {
+                    "name": "LdcCommonMountMode",
+                    "label": "Mount Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Desktop",
+                            "option_value": "1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Ceiling",
+                            "option_value": "2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Wall",
+                            "option_value": "3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Butt",
+                            "option_value": "4"
+                        }
+                    ],
+                    "default_value": "2",
+                    "output_type": "int",
+                    "output_key": "MOUNT_MODE"
+                },
+                {
+                    "name": "EnableBgColor",
+                    "label": "Enable Bg Color",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "ENABLE_BGCOLOR"
+                },
+                {
+                    "name": "BgColor",
+                    "label": "Bg Color",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "red",
+                            "option_value": "0xff0000"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "green",
+                            "option_value": "0x00ff00"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "blue",
+                            "option_value": "0x0000ff"
+                        }
+                    ],
+                    "default_value": "0xff0000",
+                    "output_type": "int",
+                    "output_key": "BGCOLOR"
+                },
+                {
+                    "name": "LDCRegionCount",
+                    "label": "Region Num Max",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key" : "REGION_MAX",
+                    "sub_section": "REGION",
+                    "attach_name": "LDCRegionComboBox"
+                },
+                {
+                    "name": "LDCRegionNum",
+                    "label": "Region Num",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key" : "REGION_NUM"
+                },
+                {
+                    "name": "LDCRegionComboBox",
+                    "label": "Region",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "LDCModRegionPage"
+                        }
+                    ],
+                    "default_value": "0"
+                },
+                {
+                    "name": "LdcCommonCalibPath",
+                    "label": "Calib Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./pipeline_i6f/resource/ldc/CalibPoly_new.bin",
+                    "output_key": "CALIB_PATH"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModLutParam",
+            "page_title": "LDC Mode",
+            "page_belong": "LdcWorkMode:lut",
+            "component": [
+                {
+                    "name": "LdcLutW",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_key": "WIDTH"
+                },
+                {
+                    "name": "LdcLutH",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_key": "HEIGHT"
+                },
+                {
+                    "name": "LdcLutTableWPath",
+                    "label": "Width Table Path",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "TABLE_WEIGHT_PATH"
+                },
+                {
+                    "name": "LdcLutTableXPath",
+                    "label": "X Table Path",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "TABLE_X_PATH"
+                },
+                {
+                    "name": "LdcLutTableYPath",
+                    "label": "Y Table Path",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "TABLE_Y_PATH"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModDisParam",
+            "page_title": "DIS Mode",
+            "page_belong": "LdcWorkMode:dis",
+            "component": [
+                {
+                    "name": "LdcDisMode",
+                    "label": "Dis Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "None"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "GME_6DOF"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "GME_8DOF"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "GYRO"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "DIS_MODE"
+                },
+                {
+                    "name": "LdcDisSliceNumH",
+                    "label": "Slice Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "9",
+                    "output_key": "USER_SLICE_NUM"
+                },
+                {
+                    "name": "LdcDisFocalX",
+                    "label": "Focal X",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "FOCAL_LEN_X"
+                },
+                {
+                    "name": "LdcDisFocalY",
+                    "label": "Focal Y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "FOCAL_LEN_Y"
+                },
+                {
+                    "name": "LdcDisSceneType",
+                    "label": "Dis Scene Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "fix"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "move"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "butt"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SCENE_TYPE"
+                },
+                {
+                    "name": "LdcDisMotionLevel",
+                    "label": "Dis Motion Level",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "level0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "level1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "butt"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "MOTION_LEVEL"
+                },
+                {
+                    "name": "LdcDisCropRatio",
+                    "label": "Crop Ratio",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "90",
+                    "output_key": "CROP_RATIO"
+                },
+                {
+                    "name": "LdcDisRotationMatrix",
+                    "label": "Rotation Matrix",
+                    "component_type": "LineEdit",
+                    "default_value": "0,0,0,0,0,0,0,0,0",
+                    "output_key": "ROTATION_MATRIX"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModPMFParam",
+            "page_title": "PMF Mode",
+            "page_belong": "LdcWorkMode:pmf",
+            "component": [
+                {
+                    "name": "LdcPmfCoef",
+                    "label": "Pmf Coef",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "PMF_COEF"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModSTITCHParam",
+            "page_title": "STITCH Mode",
+            "page_belong": "LdcWorkMode:stitch",
+            "component": [
+                {
+                    "name": "LdcStitchProjType",
+                    "label": "Proj Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rectilinear"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "cylindrical"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "spherical"
+                        }
+                    ],
+                    "default_value": "2",
+                    "output_type": "int",
+                    "output_key": "PROJ_TYPE"
+                },
+                {
+                    "name": "LdcStitchDistance",
+                    "label": "Distance",
+                    "component_type": "SpinBox",
+                    "min_value": "-1",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "5000",
+                    "output_key": "DISTANCE"
+                },
+                {
+                    "name": "LdcStitchCalibPath",
+                    "label": "Calib Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./pipeline_i6f/resource/ldc/case_ldc_frame_SZ_3840x2160x3.json",
+                    "output_key": "CALIB_PATH"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModNIRParam",
+            "page_title": "NIR Mode",
+            "page_belong": "LdcWorkMode:nir",
+            "component": [
+                {
+                    "name": "LdcNirDistance",
+                    "label": "Distance",
+                    "component_type": "SpinBox",
+                    "min_value": "-1",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "1000",
+                    "output_key": "DISTANCE"
+                },
+                {
+                    "name": "LdcNirCalibPath",
+                    "label": "Calib Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./pipeline_i6f/resource/ldc/case_ldc_frame_nir_2560x1440x2.json",
+                    "output_key": "CALIB_PATH"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModDPUParam",
+            "page_title": "DPU Mode",
+            "page_belong": "LdcWorkMode:dpu",
+            "component": [
+                {
+                    "name": "LdcDpuDistance",
+                    "label": "Distance",
+                    "component_type": "SpinBox",
+                    "min_value": "-1",
+                    "max_value": "99999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "DISTANCE"
+                },
+                {
+                    "name": "LdcDpuCalibPath",
+                    "label": "Calib Path",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "CALIB_PATH"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModHorizontalParam",
+            "page_title": "HORIZONAL",
+            "page_belong": "LdcWorkMode:ldc_horizontal",
+            "component": [
+                {
+                    "name": "LdcCommonDistortion",
+                    "label": "Distortion Ratio",
+                    "component_type": "SpinBox",
+                    "min_value": "-9999",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "DISTORTION_RATIO"
+                },
+                {
+                    "name": "LdcHorizonalCalibPath",
+                    "label": "Calib Path",
+                    "component_type": "LineEdit",
+                    "default_value": "",
+                    "output_key": "CALIB_PATH"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModDisLdcParam",
+            "page_title": "DIS LDC",
+            "page_belong": "LdcWorkMode:dis_ldc",
+            "component": [
+                {
+                    "name": "DisLdcCommonFisheyeRadius",
+                    "label": "Fisheye Radius",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "585",
+                    "output_key": "FISHEYE_RADIUS"
+                },
+                {
+                    "name": "DisLdcCommonCenterX",
+                    "label": "Center X",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "CENTER_X_OFFSET"
+                },
+                {
+                    "name": "DisLdcCommonCenterY",
+                    "label": "Center Y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "CENTER_Y_OFFSET"
+                },
+                {
+                    "name": "DisLdcCommonMountMode",
+                    "label": "Mount Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Desktop",
+                            "option_value": "1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Ceiling",
+                            "option_value": "2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Wall",
+                            "option_value": "3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Butt",
+                            "option_value": "4"
+                        }
+                    ],
+                    "default_value": "2",
+                    "output_type": "int",
+                    "output_key": "MOUNT_MODE"
+                },
+                {
+                    "name": "DisLdcEnableBgColor",
+                    "label": "Enable Bg Color",
+                    "component_type": "CheckBox",
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "ENABLE_BGCOLOR"
+                },
+                {
+                    "name": "DisLdcBgColor",
+                    "label": "Bg Color",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "red",
+                            "option_value": "0xff0000"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "green",
+                            "option_value": "0x00ff00"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "blue",
+                            "option_value": "0x0000ff"
+                        }
+                    ],
+                    "default_value": "0xff0000",
+                    "output_type": "int",
+                    "output_key": "BGCOLOR"
+                },
+                {
+                    "name": "DisLdcRegionCount",
+                    "label": "Region Num Max",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key" : "REGION_MAX",
+                    "sub_section": "REGION",
+                    "attach_name": "LDCRegionComboBox"
+                },
+                {
+                    "name": "DisLdcRegionNum",
+                    "label": "Region Num",
+                    "component_type": "SpinBox",
+                    "min_value": "1",
+                    "max_value": "10",
+                    "value_step": "1",
+                    "default_value": "1",
+                    "output_key" : "REGION_NUM"
+                },
+                {
+                    "name": "DisLdcRegionComboBox",
+                    "label": "Region",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "auto_page",
+                            "option_name" : "0",
+                            "option_page" : "LDCModRegionPage"
+                        }
+                    ],
+                    "default_value": "0"
+                },
+                {
+                    "name": "DisLdcCommonCalibPath",
+                    "label": "Calib Path",
+                    "component_type": "LineEdit",
+                    "default_value": "./pipeline_i6f/resource/ldc/CalibPoly_new.bin",
+                    "output_key": "CALIB_PATH"
+                },
+                {
+                    "name": "DisLdcMode",
+                    "label": "Dis Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "None"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "GME_6DOF"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "GME_8DOF"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "GYRO"
+                        }
+                    ],
+                    "default_value": "1",
+                    "output_type": "int",
+                    "output_key": "DIS_MODE"
+                },
+                {
+                    "name": "DisLdcSliceNumH",
+                    "label": "Slice Num",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "9",
+                    "output_key": "USER_SLICE_NUM"
+                },
+                {
+                    "name": "DisLdcFocalX",
+                    "label": "Focal X",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "FOCAL_LEN_X"
+                },
+                {
+                    "name": "DisLdcFocalY",
+                    "label": "Focal Y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "FOCAL_LEN_Y"
+                },
+                {
+                    "name": "DisLdcSceneType",
+                    "label": "Dis Scene Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "fix"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "move"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "butt"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "SCENE_TYPE"
+                },
+                {
+                    "name": "DisLdcMotionLevel",
+                    "label": "Dis Motion Level",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "level0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "level1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "butt"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "MOTION_LEVEL"
+                },
+                {
+                    "name": "DisLdcCropRatio",
+                    "label": "Crop Ratio",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "90",
+                    "output_key": "CROP_RATIO"
+                },
+                {
+                    "name": "DisLdcRotationMatrix",
+                    "label": "Rotation Matrix",
+                    "component_type": "LineEdit",
+                    "default_value": "0,0,0,0,0,0,0,0,0",
+                    "output_key": "ROTATION_MATRIX"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCInputPage",
+            "page_title": "Input",
+            "component": [
+                {
+                    "name": "LdcInputPortCropWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "LdcInputPortCropHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "VID_H"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCOutputPage",
+            "page_title": "Output",
+            "component": [
+                {
+                    "name": "LdcOutputPortWidthSpinBox",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "LdcOutputPortHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "LDCOutputPortType",
+                    "label": "Vide Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "raw"
+                        }
+                    ],
+                    "default_value": "raw",
+                    "option_type": "string",
+                    "output_key": "OUT_TYPE"
+                },
+                {
+                    "name": "LdcOutputPortVideoFormat",
+                    "label": "Video Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv422sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgra8888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "bayer",
+                            "option_page": "LDCOutputBayerFormatPage"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCModRegionPage",
+            "page_title": "LDC Region",
+            "page_belong": "LDCRegionCount",
+            "component": [
+                {
+                    "name": "LdcCommonRegionMode",
+                    "label": "Region Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "360_Panorama",
+                            "option_value": "1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "180_Panorama",
+                            "option_value": "2"
+
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Normal",
+                            "option_value": "3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Map2Bin",
+                            "option_value": "4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "No_Transformation",
+                            "option_value": "5"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Butt",
+                            "option_value": "6"
+                        }
+                    ],
+                    "default_value": "5",
+                    "output_type": "int",
+                    "output_key": "REGION_MODE"
+                },
+                {
+                    "name": "LdcCommonOutRectX",
+                    "label": "Out Rect X",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "OUT_RECT_X"
+                },
+                {
+                    "name": "LdcCommonOutRectY",
+                    "label": "Out Rect Y",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "OUT_RECT_Y"
+                },
+                {
+                    "name": "LdcCommonOutRectW",
+                    "label": "Out Rect W",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_key": "OUT_RECT_WIDTH"
+                },
+                {
+                    "name": "LdcCommonOutRectH",
+                    "label": "Out Rect H",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_key": "OUT_RECT_HEIGHT"
+                },
+                {
+                    "name": "LdcCommonCropMode",
+                    "label": "Crop Mode",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "None"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Filling"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Stretch"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "Butt"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int",
+                    "output_key": "CROP_MODE"
+                },
+                {
+                    "name": "LdcCommonPan",
+                    "label": "Pan",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "PAN"
+                },
+                {
+                    "name": "LdcCommonTilt",
+                    "label": "Tilt",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "10",
+                    "output_key": "TILT"
+                },
+                {
+                    "name": "LdcCommonZoomV",
+                    "label": "Zoom V",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "550",
+                    "output_key": "ZOOM_V"
+                },
+                {
+                    "name": "LdcCommonZoomH",
+                    "label": "Zoom H",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "360",
+                    "output_key": "ZOOM_H"
+                },
+                {
+                    "name": "LdcCommonInRadius",
+                    "label": "Radius In",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "IN_RADIUS"
+                },
+                {
+                    "name": "LdcCommonOutRadius",
+                    "label": "Radius Out",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "550",
+                    "output_key": "OUT_RADIUS"
+                },
+                {
+                    "name": "LdcCommonFocalRatio",
+                    "label": "Focal Ratio",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "FOCAL_RATIO"
+                },
+                {
+                    "name": "LdcCommonDistortion",
+                    "label": "Distortion Ratio",
+                    "component_type": "SpinBox",
+                    "min_value": "-9999",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "DISTORTION_RATIO"
+                },
+                {
+                    "name": "LdcCommonOutRotate",
+                    "label": "Out Rotate",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "OUT_ROT"
+                },
+                {
+                    "name": "LDCRegionRot",
+                    "label": "Rotate",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "0",
+                    "output_key": "ROT"
+                },
+                {
+                    "name": "LDCRegionMapX",
+                    "label": "Map X",
+                    "component_type": "LineEdit",
+                    "default_value": "./LDC_map_case_1920_1088/mapX.bin",
+                    "output_key": "MAP_X"
+                },
+                {
+                    "name": "LDCRegionMapY",
+                    "label": "Map Y",
+                    "component_type": "LineEdit",
+                    "default_value": "./LDC_map_case_1920_1088/mapY.bin",
+                    "output_key": "MAP_Y"
+                },
+                {
+                    "name": "LDCRegionGrid",
+                    "label": "Grid",
+                    "component_type": "LineEdit",
+                    "default_value": "./LDC_map_case_1920_1088/Grid.bin",
+                    "output_key": "GRID"
+                }
+            ]
+        },
+        {
+            "page_name": "LDCOutputBayerFormatPage",
+            "page_title": "Bayer Format",
+            "component": [
+                {
+                    "name": "LDCOutputBayerFormatId",
+                    "label": "Bayer ID",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_rg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_gr"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_bg"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bayerid_gb"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_r0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_b0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g1"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_i0"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_g3"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgbir_i1"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int"
+                },
+                {
+                    "name": "LDCOutputBayerPrecision",
+                    "label": "Precision",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "8bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "10bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "12bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "14bpp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "16bpp"
+                        }
+                    ],
+                    "default_value": "0",
+                    "output_type": "int"
+                }
+            ]
+        }
+    ]
+}

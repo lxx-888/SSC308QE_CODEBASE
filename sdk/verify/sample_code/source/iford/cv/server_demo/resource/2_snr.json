@@ -1,0 +1,82 @@
+[
+    {
+        "stVifCfg":
+        {
+            "snrResIdx":0,
+            "padId": 0,
+            "GroupId":0,
+            "vifPortId":0
+        },
+        "stIqCfg":
+        {
+            "IqFilePath": "/config/iqfile/imx307_api.bin"
+        },
+        "stIspCfg":
+        {
+            "IspDevId":0,
+            "IspChnId":0,
+            "IspOutPortId":1,
+            "Isp3DNRLevel":2,
+            "IspMultiChn": 0
+        },
+        "stSclCfg":
+        {
+            "SclSkip": 0,
+            "SclDevId":1,
+            "SclChnId":0,
+            "SclOutPortId":0,
+            "SclOutPortW": 1920,
+            "SclOutPortH": 1080
+        },
+        "stVencCfg":
+        {
+            "VencDev":0,
+            "VencChn":0,
+            "eType":2,
+            "VencWidth": 1920,
+            "VencHeight": 1080,
+            "VencMaxWidth": 3840,
+            "VencMaxHeight": 2160
+        }
+    },
+    {
+        "stVifCfg":
+        {
+            "snrResIdx":0,
+            "padId": 1,
+            "GroupId":2,
+            "vifPortId":0
+        },
+        "stIqCfg":
+        {
+            "IqFilePath": "/config/iqfile/imx307_api.bin"
+        },
+        "stIspCfg":
+        {
+            "IspDevId":0,
+            "IspChnId":1,
+            "IspOutPortId":1,
+            "Isp3DNRLevel":2,
+            "IspMultiChn": 0
+        },
+        "stSclCfg":
+        {
+            "SclSkip": 0,
+            "SclDevId":1,
+            "SclChnId":1,
+            "SclOutPortId":0,
+            "SclOutPortW": 1920,
+            "SclOutPortH": 1080
+        },
+        "stVencCfg":
+        {
+            "VencDev":0,
+            "VencChn":1,
+            "eType":2,
+            "VencWidth": 1920,
+            "VencHeight": 1080,
+            "VencMaxWidth": 3840,
+            "VencMaxHeight": 2160
+        }
+    }
+]

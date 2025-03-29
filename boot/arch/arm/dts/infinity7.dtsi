@@ -1,0 +1,535 @@
+/*
+* infinity7.dtsi- Sigmastar
+*
+* Copyright (c) [2019~2020] SigmaStar Technology.
+*
+*
+* This software is licensed under the terms of the GNU General Public
+* License version 2, as published by the Free Software Foundation, and
+* may be copied, distributed, and modified under those terms.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+* GNU General Public License version 2 for more details.
+*
+*/
+
+#include <generated/autoconf.h>
+#include "skeleton.dtsi"
+#include "../../../include/configs/infinity7.h"
+#include "../../../drivers/sstar/include/infinity7/gpio.h"
+
+/ {
+    cpus {
+        #address-cells = <2>;
+        #size-cells = <0>;
+
+        cpu@0 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a55";
+            clock-frequency = <1200000000>;
+            //clocks = <&CLK_cpupll_clk>;
+            reg = <0x0 0x0>;
+            enable-method = "spin-table";
+            cpu-release-addr = <0x0 0xa0028000>;
+            next-level-cache = <&L2_0>;
+        };
+#ifndef CONFIG_NO_SMP
+        cpu@1 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a55";
+            clock-frequency = <1200000000>;
+            reg = <0x0 0x100>;
+            cpu-release-addr = <0x0 0xa0028000>;
+            next-level-cache = <&L2_0>;
+        };
+
+        cpu@2 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a55";
+            clock-frequency = <1200000000>;
+            reg = <0x0 0x200>;
+            next-level-cache = <&L2_0>;
+        };
+
+        cpu@3 {
+            device_type = "cpu";
+            compatible = "arm,cortex-a55";
+            clock-frequency = <1200000000>;
+            reg = <0x0 0x300>;
+            next-level-cache = <&L2_0>;
+        };
+#endif
+        L2_0: l2-cache0 {
+            compatible = "cache";
+            cache-level = <2>;
+        };
+    };
+
+    aliases {
+        console = &uart0;
+        serial0 = &uart0;
+        serial1 = &uart1;
+        serial2 = &fuart;
+        serial3 = &uart2;
+        serial4 = &uart3;
+        serial5 = &uart4;
+        serial6 = &uart5;
+    };
+
+    soc {
+        compatible = "simple-bus";
+        #address-cells = <2>;
+        #size-cells = <2>;
+        dma-ranges = <0x0 0x0 0x0 CONFIG_SYS_SDRAM_BASE 0x0 CONFIG_UBOOT_RAM_SIZE>;
+        ranges;
+
+        clks: clocks{
+            #address-cells = <2>;
+            #size-cells = <2>;
+            ranges;
+        };
+
+        watchdog: watchdog {
+            compatible = "sstar,wdt";
+            reg = <0x0 0x1F006000 0x0 0x40>;
+            status = "okay";
+        };
+
+        uart0: uart@1F221000 {
+            compatible = "sstar,uart";
+            reg = <0x0 0x1F221000 0x0 0x100>;
+            status = "okay";
+        };
+
+        uart1: uart1@1F221200 {
+            compatible = "sstar,uart";
+            reg = <0x0 0x1F221200 0x0 0x100>;
+            status = "okay";
+        };
+
+        fuart: fuart@1F220400 {
+            compatible = "sstar,uart";
+            reg = <0x0 0x1F220400 0x0 0x100>;
+            status = "disabled";
+        };
+
+        uart2: uart2@1F221400 {
+            compatible = "sstar,uart";
+            reg = <0x0 0x1F221400 0x0 0x100>;
+            status = "okay";
+        };
+
+        uart3: uart3@1F221600 {
+            compatible = "sstar,uart";
+            reg = <0x0 0x1F221600 0x0 0x100>;
+            status = "disabled";
+        };
+
+        uart4: uart4@1F221800 {
+            compatible = "sstar,uart";
+            reg = <0x0 0x1F221800 0x0 0x100>;
+            status = "disabled";
+        };
+
+        uart5: uart5@1F221A00 {
+            compatible = "sstar,uart";
+            reg = <0x0 0x1F221A00 0x0 0x100>;
+            status = "disabled";
+        };
+
+        gpio: gpio {
+            compatible = "sstar,gpio";
+            status = "okay";
+        };
+
+        gmac0 {
+            compatible = "sstar,gmac", "snps,dwmac-5.10a";
+            reg = <0x0 0x1F34A000 0x0 0x1300>;
+            clock-names = "gmac-clk";
+            reset-io = /bits/ 8 <0>; // 0 : IO0 , 1: IO1 for I7 , 0 : RSTN , 1: MCLK for m6p
+            phy-mode = "rgmii";
+            max-speed = <1000>;
+            status = "okay";
+        };
+
+        gmac1 {
+            compatible = "sstar,gmac", "snps,dwmac-5.10a";
+            reg = <0x0 0x1F34B400 0x0 0x1300>;
+            clock-names = "gmac-clk";
+            reset-io = /bits/ 8 <0>; // 0 : IO0 , 1: IO1 for I7 , 0 : RSTN , 1: MCLK for m6p
+            phy-mode = "rgmii";
+            max-speed = <1000>;
+            status = "okay";
+        };
+
+        spi0: spi0@1F222000 {
+            compatible = "sstar,mspi";
+            mspi-group = <0>;
+            reg = <0x0 0x1F222000 0x0 0x200>;
+            use-dma = <0>;
+            cs-num = <2>;
+            //cs-ext = <PAD_UNKNOWN>;
+            //4to3-mode;
+            //clk-out-mode = <27000000>;
+            status = "okay";
+        };
+
+        spi1: spi1@1F222200 {
+            compatible = "sstar,mspi";
+            mspi-group = <1>;
+            reg = <0x0 0x1F222200 0x0 0x200>;
+            use-dma = <0>;
+            cs-num = <1>;
+            //cs-ext = <PAD_UNKNOWN>;
+            //4to3-mode;
+            //clk-out-mode = <27000000>;
+            status = "disabled";
+        };
+
+        spi2: spi2@1F222400 {
+            compatible = "sstar,mspi";
+            mspi-group = <2>;
+            reg = <0x0 0x1F222400 0x0 0x200>;
+            use-dma = <0>;
+            cs-num = <1>;
+            //cs-ext = <PAD_UNKNOWN>;
+            //4to3-mode;
+            //clk-out-mode = <27000000>;
+            status = "disabled";
+        };
+
+        spi3: spi3@1F222600 {
+            compatible = "sstar,mspi";
+            mspi-group = <3>;
+            reg = <0x0 0x1F222600 0x0 0x200>;
+            use-dma = <0>;
+            cs-num = <1>;
+            //cs-ext = <PAD_UNKNOWN>;
+            //4to3-mode;
+            //clk-out-mode = <27000000>;
+            status = "disabled";
+        };
+
+        i2c0: i2c0@1F222800 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F222800 0x0 0x100>;
+            i2c-speed = <400000>;
+            i2c-group = <0>;
+            i2c-en-dma = <0>;
+            i2c-padmux = <1>;
+            status = "okay";
+        };
+
+        i2c1: i2c1@1F222A00 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F222A00 0x0 0x100>;
+            i2c-speed = <400000>;
+            i2c-group = <1>;
+            i2c-en-dma = <0>;
+            i2c-padmux = <1>;
+            status = "okay";
+        };
+
+        i2c2: i2c2@1F222C00 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F222C00 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c3: i2c3@1F222E00 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F222E00 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c4: i2c4@1F223000 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F223000 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c5: i2c5@1F223200 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F223200 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c6: i2c6@1F223400 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F223400 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c7: i2c7@1F223800 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F223800 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c8: i2c8@1F223A00 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F223A00 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c9: i2c9@1F223C00 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F223C00 0x0 0x100>;
+            status = "disabled";
+        };
+
+        i2c10: i2c10@1F223E00 {
+            compatible = "sstar,i2c";
+            reg = <0x0 0x1F223E00 0x0 0x100>;
+            status = "disabled";
+        };
+
+
+        sstar_mmc0: sstar_mmc0 {
+            compatible = "sstar-mmc";
+
+            bus-width = <4>;
+            max-frequency = <43200000>;
+            cap-mmc-highspeed = <1>;
+            ip-order = <0>;
+            pad-order = <0>;
+            pwr-on-delay = <10>;
+            pwr-off-delay = <50>;
+            fake-cdz = <0>;
+            rev-cdz = <0>;
+            pwr-pad = <15>;
+            cdz-pad = <17>;
+            clk-driving = <0>;
+            cmd-driving = <0>;
+            data-driving = <0>;
+            en-clk-phase = <0>;
+            rx-clk-phase = <0>;
+            tx-clk-phase = <0>;
+            status = "okay";
+        };
+
+        sstar_mmc1: sstar_mmc1 {
+            compatible = "sstar-mmc";
+
+            bus-width = <4>;
+            max-frequency = <43200000>;
+            cap-mmc-highspeed = <1>;
+            ip-order = <1>;
+            pad-order = <0>;
+            pwr-on-delay = <10>;
+            pwr-off-delay = <50>;
+            fake-cdz = <0>;
+            rev-cdz = <0>;
+            pwr-pad = <15>;
+            cdz-pad = <17>;
+            clk-driving = <0>;
+            cmd-driving = <0>;
+            data-driving = <0>;
+            en-clk-phase = <0>;
+            rx-clk-phase = <0>;
+            tx-clk-phase = <0>;
+            status = "okay";
+        };
+
+        sstar_mmc3: sstar_mmc3 {
+            compatible = "sstar-mmc";
+
+            bus-width = <8>;
+            max-frequency = <43200000>;
+            cap-mmc-highspeed = <1>;
+            ip-order = <3>;
+            pad-order = <0>;
+            pwr-on-delay = <10>;
+            pwr-off-delay = <50>;
+            fake-cdz = <1>;
+            rev-cdz = <0>;
+            clk-driving = <2>;
+            cmd-driving = <2>;
+            data-driving = <2>;
+            en-clk-phase = <0>;
+            rx-clk-phase = <0>;
+            tx-clk-phase = <0>;
+
+            non-removable = <1>;
+            status = "okay";
+        };
+
+        pwm: pwm@1F203200 {
+            compatible = "sstar,pwm";
+            reg = <0x0 0x1F203200 0x0 0x100>;
+            clock-frequence = <12000000>;
+            padmux = <0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0>;
+            status = "okay";
+        };
+
+        sar: sar {
+            compatible = "sstar,sar";
+            reg = <0x0 0x1F002800 0x0 0x200>;
+            status = "okay";
+        };
+
+        dm_pcie: dm_pcie {
+            compatible = "sstar,dm_pcie";
+            #address-cells = <2>;
+            #size-cells = <2>;
+            ranges;
+            status = "okay";
+
+            pcie0: pcie@1F350000 {
+                compatible = "snps,dw-pcie"; /* [rc] "snps,dw-pcie" [ep] "snps,dw-pcie-ep" [bootargs] "snps,dw-pcie-earlyparam" */
+                reg = <0x0 0x1f350000 0x0  0x1000>,
+                      <0x0 0x1a000000 0x0 0xe0000>,   /* [rc] 448KB for type0; 448KB for type1 */
+                      <0x0 0x1a000000 0x0 0x1000000>; /* [ep] Configuration space */
+                reg-names = "dbi", "config", "addr_space";
+                #address-cells = <3>;
+                #size-cells = <2>;
+
+                /* properties for RC */
+                device_type = "pci";
+                bus-range = <0x00 0xff>;
+                /* ranges:   [flags]   [pci addr]    [cpu addr]        [size] */
+                ranges = <0x81000000 0 0x000e0000  0 0x1a0e0000  0 0x00020000   /* downstream I/O */
+                          0x82000000 0 0x00100000  0 0x1a100000  0 0x00f00000>; /* non-prefetchable memory */
+
+                /* properties for EP */
+                num-ib-windows = <2>;
+                num-ob-windows = <2>;
+
+                portid = <0>;
+                use_internal_clk = <0>;/* 0:clk-gen; 1:internal pll */
+                num-lanes = <2>;
+
+                num_clks_mandatory = <2>; /* mandatory clk numbers need to be applied for PCIE func */
+                max-link-speed = <2>;
+                status = "okay";
+            };
+
+            pcie1: pcie@1F351000 {
+                compatible = "snps,dw-pcie";  /* [rc] "snps,dw-pcie" [ep] "snps,dw-pcie-ep" [bootargs] "snps,dw-pcie-earlyparam" */
+                reg = <0x0 0x1f351000 0x0  0x1000>,
+                      <0x0 0x1b000000 0x0 0xe0000>,   /* [rc] 448KB for type0; 448KB for type1 */
+                      <0x0 0x1b000000 0x0 0x1000000>; /* [ep] Configuration space */
+                reg-names = "dbi", "config", "addr_space";
+                #address-cells = <3>;
+                #size-cells = <2>;
+
+                /* properties for RC */
+                device_type = "pci";
+                bus-range = <0x00 0xff>;
+                /* ranges:   [flags]   [pci addr]    [cpu addr]        [size] */
+                ranges = <0x81000000 0 0x000e0000  0 0x1b0e0000  0 0x00020000   /* downstream I/O */
+                          0x82000000 0 0x00100000  0 0x1b100000  0 0x00f00000>; /* non-prefetchable memory */
+
+                /* properties for EP */
+                num-ib-windows = <2>;
+                num-ob-windows = <2>;
+
+                portid = <1>;
+                use_internal_clk = <0>;/* 0:clk-gen; 1:internal pll */
+                num-lanes = <2>;
+
+                num_clks_mandatory = <2>; /* mandatory clk numbers need to be applied for PCIE func */
+                max-link-speed = <2>;
+                status = "okay";
+            };
+        };
+
+        msb250x-udc {
+            compatible = "sstar,msb250x-udc";
+            status = "okay";
+        };
+
+        ehci0: ehci@1f284800{
+            compatible = "sstar,ehci";
+            reg = <0x0 0x1f284200 0x0 0x200>,
+                  <0x0 0x1f284400 0x0 0x200>,
+                  <0x0 0x1f284600 0x0 0x200>,
+                  <0x0 0x1f284800 0x0 0x200>;
+            status = "okay";
+        };
+
+        ehci1: ehci@1f286400{
+            compatible = "sstar,ehci";
+            reg = <0x0 0x1f285200 0x0 0x200>,
+                  <0x0 0x1f286000 0x0 0x200>,
+                  <0x0 0x1f286200 0x0 0x200>,
+                  <0x0 0x1f286400 0x0 0x200>;
+            status = "okay";
+        };
+
+        usbpll: usb-pll {
+            compatible = "sstar,infinity7-usbpll";
+            reg = <0x0 0x1f283c00 0x0 0x200>;
+            #clock-cells = <0>;
+            status = "okay";
+        };
+
+        u3phy_utmi: utmi@1f286e00 {
+            compatible = "sstar,infinity7-phy-utmi";
+            reg = <0x0 0x1f286e00 0x0 0x200>;
+            clocks = <&usbpll>;
+            sstar,only-for-dwc3;
+            sstar,tx-swing-and-de-emphasis = <0x3f>, <0x1a>, <0x07>;
+            #phy-cells = <0>;
+            status = "okay";
+        };
+
+        u3phy_pipe: pipe@1f2a5200 {
+            compatible = "sstar,infinity7-pipe";
+            reg = <0x0 0x1f2a5200 0x0 0x800>;
+            sstar,tx-swing-and-de-emphasis = <0x2d>, <0x3c>, <0x0d>;
+            sstar,synthesiszer-clk = <0x002c3c9e>;
+            //clocks = <&CLK_ssusb_phy_108>, <&CLK_ssusb_phy_432>;
+            #phy-cells = <0>;
+            status = "okay";
+       };
+
+        drd_gp_syscon: drd-gp-syscon@0x1f286600 {
+            compatible = "sstar,infinity7-usb30-drd-gp-syscon", "syscon";
+            reg = <0x0 0x1f286600 0x0 0x200>;
+            reg-io-width = <2>;
+            status = "okay";
+        };
+
+        drd_mac_syscon: drd-mac-syscon@0x1f286c00 {
+            compatible = "sstar,infinity7-usb30-drd-mac-syscon", "syscon";
+            reg = <0x0 0x1f286c00 0x0 0x200>;
+            reg-io-width = <2>;
+            status = "okay";
+        };
+
+        usb3drd: usb3 {
+            compatible = "sstar,infinity7-dwc3";
+            //clocks = <&CLK_sof_usb30_drd>;
+            sstar,x2a-addr-off = <0x000000>, <0x000002>, <0x000004>, <0x000008>;
+            sstar,usb3drd-gp-syscon = <&drd_gp_syscon>;
+            sstar,usb3drd-mac-syscon = <&drd_mac_syscon>;
+            #address-cells = <2>;
+            #size-cells = <2>;
+            ranges;
+            status = "okay";
+
+            dwc3: dwc3 {
+                compatible = "snps,dwc3";
+                reg = <0x0 0x1f348000 0x0 0x1400>;
+                maximum-speed = "super-speed";
+                phy_type = "utmi_wide";
+                phys = <&u3phy_utmi>, <&u3phy_pipe>;
+                phy-names = "usb2-phy", "usb3-phy";
+                snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
+                snps,dis_u3_susphy_quirk;
+                snps,dis_u2_susphy_quirk;
+                snps,usb3_lpm_capable;
+                linux,sysdev_is_parent;
+                status = "okay";
+            };
+        };
+    };
+};
+
+&clks {
+    #address-cells = <1>;
+    #size-cells = <1>;
+};

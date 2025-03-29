@@ -1,0 +1,32 @@
+menuconfig INTERFACE_VENC
+    depends on SUPPORT_VENC
+    bool "venc"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_VENC
+
+config MI_VENC_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config config_mi_venc
+    bool "mi_venc"
+    default y
+    help
+        whether to compile or not
+
+config mi_venc_kapi
+    string
+    default yes if MI_VENC_KAPI
+    default no if !MI_VENC_KAPI
+
+endif
+
+config interface_venc
+    string
+    default enable if INTERFACE_VENC
+    default disable if !INTERFACE_VENC

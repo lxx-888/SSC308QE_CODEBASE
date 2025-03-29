@@ -1,0 +1,22 @@
+config SSTAR_FLASH
+	bool 'SigmaStar FLASH'
+	default n
+
+config SSTAR_FLASH_DM
+	bool "FLASH DM"
+	depends on SSTAR_FLASH
+	default n
+
+config SSTAR_NAND
+	bool "SPINAND"
+	depends on SSTAR_FLASH
+	default n
+
+config SSTAR_NOR
+	bool "SPINOR"
+	depends on SSTAR_FLASH
+	default n
+
+config SSTAR_SOC_ECC
+	bool "SOC ECC"
+	depends on SSTAR_FLASH && SSTAR_NAND

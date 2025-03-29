@@ -1,0 +1,33 @@
+menuconfig INTERFACE_AO
+    depends on SUPPORT_AO
+    bool "ao"
+    default y
+    select INTERFACE_AOO
+    help
+        whether to compile or not
+
+if INTERFACE_AO
+
+config MI_AO_KAPI
+    bool "KAPI"
+    default n
+    help
+        whether to compile or not
+
+config mi_ao_kapi
+    string
+    default yes if MI_AO_KAPI
+    default no if !MI_AO_KAPI
+
+config config_mi_ao
+    bool "mi_ao"
+    default y
+    help
+        whether to compile or not
+
+endif
+
+config interface_ao
+    string
+    default enable if INTERFACE_AO
+    default disable if !INTERFACE_AO

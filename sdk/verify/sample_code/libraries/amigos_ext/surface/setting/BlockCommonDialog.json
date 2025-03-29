@@ -1,0 +1,83 @@
+{
+    "Page":[
+        {
+            "page_name": "BlockCommonPage",
+            "page_title": "Block Common",
+            "component": [
+                {
+                    "name": "BlockCommonRoot",
+                    "label": "Root Block",
+                    "component_type": "CheckBox",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BlockCommonDelay",
+                    "label": "Delay",
+                    "component_type": "CheckBox",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BlockCommonPreload",
+                    "label": "Preload",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "2",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BlockCommonDev",
+                    "label": "Dev",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BlockCommonCh",
+                    "label": "Chn",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BlockCommonChipId",
+                    "label": "Chip ID",
+                    "component_type": "LineEdit",
+                    "default_value": "0x0"
+                },
+                {
+                    "name": "BlockCommonRootIndex",
+                    "label": "Root Index",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BlockCommonInputPortNumber",
+                    "label": "Input Port Number",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                },
+                {
+                    "name": "BlockCommonOutputPortNumber",
+                    "label": "Output Port Number",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "100",
+                    "value_step": "1",
+                    "default_value": "0"
+                }
+            ]
+        }
+    ]
+
+}

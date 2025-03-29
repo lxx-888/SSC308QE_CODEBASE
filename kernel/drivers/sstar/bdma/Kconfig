@@ -1,0 +1,14 @@
+config SSTAR_BDMA
+	bool "Sstar BDMA"
+	default n
+
+config SSTAR_BDMA_LINE_OFFSET_ON
+	bool "Sstar BDMA Line Offset On"
+	depends on SSTAR_BDMA
+	default n
+
+config SSTAR_BDMA_BLIT_WRAPPER
+	bool "Sstar BDMA Blit Wrapper"
+	depends on SSTAR_BDMA
+	default n
+

@@ -1,0 +1,11 @@
+menuconfig INTERFACE_VDF
+    depends on SUPPORT_VDF
+    bool "vdf"
+    default y
+    help
+        whether to compile or not
+
+config interface_vdf
+    string
+    default enable if INTERFACE_VDF
+    default disable if !INTERFACE_VDF

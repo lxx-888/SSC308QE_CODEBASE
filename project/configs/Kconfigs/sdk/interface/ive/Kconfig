@@ -1,0 +1,11 @@
+menuconfig INTERFACE_IVE
+    depends on SUPPORT_IVE
+    bool "ive"
+    default n
+    help
+        whether to compile or not
+
+config interface_ive
+    string
+    default enable if INTERFACE_IVE
+    default disable if !INTERFACE_IVE

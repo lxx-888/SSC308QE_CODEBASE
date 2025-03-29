@@ -1,0 +1,16 @@
+menu "Vmm"
+    depends on (DUAL_OS_TYPE = HYP)
+
+config VMM_LOAD_ADDR
+    string "Vmm Load Addr"
+    default ""
+
+config VMM_MEM_SIZE
+    string "Vmm Memory Size"
+    default ""
+
+config VMM_LIMIT_MEM_SIZE
+    string "Vmm Limit Memory Size"
+    default ""
+
+endmenu

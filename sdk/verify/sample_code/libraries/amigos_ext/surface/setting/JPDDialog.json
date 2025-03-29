@@ -1,0 +1,268 @@
+{
+    "Page":[
+        {
+            "page_name": "JPDModPage",
+            "page_title": "JPD",
+            "component": [
+                {
+                    "name": "JpdMaxWidthSpinBox",
+                    "label": "Max Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "MAX_VID_WIDTH"
+                },
+                {
+                    "name": "JpdMaxHeightSpinBox",
+                    "label": "Max Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "MAX_VID_HEIGHT"
+                },
+                {
+                    "name": "JpdStreamBufferLineEdit",
+                    "label": "Stream Buffer",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "99999999",
+                    "value_step": "1",
+                    "default_value": "2097152",
+                    "output_type": "int",
+                    "output_key": "STREAM_BUF_SIZE"
+                },
+                {
+                    "name": "JpdColorFormatComboBox",
+                    "label": "Decode Color Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        },
+        {
+            "page_name": "JPDInputPage",
+            "page_title": "JPD Input",
+            "component": [
+                {
+                    "name": "JpdInputPortBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "JPDInputBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "JPDInputBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "JpdInputPortBwInfo:1",
+            "component": [
+                {
+                    "name": "JpdInputPortWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "JpdInputPortHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                }
+            ]
+        },
+        {
+            "page_name": "JPDOutputPage",
+            "page_title": "JPD Output",
+            "component": [
+                {
+                    "name": "JpdOutputPortBwInfo",
+                    "label": "Bw Info",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "OFF",
+                            "option_value": "0"
+                        },
+                        {
+                            "option_type" : "page",
+                            "option_name" : "ON",
+                            "option_value": "1",
+                            "option_page": "JPDOutputBwInfoPage"
+                        }
+                    ],
+                    "sub_section": "BW_PARAM",
+                    "output_type": "int",
+                    "output_key": "BW_INFO",
+                    "default_value": "0"
+                }
+            ]
+        },
+        {
+            "page_name": "JPDOutputBwInfoPage",
+            "page_title": "Bw Param",
+            "page_belong": "JpdOutputPortBwInfo:1",
+            "component": [
+                {
+                    "name": "JpdOutputPortWidth",
+                    "label": "Width",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1920",
+                    "output_type": "int",
+                    "output_key": "VID_W"
+                },
+                {
+                    "name": "JpdOutputPortHeight",
+                    "label": "Height",
+                    "component_type": "SpinBox",
+                    "min_value": "0",
+                    "max_value": "9999",
+                    "value_step": "1",
+                    "default_value": "1080",
+                    "output_type": "int",
+                    "output_key": "VID_H"
+                },
+                {
+                    "name": "JpdOutputPortType",
+                    "label": "Video Type",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type": "string",
+                            "option_name": "raw"
+                        }
+                    ],
+                    "default_value": "raw",
+                    "option_type": "string",
+                    "output_key": "OUT_TYPE"
+                },
+                {
+                    "name": "JPDOutputPortColorFormat",
+                    "label": "Video Format",
+                    "component_type": "ComboBox",
+                    "option_item": [
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv12"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuyv"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "uyvy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yvyu"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "vyuy"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "yuv420sp"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "nv21"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "bgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "abgr888"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "rgb555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb1555"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "argb4444"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i2"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i4"
+                        },
+                        {
+                            "option_type" : "string",
+                            "option_name" : "i8"
+                        }
+                    ],
+                    "default_value": "nv12",
+                    "output_type": "string",
+                    "output_key": "OUT_FMT"
+                }
+            ]
+        }
+    ]
+
+}

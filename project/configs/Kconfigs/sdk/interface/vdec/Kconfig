@@ -1,0 +1,12 @@
+menuconfig INTERFACE_VDEC
+    depends on SUPPORT_VDEC
+    bool "vdec"
+    default y
+    select INTERFACE_VCODEC
+    help
+        whether to compile or not
+
+config interface_vdec
+    string
+    default enable if INTERFACE_VDEC
+    default disable if !INTERFACE_VDEC

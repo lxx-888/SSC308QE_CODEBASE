@@ -1,0 +1,32 @@
+menu "Uboot"
+
+config UBOOT_CONFIG
+    string "Uboot build config"
+    default ""
+
+config UBOOT_BIN
+    string "uboot Bin"
+    default "u-boot.sz.img.bin"
+
+choice
+    prompt "Uboot Version"
+    default UBOOT_VERSION_2021
+
+    config UBOOT_VERSION_201501
+        bool "201501"
+
+    config UBOOT_VERSION_2021
+        bool "2021"
+endchoice
+
+config UBOOT_VERSION
+    string
+    default 2021 if UBOOT_VERSION_2021
+    default 201501 if UBOOT_VERSION_201501
+
+config UBOOT_DTBO_LIST
+    depends on (PRODUCT = android)
+    string "Uboot DTBO LIST"
+    default ""
+
+endmenu

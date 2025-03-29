@@ -1,0 +1,34 @@
+menu "pm_rtos"
+
+config BOOL_PM_RTOS_ENABLE
+    bool "pm_rtos enable"
+    default n
+    help
+        whether to compile or not
+
+config PM_RTOS_ENABLE
+    string
+    default "on" if BOOL_PM_RTOS_ENABLE
+    default "off" if !BOOL_PM_RTOS_ENABLE
+
+if BOOL_PM_RTOS_ENABLE
+config PM_RTOS_BIN
+    string "pm_rtos Bin"
+    default ""
+
+if PM_RTOS_BIN != ""
+config CM4_DEMO
+    bool "run cm4 demo at startup"
+    default n
+endif
+
+config PM_RTOS_TOOLCHAIN
+    string "pm_rtos build toolchain"
+    default "arm-none-eabi"
+
+config PM_RTOS_CONFIG
+    string "pm_rtos build config"
+    default ""
+endif
+
+endmenu

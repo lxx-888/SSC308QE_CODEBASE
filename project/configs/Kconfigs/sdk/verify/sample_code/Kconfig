@@ -1,0 +1,37 @@
+config VERIFY_SAMPLE_CODE
+    bool "sample_code"
+    default y
+    help
+        whether to compile or not
+
+config verify_sample_code
+    string
+    default enable if VERIFY_SAMPLE_CODE
+    default disable if !VERIFY_SAMPLE_CODE
+
+config verify_release_sample_ptree
+    string
+    default enable if VERIFY_RELEASE_SAMPLE_PTREE
+    default disable if !VERIFY_RELEASE_SAMPLE_PTREE
+
+config verify_release_sample_amigos
+    string
+    default enable if VERIFY_RELEASE_SAMPLE_AMIGOS
+    default disable if !VERIFY_RELEASE_SAMPLE_AMIGOS
+
+menu "samples binary release"
+    depends on VERIFY_SAMPLE_CODE
+
+    config VERIFY_RELEASE_SAMPLE_PTREE
+        bool "release ptree"
+        default n
+        help
+            whether to release ptree's preload bin and json files or not
+
+    config VERIFY_RELEASE_SAMPLE_AMIGOS
+        bool "release amigos"
+        default n
+        help
+            whether to release amigos's preview bin and json files or not
+endmenu
+

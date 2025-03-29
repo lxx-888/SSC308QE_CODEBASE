@@ -1,0 +1,15 @@
+IPL.iford_sdmmc.LPDDR4X_3200_NTC2G_BGA1=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.bin                   ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 0
+IPL_CUST.iford_sdmmc.LPDDR4X_3200_NTC2G_BGA1=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.bin              ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 0
+ipl_cust_elf_header.iford_sdmmc.LPDDR4X_3200_NTC2G_BGA1=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.txt   ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 0
+IPL.iford_sdmmc.BGA1_DDR3=y.SIMPLE_AUTOK=y.bin                                                   ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 1
+IPL_CUST.iford_sdmmc.BGA1_DDR3=y.SIMPLE_AUTOK=y.bin                                              ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 1
+ipl_cust_elf_header.iford_sdmmc.BGA1_DDR3=y.SIMPLE_AUTOK=y.txt                                   ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 1
+IPL.iford_sdmmc.DDR4_3200_NTC4G_BGA2=y.bin                                                       ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 2
+IPL_CUST.iford_sdmmc.DDR4_3200_NTC4G_BGA2=y.bin                                                  ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 2
+ipl_cust_elf_header.iford_sdmmc.DDR4_3200_NTC4G_BGA2=y.txt                                       ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 2
+IPL.iford_sdmmc.QFN128=y.SIMPLE_AUTOK=y.bin                                                      ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 3
+IPL_CUST.iford_sdmmc.QFN128=y.SIMPLE_AUTOK=y.bin                                                 ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 3
+ipl_cust_elf_header.iford_sdmmc.QFN128=y.SIMPLE_AUTOK=y.txt                                      ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 3
+IPL.iford_sdmmc.LPDDR4X_3200_NTC2G_BGA8=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.bin                   ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 4
+IPL_CUST.iford_sdmmc.LPDDR4X_3200_NTC2G_BGA8=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.bin              ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 4
+ipl_cust_elf_header.iford_sdmmc.LPDDR4X_3200_NTC2G_BGA8=y.INIT_CRC32_TABLE=y.DDR_LPDDR4X=y.txt   ./build.py -c ./configs/iford.json -t linux -g sdmmc -b 4

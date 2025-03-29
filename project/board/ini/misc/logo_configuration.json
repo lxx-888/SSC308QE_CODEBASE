@@ -1,0 +1,18 @@
+{
+	"bootlogo": {
+		"property": [
+			{
+				"device_type": "TTL",
+				"param_target" : "SAT070AT50H18BH",
+				"dev_id": 0,
+				"rotate": 0,
+				"pq_file_name": "PQ.bin"
+			}
+		],
+		"logo_file": [
+			{
+				"file_name": "sigmastar1024_600.jpg"
+			}
+		]
+	}
+}

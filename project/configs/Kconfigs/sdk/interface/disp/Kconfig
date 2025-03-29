@@ -1,0 +1,21 @@
+menuconfig INTERFACE_DISP
+    depends on SUPPORT_DISP
+    bool "disp"
+    default y
+    help
+        whether to compile or not
+
+if INTERFACE_DISP
+
+config config_mi_disp
+    bool "mi_disp"
+    default y
+    help
+        whether to compile or not
+
+endif
+
+config interface_disp
+    string
+    default enable if INTERFACE_DISP
+    default disable if !INTERFACE_DISP

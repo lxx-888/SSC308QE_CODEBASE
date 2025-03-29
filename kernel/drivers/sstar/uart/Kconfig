@@ -1,0 +1,5 @@
+config SSTAR_UART
+    bool "Sstar Uart Driver"
+    select SERIAL_CORE
+    select SERIAL_CORE_CONSOLE
+    default n
